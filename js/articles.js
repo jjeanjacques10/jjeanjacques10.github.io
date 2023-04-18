@@ -1,6 +1,6 @@
 //ajax call
 $.ajax({
-    url: "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@jjean.jacques10",
+    url: "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@jjeanjacques10",
     type: "GET",
     dataType: "json"
 }).done(function (data, textStatus, jqXHR) {
@@ -8,6 +8,7 @@ $.ajax({
         guid = element["guid"];
         thumbnail = element["thumbnail"];
         title = element["title"];
+        link = element["link"];
         date = new Date(element["pubDate"]);
         day = date.getDay();
         month = date.toLocaleString('default', { month: 'long' });
@@ -18,7 +19,7 @@ $.ajax({
             "<div class=\"h_gallery_item\">" +
             "<div class=\"g_img_item\">" +
             "<img class=\"img-fluid\" src=\"" + thumbnail + "\" alt=\"\">" +
-            "<a class=\"light\" href=\"" + thumbnail + "\"><img src=\"img/talks/icon.png\" alt=\"\"></a>" +
+            "<a class=\"light\" href=\"" + link + "\"><img src=\"img/talks/icon.png\" alt=\"\"></a>" +
             "</div>" +
             "<div class=\"g_item_text\">" +
             "<a href=\"" + guid + "\" target=\"_blank\"" +
@@ -31,13 +32,12 @@ $.ajax({
             "<a href=\"" + guid + "\" target=\"_blank\" title=\"Abre em nova aba\" rel=\"noopener noreferrer\"><span class=\"button\" id=\"en\">Article</span></a>" +
             "</div>" +
             "<div class=\"metadata\">" +
-            "<p>São Paulo (SP) - Brasil</p>" +
             "<p id=\"pt\">" + day + ", " + month + " - " + year + "</p>" +
             "<p id=\"en\">" + month + ", " + day + " - " + year + "</p>" +
             "</div>" +
             "</div>" +
             "</div>" +
             "</div";
-        $(".imageGallery1").append(item);
+        $(".articles_gallery").append(item);
     });
 });
