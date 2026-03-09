@@ -173,7 +173,7 @@
           };
           img.addEventListener('click', open);
           img.addEventListener('keydown', function(evt) {
-            if (evt.key === 'Enter' || evt.code === 'Space') {
+            if (evt.key === 'Enter' || evt.key === ' ') {
               evt.preventDefault();
               open();
             }
