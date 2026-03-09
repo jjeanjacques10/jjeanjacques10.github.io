@@ -34,7 +34,8 @@
           var menu = document.getElementById('main-menu');
           var body = document.body;
           var rootStyles = getComputedStyle(document.documentElement);
-          var MOBILE_BREAKPOINT = parseInt(rootStyles.getPropertyValue('--nav-breakpoint')) || 820;
+          var NAV_BREAKPOINT_FALLBACK = 820; // Keep in sync with --nav-breakpoint in CSS
+          var MOBILE_BREAKPOINT = parseInt(rootStyles.getPropertyValue('--nav-breakpoint')) || NAV_BREAKPOINT_FALLBACK;
           var RESIZE_DEBOUNCE_MS = 120;
           var resizeTimer = null;
           var isListening = false;

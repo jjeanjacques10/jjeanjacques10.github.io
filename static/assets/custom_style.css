@@ -987,6 +987,7 @@ body.light-mode .markdown-body pre {
   }
 }
 
+/* Keep in sync with --nav-breakpoint */
 @media (max-width: 820px) {
   .blog-nav__inner { gap: 12px; }
   .blog-nav__menu {

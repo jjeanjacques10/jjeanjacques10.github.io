@@ -126,7 +126,7 @@
         const lightbox = document.createElement('div');
         lightbox.className = 'image-lightbox';
         lightbox.innerHTML = `
-          <div class="image-lightbox__content" role="dialog" aria-modal="true" aria-label="Expanded image" tabindex="-1">
+          <div class="image-lightbox__content" role="dialog" aria-modal="true" aria-label="${DEFAULT_ALT_TEXT}" tabindex="-1">
             <button class="image-lightbox__close" type="button" aria-label="Close image">✕</button>
             <img class="image-lightbox__img" src="" alt="">
           </div>
