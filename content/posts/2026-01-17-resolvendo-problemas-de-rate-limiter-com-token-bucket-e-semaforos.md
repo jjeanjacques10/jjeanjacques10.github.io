@@ -8,6 +8,8 @@ cover: "/posts/images/2026-01-17-resolvendo-problemas-de-rate-limiter-com-token-
 draft: false
 ---
 
+<!-- markdownlint-disable MD013 -->
+
 ## Resolvendo problemas de Rate Limiter com Token Bucket e Semáforos
 
 Como utilizar estratégias de rate limit para controlar o consumo de mensagens em arquiteturas distribuídas.
@@ -18,7 +20,7 @@ Para quem trabalha com arquiteturas distribuídas e comunicações assíncronas,
 
 Para resolver esse tipo de problema, temos algumas estratégias interessantes que podemos utilizar. É exatamente isso que quero trazer neste artigo, além da aplicação de exemplo que criei para validar cada um dos cenários:
 
-- https://github.com/jjeanjacques10/rate-limit-hero-orders
+- <https://github.com/jjeanjacques10/rate-limit-hero-orders>
 
 ## O problema
 
@@ -37,7 +39,7 @@ Vamos agora explorar algumas estratégias para resolver esse problema…
 
 Esta é a abordagem mais simples, onde o controle é feito dentro da própria aplicação/agência, limitando o que cada container individual pode fazer.
 
-### Como funciona
+### Como funciona (controle local)
 
 Configuramos o listener do SQS para processar um número fixo de mensagens por vez. No Spring Cloud AWS, usamos as propriedades maxConcurrentMessages e maxMessagesPerPoll. Cada escritório de super-heróis faz seu próprio controle. No exemplo abaixo, são 3 solicitações por vez:
 
@@ -71,11 +73,11 @@ fun consumeMessage(message: Message<HeroOrderRequest>, acknowledgement: Acknowle
 
 Se você tiver 10 containers com limite de 3 mensagens, terá 30 mensagens sendo processadas simultaneamente, independentemente da capacidade real do sistema.
 
-### Cenário não recomendado
+### Cenário não recomendado (controle local)
 
 - ❌ Quando o número de containers escala dinamicamente
 
-### Execução
+### Execução (controle local)
 
 Exemplo de itens sendo processados, de 3 em 3, com cada solicitação durante 5 segundos:
 
@@ -95,13 +97,10 @@ Quando precisamos garantir que, independente do número de escritórios de heró
 
 Definimos o Redis como uma fonte da verdade. Antes de processar a mensagem, o consumidor tenta adquirir um “permissão” (permit).
 
-### O consumidor busca a mensagem no SQS.
-
-### Tenta adquirir o permit no Redis.
-
-### Conseguiu? Processa e, ao final, libera o permit.
-
-### Não conseguiu? A mensagem não é confirmada (no-ACK) e volta para a fila para ser tentada novamente por outro (ou pelo mesmo) container.
+1. O consumidor busca a mensagem no SQS.
+2. Tenta adquirir o permit no Redis.
+3. Conseguiu? Processa e, ao final, libera o permit.
+4. Não conseguiu? A mensagem não é confirmada (no-ACK) e volta para a fila para ser tentada novamente por outro (ou pelo mesmo) container.
 
 ```kotlin
 @SqsListener(
@@ -144,12 +143,12 @@ fun consumeMessage(message: Message<HeroOrderRequest>, acknowledgement: Acknowle
 
 > Ponto Chave: O uso de TTL (Time-To-Live) nos permits do Redis garante que, se um container morrer, a permissão expire e não trave o sistema indefinidamente.
 
-### Cenário não recomendado
+### Cenário não recomendado (semáforo distribuído)
 
 - ❌ Não usar para controle de taxa (ex: requisições por minuto)
 - ❌ Não usar sem TTL (risco real de deadlock distribuído)
 
-### Execução
+### Execução (semáforo distribuído)
 
 Exemplo de itens sendo processados conforme os recursos são liberados:
 
@@ -161,7 +160,7 @@ Exemplo de itens sendo processados conforme os recursos são liberados:
 
 Se o seu problema não é apenas a concorrência (quantos agora), mas sim a taxa de transferência (quantos por segundo), o algoritmo Token Bucket é a escolha ideal. Esse é o que mais vejo ser implementado no dia a dia!
 
-### Como funciona
+### Como funciona (token bucket)
 
 Imagine um balde que se enche de “tokens” a uma taxa constante (ex: 2 tokens por segundo). Para processar uma mensagem, o consumidor precisa retirar um token do balde, para um novo serviço ser processado é necessário que os heróis estejam disponíveis para isso.
 
@@ -214,12 +213,12 @@ fun consumeMessage(message: Message<HeroOrderRequest>, acknowledgement: Acknowle
 }
 ```
 
-### Cenário não recomendado
+### Cenário não recomendado (token bucket)
 
 - ❌ Não usar quando o problema é concorrência simultânea
 - ❌ Evitar usar sem que a operação seja atômica (como no exemplo acima).
 
-### Execução
+### Execução (token bucket)
 
 Processamentos sendo feitos com o uso de token bucket, muitas transações retornam para fila aguardando a liberação de mais fichas no balde.
 
@@ -335,7 +334,7 @@ class RedisDistributedTokenBucket4j(
 }
 ```
 
-### Vantagem
+### Vantagem (token bucket com bucket4j)
 
 - ✔ Não há race conditions, o CAS (Compare-And-Set) garante atomicidade
 - ✔ Fácil de configurar, com uma API simples e intuitiva
@@ -343,7 +342,7 @@ class RedisDistributedTokenBucket4j(
 
 Sempre é bom considerar “opções de mercado” com soluções já prontas, onde a “roda” não precisa ser reimplementada.
 
-### Execução
+### Execução (token bucket com bucket4j)
 
 Exemplo de itens sendo processados utilizandos os tokens no bucket:
 

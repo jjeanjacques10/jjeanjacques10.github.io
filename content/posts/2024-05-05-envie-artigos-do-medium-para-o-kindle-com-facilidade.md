@@ -16,7 +16,7 @@ Com o Article Kindle Converter, você pode fazer isso com apenas alguns cliques!
 
 ### Como Funciona
 
-1. Acesse o site: https://medium-kindle-sender.onrender.com
+1. Acesse o site: <https://medium-kindle-sender.onrender.com>
 2. Cole o link do artigo: Insira o link do artigo do Medium que você deseja ler no Kindle.
 3. Opcional: Adicione seu e-mail: Se desejar receber o artigo convertido por e-mail, digite seu endereço de e-mail.
 4. Converta e baixe: Clique em “Baixar epub” para converter o artigo para o formato epub e baixá-lo para o seu computador.
@@ -36,12 +36,12 @@ Para enviar artigos diretamente para o seu Kindle por e-mail, é necessário con
 
 ![Image](/posts/images/2024-05-05-envie-artigos-do-medium-para-o-kindle-com-facilidade/image-3.png)
 
-Por enquanto esse é o único e-mail válido para usar com o Article Kindle Converter: automation@trial-3zxk54vne31ljy6v.mlsender.net
+Por enquanto esse é o único e-mail válido para usar com o Article Kindle Converter: <automation@trial-3zxk54vne31ljy6v.mlsender.net>
 
 ### Recursos Adicionais
 
-- Código Aberto: O código do Article Kindle Converter está disponível no GitHub: https://github.com/jjeanjacques10/medium-kindle-sender. Você pode contribuir com o projeto ou sugerir melhorias.
-- Suporte: Se precisar de ajuda ou tiver alguma dúvida, consulte a página “Como Usar” no site da ferramenta: https://medium-kindle-sender.onrender.com/how-to-send-to-kindle
+- Código Aberto: O código do Article Kindle Converter está disponível no GitHub: <https://github.com/jjeanjacques10/medium-kindle-sender>. Você pode contribuir com o projeto ou sugerir melhorias.
+- Suporte: Se precisar de ajuda ou tiver alguma dúvida, consulte a página “Como Usar” no site da ferramenta: <https://medium-kindle-sender.onrender.com/how-to-send-to-kindle>
 
 ### Conclusão
 
@@ -50,7 +50,5 @@ O Article Kindle Converter é uma ferramenta valiosa para quem gosta de ler arti
 Espero que goste e recomende para amigos!
 
 Caso tenha alguma crítica, sugestão ou dúvida fique a vontade para me enviar uma mensagem:
-
-
 
 Até a próxima!

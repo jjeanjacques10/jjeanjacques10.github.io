@@ -16,7 +16,7 @@ Podemos dizer que 90% dos problemas de uma empresa são causados pela falta de c
 
 Muito além das habilidades técnicas, um bom desenvolvedor precisa entender como compartilhar suas soluções e problemas com outras pessoas.
 
-## O poder de um bom texto….
+## O poder de um bom texto…
 
 Você já deve ter participado de uma reunião que poderia ter sido substituída por um e-mail… Frequentemente, ela ocorreu apenas porque acreditavam que seria “impossível” transmitir a ideia por escrito. Posso afirmar que a maioria delas realmente deveria ter sido um texto objetivo. No entanto, para alcançar esse patamar, é necessário compreender previamente como redigir textos de qualidade.
 
@@ -65,13 +65,13 @@ Ao adotar esse método, você obterá uma resposta mais rápida, pois a pessoa n
 Aqui tem alguns exemplos do próprio stackoverflow de como escrever bons questionamentos (tradução livre feita por mim):
 
 > Bad: C# Problema de matemática
-Good: Por que usar float em vez de int me dá resultados diferentes quando todas as minhas entradas são números inteiros?
-
+> Good: Por que usar float em vez de int me dá resultados diferentes quando todas as minhas entradas são números inteiros?
+>
 > Bad: [php] dúvida sobre sessões
-Good: Como posso redirecionar usuários para páginas diferentes com base em dados de sessão em PHP?
-
+> Good: Como posso redirecionar usuários para páginas diferentes com base em dados de sessão em PHP?
+>
 > Bad: problemas com if-else no Android
-Good: Por que str == “valor” retorna falso quando str é definido como “valor”?
+> Good: Por que str == “valor” retorna falso quando str é definido como “valor”?
 
 ## Iniciando uma conversa
 
@@ -123,13 +123,13 @@ Espero que tenha gostado e sempre que ver alguém fazendo uma pergunta sem muito
 
 Caso tenha alguma crítica, dúvida ou sugestão, fique à vontade para comentar abaixo ou nos envie uma mensagem:
 
-Jean Jacques, Backend Software Engineer — https://www.linkedin.com/in/jjean-jacques10/
+Jean Jacques, Backend Software Engineer — <https://www.linkedin.com/in/jjean-jacques10/>
 
 Até a próxima!
 
 ## Referências
 
-- https://dontasktoask.com/
-- https://nohello.net/en/
-- http://catb.org/~esr/faqs/smart-questions.html
-- https://stackoverflow.com/help/how-to-ask
+- <https://dontasktoask.com/>
+- <https://nohello.net/en/>
+- <http://catb.org/~esr/faqs/smart-questions.html>
+- <https://stackoverflow.com/help/how-to-ask>

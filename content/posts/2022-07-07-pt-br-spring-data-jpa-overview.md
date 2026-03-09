@@ -24,7 +24,7 @@ Lembrando que todo código e exemplos podem ser encontrados no repositório do G
 
 Vamos iniciar adicionando a dependência do Spring Data no arquivo pom.xml, desta forma habilitamos o uso em nossa aplicação Spring Boot.
 
-```
+``` xml
 <dependencies>
   <dependency>
     <groupId>org.springframework.data</groupId>
@@ -43,7 +43,7 @@ Vamos iniciar adicionando a dependência do Spring Data no arquivo pom.xml, dest
 
 Sendo todos eles bancos de dados Relacionais. Contudo, para isso precisamos adicionar a dependência específica ao Driver que queremos utilizar. Segue exemplo para uma conexão MySQL:
 
-```
+``` xml
 <dependency>
     <groupId>mysql</groupId>
     <artifactId>mysql-connector-java</artifactId>
@@ -69,9 +69,9 @@ Com as dependências instaladas devemos configurar a nossa conexão e também to
 
 O Spring Data JPA facilita a nossa vida abstraindo a configuração por meio de Annotations (Anotações). Ao invés de referenciarmos em um arquivo XML podemos apenas “anotar” nossas classes e atributos Java com os seguintes valores:
 
-- @Entity 
+- @Entity
 Adicionamos na classe para informar para o Spring que ela será uma entidade mapeável para o banco de dados.
-- @Table 
+- @Table
 Adicionamos na classe para informar quais configurações devem ser feitas para a tabela que estamos mapeando. Podemos passar informações referentes a ela como o nome.
 - @Column
 Adicionamos nos atributos da classe para especificar qual coluna corresponde no banco de dados. Configurações como tamanho, se aceita nulo dentre outras coisas podem ser feitas nessa anotação.
@@ -82,7 +82,7 @@ Possibilita definirmos qual estratégia queremos para gerar o ID da entidade. Ad
 - @Enumerated
 Adicionamos nos atributos do tipo ENUM que desejamos mapear, podemos fazer configurações como utilizar número ou o valor do ENUM.
 
-> Estas são as principais anotações, temos outras que podem ser encontradas no link a seguir — https://www.baeldung.com/spring-data-annotations
+> Estas são as principais anotações, temos outras que podem ser encontradas no link a seguir — <https://www.baeldung.com/spring-data-annotations>
 
 ### Trabalhando com ID’s
 
@@ -125,7 +125,7 @@ Quando executarmos pela primeira vez veremos essa interação nos logs com os it
 
 Repositório projeto de exemplo:
 
-> Todos esses exemplos podem ser encontrados no seguinte repositório no GitHub: https://github.com/jjeanjacques10/spring-data-jpa-demo
+> Todos esses exemplos podem ser encontrados no seguinte repositório no GitHub: <https://github.com/jjeanjacques10/spring-data-jpa-demo>
 
 Alguns tópicos ficaram de fora, como por exemplo a parte de relacionamento, queries mais avançadas, pensando na performance da aplicação, paginação e dentro outros pontos. Mais para frente irei lançar uma parte dois e adiciono o link aqui!
 

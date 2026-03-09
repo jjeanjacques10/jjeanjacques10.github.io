@@ -52,9 +52,9 @@ Eu adoro esta ferramenta, Zapier é um automation helper (do inglês, ajudante d
 
 Para isso criei uma integração de Planilhas Google + Gmail, o processo é simples:
 
-### 1. Crie uma label no Gmail:
+### 1. Crie uma label no Gmail
 
-No meu caso, eu marquei como “technewsletter”, então sempre que recebo um novo e-mail do contato “newsletter@filipedeschamps.com.br”, será definido este rótulo. Isso me ajudou a controlar meu fluxo de e-mail e não perder nenhum que for enviado.
+No meu caso, eu marquei como “technewsletter”, então sempre que recebo um novo e-mail do contato “<newsletter@filipedeschamps.com.br>”, será definido este rótulo. Isso me ajudou a controlar meu fluxo de e-mail e não perder nenhum que for enviado.
 
 ![Image](/posts/images/2021-04-21-alexa-skill-newsletter-reader-filipe-deschamps/image-5.png)
 
@@ -202,20 +202,17 @@ Ok, com tudo configurado podemos ler nossa newsletter utilizando a Alexa! Convid
 
 Aqui estão os links para as duas Skills, não esqueça de dar uma nota no site da Amazon, isso ajuda muito!
 
-> Custom Skill — https://www.amazon.com.br/dp/B08RG61BPD
-
-> Flash Briefing — https://www.amazon.com.br/dp/B08SQTLJSK
+- Custom Skill — <https://www.amazon.com.br/dp/B08RG61BPD>
+- Flash Briefing — <https://www.amazon.com.br/dp/B08SQTLJSK>
 
 E gostaria de agradecer ao Filipe Deschamps, confesso que pensei que seria processado de inicio 😅, mas ele deu super apoio ao projeto, então meu super obrigado!
 
 Caso tenha interesse é possível acessar o código aqui:
 
-> Repositório GitHub 
-https://github.com/jjeanjacques10/alexa-newsletter-deschamps
+> Repositório GitHub
+<https://github.com/jjeanjacques10/alexa-newsletter-deschamps>
 
 Caso tenha alguma crítica, sugestão ou dúvida fique a vontade para me enviar uma mensagem:
-
-
 
 Revisão de texto realizada por: Gabriel Petillo
 

@@ -38,9 +38,9 @@ Apenas trocamos a página (ou aba, por assim dizer) de onde encontramos as repos
 
 Deixo aqui algumas sugestões de ferramentas que venho utilizando:
 
-- GitHub Copilot: https://copilot.github.com/
-- ChatGPT: https://chatbot.gpt.dobro.ai/
-- Phind.ai: https://phind.ai/
+- GitHub Copilot: <https://copilot.github.com/>
+- ChatGPT: <https://chatbot.gpt.dobro.ai/>
+- Phind.ai: <https://phind.ai/>
 
 ### Vamos perder nossos empregos?
 
@@ -92,9 +92,9 @@ Estou animado para acompanhar os próximos passos que daremos em direção à um
 
 Caso tenha alguma crítica, dúvida ou sugestão, fique à vontade para comentar abaixo ou nos envie uma mensagem:
 
-Jean Jacques, Backend Software Engineer — https://www.linkedin.com/in/jjean-jacques10/
+Jean Jacques, Backend Software Engineer — <https://www.linkedin.com/in/jjean-jacques10/>
 
-Gabriel Petillo, Product Owner — https://www.linkedin.com/in/gabrielpetillo/
+Gabriel Petillo, Product Owner — <https://www.linkedin.com/in/gabrielpetillo/>
 
 Até a próxima!
 

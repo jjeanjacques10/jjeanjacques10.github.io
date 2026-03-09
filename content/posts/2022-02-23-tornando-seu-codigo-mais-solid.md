@@ -8,7 +8,7 @@ cover: "/posts/images/2022-02-23-tornando-seu-codigo-mais-solid/cover.png"
 draft: false
 ---
 
-## Tornando seu código mais SOLID!
+## Tornando seu código mais SOLID
 
 ### Explicando os conceitos SOLID de orientação a objetos de uma forma simples e com um projeto prático
 
@@ -138,7 +138,7 @@ Conheci os princípios do SOLID por meio do livro Clean Code. É uma leitura que
 Para ajudar você a por a mão na massa segue um link que pode ser bem útil:
 
 > Repositório GitHub
-Aqui está o link para o repositório no GitHub onde coloquei os exemplos de código escritos em Java: https://github.com/jjeanjacques10/solid
+Aqui está o link para o repositório no GitHub onde coloquei os exemplos de código escritos em Java: <https://github.com/jjeanjacques10/solid>
 
 ## Conclusão
 
@@ -150,7 +150,7 @@ Caso tenha alguma crítica, sugestão ou dúvida fique a vontade para me enviar 
 
 ## Referências
 
-http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod
+<http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod>
 
 Interface Segregation Principle in Java | Baeldung
 

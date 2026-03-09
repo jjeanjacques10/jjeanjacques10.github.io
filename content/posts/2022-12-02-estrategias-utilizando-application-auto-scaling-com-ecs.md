@@ -18,7 +18,7 @@ O Amazon ECS oferece diversas vantagens na hora de configurar estratégias de es
 
 Hoje vou apresentar algumas estratégias que podem ser úteis em seus projetos visando o escalonamento horizontal, replicando as máquinas ao invés de aumentar o tamanho delas.
 
-> Lembrando que todos os códigos apresentados nesse artigo podem ser encontrados no seguinte repositório do GitHub: https://github.com/jjeanjacques10/springboot-ecs-fargate
+> Lembrando que todos os códigos apresentados nesse artigo podem ser encontrados no seguinte repositório do GitHub: <https://github.com/jjeanjacques10/springboot-ecs-fargate>
 
 ### Como funciona o Application Auto Scaling
 
@@ -28,7 +28,7 @@ O AWS Application Auto Scaling é um serviço que permite escalar automaticament
 
 No exemplo acima temos o fluxo de Auto Scaling, para definir o recurso a ser dimensionado criamos um Scalable Target, que especifica a capacidade mínima e máxima desse recurso e também as políticas de dimensionamento dele, que determinam como o recurso aumenta ou diminui em resposta a mudanças na demanda. O serviço ECS (Digimon Service) está se comunicando o tempo inteiro com o CloudWatch e enviando métricas para os alarmes presentes nele que serão gerenciados pelo Application Auto Scaling e tem as regras definidas no Scaling Policy.
 
-```
+``` yml
 ScalableTarget:
   Type: AWS::ApplicationAutoScaling::ScalableTarget
   DependsOn: Service
@@ -53,7 +53,7 @@ Esse tipo de métrica utilizada no Scaling Policy é comum porque utiliza caract
 
 ![Visão do console AWS para o AutoScaling de 30% de uso da CPU](/posts/images/2022-12-02-estrategias-utilizando-application-auto-scaling-com-ecs/image-3.png)
 
-```
+``` yml
 ScalingPolicy:
   Type: AWS::ApplicationAutoScaling::ScalingPolicy
   Properties:
@@ -76,7 +76,7 @@ Quando trabalhamos com consumers a principal métrica utilizada é a quantidade 
 
 Pondo a mão na massa vamos então vamos criar nossas Policies. Um ponto importante de saber é que podemos ter várias Policies, mas cada policy só pode ser dimensionada em uma única direção, por essa razão precisamos de duas neste caso.
 
-```
+``` yml
 ScalingPolicySQSUp:
   Type: AWS::ApplicationAutoScaling::ScalingPolicy
   Properties:
@@ -97,7 +97,7 @@ ScalingPolicySQSUp:
 
 A primeira é referente ao UpScaling, nela será adicionado 1 contêiner quando a fila estiver entre 1000 e 1100, mas adicionará 2 quando houverem mais itens. Agora para diminuir o número de tasks quando cair a demanda criamos outra Policy com valores negativos, nesse caso quando estiver entre 900 e 999 itens será removida 1 task.
 
-```
+``` yml
 ScalingPolicySQSDown:
   Type: AWS::ApplicationAutoScaling::ScalingPolicy
   Properties:
@@ -115,7 +115,7 @@ ScalingPolicySQSDown:
 
 Criadas as ações vamos agora configurar os alarmes no CloudWatch do tipo ApproximateNumberOfMessagesVisible. Vamos precisa de dois alarmes o primeiro é para que quando a fila “digimon-queue” atingir 1000 mensagens, nesse momento a Action de “ScalingPolicySQSUp” será ativada para aumentar a capacidade. O segundo é para nos alertar de quando esse valor diminuir e assim sermos capazes de diminuir o número de tasks ativando a Action “ScalingPolicySQSDown”.
 
-```rust
+``` yml
 # Use SQS Queue to scale up
 CloudWatchSQSAlarmScalingUp:
   Type: "AWS::CloudWatch::Alarm"
@@ -160,7 +160,7 @@ CloudWatchSQSAlarmScalingDown:
 
 Quando se trabalha com API’s uma ótima métrica para utilizar é a de quantidade de chamadas recebidas, principalmente nos cenários onde já temos a quantidade de transações por segundo (TPS) mapeada. A criação das Scaling Policies é muito parecido com o de itens na fila, a maior diferença é o Alarme no CloudWatch que será utilizado aqui.
 
-```
+``` yml
 ScalingPolicyTCPUp:
   Type: AWS::ApplicationAutoScaling::ScalingPolicy
   Properties:
@@ -192,7 +192,7 @@ ScalingPolicyTCPDown:
 
 Agora os alarmes que temos que criar são usados para monitorar as requisições recebidas e acionar um Grupo de Auto Scaling para aumentar ou diminuir com base no número de solicitações. O alarme compara o número de solicitações TCP nos últimos 60 segundos com o limite de 100 solicitações. Se o número de solicitações for maior que o limite, o alarme acionará ScalingPolicyTCPUp e caso seja menor acionará o ScalingPolicyTCPDown para dimensionar o Grupo de Auto Scaling de acordo com a regra pré-definida.
 
-```rust
+```yml
 # Use Active flow count to scale up 
 HighTpsAlarm:
   Type: AWS::CloudWatch::Alarm
@@ -248,7 +248,7 @@ Para definir qual horário nossa ação deve rodar podemos utilizar o CRON, que 
 
 Seguem um exemplo onde definimos que todo dia às 8h00 (11 UTC) iremos seguir uma regra de capacidade e a partir das 20h00 iremos parar todas as tarefas rodando.
 
-```
+``` yml
 ScalableTarget:
   <...>
   ScheduledActions:

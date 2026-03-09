@@ -10,7 +10,7 @@ draft: false
 
 ## Descomplicando a Configuração de Producers e Consumers com Kafka
 
-### Entendendo como configurar Producers e Consumers com Kafka de forma simples e descomplicada visando o que faz sentido para os seus projetos.
+### Entendendo como configurar Producers e Consumers com Kafka de forma simples e descomplicada visando o que faz sentido para os seus projetos
 
 Em algum momento pode ser que apareça uma tarefa em seu trabalho onde precise criar uma integração com o Kafka, quando você começa a desenvolver sua aplicação, criar sua lógica de negócio e então se de para com o arquivo cheio de parâmetros surgindo a pergunta: “Quais configurações devo fazer aqui que fazem sentido para o meu cenário?”.
 
@@ -116,7 +116,7 @@ spring:
 - bootstrap-servers: Define os endpoints utilizados para se conectar com o cluster Kafka. Ex: bootstrap-servers=kafka1:9092,kafka2:9092
 - key-serializer: Classe responsável pela serialização das chaves das mensagens produzidas. Ex: key-deserializer=org.apache.kafka.common.serialization.StringDeserializer
 - value-serializer: Classe responsável pela serialização dos valores das mensagens produzidas, ele define o formato que os consumidores devem seguir. Ex: key-deserializer=io.confluent.kafka.serializers.KafkaAvroSerializer
-- properties.schema.registry.url: URL do registro de esquemas utilizado para registrar e recuperar esquemas. Ex: schema.registry.url=http://localhost:8082 (exemplo para configuração local)
+- properties.schema.registry.url: URL do registro de esquemas utilizado para registrar e recuperar esquemas. Ex: schema.registry.url=<http://localhost:8082> (exemplo para configuração local)
 - auto.register.schemas: Indica se os esquemas que ainda não existem devem ser registrados automaticamente no schema registry. Ex: auto.register.schemas=false
 - retries: Número de tentativas que o produtor deve realizar para enviar a mensagem. Ex: retries=3
 
@@ -269,13 +269,11 @@ Gostaria de agradecer ao Gustavo Santos Madeira por ter me apresentado estes con
 
 Caso tenha alguma crítica, sugestão ou dúvida fique a vontade para me enviar uma mensagem:
 
-
-
 Até a próxima!
 
 ## Referências
 
-- https://kafka.apache.org/
+- <https://kafka.apache.org/>
 - org.springframework.kafka.listener (Spring for Apache Kafka 3.1.4 API)
 - Avro Schema Serializer and Deserializer for Schema Registry | Confluent Documentation
 - Kafka Schema Registry & Avro: Spring Boot Demo (2 of 2)

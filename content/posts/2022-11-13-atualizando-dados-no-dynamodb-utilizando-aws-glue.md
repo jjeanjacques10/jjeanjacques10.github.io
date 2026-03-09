@@ -16,7 +16,7 @@ Quando trabalhamos com grandes massas de dados diversas abordagens surgem na men
 
 Uma das ferramentas que podemos utilizar nesses casos é o AWS Glue, que é uma plataforma serverless de ETL (Extract, Transform, Load), orientada a eventos fornecida pela Amazon. É um serviço de computação que executa código em resposta à eventos e gerência automaticamente os recursos de computação exigidos por esse código.
 
-> Todos os códigos apresentados nesse artigo podem ser encontrados no seguinte repositório do GitHub: https://github.com/jjeanjacques10/update-dynamodb-glue
+> Todos os códigos apresentados nesse artigo podem ser encontrados no seguinte repositório do GitHub: <https://github.com/jjeanjacques10/update-dynamodb-glue>
 
 ### Cenário
 
@@ -175,12 +175,12 @@ Até a próxima!
 ## Referências
 
 - AWS Glue
-https://aws.amazon.com/glue/
+<https://aws.amazon.com/glue/>
 - Connection types and options for ETL in AWS Glue
-https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-connect.html#aws-glue-programming-etl-connect-dynamodb
+<https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-connect.html#aws-glue-programming-etl-connect-dynamodb>
 - Update DynamoDB Glue GitHub
-https://github.com/jjeanjacques10/update-dynamodb-glue
+<https://github.com/jjeanjacques10/update-dynamodb-glue>
 - PySpark Glue Tutorial
-https://github.com/johnny-chivers/pyspark-glue-tutorial
+<https://github.com/johnny-chivers/pyspark-glue-tutorial>
 - How to export an Amazon DynamoDB table to Amazon S3 using AWS Step Functions and AWS Glue
-https://aws.amazon.com/blogs/big-data/how-to-export-an-amazon-dynamodb-table-to-amazon-s3-using-aws-step-functions-and-aws-glue/
+<https://aws.amazon.com/blogs/big-data/how-to-export-an-amazon-dynamodb-table-to-amazon-s3-using-aws-step-functions-and-aws-glue/>

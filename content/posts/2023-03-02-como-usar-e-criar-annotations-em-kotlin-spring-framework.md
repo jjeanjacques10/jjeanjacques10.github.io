@@ -18,7 +18,7 @@ Como exemplo temos o @Service, @Controller, @Component e dentre várias outras c
 
 Repositório projeto de exemplo:
 
-> Todos esses exemplos podem ser encontrados no seguinte repositório no GitHub: https://github.com/jjeanjacques10/annotations-kotlin-spring-boot
+> Todos esses exemplos podem ser encontrados no seguinte repositório no GitHub: <https://github.com/jjeanjacques10/annotations-kotlin-spring-boot>
 
 ## Pondo a mão na massa 👨🏻‍💻
 
@@ -61,7 +61,7 @@ Nela temos o atributo title que possui acima dele o @NotBlank, essa annotation i
 - @Email — Indica que o atributo deve ser um email válido
 - @Pattern(regexp = “^[a-zA-Z0–9]*$”) — Indica que o atributo deve seguir o padrão regex informado
 
-> ❗ Importante: Passei um tempo quebrando a cabeça por não saber que no caso de validações em Kotlin precisamos utilizar o @field:<annotation> para que a anotação seja aplicada ao atributo
+> ❗ Importante: Passei um tempo quebrando a cabeça por não saber que no caso de validações em Kotlin precisamos utilizar o `@field:<annotation>` para que a anotação seja aplicada ao atributo
 
 ## Por baixo dos panos 🕵🏼‍♂️
 
@@ -171,8 +171,6 @@ Ao realizar a chamada na API com valores válidos o retorno será 200 OK, mostra
 Passei um bom tempo estudando sobre annotations no Spring para poder utilizar em um projeto, esse conteúdo é um resumo de tudo que pesquisei e consegui aplicar, espero que tenha lhe ajudado em sua jornada.
 
 Caso tenha alguma crítica, sugestão ou dúvida fique a vontade para me enviar uma mensagem:
-
-
 
 Até a próxima!
 
