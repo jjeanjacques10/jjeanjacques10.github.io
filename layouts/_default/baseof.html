@@ -163,7 +163,7 @@
 
         closeBtn.addEventListener('click', closeLightbox);
 
-        document.addEventListener('keyup', function(evt) {
+        document.addEventListener('keydown', function(evt) {
           if (evt.key === 'Escape') {
             closeLightbox();
           }

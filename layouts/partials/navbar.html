@@ -34,18 +34,46 @@
           var menu = document.getElementById('main-menu');
           var body = document.body;
           var MOBILE_BREAKPOINT = 820;
+          var resizeTimer = null;
+          var isListening = false;
           if (!toggle || !menu) return;
 
           var closeMenu = function() {
             menu.classList.remove('is-open');
             body.classList.remove('nav-open');
             toggle.setAttribute('aria-expanded', 'false');
+            if (isListening) {
+              document.removeEventListener('click', handleDocumentClick, true);
+              window.removeEventListener('resize', handleResize);
+              isListening = false;
+            }
           };
 
           var openMenu = function() {
             menu.classList.add('is-open');
             body.classList.add('nav-open');
             toggle.setAttribute('aria-expanded', 'true');
+            if (!isListening) {
+              document.addEventListener('click', handleDocumentClick, true);
+              window.addEventListener('resize', handleResize);
+              isListening = true;
+            }
+          };
+
+          var handleDocumentClick = function(evt) {
+            if (!menu.classList.contains('is-open')) return;
+            if (!menu.contains(evt.target) && !toggle.contains(evt.target)) {
+              closeMenu();
+            }
+          };
+
+          var handleResize = function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+              if (window.innerWidth > MOBILE_BREAKPOINT) {
+                closeMenu();
+              }
+            }, 120);
           };
 
           toggle.addEventListener('click', function() {
@@ -53,19 +81,6 @@
               closeMenu();
             } else {
               openMenu();
-            }
-          });
-
-          document.addEventListener('click', function(evt) {
-            if (!menu.classList.contains('is-open')) return;
-            if (!menu.contains(evt.target) && !toggle.contains(evt.target)) {
-              closeMenu();
-            }
-          });
-
-          window.addEventListener('resize', function() {
-            if (window.innerWidth > MOBILE_BREAKPOINT) {
-              closeMenu();
             }
           });
 
