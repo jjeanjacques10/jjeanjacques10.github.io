@@ -1,0 +1,142 @@
+{{ define "title" }}Busca · {{ .Site.Title }}{{ end }}
+{{ define "main" }}
+<div class="search-page">
+
+  <div class="search-header">
+    <h1 class="search-title">🔍 Busca</h1>
+    <p class="search-subtitle">Pesquise artigos por título, conteúdo ou tags</p>
+  </div>
+
+  <div class="search-box-wrapper">
+    <input
+      type="search"
+      id="search-input"
+      class="search-input"
+      placeholder="Digite para buscar..."
+      autofocus
+      autocomplete="off"
+      aria-label="Buscar artigos"
+      spellcheck="false"
+    >
+    <span class="search-icon" aria-hidden="true">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </span>
+  </div>
+
+  <p id="search-status" class="search-status" aria-live="polite" aria-atomic="true"></p>
+
+  <div id="search-results" class="search-results post-list" role="region" aria-label="Resultados da busca"></div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" integrity="sha384-OLBgp1GsljhM2TJ+sbHjaiH9txEUvgdDTAzHv2P24donTt6/529l+9Ua0vFImLlb" crossorigin="anonymous"></script>
+<script>
+(function () {
+  var input   = document.getElementById('search-input');
+  var results = document.getElementById('search-results');
+  var status  = document.getElementById('search-status');
+  var fuseIndex = null;
+  var data      = [];
+
+  var baseURL = "{{ .Site.BaseURL }}";
+
+  function esc(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function indexURL() {
+    return baseURL.replace(/\/$/, '') + '/index.json';
+  }
+
+  function renderResult(item) {
+    var tags = (item.tags || []).map(function(t) {
+      return '<a href="' + baseURL + 'tags/' + encodeURIComponent(t.toLowerCase().replace(/ /g, '-')) + '/" class="tag-badge">' + esc(t) + '</a>';
+    }).join('');
+
+    var cover = item.cover
+      ? '<a href="' + esc(item.permalink) + '" class="post-card__thumb" tabindex="-1" aria-hidden="true"><img src="' + esc(item.cover) + '" alt="" loading="lazy"></a>'
+      : '';
+
+    return '<a href="' + esc(item.permalink) + '" class="post-card">'
+      + cover
+      + '<div class="post-card__content">'
+      +   '<h2 class="post-card__title">' + esc(item.title) + '</h2>'
+      +   '<div class="post-card__meta">'
+      +     '<time datetime="' + esc(item.date) + '">' + esc(item.date) + '</time>'
+      +   '</div>'
+      +   (item.description ? '<p class="post-card__desc">' + esc(item.description) + '</p>' : '')
+      +   (tags ? '<div class="post-card__tags">' + tags + '</div>' : '')
+      + '</div>'
+      + '</a>';
+  }
+
+  function search(query) {
+    query = query.trim();
+    if (!query) {
+      results.innerHTML = '';
+      status.textContent = '';
+      return;
+    }
+    if (!fuseIndex) {
+      status.textContent = 'Carregando índice…';
+      return;
+    }
+    var hits = fuseIndex.search(query, { limit: 20 });
+    if (hits.length === 0) {
+      results.innerHTML = '';
+      status.textContent = 'Nenhum resultado para "' + query + '".';
+    } else {
+      status.textContent = hits.length + (hits.length === 1 ? ' resultado' : ' resultados') + ' para "' + query + '"';
+      results.innerHTML = hits.map(function(h) { return renderResult(h.item); }).join('');
+    }
+  }
+
+  /* Fetch index and initialise Fuse */
+  fetch(indexURL())
+    .then(function(r) { return r.json(); })
+    .then(function(json) {
+      data = json;
+      fuseIndex = new Fuse(data, {
+        keys: [
+          { name: 'title',       weight: 0.5 },
+          { name: 'tags',        weight: 0.3 },
+          { name: 'description', weight: 0.15 },
+          { name: 'content',     weight: 0.05 }
+        ],
+        threshold: 0.35,
+        includeScore: true,
+        ignoreLocation: true,
+        minMatchCharLength: 2
+      });
+      /* Run immediately if there is already a query in the box */
+      if (input.value.trim()) { search(input.value); }
+      else { status.textContent = ''; }
+    })
+    .catch(function(err) {
+      console.error('Search: failed to load index', err);
+      status.textContent = 'Erro ao carregar o índice de busca.';
+    });
+
+  /* Read query param from URL (?q=...) */
+  var params = new URLSearchParams(window.location.search);
+  var q = params.get('q');
+  if (q) { input.value = q; }
+
+  /* Live search as user types */
+  var debounceTimer;
+  input.addEventListener('input', function() {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(function() { search(input.value); }, 200);
+  });
+
+  /* Run initial search after index loads (handled above),
+     but also run immediately if index was already loaded */
+  if (fuseIndex && input.value.trim()) { search(input.value); }
+})();
+</script>
+{{ end }}
