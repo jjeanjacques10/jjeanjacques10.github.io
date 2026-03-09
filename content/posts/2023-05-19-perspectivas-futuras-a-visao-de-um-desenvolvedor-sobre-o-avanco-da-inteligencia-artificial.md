@@ -72,9 +72,8 @@ Na minha visão, nos próximos anos veremos uma combinação do trabalho humano 
 
 Daqui para frente, existem 2 cenários possíveis:
 
-### Vamos perder empregos para a automatização e o mundo vai entrar em colapso
-
-### Vamos perder empregos para a automatização e o mundo vai entrar em uma nova era de prosperidade
+1. Vamos perder empregos para a automatização e o mundo vai entrar em colapso
+2. Vamos perder empregos para a automatização e o mundo vai entrar em uma nova era de prosperidade
 
 ### Longo Prazo
 

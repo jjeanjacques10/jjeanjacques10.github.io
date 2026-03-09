@@ -64,7 +64,7 @@ Após descompactar a pasta dele vamos iniciar adicionando as dependências neces
 - AWS SDK
 - DynamoDB Enhanced
 
-```
+``` xml
 <dependency>
     <groupId>software.amazon.awssdk</groupId>
     <artifactId>dynamodb-enhanced</artifactId>
@@ -108,7 +108,7 @@ Agora para o tipo de consulta que comentamos acima onde devolvemos essas duas co
 
 De forma simples evitamos consumir muitos recursos na hora de fazer o que antes seria um “JOIN” procurando a informação em duas tabelas. Exemplo de retorno:
 
-```json
+``` json
 [
     {
         "pk": "CHARACTER#greenlantern",
