@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sqs on Jean Jacques - Software Engineering Blog</title><link>https://jjeanjacques10.github.io/tags/sqs/</link><description>Recent content in Sqs on Jean Jacques - Software Engineering Blog</description><generator>Hugo</generator><language>pt-br</language><copyright>&amp;copy; Jean Jacques</copyright><lastBuildDate>Thu, 05 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jjeanjacques10.github.io/tags/sqs/index.xml" rel="self" type="application/rss+xml"/><item><title>Kafka vs SQS: Qual escolher para sua missão?</title><link>https://jjeanjacques10.github.io/posts/2026-02-05-kafka-vs-sqs/</link><pubDate>Thu, 05 Feb 2026 00:00:00 +0000</pubDate><guid>https://jjeanjacques10.github.io/posts/2026-02-05-kafka-vs-sqs/</guid><description>&lt;p&gt;&lt;strong&gt;Kafka&lt;/strong&gt; ou &lt;strong&gt;SQS&lt;/strong&gt;? É como escolher entre o &lt;strong&gt;Susanoo&lt;/strong&gt; do Sasuke e o &lt;strong&gt;Modo Sábio&lt;/strong&gt; do Naruto — ambos são poderosos, mas cada um serve a propósitos diferentes.&lt;/p&gt;
+&lt;h2 id="o-contexto"&gt;O Contexto&lt;/h2&gt;
+&lt;p&gt;Você está construindo um sistema de processamento de pedidos para uma fintech. Milhares de transações por segundo, múltiplos consumidores e a necessidade de replay de eventos. Qual ferramenta escolher?&lt;/p&gt;
+&lt;div class="sensei-note"&gt;
+ &lt;div class="sensei-note__header"&gt;
+ &lt;span class="sensei-note__icon"&gt;💡&lt;/span&gt;
+ &lt;span class="sensei-note__title"&gt;Sensei Note&lt;/span&gt;
+ &lt;/div&gt;
+ &lt;div class="sensei-note__body"&gt;
+ Não existe resposta errada. A escolha correta depende das suas necessidades específicas: volume, latência, custo e complexidade operacional.
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2 id="apache-kafka-o-modo-seis-caminhos-da-mensageria"&gt;Apache Kafka: O Modo Seis Caminhos da Mensageria&lt;/h2&gt;
+&lt;p&gt;O Kafka foi criado pela LinkedIn em 2011 para processar &lt;strong&gt;bilhões de eventos por dia&lt;/strong&gt;. É um log distribuído imutável — uma vez que um evento é escrito, ele permanece lá pelo tempo configurado.&lt;/p&gt;</description></item></channel></rss>
