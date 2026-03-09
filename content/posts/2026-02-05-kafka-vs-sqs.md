@@ -4,6 +4,7 @@ date: 2026-02-05
 description: "Comparação detalhada entre Apache Kafka e Amazon SQS para sistemas de mensageria"
 tags: ["kafka", "aws", "sqs", "distributed-systems", "messaging"]
 categories: ["cloud", "software-engineering"]
+cover: "https://picsum.photos/seed/kafka-sqs/800/400"
 draft: false
 ---
 

@@ -1,183 +1,696 @@
 /* =============================================================
-   Jean Jacques Blog — Custom Dark Theme + Manga Styling
-   Overrides hugo-primer-theme defaults
+   Jean Jacques Blog — Complete Dark Theme
+   GitHub Dark Palette + Two-column layout + Manga Styling
    ============================================================= */
 
-/* ---------------------------------------------------------------
-   GitHub Dark Theme Color Palette
-   --------------------------------------------------------------- */
+/* ---- Variables ------------------------------------------- */
 :root {
-  --color-bg:           #0d1117;
-  --color-surface:      #161b22;
-  --color-surface-alt:  #21262d;
-  --color-text:         #c9d1d9;
-  --color-text-muted:   #8b949e;
-  --color-primary:      #2ea043;
-  --color-primary-hover:#3fb950;
-  --color-accent:       #56d364;
-  --color-accent-soft:  #238636;
-  --color-border:       #30363d;
-  --color-link:         #58a6ff;
-  --color-link-hover:   #79c0ff;
-  --color-code-bg:      #161b22;
-  --color-code-text:    #e6edf3;
+  --bg:           #0d1117;
+  --surface:      #161b22;
+  --surface2:     #21262d;
+  --border:       #30363d;
+  --text:         #c9d1d9;
+  --text-muted:   #8b949e;
+  --primary:      #2ea043;
+  --primary-hov:  #3fb950;
+  --accent:       #56d364;
+  --link:         #58a6ff;
+  --link-hov:     #79c0ff;
+  --code-bg:      #161b22;
+  --nav-h:        56px;
 }
 
-/* ---------------------------------------------------------------
-   Base: Body & Layout
-   --------------------------------------------------------------- */
-html, body {
-  background-color: var(--color-bg) !important;
-  color: var(--color-text) !important;
+/* ---- Reset & Base ---------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body.blog-body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
 }
 
-#holy {
-  background-color: var(--color-bg) !important;
+a { color: var(--link); text-decoration: none; }
+a:hover { color: var(--link-hov); }
+img { max-width: 100%; height: auto; display: block; }
+
+/* ---- Navbar ---------------------------------------------- */
+.blog-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  height: var(--nav-h);
 }
 
-#header,
-#main,
-#side,
-#footer {
-  background-color: var(--color-bg) !important;
-  color: var(--color-text) !important;
+.blog-nav__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-/* ---------------------------------------------------------------
-   Typography & Links
-   --------------------------------------------------------------- */
-a {
-  color: var(--color-link) !important;
+.blog-nav__brand {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text) !important;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.blog-nav__brand:hover { color: var(--accent) !important; }
+
+.blog-nav__menu {
+  display: flex;
+  gap: 2px;
+  flex: 1;
 }
 
-a:hover {
-  color: var(--color-link-hover) !important;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  color: var(--color-text) !important;
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
-}
-
-/* ---------------------------------------------------------------
-   Navbar
-   --------------------------------------------------------------- */
-.UnderlineNav {
-  background-color: var(--color-surface) !important;
-  border-bottom: 1px solid var(--color-border) !important;
-}
-
-.UnderlineNav-actions,
-.UnderlineNav-item,
-.UnderlineNav-item span {
-  color: var(--color-text) !important;
-}
-
-.UnderlineNav-item:hover,
-.UnderlineNav-item.selected {
-  color: var(--color-accent) !important;
-  border-bottom-color: var(--color-accent) !important;
-}
-
-/* ---------------------------------------------------------------
-   Markdown Body
-   --------------------------------------------------------------- */
-.markdown-body {
-  background-color: var(--color-bg) !important;
-  color: var(--color-text) !important;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-.markdown-body h1,
-.markdown-body h2,
-.markdown-body h3,
-.markdown-body h4,
-.markdown-body h5,
-.markdown-body h6 {
-  color: var(--color-text) !important;
-  border-bottom-color: var(--color-border) !important;
-}
-
-.markdown-body blockquote {
-  color: var(--color-text-muted) !important;
-  border-left: 4px solid var(--color-accent-soft) !important;
-  background-color: var(--color-surface) !important;
-  padding: 8px 16px;
-  border-radius: 0 4px 4px 0;
-}
-
-/* ---------------------------------------------------------------
-   Code Blocks
-   --------------------------------------------------------------- */
-.markdown-body pre,
-.markdown-body code {
-  background-color: var(--color-code-bg) !important;
-  color: var(--color-code-text) !important;
-  border: 1px solid var(--color-border) !important;
-  font-family: 'Fira Code', 'JetBrains Mono', monospace;
-}
-
-.markdown-body pre {
-  border-radius: 6px !important;
-  padding: 16px !important;
-}
-
-/* ---------------------------------------------------------------
-   Tables
-   --------------------------------------------------------------- */
-.markdown-body table {
-  color: var(--color-text) !important;
-}
-
-.markdown-body table th {
-  background-color: var(--color-surface) !important;
-  color: var(--color-text) !important;
-  border: 1px solid var(--color-border) !important;
-}
-
-.markdown-body table td {
-  border: 1px solid var(--color-border) !important;
-}
-
-.markdown-body table tr:nth-child(even) {
-  background-color: var(--color-surface-alt) !important;
-}
-
-/* ---------------------------------------------------------------
-   Sidebar & TOC
-   --------------------------------------------------------------- */
-#side aside,
-#toc {
-  background-color: var(--color-surface) !important;
-  border: 1px solid var(--color-border) !important;
+.blog-nav__item {
+  padding: 5px 10px;
   border-radius: 6px;
-  padding: 12px;
+  color: var(--text-muted) !important;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: color 0.15s, background 0.15s;
+}
+.blog-nav__item:hover,
+.blog-nav__item.active {
+  color: var(--text) !important;
+  background: var(--surface2);
 }
 
-/* ---------------------------------------------------------------
-   Footer
-   --------------------------------------------------------------- */
-#footer {
-  border-top: 1px solid var(--color-border) !important;
-  color: var(--color-text-muted) !important;
+.blog-nav__actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-/* ---------------------------------------------------------------
-   Manga / Anime Custom Blocks
-   --------------------------------------------------------------- */
+.nav-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px 8px;
+  font-size: 0.85rem;
+  line-height: 1;
+  transition: border-color 0.15s, color 0.15s;
+}
+.nav-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-/* Shared block base */
+/* ---- Page Layout ----------------------------------------- */
+.blog-wrapper {
+  min-height: calc(100vh - var(--nav-h) - 80px);
+}
+
+.blog-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 24px;
+  align-items: start;
+}
+
+.blog-main { min-width: 0; }
+
+.blog-sidebar {
+  position: sticky;
+  top: calc(var(--nav-h) + 16px);
+  max-height: calc(100vh - var(--nav-h) - 32px);
+  overflow-y: auto;
+}
+
+/* Custom scrollbar for sidebar */
+.blog-sidebar::-webkit-scrollbar { width: 4px; }
+.blog-sidebar::-webkit-scrollbar-track { background: transparent; }
+.blog-sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* ---- Section Title --------------------------------------- */
+.section-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ---- Post List Wrapper ----------------------------------- */
+.post-list {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* ---- Post Card ------------------------------------------- */
+.post-card {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+  text-decoration: none;
+}
+.post-card:last-child { border-bottom: none; }
+.post-card:hover { background: var(--surface2); }
+
+.post-card__thumb {
+  flex-shrink: 0;
+  width: 160px;
+  height: 100px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--surface2);
+  display: block;
+}
+.post-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.post-card:hover .post-card__thumb img { transform: scale(1.04); }
+
+.post-card__content { flex: 1; min-width: 0; }
+
+.post-card__title {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.post-card__title a { color: var(--text) !important; }
+.post-card__title a:hover { color: var(--link) !important; }
+
+.post-card__meta {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.meta-sep { opacity: 0.4; }
+
+.post-card__desc {
+  margin: 0 0 10px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.post-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+/* ---- Tag Badges ------------------------------------------ */
+.tag-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 0.73rem;
+  font-weight: 500;
+  background: var(--surface2);
+  color: var(--text-muted) !important;
+  border: 1px solid var(--border);
+  transition: border-color 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+.tag-badge:hover {
+  border-color: var(--accent);
+  color: var(--accent) !important;
+}
+
+/* Tag cloud color variety by position */
+.tag-cloud .tag-badge:nth-child(7n+1) { background:#1a2f2a; border-color:#2ea043; color:#56d364 !important; }
+.tag-cloud .tag-badge:nth-child(7n+2) { background:#1a1f2e; border-color:#1f6feb; color:#58a6ff !important; }
+.tag-cloud .tag-badge:nth-child(7n+3) { background:#2d1b1e; border-color:#f85149; color:#ff7b72 !important; }
+.tag-cloud .tag-badge:nth-child(7n+4) { background:#27211b; border-color:#e3b341; color:#f0c040 !important; }
+.tag-cloud .tag-badge:nth-child(7n+5) { background:#221e2e; border-color:#7c3aed; color:#a78bfa !important; }
+.tag-cloud .tag-badge:nth-child(7n+6) { background:#1e2a2d; border-color:#0e9888; color:#2dd4bf !important; }
+.tag-cloud .tag-badge:nth-child(7n+0) { background:#2a1f2e; border-color:#ec4899; color:#f472b6 !important; }
+
+/* ---- Paginator ------------------------------------------- */
+.blog-paginator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  padding: 20px 0 4px;
+}
+
+.paginator-btn {
+  padding: 5px 12px;
+  border-radius: 6px;
+  background: var(--surface2);
+  color: var(--text-muted) !important;
+  border: 1px solid var(--border);
+  font-size: 0.83rem;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  cursor: pointer;
+}
+.paginator-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary) !important;
+  background: var(--surface);
+}
+.paginator-btn.current {
+  background: var(--primary);
+  color: #fff !important;
+  border-color: var(--primary);
+}
+.paginator-btn.disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* ---- Sidebar Cards --------------------------------------- */
+.sidebar-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sidebar-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.sidebar-card__title {
+  margin: 0 0 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* About Me */
+.about-me {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.about-me__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+}
+.about-me__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.about-me__name {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.92rem;
+}
+.about-me__subtitle {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+.about-me__bio {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Follow Me */
+.follow-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.follow-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  color: var(--text) !important;
+  background: var(--surface2);
+  transition: border-color 0.15s, color 0.15s;
+}
+.follow-btn:hover { border-color: var(--accent); color: var(--accent) !important; }
+.follow-btn svg { flex-shrink: 0; }
+
+/* Recent Posts */
+.recent-posts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.recent-post { display: flex; flex-direction: column; gap: 2px; }
+.recent-post__title {
+  font-size: 0.83rem;
+  color: var(--text) !important;
+  line-height: 1.3;
+  font-weight: 500;
+}
+.recent-post__title:hover { color: var(--link) !important; }
+.recent-post__date {
+  font-size: 0.73rem;
+  color: var(--text-muted);
+}
+
+/* Tag Cloud */
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 4px;
+}
+.show-more {
+  font-size: 0.76rem;
+  color: var(--text-muted) !important;
+  display: block;
+  margin-top: 6px;
+}
+.show-more:hover { color: var(--link) !important; }
+
+/* Categories */
+.category-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.category-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.category-link {
+  font-size: 0.83rem;
+  color: var(--text-muted) !important;
+}
+.category-link:hover { color: var(--link) !important; }
+.category-count {
+  font-size: 0.72rem;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 1px 6px;
+  border-radius: 10px;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* Archive */
+.archive-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.archive-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.archive-link {
+  font-size: 0.83rem;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-muted) !important;
+}
+.archive-link:hover { color: var(--link) !important; }
+.archive-count {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* ---- Footer ---------------------------------------------- */
+.blog-footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 16px;
+  margin-top: 0;
+}
+.blog-footer__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-copyright {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.footer-links {
+  display: flex;
+  gap: 16px;
+}
+.footer-link {
+  font-size: 0.8rem;
+  color: var(--text-muted) !important;
+}
+.footer-link:hover { color: var(--link) !important; }
+.footer-social {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.social-icon {
+  color: var(--text-muted) !important;
+  transition: color 0.15s;
+  display: flex;
+  align-items: center;
+}
+.social-icon:hover { color: var(--text) !important; }
+.blog-footer__credits {
+  text-align: center;
+  padding-top: 10px;
+  font-size: 0.73rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+}
+.blog-footer__credits a { color: var(--text-muted) !important; }
+.blog-footer__credits a:hover { color: var(--link) !important; }
+
+/* ---- Single Post Page ------------------------------------ */
+.post-single {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 32px;
+}
+.post-header { margin-bottom: 24px; }
+.post-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 12px;
+  line-height: 1.3;
+}
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: 0.83rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.post-cover {
+  margin-bottom: 24px;
+  border-radius: 8px;
+  overflow: hidden;
+  max-height: 400px;
+}
+.post-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---- Post Content / Markdown ----------------------------- */
+.post-content,
+.post-content.markdown-body {
+  background: transparent !important;
+  color: var(--text) !important;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text) !important;
+  border-bottom-color: var(--border) !important;
+}
+.post-content a { color: var(--link); }
+.post-content a:hover { color: var(--link-hov); }
+.post-content blockquote {
+  border-left: 4px solid var(--primary);
+  background: var(--surface2);
+  padding: 12px 16px;
+  margin: 16px 0;
+  border-radius: 0 6px 6px 0;
+  color: var(--text-muted);
+}
+.post-content code {
+  background: var(--code-bg) !important;
+  color: #e6edf3 !important;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Fira Code', 'JetBrains Mono', monospace;
+  font-size: 0.87em;
+  border: 1px solid var(--border) !important;
+}
+.post-content pre {
+  background: var(--code-bg) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px;
+  padding: 16px !important;
+  overflow-x: auto;
+}
+.post-content pre code {
+  background: none !important;
+  border: none !important;
+  padding: 0;
+}
+.post-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 0.9rem;
+}
+.post-content th {
+  background: var(--surface2) !important;
+  color: var(--text) !important;
+  padding: 8px 12px;
+  text-align: left;
+  border: 1px solid var(--border) !important;
+}
+.post-content td {
+  padding: 8px 12px;
+  border: 1px solid var(--border) !important;
+  color: var(--text-muted);
+}
+.post-content tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+.post-content img {
+  border-radius: 8px;
+  max-width: 100%;
+  margin: 16px auto;
+}
+.post-content hr {
+  border: none;
+  border-top: 2px solid var(--border);
+  margin: 32px 0;
+  position: relative;
+}
+.post-content hr::after {
+  content: "✦";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--surface);
+  padding: 0 8px;
+  color: var(--accent);
+  font-size: 1em;
+}
+
+/* ---- Post Navigation ------------------------------------- */
+.post-footer {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+.post-nav__prev,
+.post-nav__next {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 45%;
+  color: var(--text-muted) !important;
+}
+.post-nav__next { text-align: right; margin-left: auto; }
+.post-nav__label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.post-nav__title {
+  font-size: 0.87rem;
+  font-weight: 500;
+  color: var(--text) !important;
+}
+.post-nav__prev:hover .post-nav__title,
+.post-nav__next:hover .post-nav__title { color: var(--link) !important; }
+
+/* ---- Manga / Anime Shortcodes ---------------------------- */
 .sensei-note,
 .battle-pattern,
 .technique {
   margin: 24px 0;
   border-radius: 8px;
   padding: 16px 20px;
-  position: relative;
-  overflow: hidden;
 }
-
-/* Header row */
 .sensei-note__header,
 .battle-pattern__header,
 .technique__header {
@@ -185,106 +698,96 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: 8px;
   font-weight: 700;
-  font-size: 0.9em;
+  font-size: 0.83rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 10px;
   font-family: 'JetBrains Mono', monospace;
 }
+.sensei-note { background: #0d1f38; border: 1px solid #1f6feb; border-left: 4px solid #58a6ff; }
+.sensei-note__title { color: #58a6ff; }
+.sensei-note__body { color: var(--text); }
 
-.sensei-note__icon,
-.battle-pattern__icon,
-.technique__icon {
-  font-size: 1.2em;
-}
+.battle-pattern { background: #2d1216; border: 1px solid #f85149; border-left: 4px solid #ff7b72; }
+.battle-pattern__title { color: #ff7b72; }
+.battle-pattern__body { color: var(--text); }
 
-/* Sensei Note — blue-tinted */
-.sensei-note {
-  background-color: #0d1f38;
-  border: 1px solid #1f6feb;
-  border-left: 4px solid #58a6ff;
-}
+.technique { background: #0f2d1f; border: 1px solid #2ea043; border-left: 4px solid #56d364; }
+.technique__title { color: #56d364; }
+.technique__body { color: var(--text); }
 
-.sensei-note__title {
-  color: #58a6ff;
-}
-
-.sensei-note__body {
-  color: var(--color-text);
-}
-
-/* Battle Pattern — red/orange-tinted */
-.battle-pattern {
-  background-color: #2d1216;
-  border: 1px solid #f85149;
-  border-left: 4px solid #ff7b72;
-}
-
-.battle-pattern__title {
-  color: #ff7b72;
-}
-
-.battle-pattern__body {
-  color: var(--color-text);
-}
-
-/* Technique — green-tinted */
-.technique {
-  background-color: #0f2d1f;
-  border: 1px solid #2ea043;
-  border-left: 4px solid #56d364;
-}
-
-.technique__title {
-  color: #56d364;
-}
-
-.technique__body {
-  color: var(--color-text);
-}
-
-/* Inner markdown cleanup */
 .sensei-note__body p:last-child,
 .battle-pattern__body p:last-child,
-.technique__body p:last-child {
-  margin-bottom: 0;
-}
+.technique__body p:last-child { margin-bottom: 0; }
 
-/* ---------------------------------------------------------------
-   Manga panel separator
-   --------------------------------------------------------------- */
-.markdown-body hr {
-  border: none;
-  border-top: 2px solid var(--color-border);
-  margin: 32px 0;
-  position: relative;
+/* ---- Override residual primer light classes -------------- */
+/* These ensure any primer classes used don't reintroduce white */
+.bg-white  { background: var(--bg) !important; }
+.bg-gray   { background: var(--bg) !important; }
+.text-gray { color: var(--text-muted) !important; }
+.Box, .Box--blue { background: var(--surface) !important; border-color: var(--border) !important; }
+.markdown-body { background: transparent !important; color: var(--text) !important; }
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+  color: var(--text) !important;
+  border-bottom-color: var(--border) !important;
 }
-
-.markdown-body hr::after {
-  content: "✦";
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: var(--color-bg);
-  padding: 0 8px;
-  color: var(--color-accent);
-  font-size: 1em;
+.markdown-body code, .markdown-body pre {
+  background: var(--code-bg) !important;
+  color: #e6edf3 !important;
+  border-color: var(--border) !important;
 }
+.markdown-body blockquote {
+  border-left-color: var(--primary) !important;
+  color: var(--text-muted) !important;
+}
+.markdown-body table th { background: var(--surface2) !important; color: var(--text) !important; }
+.markdown-body table td { border-color: var(--border) !important; }
+.markdown-body a { color: var(--link) !important; }
 
-/* ---------------------------------------------------------------
-   Responsive
-   --------------------------------------------------------------- */
-@media (max-width: 768px) {
-  #holy {
-    grid-template-columns: 1fr !important;
-    grid-template-areas:
-      "header"
-      "main"
-      "footer" !important;
+/* ---- Responsive ------------------------------------------ */
+@media (max-width: 900px) {
+  .blog-layout {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
-
-  #side {
-    display: none !important;
+  .blog-sidebar {
+    position: static;
+    max-height: none;
+    overflow-y: visible;
   }
 }
+
+@media (max-width: 640px) {
+  .blog-layout { padding: 12px; }
+  .post-card { flex-direction: column; }
+  .post-card__thumb { width: 100%; height: 180px; }
+  .blog-nav__menu { gap: 0; }
+  .blog-nav__item { padding: 5px 6px; font-size: 0.8rem; }
+  .post-title { font-size: 1.35rem; }
+  .post-single { padding: 20px; }
+}
+
+/* ---- Light Mode Override --------------------------------- */
+body.light-mode {
+  --bg:         #ffffff;
+  --surface:    #f6f8fa;
+  --surface2:   #eaeef2;
+  --border:     #d0d7de;
+  --text:       #1f2328;
+  --text-muted: #57606a;
+  --link:       #0969da;
+  --link-hov:   #0550ae;
+  --code-bg:    #f6f8fa;
+  --primary:    #2da44e;
+  --accent:     #1a7f37;
+}
+body.light-mode .blog-nav       { background: var(--surface); }
+body.light-mode .post-list      { background: var(--surface); }
+body.light-mode .post-card:hover { background: var(--surface2); }
+body.light-mode .sidebar-card   { background: var(--surface); }
+body.light-mode .post-single    { background: var(--surface); }
+body.light-mode .post-content   { color: var(--text) !important; }
+body.light-mode .blog-footer    { background: var(--surface); }
+body.light-mode .post-content code { background: var(--surface2) !important; color: #24292f !important; }
+body.light-mode .post-content pre  { background: var(--surface2) !important; }
+body.light-mode .post-content hr::after { background: var(--surface); }

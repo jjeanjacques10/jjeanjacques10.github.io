@@ -4,6 +4,7 @@ date: 2026-01-10
 description: "Como sistemas distribuídos funcionam usando analogias de Naruto"
 tags: ["architecture", "distributed-systems", "event-driven"]
 categories: ["software-engineering"]
+cover: "https://picsum.photos/seed/event-driven/800/400"
 draft: false
 ---
 

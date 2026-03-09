@@ -3,7 +3,6 @@ languageCode = "pt-br"
 title = "Jean Jacques - Software Engineering Blog"
 theme = "hugo-primer-theme"
 
-paginate = 5
 hasCJKLanguage = false
 summaryLength = 70
 pygmentsCodeFences = true
@@ -11,9 +10,14 @@ pygmentsUseClasses = true
 enableRobotsTXT = true
 copyright = "&copy; Jean Jacques"
 
+[pagination]
+  pagerSize = 5
+
 [params]
   description = "Arquitetura de software, cloud e sistemas distribuídos explicados com referências de anime"
   author = "Jean Jacques"
+  authorSubtitle = "Staff Software Engineer"
+  bio = "Escrevendo sobre arquitetura de software, cloud e sistemas distribuídos com referências de anime."
   defaultTheme = "dark"
   keywords = ["software engineering", "cloud", "aws", "architecture", "distributed systems"]
   github = "jjeanjacques10"

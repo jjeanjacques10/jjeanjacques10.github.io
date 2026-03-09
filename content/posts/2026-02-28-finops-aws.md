@@ -4,6 +4,7 @@ date: 2026-02-28
 description: "Práticas de FinOps para otimizar custos na AWS sem sacrificar performance"
 tags: ["aws", "finops", "cloud", "cost-optimization"]
 categories: ["cloud", "platform-engineering"]
+cover: "https://picsum.photos/seed/finops-aws/800/400"
 draft: false
 ---
 
