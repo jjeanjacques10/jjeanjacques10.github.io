@@ -1,6 +1,6 @@
 baseURL = "https://jjeanjacques10.github.io/"
 languageCode = "pt-br"
-title = "Jean Jacques - Software Engineering Blog"
+title = "jjeanjacques10 - Software Engineering Blog"
 theme = "hugo-primer-theme"
 
 hasCJKLanguage = false
@@ -11,13 +11,13 @@ enableRobotsTXT = true
 copyright = "&copy; Jean Jacques"
 
 [pagination]
-  pagerSize = 5
+  pagerSize = 8
 
 [params]
-  description = "Arquitetura de software, cloud e sistemas distribuídos explicados com referências de anime"
+  description = "Arquitetura de software, cloud e sistemas distribuídos explicados com referências de mangás"
   author = "Jean Jacques"
-  authorSubtitle = "Staff Software Engineer"
-  bio = "Escrevendo sobre arquitetura de software, cloud e sistemas distribuídos com referências de anime."
+  authorSubtitle = "Senior Staff Software Engineer"
+  bio = "Escrevendo sobre arquitetura de software, cloud e sistemas distribuídos com referências de mangás."
   defaultTheme = "dark"
   keywords = ["software engineering", "cloud", "aws", "architecture", "distributed systems"]
   github = "jjeanjacques10"
@@ -51,8 +51,3 @@ copyright = "&copy; Jean Jacques"
     name = "GitHub"
     url = "https://github.com/jjeanjacques10"
     weight = 5
-  [[menu.main]]
-    identifier = "medium"
-    name = "Medium"
-    url = "https://jjeanjacques10.medium.com"
-    weight = 6
