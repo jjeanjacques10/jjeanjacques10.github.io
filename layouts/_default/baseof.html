@@ -125,7 +125,7 @@
         const lightbox = document.createElement('div');
         lightbox.className = 'image-lightbox';
         lightbox.innerHTML = `
-          <div class="image-lightbox__content" role="dialog" aria-modal="true" aria-label="Expanded image">
+          <div class="image-lightbox__content" role="dialog" aria-modal="true" aria-label="Expanded image" tabindex="-1">
             <button class="image-lightbox__close" type="button" aria-label="Close image">✕</button>
             <img class="image-lightbox__img" src="" alt="">
           </div>
@@ -134,18 +134,25 @@
 
         const lightboxImg = lightbox.querySelector('.image-lightbox__img');
         const closeBtn = lightbox.querySelector('.image-lightbox__close');
+        const lightboxContent = lightbox.querySelector('.image-lightbox__content');
+        let lastActive = null;
 
         const closeLightbox = function() {
+          if (!lightbox.classList.contains('is-open')) return;
           lightbox.classList.remove('is-open');
           document.body.classList.remove('image-lightbox-open');
+          if (lastActive && typeof lastActive.focus === 'function') {
+            lastActive.focus({ preventScroll: true });
+          }
         };
 
         const openLightbox = function(src, altText) {
+          lastActive = document.activeElement;
           lightboxImg.src = src;
           lightboxImg.alt = altText || 'Expanded image';
           lightbox.classList.add('is-open');
           document.body.classList.add('image-lightbox-open');
-          closeBtn.focus({ preventScroll: true });
+          lightboxContent.focus({ preventScroll: true });
         };
 
         lightbox.addEventListener('click', function(evt) {
