@@ -1,29 +1,100 @@
 <header class="blog-nav">
   <div class="blog-nav__inner">
-    <a href="{{ .Site.BaseURL }}" class="blog-nav__brand">{{ .Site.Title }}</a>
-    <nav class="blog-nav__menu" aria-label="Main navigation">
+    <a href="{{ .Site.BaseURL }}" class="blog-nav__brand">
+      <span class="brand-full">{{ .Site.Title }}</span>
+      <span class="brand-short">jjeanjacques10</span>
+    </a>
+    <nav class="blog-nav__menu" id="main-menu" aria-label="Main navigation">
       {{- $currentURL := .RelPermalink }}
       {{- range .Site.Menus.main }}
       <a href="{{ .URL }}" class="blog-nav__item{{ if eq $currentURL .URL }} active{{ end }}">{{ .Name }}</a>
       {{- end }}
     </nav>
     <div class="blog-nav__actions">
-  <button class="nav-btn" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle theme">🌙</button>
-  <script>
-    (function() {
-      var btn = document.getElementById('theme-toggle');
-      var body = document.body;
-      var stored = localStorage.getItem('theme');
-      if (stored === 'light') { body.classList.add('light-mode'); btn.textContent = '☀️'; }
-      btn.addEventListener('click', function() {
-        if (body.classList.toggle('light-mode')) {
-          localStorage.setItem('theme', 'light'); btn.textContent = '☀️';
-        } else {
-          localStorage.setItem('theme', 'dark'); btn.textContent = '🌙';
-        }
-      });
-    })();
-  </script>
+      <button class="nav-btn blog-nav__toggle" id="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-menu">
+        <span class="nav-toggle__icon" aria-hidden="true"></span>
+      </button>
+      <button class="nav-btn" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle theme">🌙</button>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.classList.remove('no-js');
+        });
+        (function() {
+          var btn = document.getElementById('theme-toggle');
+          var body = document.body;
+          var stored = localStorage.getItem('theme');
+          if (stored === 'light') { body.classList.add('light-mode'); btn.textContent = '☀️'; }
+          btn.addEventListener('click', function() {
+            if (body.classList.toggle('light-mode')) {
+              localStorage.setItem('theme', 'light'); btn.textContent = '☀️';
+            } else {
+              localStorage.setItem('theme', 'dark'); btn.textContent = '🌙';
+            }
+          });
+        })();
+        (function() {
+          var toggle = document.getElementById('nav-toggle');
+          var menu = document.getElementById('main-menu');
+          var body = document.body;
+          var rootStyles = getComputedStyle(document.documentElement);
+          var NAV_BREAKPOINT_FALLBACK = 820; // Keep in sync with --nav-breakpoint in CSS
+          var MOBILE_BREAKPOINT = parseInt(rootStyles.getPropertyValue('--nav-breakpoint')) || NAV_BREAKPOINT_FALLBACK;
+          var RESIZE_DEBOUNCE_MS = 120;
+          var resizeTimer = null;
+          var isListening = false;
+          if (!toggle || !menu) return;
+
+          var closeMenu = function() {
+            menu.classList.remove('is-open');
+            body.classList.remove('nav-open');
+            toggle.setAttribute('aria-expanded', 'false');
+            if (isListening) {
+              document.removeEventListener('click', handleDocumentClick, true);
+              window.removeEventListener('resize', handleResize);
+              isListening = false;
+            }
+          };
+
+          var openMenu = function() {
+            menu.classList.add('is-open');
+            body.classList.add('nav-open');
+            toggle.setAttribute('aria-expanded', 'true');
+            if (!isListening) {
+              document.addEventListener('click', handleDocumentClick, true);
+              window.addEventListener('resize', handleResize);
+              isListening = true;
+            }
+          };
+
+          var handleDocumentClick = function(evt) {
+            if (!menu.classList.contains('is-open')) return;
+            if (!menu.contains(evt.target) && !toggle.contains(evt.target)) {
+              closeMenu();
+            }
+          };
+
+          var handleResize = function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+              if (window.innerWidth > MOBILE_BREAKPOINT) {
+                closeMenu();
+              }
+            }, RESIZE_DEBOUNCE_MS);
+          };
+
+          toggle.addEventListener('click', function() {
+            if (menu.classList.contains('is-open')) {
+              closeMenu();
+            } else {
+              openMenu();
+            }
+          });
+
+          menu.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', closeMenu);
+          });
+        })();
+      </script>
     </div>
   </div>
 </header>

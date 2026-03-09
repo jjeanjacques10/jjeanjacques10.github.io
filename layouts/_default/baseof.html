@@ -40,7 +40,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 </head>
-<body class="blog-body">
+<body class="blog-body no-js">
 
   {{- partial "navbar.html" . }}
 
@@ -116,6 +116,79 @@
         highlight.appendChild(copyBtn);
       });
     });
-  </script>
-</body>
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const targets = Array.from(document.querySelectorAll('.post-content img, .post-cover img'));
+        if (!targets.length) return;
+
+        const DEFAULT_ALT_TEXT = 'Expanded image';
+        const lightbox = document.createElement('div');
+        lightbox.className = 'image-lightbox';
+        lightbox.innerHTML = `
+          <div class="image-lightbox__content" role="dialog" aria-modal="true" aria-label="${DEFAULT_ALT_TEXT}" tabindex="-1">
+            <button class="image-lightbox__close" type="button" aria-label="Close image">✕</button>
+            <img class="image-lightbox__img" src="" alt="">
+          </div>
+        `;
+        document.body.appendChild(lightbox);
+
+        const lightboxImg = lightbox.querySelector('.image-lightbox__img');
+        const closeBtn = lightbox.querySelector('.image-lightbox__close');
+        const lightboxContent = lightbox.querySelector('.image-lightbox__content');
+        let lastActive = null;
+
+        const closeLightbox = function() {
+          if (!lightbox.classList.contains('is-open')) return;
+          lightbox.classList.remove('is-open');
+          document.body.classList.remove('image-lightbox-open');
+          // When the trigger element disappears (e.g., dynamic content), focus may fail.
+          if (lastActive && typeof lastActive.focus === 'function') {
+            lastActive.focus({ preventScroll: true });
+          }
+        };
+
+        const openLightbox = function(src, altText) {
+          lastActive = document.activeElement;
+          lightboxImg.src = src;
+          lightboxImg.alt = altText || DEFAULT_ALT_TEXT;
+          lightbox.classList.add('is-open');
+          document.body.classList.add('image-lightbox-open');
+          lightboxContent.focus({ preventScroll: true });
+        };
+
+        lightbox.addEventListener('click', function(evt) {
+          if (evt.target === lightbox) {
+            closeLightbox();
+          }
+        });
+
+        closeBtn.addEventListener('click', closeLightbox);
+
+        document.addEventListener('keydown', function(evt) {
+          if (evt.key === 'Escape') {
+            closeLightbox();
+          }
+        });
+
+        targets.forEach(function(img) {
+          if (!img.getAttribute('loading')) {
+            img.setAttribute('loading', 'lazy');
+          }
+          img.setAttribute('tabindex', '0');
+          const open = function() {
+            const src = img.currentSrc || img.src;
+            openLightbox(src, img.alt || img.title || 'Expanded image');
+          };
+          img.addEventListener('click', open);
+          img.addEventListener('keydown', function(evt) {
+            if (evt.key === 'Enter' || evt.key === ' ') {
+              evt.preventDefault();
+              open();
+            }
+          });
+        });
+      });
+    </script>
+  </body>
 </html>
