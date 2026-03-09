@@ -2,8 +2,8 @@
 title: "Tornando seu código mais SOLID!"
 date: 2022-02-23
 description: ""
-tags: ["Solid", "Java Spring", "Spring", "Pokemon"]
-categories: ["medium-import"]
+tags: ["Engenharia de Software", "SOLID", "Java", "Spring"]
+categories: ["software-engineering"]
 cover: "/posts/images/2022-02-23-tornando-seu-codigo-mais-solid/cover.png"
 draft: false
 ---
@@ -147,8 +147,6 @@ Quando implementamos estes conceitos em nossos projetos temos um código melhor 
 No começo pode ser um pouco complicado entender todos estes princípios, mas o que me ajuda a compreender cada dia mais o SOLID é buscar implementa-los todos os dias nos códigos que desenvolvo. Se quer aprender então coloque a mão na massa!
 
 Caso tenha alguma crítica, sugestão ou dúvida fique a vontade para me enviar uma mensagem. Até a próxima!
-
-LinkedIn: https://www.linkedin.com/in/jjean-jacques10/
 
 ## Referências
 

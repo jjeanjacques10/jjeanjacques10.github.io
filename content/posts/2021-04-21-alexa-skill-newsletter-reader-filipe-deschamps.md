@@ -2,8 +2,8 @@
 title: "Alexa Skill — Newsletter Reader (Filipe Deschamps)"
 date: 2021-04-21
 description: ""
-tags: ["Alexa", "Alexa Skills", "Amazon Echo", "Amazon Web Services", "Amazon"]
-categories: ["medium-import"]
+tags: ["AWS", "Alexa", "Serverless", "Integrações"]
+categories: ["cloud"]
 cover: "/posts/images/2021-04-21-alexa-skill-newsletter-reader-filipe-deschamps/cover.png"
 draft: false
 ---
@@ -215,7 +215,7 @@ https://github.com/jjeanjacques10/alexa-newsletter-deschamps
 
 Caso tenha alguma crítica, sugestão ou dúvida fique a vontade para me enviar uma mensagem:
 
-Linkedin: https://www.linkedin.com/in/jjean-jacques10/
+
 
 Revisão de texto realizada por: Gabriel Petillo
 

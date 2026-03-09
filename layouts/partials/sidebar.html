@@ -68,19 +68,6 @@
     </div>
   </div>
 
-  <!-- Recent Posts -->
-  <div class="sidebar-card">
-    <h4 class="sidebar-card__title">Recent Posts</h4>
-    <ul class="recent-posts">
-      {{- range first 5 .Site.RegularPages.ByDate.Reverse }}
-      <li class="recent-post">
-        <a href="{{ .RelPermalink }}" class="recent-post__title">{{ .Title }}</a>
-        <time class="recent-post__date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
-      </li>
-      {{- end }}
-    </ul>
-  </div>
-
   <!-- Tags -->
   {{- if .Site.Taxonomies.tags }}
   <div class="sidebar-card">
@@ -111,23 +98,17 @@
   </div>
   {{- end }}
 
-  <!-- Archive -->
-  {{- $pages := .Site.RegularPages }}
-  {{- if $pages }}
+  <!-- Recent Posts -->
   <div class="sidebar-card">
-    <h4 class="sidebar-card__title">Archive</h4>
-    <ul class="archive-list">
-      {{- range first 7 ($pages.GroupByDate "2006-01").Reverse }}
-      <li class="archive-item">
-        <a href="{{ "posts/" | relURL }}" class="archive-link">{{ .Key }}</a>
-        <span class="archive-count">{{ len .Pages }}</span>
+    <h4 class="sidebar-card__title">Recent Posts</h4>
+    <ul class="recent-posts">
+      {{- range first 3 .Site.RegularPages.ByDate.Reverse }}
+      <li class="recent-post">
+        <a href="{{ .RelPermalink }}" class="recent-post__title">{{ .Title }}</a>
+        <time class="recent-post__date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
       </li>
       {{- end }}
     </ul>
-    {{- if gt (len ($pages.GroupByDate "2006-01")) 7 }}
-    <a href="{{ "posts/" | relURL }}" class="show-more">Show more · View all →</a>
-    {{- end }}
   </div>
-  {{- end }}
 
 </div>

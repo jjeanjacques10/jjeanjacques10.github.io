@@ -2,8 +2,8 @@
 title: "Como usar e criar Annotations em Kotlin — Spring Framework"
 date: 2023-03-02
 description: ""
-tags: ["Kotlin", "Spring", "Spring Boot", "Annotations", "API"]
-categories: ["medium-import"]
+tags: ["Kotlin", "Spring Boot", "APIs", "Engenharia de Software"]
+categories: ["software-engineering"]
 cover: "/posts/images/2023-03-02-como-usar-e-criar-annotations-em-kotlin-spring-framework/cover.png"
 draft: false
 ---
@@ -172,7 +172,7 @@ Passei um bom tempo estudando sobre annotations no Spring para poder utilizar em
 
 Caso tenha alguma crítica, sugestão ou dúvida fique a vontade para me enviar uma mensagem:
 
-Linkedin: https://www.linkedin.com/in/jjean-jacques10/
+
 
 Até a próxima!
 

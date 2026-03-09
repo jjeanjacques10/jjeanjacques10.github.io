@@ -2,8 +2,8 @@
 title: "A habilidade mais importante para um desenvolvedor é a comunicação"
 date: 2023-06-09
 description: ""
-tags: ["Programa\u00e7\u00e3o", "Tech Writer", "Documentation", "Software", "Software Development"]
-categories: ["medium-import"]
+tags: ["Carreira", "Comunicação", "Engenharia de Software", "Documentação"]
+categories: ["software-engineering"]
 cover: "/posts/images/2023-06-09-a-habilidade-mais-importante-para-um-desenvolvedor-e-a-comunicacao/cover.png"
 draft: false
 ---

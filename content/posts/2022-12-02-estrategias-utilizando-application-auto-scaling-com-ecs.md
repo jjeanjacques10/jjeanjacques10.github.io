@@ -2,8 +2,8 @@
 title: "Estratégias utilizando Application Auto Scaling com ECS"
 date: 2022-12-02
 description: ""
-tags: ["AWS", "Autoscaling", "Elastic Container Service", "Cloud Computing", "Microservices"]
-categories: ["medium-import"]
+tags: ["AWS", "ECS", "Escalabilidade", "Arquitetura de Software"]
+categories: ["cloud"]
 cover: "/posts/images/2022-12-02-estrategias-utilizando-application-auto-scaling-com-ecs/cover.png"
 draft: false
 ---
@@ -275,8 +275,6 @@ Apresentei as principais estratégias de como utilizar Auto Scaling e suas aplic
 Espero que esse conteúdo o tenha ajudado à entender melhor como implementar Auto Scaling em aplicações ECS na AWS!
 
 Caso tenha alguma crítica, sugestão ou dúvida fique à vontade para me enviar uma mensagem:
-
-LinkedIn: https://www.linkedin.com/in/jjean-jacques10/
 
 Até a próxima!
 

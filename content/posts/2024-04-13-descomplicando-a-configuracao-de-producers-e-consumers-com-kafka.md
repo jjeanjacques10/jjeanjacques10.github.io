@@ -2,8 +2,8 @@
 title: "Descomplicando a Configuração de Producers e Consumers com Kafka"
 date: 2024-04-13
 description: ""
-tags: ["Kafka", "Spring Boot", "Broker", "Message Queue"]
-categories: ["medium-import"]
+tags: ["Kafka", "Spring Boot", "Mensageria", "Sistemas Distribuídos"]
+categories: ["platform-engineering"]
 cover: "/posts/images/2024-04-13-descomplicando-a-configuracao-de-producers-e-consumers-com-kafka/cover.png"
 draft: false
 ---
@@ -269,7 +269,7 @@ Gostaria de agradecer ao Gustavo Santos Madeira por ter me apresentado estes con
 
 Caso tenha alguma crítica, sugestão ou dúvida fique a vontade para me enviar uma mensagem:
 
-LinkedIn: https://www.linkedin.com/in/jjean-jacques10/
+
 
 Até a próxima!
 

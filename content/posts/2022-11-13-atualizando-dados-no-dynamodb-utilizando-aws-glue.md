@@ -2,8 +2,8 @@
 title: "Atualizando dados no DynamoDB utilizando AWS Glue"
 date: 2022-11-13
 description: ""
-tags: ["AWS", "Glue", "Dynamodb", "Pyspark", "Etl"]
-categories: ["medium-import"]
+tags: ["AWS", "DynamoDB", "Python", "Engenharia de Dados"]
+categories: ["cloud"]
 cover: "/posts/images/2022-11-13-atualizando-dados-no-dynamodb-utilizando-aws-glue/cover.png"
 draft: false
 ---
@@ -86,7 +86,7 @@ job.init(args['JOB_NAME'], args)
 
 Após iniciar o job é feita a conexão com o banco de dados. Nele informamos qual o nome da tabela e os parâmetros de configuração para essa conexão.
 
-```json
+``` python
 TABLE_NAME = "tb_pokemons"
 
 dyf = glueContext.create_dynamic_frame.from_options(
@@ -107,7 +107,7 @@ Nas últimas linhas apresentamos a quantidade de itens listados e podemos dar um
 
 Vamos filtrar apenas os registros que nos interessam, fazemos isso por meio da função filter. Na Lambda a seguir digo que quero apenas os registros que não possuem “category”.
 
-```json
+``` python
 filtered_dyf = dyf.filter(f=lambda x: "category" not in x)
 
 print(f"Count Items without category: {filtered_dyf.count()}")
@@ -117,7 +117,7 @@ filtered_dyf.show()
 
 Dados filtrados, já sabemos onde atacar, para popular esse campo iremos utilizar a PokeAPI, que é um serviço gratuito onde podemos buscar informações sobre todos os Pokémon deste vasto universo. Na função buscamos pelo número do registro e então atualizamos a linha com o valor encontrado.
 
-```python
+``` python
 def add_category(row):
     url = f"https://pokeapi.co/api/v2/pokemon/{row['number']}"
 
@@ -133,7 +133,7 @@ updated_dyf.show()
 
 DataFrame atualizado agora é a hora de enviar esses dados para a tabela tb_pokemons utilizando o mesmo glueContext passamos como parâmetro o frame igual ao nosso DF.
 
-```json
+``` python
 if filtered_dyf.count() < 1:
     print('There are no items to process')
     os._exit(0)
@@ -168,9 +168,7 @@ A Amazon Web Services possuí diversos serviços que podem facilitar a nossa vid
 
 Conseguimos realizar a atualizar em lote de forma fácil e rápida, sem precisar gerenciar uma arquitetura complexa como a criação de uma Lambda ou de uma aplicação apenas para isso. Essa prova de conceito serviu para mostrar o potencial de um script Python para evitar que utilizemos um canhão para matar uma formiga.
 
-Caso tenha alguma crítica, sugestão ou dúvida fique à vontade para me enviar uma mensagem:
-
-LinkedIn: https://www.linkedin.com/in/jjean-jacques10/
+Caso tenha alguma crítica, sugestão ou dúvida fique à vontade para me enviar uma mensagem
 
 Até a próxima!
 

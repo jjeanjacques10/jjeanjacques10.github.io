@@ -2,8 +2,8 @@
 title: "Resolvendo problemas de Rate Limiter com Token Bucket e Semáforos"
 date: 2026-01-17
 description: ""
-tags: ["Aws Sqs", "Spring Boot", "Token Buckets", "Semaphore", "System Design Interview"]
-categories: ["medium-import"]
+tags: ["AWS", "Spring Boot", "Sistemas Distribuídos", "Rate Limiting"]
+categories: ["platform-engineering"]
 cover: "/posts/images/2026-01-17-resolvendo-problemas-de-rate-limiter-com-token-bucket-e-semaforos/cover.png"
 draft: false
 ---
@@ -368,9 +368,7 @@ Não existe “bala de prata” para rate limit.
 
 O segredo está em entender o gargalo do seu sistema e escolher a estratégia que melhor protege seus recursos sem sacrificar a resiliência.
 
-Caso tenha alguma crítica, sugestão ou dúvida fique à vontade para me enviar uma mensagem:
-
-LinkedIn: https://www.linkedin.com/in/jjean-jacques10/
+Caso tenha alguma crítica, sugestão ou dúvida fique à vontade para me enviar uma mensagem
 
 Até a próxima!
 

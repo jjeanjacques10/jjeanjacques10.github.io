@@ -2,8 +2,8 @@
 title: "[PT-BR] Spring Data JPA — Overview"
 date: 2022-07-07
 description: ""
-tags: ["Spring Data Jpa", "Spring Boot", "Spring", "Spring Framework", "Java"]
-categories: ["medium-import"]
+tags: ["Spring Boot", "Java", "Banco de Dados", "JPA"]
+categories: ["software-engineering"]
 cover: "/posts/images/2022-07-07-pt-br-spring-data-jpa-overview/cover.png"
 draft: false
 ---
@@ -136,8 +136,6 @@ Após me aprofundar na biblioteca que vejo diariamente, percebi o quanto ainda t
 Até a próxima!
 
 Caso tenha alguma crítica, sugestão ou dúvida fique a vontade para me enviar uma mensagem:
-
-Linkedin: https://www.linkedin.com/in/jjean-jacques10/
 
 Até a próxima!
 

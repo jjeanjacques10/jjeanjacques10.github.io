@@ -2,8 +2,8 @@
 title: "DynamoDB Single-Table Design com Spring Boot"
 date: 2022-08-31
 description: ""
-tags: ["Dynamodb", "Spring Boot", "Spring", "AWS", "Cloud"]
-categories: ["medium-import"]
+tags: ["AWS", "DynamoDB", "Spring Boot", "Arquitetura de Software"]
+categories: ["cloud"]
 cover: "/posts/images/2022-08-31-dynamodb-single-table-design-com-spring-boot/cover.png"
 draft: false
 ---
@@ -150,9 +150,7 @@ Com isso podemos concluir que o que irá determinar o uso desse tipo de design �
 
 O uso de tabelas DynamoDB facilita muito no dia a dia, principalmente quando nossos dados são utilizamos muito para consultas, convido vocês a clonar o repositório com os exemplos, nele tem um ambiente criado para testes locais utilizando o Localstack, simulando o DynamoDB. Só colocando a mão na massas que será possível entender se essa abordagem cumpre com os desafios propostos!
 
-Caso tenha alguma crítica, sugestão ou dúvida fique a vontade para me enviar uma mensagem:
-
-Linkedin: https://www.linkedin.com/in/jjean-jacques10/
+Caso tenha alguma crítica, sugestão ou dúvida fique a vontade para me enviar uma mensagem
 
 Até a próxima!
 

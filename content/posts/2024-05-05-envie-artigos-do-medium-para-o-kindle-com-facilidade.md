@@ -2,8 +2,8 @@
 title: "Envie Artigos do Medium para o Kindle com Facilidade"
 date: 2024-05-05
 description: ""
-tags: ["Leitura", "Kindle", "Medium", "Open Source", "Github"]
-categories: ["medium-import"]
+tags: ["Python", "Automação", "Open Source", "Produtividade"]
+categories: ["software-engineering"]
 cover: "/posts/images/2024-05-05-envie-artigos-do-medium-para-o-kindle-com-facilidade/cover.png"
 draft: false
 ---
@@ -51,6 +51,6 @@ Espero que goste e recomende para amigos!
 
 Caso tenha alguma crítica, sugestão ou dúvida fique a vontade para me enviar uma mensagem:
 
-LinkedIn: https://www.linkedin.com/in/jjean-jacques10/
+
 
 Até a próxima!
