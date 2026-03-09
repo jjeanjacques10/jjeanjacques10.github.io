@@ -1,6 +1,9 @@
 <header class="blog-nav">
   <div class="blog-nav__inner">
-    <a href="{{ .Site.BaseURL }}" class="blog-nav__brand">{{ .Site.Title }}</a>
+    <a href="{{ .Site.BaseURL }}" class="blog-nav__brand">
+      <span class="brand-full">{{ .Site.Title }}</span>
+      <span class="brand-short">jjeanjacques10</span>
+    </a>
     <nav class="blog-nav__menu" id="main-menu" aria-label="Main navigation">
       {{- $currentURL := .RelPermalink }}
       {{- range .Site.Menus.main }}

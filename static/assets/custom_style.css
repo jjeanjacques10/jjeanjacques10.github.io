@@ -69,6 +69,7 @@ img { max-width: 100%; height: auto; display: block; }
   white-space: nowrap;
   flex-shrink: 0;
 }
+.brand-short { display: none; }
 .blog-nav__brand:hover { color: var(--accent) !important; }
 
 .blog-nav__menu {
@@ -1009,6 +1010,8 @@ body.light-mode .markdown-body pre {
   .blog-nav__actions { margin-left: auto; }
   .blog-nav__toggle { display: inline-flex; }
   .blog-nav__brand { font-size: 1rem; }
+  .brand-full { display: none; }
+  .brand-short { display: inline; }
   body.no-js .blog-nav__menu {
     position: static;
     display: flex;
