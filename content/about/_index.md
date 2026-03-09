@@ -1,25 +1,34 @@
 ---
-title: "Sobre"
-description: "Staff Software Engineer apaixonado por arquitetura de software, cloud e anime"
+title: "Jean Jacques"
+description: "Staff Software Engineer com foco em sistemas distribuídos, cloud-native e liderança técnica"
+profileImage: "https://github.com/jjeanjacques10.png"
+profileImageAlt: "Foto de perfil de Jean Jacques"
 ---
 
-# Jean Jacques
-
-**Staff Software Engineer** com foco em arquitetura de sistemas distribuídos, cloud (principalmente AWS) e engenharia de plataforma.
+**Staff Software Engineer** com mais de 7 anos de experiência construindo sistemas distribuídos de missão crítica para o setor financeiro.
 
 ## 👨‍💻 Sobre mim
 
-Trabalho com engenharia de software há mais de 8 anos, com experiência em sistemas de alto volume, plataformas de pagamento e arquiteturas cloud-native.
+Atualmente atuo como **Staff Software Engineer no Itaú Unibanco**, com foco em **Distributed Systems**, **Cloud-Native Architectures** e **Event-Driven Design**.
 
-Sou apaixonado por compartilhar conhecimento técnico de forma acessível — por isso uso **analogias com animes e mangás** para explicar conceitos complexos. Se você pode entender como o Rasengan do Naruto funciona, pode entender Event Driven Architecture.
+Tenho forte atuação em otimização de processos, liderança técnica e mentoria, sempre buscando arquiteturas escaláveis, resilientes e orientadas a domínio.
+
+Sou apaixonado por compartilhar conhecimento técnico por meio de artigos e palestras, traduzindo conceitos complexos em explicações práticas e acessíveis.
+
+## 🎓 Formação e certificações
+
+- **MBA em Cloud & Architecture** pela [FIAP](https://www.fiap.com.br/)
+- **AWS Certified Solutions Architect**
+- **AWS Certified Cloud Practitioner**
+- **Speaker** em eventos como [The Developers Conference (TDC)](https://thedevconf.com/palestrante/jean-jacques-barros)
 
 ## 🎯 Foco Técnico
 
-- **Arquitetura de Software**: microserviços, event-driven, CQRS, DDD
-- **Cloud (AWS)**: EC2, ECS, Lambda, SQS, Kafka (MSK), RDS, DynamoDB
-- **Engenharia de Plataforma**: IaC (Terraform), observabilidade, CI/CD
-- **Sistemas de Pagamento**: processamento de transações, compliance, resiliência
-- **Sistemas Distribuídos**: consistência eventual, teorema CAP, padrões de falha
+- **Arquitetura de Software**: microsserviços, event-driven e design orientado a domínio
+- **Cloud & DevOps**: AWS, Docker, Terraform e observabilidade
+- **Backend**: Java, Spring, Kotlin, Python e Kafka
+- **Bancos de Dados**: MySQL, DynamoDB e Redis
+- **Engenharia de Plataforma**: CI/CD, confiabilidade e escalabilidade operacional
 
 ## 📝 Por que migrei do Medium?
 
@@ -35,15 +44,12 @@ Escrevi por anos no [Medium](https://jjeanjacques10.medium.com), mas queria:
 
 - **GitHub**: [github.com/jjeanjacques10](https://github.com/jjeanjacques10)
 - **Medium**: [jjeanjacques10.medium.com](https://jjeanjacques10.medium.com)
-- **LinkedIn**: [linkedin.com/in/jjeanjacques10](https://www.linkedin.com/in/jjeanjacques10)
+- **LinkedIn**: [linkedin.com/in/jjean-jacques10](https://www.linkedin.com/in/jjean-jacques10/)
+- **YouTube**: [youtube.com/@jjeanjacques](https://www.youtube.com/channel/UCdmQOk2zNiiPlOc0p-Mtj5A)
+- **Instagram**: [instagram.com/jjean_dev](https://www.instagram.com/jjean_dev)
 
 ## 🍜 Inspirações
 
-Os artigos deste blog frequentemente referenciam:
+Os artigos deste blog frequentemente referenciam os meus mangás/animes favoritos, como **Naruto**, **One Piece** e **My Hero Academia**, usando analogias para explicar conceitos técnicos de forma divertida e acessível.
 
-- **Naruto**: sistemas distribuídos, mensageria, liderança
-- **Attack on Titan**: trade-offs de arquitetura, constraints
-- **One Piece**: jornadas de migração, equipes
-- **Dragon Ball**: escalabilidade, performance
-
-> *"Um ninja que abandona a missão é pior que um que nunca existiu. Mas um engenheiro que não documenta é pior que ambos."* — Hashirama Senju (paráfrase técnica)
+> *"Um ninja que abandona a missão é pior que um que nunca existiu. Mas um engenheiro que não documenta é pior que ambos."* — Hashirama Senju 

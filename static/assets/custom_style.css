@@ -765,6 +765,14 @@ img { max-width: 100%; height: auto; display: block; }
   .blog-nav__item { padding: 5px 6px; font-size: 0.8rem; }
   .post-title { font-size: 1.35rem; }
   .post-single { padding: 20px; }
+  .about-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .about-profile img {
+    width: 96px;
+    height: 96px;
+  }
 }
 
 /* ---- Search Page ----------------------------------------- */
@@ -891,3 +899,32 @@ body.light-mode .blog-footer    { background: var(--surface); }
 body.light-mode .post-content code { background: var(--surface2) !important; color: #24292f !important; }
 body.light-mode .post-content pre  { background: var(--surface2) !important; }
 body.light-mode .post-content hr::after { background: var(--surface); }
+
+/* ---- About Page ----------------------------------------- */
+.about-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.about-profile {
+  flex-shrink: 0;
+}
+
+.about-profile img {
+  width: 120px;
+  height: 120px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid var(--border);
+}
+
+.about-header__content {
+  min-width: 0;
+}
+
+.about-description {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}

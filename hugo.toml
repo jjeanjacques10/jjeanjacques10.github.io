@@ -51,7 +51,7 @@ copyright = "&copy; Jean Jacques"
     weight = 4
   [[menu.main]]
     identifier = "search"
-    name = "Busca"
+    name = "Pesquisa"
     url = "/search/"
     weight = 5
   [[menu.main]]
