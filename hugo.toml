@@ -21,6 +21,7 @@ copyright = "&copy; Jean Jacques"
   defaultTheme = "dark"
   keywords = ["software engineering", "cloud", "aws", "architecture", "distributed systems"]
   github = "jjeanjacques10"
+  linkedin = "jjean-jacques10"
   medium = "jjeanjacques10"
   useTwitterCard = true
   showFooterCredits = true

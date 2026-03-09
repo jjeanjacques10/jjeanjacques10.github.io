@@ -16,7 +16,7 @@
   --accent:       #56d364;
   --link:         #58a6ff;
   --link-hov:     #79c0ff;
-  --code-bg:      #161b22;
+  --code-bg:      #1E1F22;
   --nav-h:        56px;
 }
 
@@ -589,7 +589,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .post-content code {
   background: var(--code-bg) !important;
-  color: #e6edf3 !important;
+  color: #BCBEC4 !important;
   padding: 2px 6px;
   border-radius: 4px;
   font-family: 'Fira Code', 'JetBrains Mono', monospace;
@@ -733,7 +733,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .markdown-body code, .markdown-body pre {
   background: var(--code-bg) !important;
-  color: #e6edf3 !important;
+  color: #BCBEC4 !important;
   border-color: var(--border) !important;
 }
 .markdown-body blockquote {
@@ -791,3 +791,259 @@ body.light-mode .blog-footer    { background: var(--surface); }
 body.light-mode .post-content code { background: var(--surface2) !important; color: #24292f !important; }
 body.light-mode .post-content pre  { background: var(--surface2) !important; }
 body.light-mode .post-content hr::after { background: var(--surface); }
+
+/* ============================================================
+   IntelliJ IDEA Islands Dark Theme - Syntax Highlighting (Dark Mode)
+   ============================================================ */
+
+/* Dark Mode Chroma Overrides */
+.chroma { 
+  background-color: #1E1F22 !important;
+  color: #BCBEC4 !important;
+}
+
+.chroma .hl { background-color: #2B2D30 !important; }
+.chroma .lnt { color: #5E6167 !important; }
+.chroma .ln { color: #5E6167 !important; }
+
+/* Error */
+.chroma .err { color: #E8596B !important; background-color: #3d2426 !important; }
+
+/* Keywords */
+.chroma .k { color: #CF8E6D !important; font-weight: normal !important; }
+.chroma .kc { color: #CF8E6D !important; font-weight: normal !important; }
+.chroma .kd { color: #CF8E6D !important; font-weight: normal !important; }
+.chroma .kn { color: #CF8E6D !important; font-weight: normal !important; }
+.chroma .kp { color: #CF8E6D !important; font-weight: normal !important; }
+.chroma .kr { color: #CF8E6D !important; font-weight: normal !important; }
+.chroma .kt { color: #CF8E6D !important; font-weight: normal !important; }
+
+/* Names */
+.chroma .na { color: #C77DBB !important; }
+.chroma .nb { color: #56A8F5 !important; }
+.chroma .nc { color: #4EC9B0 !important; font-weight: normal !important; }
+.chroma .no { color: #C77DBB !important; font-weight: normal !important; }
+.chroma .nd { color: #C77DBB !important; }
+.chroma .ni { color: #C77DBB !important; }
+.chroma .ne { color: #BCBEC4 !important; }
+.chroma .nf { color: #56A8F5 !important; font-weight: normal !important; }
+.chroma .nl { color: #C77DBB !important; }
+.chroma .nn { color: #BCBEC4 !important; }
+.chroma .nt { color: #CF8E6D !important; }
+.chroma .nv { color: #C77DBB !important; }
+.chroma .nx { color: #BCBEC4 !important; }
+
+/* Literals - Strings */
+.chroma .s { color: #6AAB73 !important; }
+.chroma .sa { color: #6AAB73 !important; }
+.chroma .sb { color: #6AAB73 !important; }
+.chroma .sc { color: #6AAB73 !important; }
+.chroma .dl { color: #6AAB73 !important; }
+.chroma .sd { color: #6C707E !important; font-style: italic !important; }
+.chroma .s2 { color: #6AAB73 !important; }
+.chroma .se { color: #CF8E6D !important; font-weight: normal !important; }
+.chroma .sh { color: #6AAB73 !important; }
+.chroma .si { color: #CF8E6D !important; }
+.chroma .sx { color: #6AAB73 !important; }
+.chroma .sr { color: #6AAB73 !important; font-weight: normal !important; }
+.chroma .s1 { color: #6AAB73 !important; }
+.chroma .ss { color: #C77DBB !important; }
+
+/* Literals - Numbers */
+.chroma .m { color: #2AACB8 !important; }
+.chroma .mb { color: #2AACB8 !important; }
+.chroma .mf { color: #2AACB8 !important; }
+.chroma .mh { color: #2AACB8 !important; }
+.chroma .mi { color: #2AACB8 !important; }
+.chroma .il { color: #2AACB8 !important; }
+.chroma .mo { color: #2AACB8 !important; }
+
+/* Operators */
+.chroma .o { color: #BCBEC4 !important; }
+.chroma .ow { color: #CF8E6D !important; font-weight: normal !important; }
+
+/* Comments */
+.chroma .c { color: #6C707E !important; font-style: italic !important; }
+.chroma .ch { color: #6C707E !important; font-style: italic !important; }
+.chroma .cm { color: #6C707E !important; font-style: italic !important; }
+.chroma .c1 { color: #6C707E !important; font-style: italic !important; }
+.chroma .cs { color: #6C707E !important; font-style: italic !important; }
+.chroma .cp { color: #C77DBB !important; font-weight: normal !important; }
+.chroma .cpf { color: #C77DBB !important; font-weight: normal !important; }
+
+/* Generic */
+.chroma .gd { color: #E8596B !important; }
+.chroma .ge { font-style: italic !important; }
+.chroma .gr { color: #E8596B !important; }
+.chroma .gh { color: #CF8E6D !important; font-weight: normal !important; }
+.chroma .gi { color: #6AAB73 !important; }
+.chroma .go { color: #6C707E !important; }
+.chroma .gp { color: #BCBEC4 !important; }
+.chroma .gs { font-weight: bold !important; }
+.chroma .gu { color: #CF8E6D !important; font-weight: normal !important; }
+.chroma .gt { color: #E8596B !important; }
+
+/* Other */
+.chroma .w { color: #5E6167 !important; }
+.chroma .p { color: #BCBEC4 !important; }
+.chroma .fm { color: #56A8F5 !important; font-weight: normal !important; }
+.chroma .vm { color: #C77DBB !important; }
+
+/* Light Mode Chroma Overrides - Reset to light theme */
+body.light-mode .chroma {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+body.light-mode .chroma .hl { background-color: #e8f2ff !important; }
+body.light-mode .chroma .lnt { color: #787878 !important; }
+body.light-mode .chroma .ln { color: #787878 !important; }
+body.light-mode .chroma .err { color: #ff0000 !important; background-color: #ffdddd !important; }
+
+body.light-mode .chroma .k { color: #000080 !important; font-weight: bold !important; }
+body.light-mode .chroma .kc { color: #000080 !important; font-weight: bold !important; }
+body.light-mode .chroma .kd { color: #000080 !important; font-weight: bold !important; }
+body.light-mode .chroma .kn { color: #000080 !important; font-weight: bold !important; }
+body.light-mode .chroma .kp { color: #000080 !important; font-weight: bold !important; }
+body.light-mode .chroma .kr { color: #000080 !important; font-weight: bold !important; }
+body.light-mode .chroma .kt { color: #000080 !important; font-weight: bold !important; }
+
+body.light-mode .chroma .na { color: #0000ff !important; }
+body.light-mode .chroma .nb { color: #000080 !important; }
+body.light-mode .chroma .nc { color: #000000 !important; font-weight: bold !important; }
+body.light-mode .chroma .no { color: #871094 !important; font-weight: bold !important; }
+body.light-mode .chroma .nd { color: #808000 !important; }
+body.light-mode .chroma .ni { color: #871094 !important; }
+body.light-mode .chroma .ne { color: #000000 !important; font-weight: bold !important; }
+body.light-mode .chroma .nf { color: #00627a !important; font-weight: bold !important; }
+body.light-mode .chroma .nl { color: #871094 !important; }
+body.light-mode .chroma .nn { color: #000000 !important; }
+body.light-mode .chroma .nt { color: #000080 !important; }
+body.light-mode .chroma .nv { color: #871094 !important; }
+body.light-mode .chroma .nx { color: #000000 !important; }
+
+body.light-mode .chroma .s { color: #067d17 !important; }
+body.light-mode .chroma .sa { color: #067d17 !important; }
+body.light-mode .chroma .sb { color: #067d17 !important; }
+body.light-mode .chroma .sc { color: #067d17 !important; }
+body.light-mode .chroma .dl { color: #067d17 !important; }
+body.light-mode .chroma .sd { color: #8c8c8c !important; font-style: italic !important; }
+body.light-mode .chroma .s2 { color: #067d17 !important; }
+body.light-mode .chroma .se { color: #000080 !important; font-weight: bold !important; }
+body.light-mode .chroma .sh { color: #067d17 !important; }
+body.light-mode .chroma .si { color: #067d17 !important; }
+body.light-mode .chroma .sx { color: #067d17 !important; }
+body.light-mode .chroma .sr { color: #008000 !important; font-weight: bold !important; }
+body.light-mode .chroma .s1 { color: #067d17 !important; }
+body.light-mode .chroma .ss { color: #871094 !important; }
+
+body.light-mode .chroma .m { color: #1750eb !important; }
+body.light-mode .chroma .mb { color: #1750eb !important; }
+body.light-mode .chroma .mf { color: #1750eb !important; }
+body.light-mode .chroma .mh { color: #1750eb !important; }
+body.light-mode .chroma .mi { color: #1750eb !important; }
+body.light-mode .chroma .il { color: #1750eb !important; }
+body.light-mode .chroma .mo { color: #1750eb !important; }
+
+body.light-mode .chroma .o { color: #000000 !important; }
+body.light-mode .chroma .ow { color: #000080 !important; font-weight: bold !important; }
+
+body.light-mode .chroma .c { color: #8c8c8c !important; font-style: italic !important; }
+body.light-mode .chroma .ch { color: #8c8c8c !important; font-style: italic !important; }
+body.light-mode .chroma .cm { color: #8c8c8c !important; font-style: italic !important; }
+body.light-mode .chroma .c1 { color: #8c8c8c !important; font-style: italic !important; }
+body.light-mode .chroma .cs { color: #8c8c8c !important; font-style: italic !important; }
+body.light-mode .chroma .cp { color: #808000 !important; font-weight: bold !important; }
+body.light-mode .chroma .cpf { color: #808000 !important; font-weight: bold !important; }
+
+body.light-mode .chroma .gd { color: #ff0000 !important; }
+body.light-mode .chroma .ge { font-style: italic !important; }
+body.light-mode .chroma .gr { color: #ff0000 !important; }
+body.light-mode .chroma .gh { color: #000080 !important; font-weight: bold !important; }
+body.light-mode .chroma .gi { color: #067d17 !important; }
+body.light-mode .chroma .go { color: #8c8c8c !important; }
+body.light-mode .chroma .gp { color: #000000 !important; font-weight: bold !important; }
+body.light-mode .chroma .gs { font-weight: bold !important; }
+body.light-mode .chroma .gu { color: #000080 !important; font-weight: bold !important; }
+body.light-mode .chroma .gt { color: #ff0000 !important; }
+
+body.light-mode .chroma .w { color: #bbbbbb !important; }
+body.light-mode .chroma .p { color: #000000 !important; }
+body.light-mode .chroma .fm { color: #00627a !important; font-weight: bold !important; }
+body.light-mode .chroma .vm { color: #871094 !important; }
+
+/* ============================================================
+   Code Block Copy Button
+   ============================================================ */
+
+/* Code block wrapper with copy button */
+.highlight {
+  position: relative;
+  margin: 16px 0;
+}
+
+.code-copy-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 8px;
+  background: rgba(188, 190, 196, 0.1);
+  color: #BCBEC4;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 400;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.2s ease;
+  z-index: 10;
+  line-height: 1;
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+}
+
+.highlight:hover .code-copy-btn {
+  opacity: 0.6;
+}
+
+.code-copy-btn:hover {
+  opacity: 1 !important;
+  background: rgba(188, 190, 196, 0.15);
+}
+
+.code-copy-btn:active {
+  transform: scale(0.96);
+  background: rgba(188, 190, 196, 0.2);
+}
+
+.code-copy-btn.copied {
+  opacity: 1 !important;
+  color: #6AAB73;
+  background: rgba(106, 171, 115, 0.15);
+}
+
+/* Light mode adjustments */
+body.light-mode .code-copy-btn {
+  background: rgba(0, 0, 0, 0.04);
+  color: #57606a;
+}
+
+body.light-mode .highlight:hover .code-copy-btn {
+  opacity: 0.5;
+}
+
+body.light-mode .code-copy-btn:hover {
+  opacity: 1 !important;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .code-copy-btn:active {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+body.light-mode .code-copy-btn.copied {
+  color: #067d17;
+  background: rgba(6, 125, 23, 0.1);
+}
+
