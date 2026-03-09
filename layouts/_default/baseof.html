@@ -125,8 +125,8 @@
         const lightbox = document.createElement('div');
         lightbox.className = 'image-lightbox';
         lightbox.innerHTML = `
-          <div class="image-lightbox__content" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-            <button class="image-lightbox__close" type="button" aria-label="Fechar imagem">✕</button>
+          <div class="image-lightbox__content" role="dialog" aria-modal="true" aria-label="Expanded image">
+            <button class="image-lightbox__close" type="button" aria-label="Close image">✕</button>
             <img class="image-lightbox__img" src="" alt="">
           </div>
         `;
@@ -142,7 +142,7 @@
 
         const openLightbox = function(src, altText) {
           lightboxImg.src = src;
-          lightboxImg.alt = altText || 'Imagem ampliada';
+          lightboxImg.alt = altText || 'Expanded image';
           lightbox.classList.add('is-open');
           document.body.classList.add('image-lightbox-open');
           closeBtn.focus({ preventScroll: true });
@@ -169,11 +169,11 @@
           img.setAttribute('tabindex', '0');
           const open = function() {
             const src = img.currentSrc || img.src;
-            openLightbox(src, img.alt || img.title || 'Imagem ampliada');
+            openLightbox(src, img.alt || img.title || 'Expanded image');
           };
           img.addEventListener('click', open);
           img.addEventListener('keydown', function(evt) {
-            if (evt.key === 'Enter' || evt.key === ' ') {
+            if (evt.key === 'Enter' || evt.code === 'Space') {
               evt.preventDefault();
               open();
             }
