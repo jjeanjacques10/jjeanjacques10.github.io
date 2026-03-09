@@ -3,6 +3,9 @@ languageCode = "pt-br"
 title = "jjeanjacques10 - Software Engineering Blog"
 theme = "hugo-primer-theme"
 
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
 hasCJKLanguage = false
 summaryLength = 70
 pygmentsCodeFences = true
@@ -47,7 +50,12 @@ copyright = "&copy; Jean Jacques"
     url = "/about/"
     weight = 4
   [[menu.main]]
+    identifier = "search"
+    name = "Busca"
+    url = "/search/"
+    weight = 5
+  [[menu.main]]
     identifier = "github"
     name = "GitHub"
     url = "https://github.com/jjeanjacques10"
-    weight = 5
+    weight = 6
