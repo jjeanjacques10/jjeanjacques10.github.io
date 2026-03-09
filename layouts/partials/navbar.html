@@ -33,7 +33,9 @@
           var toggle = document.getElementById('nav-toggle');
           var menu = document.getElementById('main-menu');
           var body = document.body;
-          var MOBILE_BREAKPOINT = 820;
+          var rootStyles = getComputedStyle(document.documentElement);
+          var MOBILE_BREAKPOINT = parseInt(rootStyles.getPropertyValue('--nav-breakpoint')) || 820;
+          var RESIZE_DEBOUNCE_MS = 120;
           var resizeTimer = null;
           var isListening = false;
           if (!toggle || !menu) return;
@@ -73,7 +75,7 @@
               if (window.innerWidth > MOBILE_BREAKPOINT) {
                 closeMenu();
               }
-            }, 120);
+            }, RESIZE_DEBOUNCE_MS);
           };
 
           toggle.addEventListener('click', function() {

@@ -122,6 +122,7 @@
         const targets = Array.from(document.querySelectorAll('.post-content img, .post-cover img'));
         if (!targets.length) return;
 
+        const DEFAULT_ALT_TEXT = 'Expanded image';
         const lightbox = document.createElement('div');
         lightbox.className = 'image-lightbox';
         lightbox.innerHTML = `
@@ -141,6 +142,7 @@
           if (!lightbox.classList.contains('is-open')) return;
           lightbox.classList.remove('is-open');
           document.body.classList.remove('image-lightbox-open');
+          // When the trigger element disappears (e.g., dynamic content), focus may fail.
           if (lastActive && typeof lastActive.focus === 'function') {
             lastActive.focus({ preventScroll: true });
           }
@@ -149,7 +151,7 @@
         const openLightbox = function(src, altText) {
           lastActive = document.activeElement;
           lightboxImg.src = src;
-          lightboxImg.alt = altText || 'Expanded image';
+          lightboxImg.alt = altText || DEFAULT_ALT_TEXT;
           lightbox.classList.add('is-open');
           document.body.classList.add('image-lightbox-open');
           lightboxContent.focus({ preventScroll: true });

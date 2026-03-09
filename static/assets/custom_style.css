@@ -18,6 +18,7 @@
   --link-hov:     #79c0ff;
   --code-bg:      #1E1F22;
   --nav-h:        56px;
+  --nav-breakpoint: 820px;
 }
 
 /* ---- Reset & Base ---------------------------------------- */
