@@ -1,0 +1,290 @@
+/* =============================================================
+   Jean Jacques Blog — Custom Dark Theme + Manga Styling
+   Overrides hugo-primer-theme defaults
+   ============================================================= */
+
+/* ---------------------------------------------------------------
+   GitHub Dark Theme Color Palette
+   --------------------------------------------------------------- */
+:root {
+  --color-bg:           #0d1117;
+  --color-surface:      #161b22;
+  --color-surface-alt:  #21262d;
+  --color-text:         #c9d1d9;
+  --color-text-muted:   #8b949e;
+  --color-primary:      #2ea043;
+  --color-primary-hover:#3fb950;
+  --color-accent:       #56d364;
+  --color-accent-soft:  #238636;
+  --color-border:       #30363d;
+  --color-link:         #58a6ff;
+  --color-link-hover:   #79c0ff;
+  --color-code-bg:      #161b22;
+  --color-code-text:    #e6edf3;
+}
+
+/* ---------------------------------------------------------------
+   Base: Body & Layout
+   --------------------------------------------------------------- */
+html, body {
+  background-color: var(--color-bg) !important;
+  color: var(--color-text) !important;
+}
+
+#holy {
+  background-color: var(--color-bg) !important;
+}
+
+#header,
+#main,
+#side,
+#footer {
+  background-color: var(--color-bg) !important;
+  color: var(--color-text) !important;
+}
+
+/* ---------------------------------------------------------------
+   Typography & Links
+   --------------------------------------------------------------- */
+a {
+  color: var(--color-link) !important;
+}
+
+a:hover {
+  color: var(--color-link-hover) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text) !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* ---------------------------------------------------------------
+   Navbar
+   --------------------------------------------------------------- */
+.UnderlineNav {
+  background-color: var(--color-surface) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+.UnderlineNav-actions,
+.UnderlineNav-item,
+.UnderlineNav-item span {
+  color: var(--color-text) !important;
+}
+
+.UnderlineNav-item:hover,
+.UnderlineNav-item.selected {
+  color: var(--color-accent) !important;
+  border-bottom-color: var(--color-accent) !important;
+}
+
+/* ---------------------------------------------------------------
+   Markdown Body
+   --------------------------------------------------------------- */
+.markdown-body {
+  background-color: var(--color-bg) !important;
+  color: var(--color-text) !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  color: var(--color-text) !important;
+  border-bottom-color: var(--color-border) !important;
+}
+
+.markdown-body blockquote {
+  color: var(--color-text-muted) !important;
+  border-left: 4px solid var(--color-accent-soft) !important;
+  background-color: var(--color-surface) !important;
+  padding: 8px 16px;
+  border-radius: 0 4px 4px 0;
+}
+
+/* ---------------------------------------------------------------
+   Code Blocks
+   --------------------------------------------------------------- */
+.markdown-body pre,
+.markdown-body code {
+  background-color: var(--color-code-bg) !important;
+  color: var(--color-code-text) !important;
+  border: 1px solid var(--color-border) !important;
+  font-family: 'Fira Code', 'JetBrains Mono', monospace;
+}
+
+.markdown-body pre {
+  border-radius: 6px !important;
+  padding: 16px !important;
+}
+
+/* ---------------------------------------------------------------
+   Tables
+   --------------------------------------------------------------- */
+.markdown-body table {
+  color: var(--color-text) !important;
+}
+
+.markdown-body table th {
+  background-color: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border: 1px solid var(--color-border) !important;
+}
+
+.markdown-body table td {
+  border: 1px solid var(--color-border) !important;
+}
+
+.markdown-body table tr:nth-child(even) {
+  background-color: var(--color-surface-alt) !important;
+}
+
+/* ---------------------------------------------------------------
+   Sidebar & TOC
+   --------------------------------------------------------------- */
+#side aside,
+#toc {
+  background-color: var(--color-surface) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 6px;
+  padding: 12px;
+}
+
+/* ---------------------------------------------------------------
+   Footer
+   --------------------------------------------------------------- */
+#footer {
+  border-top: 1px solid var(--color-border) !important;
+  color: var(--color-text-muted) !important;
+}
+
+/* ---------------------------------------------------------------
+   Manga / Anime Custom Blocks
+   --------------------------------------------------------------- */
+
+/* Shared block base */
+.sensei-note,
+.battle-pattern,
+.technique {
+  margin: 24px 0;
+  border-radius: 8px;
+  padding: 16px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Header row */
+.sensei-note__header,
+.battle-pattern__header,
+.technique__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.sensei-note__icon,
+.battle-pattern__icon,
+.technique__icon {
+  font-size: 1.2em;
+}
+
+/* Sensei Note — blue-tinted */
+.sensei-note {
+  background-color: #0d1f38;
+  border: 1px solid #1f6feb;
+  border-left: 4px solid #58a6ff;
+}
+
+.sensei-note__title {
+  color: #58a6ff;
+}
+
+.sensei-note__body {
+  color: var(--color-text);
+}
+
+/* Battle Pattern — red/orange-tinted */
+.battle-pattern {
+  background-color: #2d1216;
+  border: 1px solid #f85149;
+  border-left: 4px solid #ff7b72;
+}
+
+.battle-pattern__title {
+  color: #ff7b72;
+}
+
+.battle-pattern__body {
+  color: var(--color-text);
+}
+
+/* Technique — green-tinted */
+.technique {
+  background-color: #0f2d1f;
+  border: 1px solid #2ea043;
+  border-left: 4px solid #56d364;
+}
+
+.technique__title {
+  color: #56d364;
+}
+
+.technique__body {
+  color: var(--color-text);
+}
+
+/* Inner markdown cleanup */
+.sensei-note__body p:last-child,
+.battle-pattern__body p:last-child,
+.technique__body p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------------------------------------------------------------
+   Manga panel separator
+   --------------------------------------------------------------- */
+.markdown-body hr {
+  border: none;
+  border-top: 2px solid var(--color-border);
+  margin: 32px 0;
+  position: relative;
+}
+
+.markdown-body hr::after {
+  content: "✦";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-bg);
+  padding: 0 8px;
+  color: var(--color-accent);
+  font-size: 1em;
+}
+
+/* ---------------------------------------------------------------
+   Responsive
+   --------------------------------------------------------------- */
+@media (max-width: 768px) {
+  #holy {
+    grid-template-columns: 1fr !important;
+    grid-template-areas:
+      "header"
+      "main"
+      "footer" !important;
+  }
+
+  #side {
+    display: none !important;
+  }
+}

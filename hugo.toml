@@ -1,6 +1,6 @@
 baseURL = "https://jjeanjacques10.github.io/"
 languageCode = "pt-br"
-title = "Blog do jjeanjacques10"
+title = "Jean Jacques - Software Engineering Blog"
 theme = "hugo-primer-theme"
 
 paginate = 5
@@ -8,7 +8,47 @@ hasCJKLanguage = false
 summaryLength = 70
 pygmentsCodeFences = true
 pygmentsUseClasses = true
+enableRobotsTXT = true
+copyright = "&copy; Jean Jacques"
 
 [params]
-description = "Blog pessoal de jjeanjacques10 - tecnologia, desenvolvimento e muito mais"
-showFooterCredits = true
+  description = "Arquitetura de software, cloud e sistemas distribuídos explicados com referências de anime"
+  author = "Jean Jacques"
+  defaultTheme = "dark"
+  keywords = ["software engineering", "cloud", "aws", "architecture", "distributed systems"]
+  github = "jjeanjacques10"
+  medium = "jjeanjacques10"
+  useTwitterCard = true
+  showFooterCredits = true
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    identifier = "posts"
+    name = "Artigos"
+    url = "/posts/"
+    weight = 2
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 3
+  [[menu.main]]
+    identifier = "about"
+    name = "Sobre"
+    url = "/about/"
+    weight = 4
+  [[menu.main]]
+    identifier = "github"
+    name = "GitHub"
+    url = "https://github.com/jjeanjacques10"
+    weight = 5
+  [[menu.main]]
+    identifier = "medium"
+    name = "Medium"
+    url = "https://jjeanjacques10.medium.com"
+    weight = 6
