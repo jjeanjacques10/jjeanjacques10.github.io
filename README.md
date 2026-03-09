@@ -1,4 +1,4 @@
-# Jean Jacques - Software Engineering Blog
+# jjeanjacques10 - Software Engineering Blog
 
 Blog pessoal hospedado no GitHub Pages, utilizando Hugo como gerador de site estático.
 
