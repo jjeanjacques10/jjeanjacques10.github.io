@@ -16,15 +16,11 @@ Com o Article Kindle Converter, você pode fazer isso com apenas alguns cliques!
 
 ### Como Funciona
 
-### Acesse o site: https://medium-kindle-sender.onrender.com
-
-### Cole o link do artigo: Insira o link do artigo do Medium que você deseja ler no Kindle.
-
-### Opcional: Adicione seu e-mail: Se desejar receber o artigo convertido por e-mail, digite seu endereço de e-mail.
-
-### Converta e baixe: Clique em “Baixar epub” para converter o artigo para o formato epub e baixá-lo para o seu computador.
-
-### Envie para o Kindle: Se você configurou o envio por e-mail, o artigo será enviado automaticamente para o seu Kindle. Caso contrário, você pode enviar o arquivo epub manualmente para o seu e-mail do Kindle.
+1. Acesse o site: https://medium-kindle-sender.onrender.com
+2. Cole o link do artigo: Insira o link do artigo do Medium que você deseja ler no Kindle.
+3. Opcional: Adicione seu e-mail: Se desejar receber o artigo convertido por e-mail, digite seu endereço de e-mail.
+4. Converta e baixe: Clique em “Baixar epub” para converter o artigo para o formato epub e baixá-lo para o seu computador.
+5. Envie para o Kindle: Se você configurou o envio por e-mail, o artigo será enviado automaticamente para o seu Kindle. Caso contrário, você pode enviar o arquivo epub manualmente para o seu e-mail do Kindle.
 
 ![Image](/posts/images/2024-05-05-envie-artigos-do-medium-para-o-kindle-com-facilidade/image-2.png)
 
@@ -32,15 +28,11 @@ Com o Article Kindle Converter, você pode fazer isso com apenas alguns cliques!
 
 Para enviar artigos diretamente para o seu Kindle por e-mail, é necessário configurar o seu endereço de e-mail na Amazon (@kindle.com). Siga estas etapas que também estão descritas no site oficial Send to Kindle — E-mail (amazon.com.br):
 
-### Acesse Gerencie seu conteúdo e dispositivos
-
-### Vá para a guia “Preferências”.
-
-### Em “Configurações de Documentos Pessoais”, role para baixo até “Lista de E-mails de Documentos Pessoais Aprovados”.
-
-### Clique em “Adicionar um novo endereço de e-mail aprovado”.
-
-### Digite o endereço de e-mail que você deseja usar e clique em “Adicionar Endereço”.
+1. Acesse Gerencie seu conteúdo e dispositivos
+2. Vá para a guia “Preferências”.
+3. Em “Configurações de Documentos Pessoais”, role para baixo até “Lista de E-mails de Documentos Pessoais Aprovados”.
+4. Clique em “Adicionar um novo endereço de e-mail aprovado”.
+5. Digite o endereço de e-mail que você deseja usar e clique em “Adicionar Endereço”.
 
 ![Image](/posts/images/2024-05-05-envie-artigos-do-medium-para-o-kindle-com-facilidade/image-3.png)
 

@@ -65,5 +65,57 @@
     crossorigin="anonymous"></script>
   <script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script>
   {{- end }}
+
+  <!-- Code Copy Button Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Find all code blocks
+      const highlights = document.querySelectorAll('.highlight');
+      
+      highlights.forEach(function(highlight) {
+        // Skip if button already exists
+        if (highlight.querySelector('.code-copy-btn')) return;
+        
+        // Create copy button
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'code-copy-btn';
+        copyBtn.type = 'button';
+        copyBtn.textContent = 'copy';
+        copyBtn.setAttribute('aria-label', 'Copy code to clipboard');
+        
+        // Add click handler
+        copyBtn.addEventListener('click', function() {
+          // Find the code element
+          const code = highlight.querySelector('code');
+          if (!code) return;
+          
+          // Get the code text
+          const text = code.textContent;
+          
+          // Copy to clipboard
+          navigator.clipboard.writeText(text).then(function() {
+            // Update button state
+            copyBtn.classList.add('copied');
+            copyBtn.textContent = 'copied!';
+            
+            // Reset button after 2 seconds
+            setTimeout(function() {
+              copyBtn.classList.remove('copied');
+              copyBtn.textContent = 'copy';
+            }, 2000);
+          }).catch(function(err) {
+            console.error('Failed to copy code:', err);
+            copyBtn.textContent = 'error';
+            setTimeout(function() {
+              copyBtn.textContent = 'copy';
+            }, 2000);
+          });
+        });
+        
+        // Add button to highlight
+        highlight.appendChild(copyBtn);
+      });
+    });
+  </script>
 </body>
 </html>
