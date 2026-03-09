@@ -3,7 +3,7 @@ title: "Envie Artigos do Medium para o Kindle com Facilidade"
 date: 2024-05-05
 description: ""
 tags: ["Python", "Automação", "Open Source", "Produtividade"]
-categories: ["software-engineering"]
+categories: ["projetos"]
 cover: "/posts/images/2024-05-05-envie-artigos-do-medium-para-o-kindle-com-facilidade/cover.png"
 draft: false
 ---
