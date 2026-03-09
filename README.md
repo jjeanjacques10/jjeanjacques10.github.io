@@ -1,6 +1,6 @@
 # jjeanjacques10 - Software Engineering Blog
 
-Blog pessoal hospedado no GitHub Pages, utilizando Hugo como gerador de site estático.
+Blog pessoal hospedado no GitHub Pages, usando Hugo como gerador de site estático.
 
 🌐 **[jjeanjacques10.github.io](https://jjeanjacques10.github.io)**
 
@@ -18,61 +18,84 @@ Blog técnico que migrou do [Medium](https://jjeanjacques10.medium.com) para uma
 
 > Os artigos frequentemente incluem **analogias com animes e mangás** para explicar conceitos técnicos.
 
+## 🧱 Stack atual
+
+- **SSG**: Hugo (`hugo.toml`)
+- **Tema**: `hugo-primer-theme` (submódulo em `themes/`)
+- **Deploy**: GitHub Actions + GitHub Pages (`.github/workflows/deploy-pages.yml`)
+- **Saídas**: HTML, RSS e JSON (índice para busca)
+- **Idioma**: `pt-br`
+
 ## 📁 Estrutura do Projeto
 
 ```
 ├── .github/
 │   └── workflows/
-│       └── deploy.yml          # GitHub Actions para deploy
+│       └── deploy-pages.yml        # Build e deploy no GitHub Pages
 ├── content/
-│   ├── posts/                  # Artigos do blog (YYYY-MM-DD-titulo.md)
-│   └── about/                  # Página sobre
+│   ├── posts/                      # Artigos do blog (YYYY-MM-DD-titulo.md)
+│   ├── posts/images/               # Imagens dos artigos
+│   ├── about/                      # Página Sobre
+│   └── search.md                   # Página de busca
 ├── layouts/
-│   └── shortcodes/             # Shortcodes customizados (sensei-note, battle-pattern, technique)
-├── static/
-│   └── assets/
-│       └── custom_style.css    # Dark theme (GitHub Dark) + estilos manga
+│   ├── _default/                   # Base, list e single
+│   ├── partials/                   # Navbar, footer, sidebar, cards, paginação
+│   ├── search/                     # Template da busca
+│   └── shortcodes/                 # sensei-note, battle-pattern, technique
+├── assets/
+│   └── *.css                       # Estilos customizados (tema escuro e syntax)
+├── pull-articles-from-medium/      # Ferramenta Python para migração/importação
 ├── themes/
-│   └── hugo-primer-theme/      # Tema (qqpann/hugo-primer @ master)
-└── hugo.toml                   # Configuração do site
+│   └── hugo-primer-theme/
+└── hugo.toml                       # Configuração principal do site
 ```
 
 ## 🎨 Tema e Estilo
 
-- **Tema base**: [hugo-primer](https://github.com/qqpann/hugo-primer) (versão mais recente do master)
-- **Paleta**: GitHub Dark Theme (`#0d1117` background)
-- **Dark mode**: habilitado por padrão via `static/assets/custom_style.css`
-- **Tipografia**: JetBrains Mono (títulos), Inter (corpo), Fira Code (código)
-
-### Shortcodes customizados
-
-| Shortcode | Uso |
-|-----------|-----|
-| `{{< sensei-note >}}` | 💡 Explicações e notas do autor |
-| `{{< battle-pattern >}}` | ⚔️ Padrões de arquitetura/engenharia |
-| `{{< technique >}}` | 📜 Técnicas e melhores práticas |
-
-## ✅ Validação do Tema
-
-O tema `hugo-primer-theme` está na versão mais recente do branch `master` do repositório [qqpann/hugo-primer](https://github.com/qqpann/hugo-primer) (commit `cc0117ed`, posterior ao release `v1.1.1`).
+- **Tema base**: [hugo-primer](https://github.com/qqpann/hugo-primer)
+- **Tema padrão**: dark (`params.defaultTheme = "dark"`)
+- **Estilos customizados**: centralizados em `assets/`
+- **Shortcodes customizados**:
+	- `{{< sensei-note >}}` → explicações e notas do autor
+	- `{{< battle-pattern >}}` → padrões de arquitetura/engenharia
+	- `{{< technique >}}` → técnicas e boas práticas
 
 ## 🚀 Deploy
 
-Deploy automático via **GitHub Actions** usando [peaceiris/actions-hugo@v3](https://github.com/peaceiris/actions-hugo) e [peaceiris/actions-gh-pages@v4](https://github.com/peaceiris/actions-gh-pages).
+Deploy automático via **GitHub Actions** em pushes para `main`, usando:
 
-O workflow publica o site gerado no branch `gh-pages`. Configure o GitHub Pages para usar esse branch em **Settings → Pages → Source**.
+- `peaceiris/actions-hugo@v3` (build do Hugo)
+- `actions/upload-pages-artifact@v3`
+- `actions/deploy-pages@v4`
+
+O workflow publica no ambiente **github-pages**.
 
 ## ⚙️ Desenvolvimento local
 
+### Pré-requisitos
+
+- Hugo Extended (recomendado: versão próxima à usada no CI, atualmente `0.147.9`)
+
+### Executar localmente
+
 ```bash
-# Instalar Hugo (https://gohugo.io/installation/)
-brew install hugo  # macOS
-
-# Iniciar servidor de desenvolvimento
 hugo server -D
-
-# Acesse http://localhost:1313
 ```
+
+Acesse: `http://localhost:1313`
+
+### Build de produção local
+
+```bash
+hugo --gc --minify
+```
+
+## 🔎 Busca
+
+O site gera `index.json` para alimentar a página de busca (`/search/`), configurada via:
+
+- `outputs.home = ["HTML", "RSS", "JSON"]`
+- `layouts/index.json`
 
 ## 📝 Frontmatter padrão dos artigos
 
@@ -93,7 +116,7 @@ MIT
 
 ## 🤝 Contribuindo
 
-Sinta-se à vontade para abrir issues ou pull requests!
+Sinta-se à vontade para abrir issues ou pull requests.
 
 ---
 
