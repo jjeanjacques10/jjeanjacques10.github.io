@@ -1,0 +1,29 @@
+<header class="blog-nav">
+  <div class="blog-nav__inner">
+    <a href="{{ .Site.BaseURL }}" class="blog-nav__brand">{{ .Site.Title }}</a>
+    <nav class="blog-nav__menu" aria-label="Main navigation">
+      {{- $currentURL := .RelPermalink }}
+      {{- range .Site.Menus.main }}
+      <a href="{{ .URL }}" class="blog-nav__item{{ if eq $currentURL .URL }} active{{ end }}">{{ .Name }}</a>
+      {{- end }}
+    </nav>
+    <div class="blog-nav__actions">
+  <button class="nav-btn" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle theme">🌙</button>
+  <script>
+    (function() {
+      var btn = document.getElementById('theme-toggle');
+      var body = document.body;
+      var stored = localStorage.getItem('theme');
+      if (stored === 'light') { body.classList.add('light-mode'); btn.textContent = '☀️'; }
+      btn.addEventListener('click', function() {
+        if (body.classList.toggle('light-mode')) {
+          localStorage.setItem('theme', 'light'); btn.textContent = '☀️';
+        } else {
+          localStorage.setItem('theme', 'dark'); btn.textContent = '🌙';
+        }
+      });
+    })();
+  </script>
+    </div>
+  </div>
+</header>

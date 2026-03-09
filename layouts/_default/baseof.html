@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+
+  {{- if .Description }}
+  <meta name="description" content="{{ .Description }}">
+  {{- else if .IsPage }}
+  <meta name="description" content="{{ .Summary | plainify | truncate 160 }}">
+  {{- else }}
+  <meta name="description" content="{{ .Site.Params.Description }}">
+  {{- end }}
+
+  {{- with .Site.Params.Keywords }}
+  <meta name="keywords" content="{{ delimit . `, ` }}">
+  {{- end }}
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}">
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  {{- with .Params.cover }}
+  <meta property="og:image" content="{{ . | absURL }}">
+  {{- end }}
+
+  <!-- RSS -->
+  {{ range .AlternativeOutputFormats -}}
+  <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}" title="{{ $.Site.Title }}">
+  {{- end }}
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="{{ `assets/syntax.css` | relURL }}">
+  <link rel="stylesheet" href="{{ `assets/primer-build.css` | relURL }}">
+  <link rel="stylesheet" href="{{ `assets/custom_style.css` | relURL }}">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body class="blog-body">
+
+  {{- partial "navbar.html" . }}
+
+  <div class="blog-wrapper">
+    <div class="blog-layout">
+      <main class="blog-main">
+        {{ block "main" . }}{{ end }}
+      </main>
+      <aside class="blog-sidebar">
+        {{- partial "sidebar.html" . }}
+      </aside>
+    </div>
+  </div>
+
+  {{- partial "footer.html" . }}
+
+  {{- if or .Params.math (default false .Site.Params.math) }}
+  <!-- MathJax — loaded only when math=true in page or site params -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    integrity="sha512-0a9B0DNCC5p+DPpH3rQfJsqBDkfViB9Kp3WAy0MsYoSq7hyQPLpUU+T9Tl8mVXJfgEuivRJu2g6UELdioMGlA=="
+    crossorigin="anonymous"></script>
+  <script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script>
+  {{- end }}
+</body>
+</html>

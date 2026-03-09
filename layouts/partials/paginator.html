@@ -1,0 +1,24 @@
+{{- $pag := $.Paginator }}
+{{- if gt $pag.TotalPages 1 }}
+<nav class="blog-paginator" aria-label="Pagination">
+  {{- if $pag.HasPrev }}
+  <a href="{{ $pag.Prev.URL }}" class="paginator-btn" aria-label="Previous page">← Previous</a>
+  {{- else }}
+  <span class="paginator-btn disabled" aria-disabled="true">← Previous</span>
+  {{- end }}
+
+  {{- range $pag.Pagers }}
+  {{- if eq . $pag }}
+  <span class="paginator-btn current" aria-current="page">{{ .PageNumber }}</span>
+  {{- else }}
+  <a href="{{ .URL }}" class="paginator-btn">{{ .PageNumber }}</a>
+  {{- end }}
+  {{- end }}
+
+  {{- if $pag.HasNext }}
+  <a href="{{ $pag.Next.URL }}" class="paginator-btn" aria-label="Next page">Next →</a>
+  {{- else }}
+  <span class="paginator-btn disabled" aria-disabled="true">Next →</span>
+  {{- end }}
+</nav>
+{{- end }}

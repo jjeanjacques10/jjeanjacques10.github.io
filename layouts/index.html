@@ -1,0 +1,11 @@
+{{ define "title" }}{{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<section class="post-list">
+  <h2 class="section-title">Latest Posts</h2>
+  {{- range .Paginator.Pages }}
+  {{ partial "post-card.html" . }}
+  {{- end }}
+  {{ partial "paginator.html" . }}
+</section>
+{{ end }}

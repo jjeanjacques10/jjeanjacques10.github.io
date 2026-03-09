@@ -1,0 +1,12 @@
+{{ define "title" }}{{ .Title }} – {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<section class="post-list">
+  <h2 class="section-title">{{ if .Title }}{{ .Title }}{{ else }}Posts{{ end }}</h2>
+  {{- .Content }}
+  {{- range .Paginator.Pages }}
+  {{ partial "post-card.html" . }}
+  {{- end }}
+  {{ partial "paginator.html" . }}
+</section>
+{{ end }}
