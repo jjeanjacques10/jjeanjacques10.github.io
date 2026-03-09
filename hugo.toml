@@ -1,0 +1,14 @@
+baseURL = "https://jjeanjacques10.github.io/"
+languageCode = "pt-br"
+title = "Blog do jjeanjacques10"
+theme = "hugo-primer-theme"
+
+paginate = 5
+hasCJKLanguage = false
+summaryLength = 70
+pygmentsCodeFences = true
+pygmentsUseClasses = true
+
+[params]
+description = "Blog pessoal de jjeanjacques10 - tecnologia, desenvolvimento e muito mais"
+showFooterCredits = true
