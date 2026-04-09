@@ -10,7 +10,7 @@ draft: false
 
 ## Descomplicando a Configuração de Producers e Consumers com Kafka
 
-### Entendendo como configurar Producers e Consumers com Kafka de forma simples e descomplicada visando o que faz sentido para os seus projetos
+Entendendo como configurar Producers e Consumers com Kafka de forma simples e descomplicada visando o que faz sentido para os seus projetos
 
 Em algum momento pode ser que apareça uma tarefa em seu trabalho onde precise criar uma integração com o Kafka, quando você começa a desenvolver sua aplicação, criar sua lógica de negócio e então se de para com o arquivo cheio de parâmetros surgindo a pergunta: “Quais configurações devo fazer aqui que fazem sentido para o meu cenário?”.
 

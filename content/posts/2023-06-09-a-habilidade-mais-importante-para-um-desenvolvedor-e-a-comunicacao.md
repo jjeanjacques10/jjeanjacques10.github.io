@@ -10,7 +10,7 @@ draft: false
 
 ## A habilidade mais importante para um desenvolvedor é a comunicação
 
-### Nem sempre escrever código vai resolver os maiores desafios na carreira de um desenvolvedor
+Nem sempre escrever código vai resolver os maiores desafios na carreira de um desenvolvedor
 
 Podemos dizer que 90% dos problemas de uma empresa são causados pela falta de comunicação. Isso em nível de colegas de equipe e até entre áreas inteiras. Então, como podemos melhorar a forma como nos comunicamos e evitar dores de cabeça com problemas simples que acabam crescendo com o tempo? Neste artigo, proponho-me a trazer algumas dicas de como se expressar melhor, transmitir ideias de forma escrita e verbal.
 
