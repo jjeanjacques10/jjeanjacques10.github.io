@@ -1,10 +1,10 @@
 ---
-title: "Boas práticas na escrita de testes unitários com LLMs"
+title: "Boas práticas na escrita de testes unitários com IA"
 date: 2026-04-09
 description: ""
-tags: ["Engenharia de Software", "Testes", "Kotlin", "Spring"]
+tags: ["Engenharia de Software", "Testes", "Kotlin", "IA"]
 categories: ["software-engineering"]
-cover: "/posts/images/2026-04-09-boas-praticas-na-escrita-de-testes-com-LLMs/cover.png"
+cover: "/posts/images/2026-04-09-boas-praticas-na-escrita-de-testes-com-IA/cover.png"
 draft: false
 ---
 
@@ -132,15 +132,15 @@ Para configurar o uso do AGENTS.md no IntelliJ IDEA, siga os passos abaixo (Esse
 
 1. Selecione na aba do copilot a opção "Configure Agents":
 
-![Configuração do Agent](/posts/images/2026-04-09-boas-praticas-na-escrita-de-testes-com-LLMs/agent-configuration-intellij.png)
+![Configuração do Agent](/posts/images/2026-04-09-boas-praticas-na-escrita-de-testes-com-IA/agent-configuration-intellij.png)
 
 2. Nas configurações teremos a opção GitHub Copilot -> Customizations -> Copilot Instructions, é nessa parte que iremos configurar o AGENTS.md (nesse caso `copilot-instructions.md`) para o nosso projeto:
 
-![Configuração de Copilot Instructions no GitHub Copilot](/posts/images/2026-04-09-boas-praticas-na-escrita-de-testes-com-LLMs/agent-instructions-intellij.png)
+![Configuração de Copilot Instructions no GitHub Copilot](/posts/images/2026-04-09-boas-praticas-na-escrita-de-testes-com-IA/agent-instructions-intellij.png)
 
 3. Com o arquivo criado na pasta `.github` do projeto basta copiar o seu AGENTS.md para o `copilot-instructions.md` e salvar, com isso o GitHub Copilot irá utilizar as instruções definidas no AGENTS.md para gerar os testes unitários seguindo as boas práticas definidas no arquivo.
 
-![Arquivo copilot-instructions.md criado na pasta .github](/posts/images/2026-04-09-boas-praticas-na-escrita-de-testes-com-LLMs/copilot-instructions-created.png)
+![Arquivo copilot-instructions.md criado na pasta .github](/posts/images/2026-04-09-boas-praticas-na-escrita-de-testes-com-IA/copilot-instructions-created.png)
 
 ## Usando LLMs para escrever testes unitários
 
@@ -175,11 +175,11 @@ Nesta etapa iremos utilizar o prompt criado no passo anterior para solicitar a I
 
 No IntelliJ IDEA, temos a opção de "Plan", com ela podemos solicitar para a IA um plano de execução detalhado, seguindo as melhores práticas definidas no AGENTS.md, para escrever os testes unitários.
 
-![Opção 'Plan' selecionada na aba do GitHub Copilot do IntelliJ IDEA](/posts/images/2026-04-09-boas-praticas-na-escrita-de-testes-com-LLMs/selected-plan-option.png)
+![Opção 'Plan' selecionada na aba do GitHub Copilot do IntelliJ IDEA](/posts/images/2026-04-09-boas-praticas-na-escrita-de-testes-com-IA/selected-plan-option.png)
 
 Segue um exemplo de plano de execução gerado pela IA, nele temos todos os principais cenários de teste identificados:
 
-![Exemplo de plano de execução detalhado gerado pela IA com cenários de teste identificados](/posts/images/2026-04-09-boas-praticas-na-escrita-de-testes-com-LLMs/execution-plan.png)
+![Exemplo de plano de execução detalhado gerado pela IA com cenários de teste identificados](/posts/images/2026-04-09-boas-praticas-na-escrita-de-testes-com-IA/execution-plan.png)
 
 Após validar o plano gerado podemos clicar na opção "`Start Implementation`" na própria IDE, lembrando que caso esteja em outra ferramenta basta responder a IA com um simples: "Pode implementar" ou caso tenha pontos de melhoria solicitar uma atualização do plano.
 
@@ -190,7 +190,7 @@ Após validar o plano gerado podemos clicar na opção "`Start Implementation`" 
 
 Com o plano de execução validado, podemos solicitar para a IA a implementação do teste unitário, seguindo o plano de execução gerado no passo anterior e as boas práticas definidas no `copilot-instructions.md` (AGENTS.md).
 
-![Implementação do teste unitário sendo gerada pela IA no IntelliJ IDEA](/posts/images/2026-04-09-boas-praticas-na-escrita-de-testes-com-LLMs/test-execution.png)
+![Implementação do teste unitário sendo gerada pela IA no IntelliJ IDEA](/posts/images/2026-04-09-boas-praticas-na-escrita-de-testes-com-IA/test-execution.png)
 
 Segue o exemplo de teste gerado: [RedisDistributedTokenBucketTest](https://github.com/jjeanjacques10/rate-limit-hero-orders/blob/feature/create-unit-tests/src/test/kotlin/com/myheroacademia/heroorders/service/RedisDistributedTokenBucketTest.kt)
 
