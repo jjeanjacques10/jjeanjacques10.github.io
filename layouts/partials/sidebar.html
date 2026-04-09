@@ -20,6 +20,34 @@
     </form>
   </div>
 
+  {{- if and .IsPage (eq .Section "posts") }}
+  {{- $toc := .TableOfContents -}}
+  {{- $toc = replaceRE `<nav id="TableOfContents">\s*<ul>\s*<li>\s*<ul>` `<nav id="TableOfContents"><ul>` $toc -}}
+  {{- $toc = replaceRE `</ul>\s*</li>\s*</ul>\s*</nav>` `</ul></nav>` $toc -}}
+  {{- if ne (trim $toc " \n\r\t") "" }}
+  <div class="sidebar-card">
+    <h4 class="sidebar-card__title">Sumário</h4>
+    <div class="article-toc" aria-label="Sumário por títulos do artigo">
+      {{- safeHTML $toc -}}
+    </div>
+  </div>
+  {{- end }}
+  {{- end }}
+
+  {{- if or .IsHome (and .IsSection (eq .Section "posts")) }}
+  <div class="sidebar-card">
+    <h4 class="sidebar-card__title">Sumário dos artigos</h4>
+    <ul class="article-summary-list" aria-label="Sumário dos artigos publicados">
+      {{- range where .Site.RegularPages.ByDate.Reverse "Section" "posts" }}
+      <li class="article-summary-item">
+        <a href="{{ .RelPermalink }}" class="article-summary-link">{{ .Title }}</a>
+        <time class="article-summary-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+      </li>
+      {{- end }}
+    </ul>
+  </div>
+  {{- end }}
+
   <!-- About Me -->
   <div class="sidebar-card">
     <h4 class="sidebar-card__title">Perfil</h4>

@@ -16,10 +16,16 @@ copyright = "&copy; Jean Jacques"
 [pagination]
   pagerSize = 8
 
+[markup]
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel = 3
+    ordered = false
+
 [params]
   description = "Arquitetura de software, cloud e sistemas distribuídos explicados com referências de mangás"
   author = "Jean Jacques"
-  authorSubtitle = "Senior Staff Software Engineer"
+  authorSubtitle = "Staff Software Engineer"
   bio = "Escrevendo sobre arquitetura de software, cloud e sistemas distribuídos com referências de mangás."
   defaultTheme = "dark"
   keywords = ["software engineering", "cloud", "aws", "architecture", "distributed systems"]
