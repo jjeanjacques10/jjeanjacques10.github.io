@@ -142,11 +142,11 @@ Para configurar o uso do AGENTS.md no IntelliJ IDEA, siga os passos abaixo (Esse
 
 ![Arquivo copilot-instructions.md criado na pasta .github](/posts/images/2026-04-09-boas-praticas-na-escrita-de-testes-com-IA/copilot-instructions-created.png)
 
-## Usando LLMs para escrever testes unitários
+## Usando IAs para escrever testes unitários
 
-Agora que vimos o que são testes unitários e a importância de manter um padrão de código, vamos falar sobre como usar LLMs para escrever testes unitários.
+Agora que vimos o que são testes unitários e a importância de manter um padrão de código, vamos falar sobre como usar IAs para escrever testes unitários.
 
-As ferramentas que irei utilizar aqui são o IntelliJ IDEA e o GitHub Copilot, mas o importante é entender o método simples de escrever testes unitários utilizando LLMs, que pode ser aplicado em outras ferramentas.
+As ferramentas que irei utilizar aqui são o IntelliJ IDEA e o GitHub Copilot, mas o importante é entender o método simples de escrever testes unitários utilizando IAs, que pode ser aplicado em outras ferramentas.
 
 ### Passo 1: Detalhar o cenários de teste (criar o prompt)
 
