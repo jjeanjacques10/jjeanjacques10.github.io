@@ -134,11 +134,11 @@ Para configurar o uso do AGENTS.md no IntelliJ IDEA, siga os passos abaixo (Esse
 
 ![Configuração do Agent](/posts/images/2026-04-09-boas-praticas-na-escrita-de-testes-com-IA/agent-configuration-intellij.png)
 
-2. Nas configurações teremos a opção GitHub Copilot -> Customizations -> Copilot Instructions, é nessa parte que iremos configurar o AGENTS.md (nesse caso `copilot-instructions.md`) para o nosso projeto:
+2. Nas configurações teremos a opção GitHub Copilot -> Customizations -> "Use AGENTS.md file", selecione essa opção para habilitar o uso do AGENTS.md para personalizar as instruções de geração de código da IA.
 
 ![Configuração de Copilot Instructions no GitHub Copilot](/posts/images/2026-04-09-boas-praticas-na-escrita-de-testes-com-IA/agent-instructions-intellij.png)
 
-3. Com o arquivo criado na pasta `.github` do projeto basta copiar o seu AGENTS.md para o `copilot-instructions.md` e salvar, com isso o GitHub Copilot irá utilizar as instruções definidas no AGENTS.md para gerar os testes unitários seguindo as boas práticas definidas no arquivo.
+3. Com o arquivo criado na pasta raiz do projeto com o nome `AGENTS.md`, com isso o GitHub Copilot irá utilizar as instruções definidas no Markdown para gerar os testes unitários, e outras instruções, seguindo as boas práticas definidas no arquivo.
 
 ![Arquivo copilot-instructions.md criado na pasta .github](/posts/images/2026-04-09-boas-praticas-na-escrita-de-testes-com-IA/copilot-instructions-created.png)
 
