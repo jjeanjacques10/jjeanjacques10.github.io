@@ -33,6 +33,8 @@ O SDD minimiza esse problema ao fornecer especificações claras e estruturadas.
 - **Aumento da produtividade:** Com menos retrabalho e melhor comunicação, os times podem se concentrar em tarefas mais estratégicas, aumentando a eficiência geral.
 - **Melhoria na qualidade do código:** Especificações bem definidas ajudam a garantir que o código gerado esteja dentro das boas práticas do time/projeto.
 
+Estes são os principais benefícios, mas conforme a prática vai ficando mais madura dentro do time, outros benefícios vão surgindo, como a facilidade de onboarding de novos membros, a documentação automática do projeto e a redução de dívidas técnicas.
+
 ## Como funciona na prática?
 
 1. **Definição das especificações:** O time define as especificações do projeto de forma clara e detalhada, utilizando uma linguagem que a IA possa entender facilmente.
@@ -175,13 +177,13 @@ Você pode ver a skill completa utilizada neste projeto aqui: [jjeanjacques10/sk
 **Claude Code (Skills customizadas)**
 A abordagem descrita neste artigo: skills são prompts de sistema associados a comandos (`/spec`, `/review`, etc.) que ficam versionados no próprio repositório em `.claude/skills/`. Funcionam como "especialistas contextuais" que entendem a estrutura e convenções do seu projeto específico.
 
-**Kiro - AWS**
+**[Kiro - AWS](https://kiro.dev/)**
 O Kiro vai em uma abordagem de a própria IDE apoia no processo de SDD, guiando o desenvolvedor por perguntas estruturadas e gerando artefatos organizados. Ele é mais opinativo e menos customizável que uma skill personalizada, mas pode ser uma boa opção para times que buscam uma solução pronta.
 
-**Cursor / GitHub Copilot Workspace**
+**[Cursor](https://www.cursor.com/) / [GitHub Copilot Workspace](https://githubnext.com/projects/copilot-workspace)**
 Ferramentas de IDE com geração de planos antes do código. O Copilot Workspace cria um "plan" editável antes de propor implementações — uma aproximação da ideia de SDD, mas sem a estrutura formal de documento e tasks separadas.
 
-**SpecFlow** *(BDD para .NET)*
+**[SpecFlow](https://specflow.org/)** *(BDD para .NET)*
 Framework que usa a sintaxe Gherkin (`Given / When / Then`) para escrever especificações legíveis por não-desenvolvedores. Mais voltado a testes de aceitação automatizados do que à fase de design, mas compartilha o princípio de "especificar antes de implementar".
 
 ---
