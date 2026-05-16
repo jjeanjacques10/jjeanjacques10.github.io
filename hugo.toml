@@ -1,6 +1,6 @@
 baseURL = "https://jjeanjacques10.github.io/"
 languageCode = "pt-br"
-title = "jjeanjacques10 - Software Engineering Blog"
+title = "Software Engineering"
 theme = "hugo-primer-theme"
 
 [outputs]
@@ -34,6 +34,8 @@ copyright = "&copy; Jean Jacques"
   medium = "jjeanjacques10"
   useTwitterCard = true
   showFooterCredits = true
+  utterancesRepo  = "jjeanjacques10/jjeanjacques10.github.io"
+  utterancesTheme = "github-dark"
 
 [menu]
   [[menu.main]]

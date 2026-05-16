@@ -29,6 +29,8 @@
     {{ .Content }}
   </div>
 
+  {{- partial "social-share.html" . }}
+
   <footer class="post-footer">
     <div class="post-nav">
       {{- with .PrevInSection }}
@@ -45,5 +47,7 @@
       {{- end }}
     </div>
   </footer>
+
+  {{- partial "comments.html" . }}
 </article>
 {{ end }}

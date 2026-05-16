@@ -1,0 +1,60 @@
+{{ define "title" }}404 — Jutsu não encontrado · {{ .Site.Title }}{{ end }}
+{{ define "main" }}
+<div class="not-found">
+
+  <div class="not-found__scroll">
+    <div class="not-found__scroll-inner" aria-hidden="true">
+      <span class="not-found__kanji">術</span>
+      <span class="not-found__kanji">無</span>
+      <span class="not-found__kanji">効</span>
+    </div>
+  </div>
+
+  <div class="not-found__face" aria-hidden="true">(╥_╥)</div>
+
+  <div class="not-found__panel">
+    <div class="not-found__code">404</div>
+    <div class="not-found__panel-label">jutsu não encontrado</div>
+  </div>
+
+  <p class="not-found__msg">
+    <span class="not-found__msg-line">Esse artigo foi selado em outra dimensão.</span>
+    <span class="not-found__msg-line">Tente invocar pelo nome ou volte ao início.</span>
+  </p>
+
+  <form class="not-found__search" action="/search/" method="get">
+    <input
+      type="search"
+      name="q"
+      placeholder="Invocar artigo por nome..."
+      class="search-input"
+      aria-label="Buscar artigos"
+      autocomplete="off"
+    >
+    <button type="submit" class="not-found__search-btn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      Buscar
+    </button>
+  </form>
+
+  <nav class="not-found__links" aria-label="Links úteis">
+    <a href="/" class="not-found__link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Início
+    </a>
+    <a href="/posts/" class="not-found__link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      Artigos
+    </a>
+    <a href="/tags/" class="not-found__link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+      Tags
+    </a>
+    <a href="/search/" class="not-found__link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      Busca avançada
+    </a>
+  </nav>
+
+</div>
+{{ end }}

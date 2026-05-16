@@ -30,6 +30,9 @@
   <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}" title="{{ $.Site.Title }}">
   {{- end }}
 
+  <!-- Schema.org structured data -->
+  {{- partial "schema-org.html" . }}
+
   <!-- Stylesheets -->
   <link rel="stylesheet" href="{{ `assets/syntax.css` | relURL }}">
   <link rel="stylesheet" href="{{ `assets/primer-build.css` | relURL }}">
@@ -50,6 +53,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body class="blog-body no-js">
+
+  {{- if .IsPage }}
+  <div id="reading-progress" class="reading-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+  {{- end }}
 
   {{- partial "navbar.html" . }}
 
@@ -199,5 +206,39 @@
         });
       });
     </script>
+
+  <button id="back-to-top" class="back-to-top" type="button" aria-label="Voltar ao topo">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script>
+  (function() {
+    var bar = document.getElementById('reading-progress');
+    if (bar) {
+      var content = document.querySelector('.post-content');
+      function updateBar() {
+        if (!content) return;
+        var rect = content.getBoundingClientRect();
+        var total = content.offsetHeight - window.innerHeight;
+        var scrolled = Math.max(0, -rect.top);
+        var pct = total > 0 ? Math.min(100, Math.round((scrolled / total) * 100)) : 0;
+        bar.style.width = pct + '%';
+        bar.setAttribute('aria-valuenow', pct);
+      }
+      window.addEventListener('scroll', updateBar, { passive: true });
+      updateBar();
+    }
+
+    var btn = document.getElementById('back-to-top');
+    if (btn) {
+      window.addEventListener('scroll', function() {
+        btn.classList.toggle('is-visible', window.scrollY >= 400);
+      }, { passive: true });
+      btn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  })();
+  </script>
   </body>
 </html>

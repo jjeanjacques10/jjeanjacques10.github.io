@@ -5,7 +5,7 @@ description: "Como estou utilizando Spec Driven Development no dia a dia para re
 tags: ["Engenharia de Software", "AI", "SDD", "Spec Driven Development"]
 categories: ["Engenharia de Software", "AI"]
 cover: "/posts/images/2026-05-16-spec-driven-development/cover.png"
-draft: true
+draft: false
 ---
 
 O Spec Driven Development (SDD) está ganhando destaque como uma abordagem inovadora para o desenvolvimento de software, especialmente em times que já utilizam inteligência artificial (IA) no dia a dia. Nesse artigo vou trazer um pouco das melhores práticas que venho utilizando e mostrar um exemplo prático de SKILL que me ajudou a estruturar melhor as especificações antes de gerar código com IA.
@@ -48,7 +48,7 @@ Uma **skill** é um prompt de sistema especializado, associado a um comando (com
 
 O ponto central de uma boa skill de SDD é o **fluxo em fases**. Cada fase tem uma responsabilidade clara e só avança com a aprovação explícita do desenvolvedor.
 
-> Caso queira testar, gerei uma skill que utilizo no dia a dia para criar SDDs para meus projetos pessoais. Você pode ver o código completo dela aqui: [SKILL.md](./SKILL.md) ## TODO: Adicionar o link correto.
+> Caso queira testar, gerei uma skill que utilizo no dia a dia para criar SDDs para meus projetos pessoais. Você pode ver o código completo dela aqui: [jjeanjacques10/skills/spec-driven-build/SKILL.md](https://github.com/jjeanjacques10/skills/blob/main/skills/development/spec-driven-build/SKILL.md)
 
 Abaixo mostro a estrutura que proponho caso queira criar uma SKILL semelhante para seu time:
 
@@ -164,7 +164,9 @@ O maior erro ao escrever um SDD é focar no "o quê" e esquecer o "por quê" e o
 
 ## Exemplo
 
-Você pode ver a skill completa utilizada neste projeto aqui: [SKILL.md](./SKILL.md)
+Você pode ver a skill completa utilizada neste projeto aqui: [jjeanjacques10/skills/spec-driven-build/SKILL.md](https://github.com/jjeanjacques10/skills/blob/main/skills/development/spec-driven-build/SKILL.md)
+
+![Exemplo de uso no Claude](/posts/images/2026-05-16-spec-driven-development/example-skill.png)
 
 ---
 

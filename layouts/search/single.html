@@ -23,6 +23,8 @@
     </span>
   </div>
 
+  <div id="tag-filter-bar" class="tag-filter-bar" aria-label="Filtrar por tag" role="group"></div>
+
   <p id="search-status" class="search-status" aria-live="polite" aria-atomic="true"></p>
 
   <div id="search-results" class="search-results post-list" role="region" aria-label="Resultados da busca"></div>
@@ -80,12 +82,25 @@
     if (!query) {
       results.innerHTML = '';
       status.textContent = '';
+      var tagBar = document.getElementById('tag-filter-bar');
+      if (tagBar) tagBar.querySelectorAll('.tag-filter-chip').forEach(function(c) { c.classList.remove('active'); });
       return;
     }
     if (!fuseIndex) {
       status.textContent = 'Carregando índice…';
       return;
     }
+
+    if (query.toLowerCase().startsWith('tag:')) {
+      var tag = query.slice(4).trim().toLowerCase();
+      var tagged = data.filter(function(item) {
+        return (item.tags || []).some(function(t) { return t.toLowerCase() === tag; });
+      });
+      status.textContent = tagged.length + (tagged.length === 1 ? ' resultado' : ' resultados') + ' com tag "' + tag + '"';
+      results.innerHTML = tagged.length ? tagged.map(renderResult).join('') : '';
+      return;
+    }
+
     var hits = fuseIndex.search(query, { limit: 20 });
     if (hits.length === 0) {
       results.innerHTML = '';
@@ -113,6 +128,29 @@
         ignoreLocation: true,
         minMatchCharLength: 2
       });
+      /* Populate tag filter chips */
+      var allTags = [];
+      data.forEach(function(item) {
+        (item.tags || []).forEach(function(t) {
+          if (allTags.indexOf(t) === -1) allTags.push(t);
+        });
+      });
+      allTags.sort(function(a, b) { return a.localeCompare(b); });
+      var tagBar = document.getElementById('tag-filter-bar');
+      if (tagBar && allTags.length) {
+        tagBar.innerHTML = allTags.map(function(t) {
+          return '<button type="button" class="tag-badge tag-filter-chip" data-tag="' + esc(t) + '">' + esc(t) + '</button>';
+        }).join('');
+        tagBar.querySelectorAll('.tag-filter-chip').forEach(function(chip) {
+          chip.addEventListener('click', function() {
+            tagBar.querySelectorAll('.tag-filter-chip').forEach(function(c) { c.classList.remove('active'); });
+            chip.classList.add('active');
+            input.value = 'tag:' + chip.dataset.tag;
+            search(input.value);
+          });
+        });
+      }
+
       /* Run immediately if there is already a query in the box */
       if (input.value.trim()) { search(input.value); }
       else { status.textContent = ''; }

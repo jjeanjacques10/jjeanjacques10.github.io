@@ -1,0 +1,13 @@
+{{- with .Site.Params.utterancesRepo }}
+<div class="comments-section">
+  <h2 class="comments-title">Comentários</h2>
+  <script src="https://utteranc.es/client.js"
+          repo="{{ . }}"
+          issue-term="url"
+          label="comment"
+          theme="{{ $.Site.Params.utterancesTheme | default "github-dark" }}"
+          crossorigin="anonymous"
+          async>
+  </script>
+</div>
+{{- end }}
