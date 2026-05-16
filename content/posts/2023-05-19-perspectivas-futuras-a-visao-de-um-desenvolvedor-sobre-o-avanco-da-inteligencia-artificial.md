@@ -1,7 +1,7 @@
 ---
 title: "Perspectivas futuras: A visão de um desenvolvedor sobre o avanço da Inteligência Artificial"
 date: 2023-05-19
-description: ""
+description: "Reflexão de um desenvolvedor sobre o impacto da IA na carreira, no mercado e no futuro do desenvolvimento de software."
 tags: ["Inteligência Artificial", "Carreira", "Tecnologia", "Engenharia de Software"]
 categories: ["software-engineering"]
 cover: "/posts/images/2023-05-19-perspectivas-futuras-a-visao-de-um-desenvolvedor-sobre-o-avanco-da-inteligencia-artificial/cover.png"

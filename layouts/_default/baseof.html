@@ -17,12 +17,34 @@
   <meta name="keywords" content="{{ delimit . `, ` }}">
   {{- end }}
 
+  <!-- Canonical URL -->
+  <link rel="canonical" href="{{ .Permalink }}">
+
   <!-- Open Graph -->
   <meta property="og:title" content="{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}">
   <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
   <meta property="og:url" content="{{ .Permalink }}">
-  {{- with .Params.cover }}
-  <meta property="og:image" content="{{ . | absURL }}">
+  <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ .Summary | plainify | truncate 160 }}{{ else }}{{ .Site.Params.Description }}{{ end }}">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+  {{- if .Params.cover }}
+  <meta property="og:image" content="{{ .Params.cover | absURL }}">
+  {{- else if .Site.Params.defaultImage }}
+  <meta property="og:image" content="{{ .Site.Params.defaultImage | absURL }}">
+  {{- end }}
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}">
+  <meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ .Summary | plainify | truncate 160 }}{{ else }}{{ .Site.Params.Description }}{{ end }}">
+  {{- if .Params.cover }}
+  <meta name="twitter:image" content="{{ .Params.cover | absURL }}">
+  {{- else if .Site.Params.defaultImage }}
+  <meta name="twitter:image" content="{{ .Site.Params.defaultImage | absURL }}">
+  {{- end }}
+  {{- with .Site.Params.twitterHandle }}
+  <meta name="twitter:creator" content="@{{ . }}">
+  <meta name="twitter:site" content="@{{ . }}">
   {{- end }}
 
   <!-- RSS -->

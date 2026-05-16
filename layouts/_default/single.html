@@ -20,7 +20,7 @@
     {{- end }}
     {{- with .Params.cover }}
     <div class="post-cover">
-      <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
+      <img src="{{ . }}" alt="{{ if $.Params.coverAlt }}{{ $.Params.coverAlt }}{{ else }}{{ $.Title }}{{ end }}" loading="lazy">
     </div>
     {{- end }}
   </header>

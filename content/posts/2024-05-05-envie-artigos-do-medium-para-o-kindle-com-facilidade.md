@@ -1,7 +1,7 @@
 ---
 title: "Envie Artigos do Medium para o Kindle com Facilidade"
 date: 2024-05-05
-description: ""
+description: "Como enviar artigos do Medium diretamente para o seu Kindle usando um script Python open source de forma simples e gratuita."
 tags: ["Python", "Automação", "Open Source", "Produtividade"]
 categories: ["projetos"]
 cover: "/posts/images/2024-05-05-envie-artigos-do-medium-para-o-kindle-com-facilidade/cover.png"

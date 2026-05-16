@@ -1,7 +1,7 @@
 ---
 title: "Alexa Skill — Newsletter Reader (Filipe Deschamps)"
 date: 2021-04-21
-description: ""
+description: "Aprenda a criar uma Alexa Skill do zero para ler a newsletter do Filipe Deschamps usando AWS Lambda e Serverless."
 tags: ["AWS", "Alexa", "Serverless", "Integrações"]
 categories: ["cloud"]
 cover: "/posts/images/2021-04-21-alexa-skill-newsletter-reader-filipe-deschamps/cover.png"

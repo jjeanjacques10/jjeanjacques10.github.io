@@ -1,7 +1,7 @@
 ---
 title: "[PT-BR] Spring Data JPA — Overview"
 date: 2022-07-07
-description: ""
+description: "Visão geral do Spring Data JPA em português: entidades, repositórios, queries e boas práticas para acessar banco de dados com Java."
 tags: ["Spring Boot", "Java", "Banco de Dados", "JPA"]
 categories: ["software-engineering"]
 cover: "/posts/images/2022-07-07-pt-br-spring-data-jpa-overview/cover.png"

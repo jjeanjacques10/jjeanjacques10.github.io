@@ -1,7 +1,7 @@
 ---
 title: "DynamoDB Single-Table Design com Spring Boot"
 date: 2022-08-31
-description: ""
+description: "Como implementar Single-Table Design no DynamoDB com Spring Boot, modelando entidades complexas em uma única tabela NoSQL na AWS."
 tags: ["AWS", "DynamoDB", "Spring Boot", "Arquitetura de Software"]
 categories: ["cloud"]
 cover: "/posts/images/2022-08-31-dynamodb-single-table-design-com-spring-boot/cover.png"

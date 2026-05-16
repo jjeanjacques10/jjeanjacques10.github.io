@@ -1,7 +1,7 @@
 ---
 title: "Atualizando dados no DynamoDB utilizando AWS Glue"
 date: 2022-11-13
-description: ""
+description: "Como usar AWS Glue com Python para atualizar dados em lote no DynamoDB de forma escalável e sem complexidade operacional."
 tags: ["AWS", "DynamoDB", "Python", "Engenharia de Dados"]
 categories: ["cloud"]
 cover: "/posts/images/2022-11-13-atualizando-dados-no-dynamodb-utilizando-aws-glue/cover.png"

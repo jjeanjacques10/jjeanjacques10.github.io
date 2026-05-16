@@ -1,7 +1,7 @@
 ---
 title: "Estratégias utilizando Application Auto Scaling com ECS"
 date: 2022-12-02
-description: ""
+description: "Estratégias de auto scaling para containers ECS: target tracking, step scaling e scheduled scaling para aplicações na AWS."
 tags: ["AWS", "ECS", "Escalabilidade", "Arquitetura de Software"]
 categories: ["cloud"]
 cover: "/posts/images/2022-12-02-estrategias-utilizando-application-auto-scaling-com-ecs/cover.png"
