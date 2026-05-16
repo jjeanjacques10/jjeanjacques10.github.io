@@ -30,7 +30,7 @@ Vamos iniciar adicionando a dependência do Spring Data no arquivo pom.xml, dest
     <groupId>org.springframework.data</groupId>
     <artifactId>spring-data-jpa</artifactId>
   </dependency>
-<dependencies>
+</dependencies>
 ```
 
 É possível trabalhar com diversos SGBD’s (Sistema de Gerenciamento de Banco de Dados), como por exemplo:
@@ -132,8 +132,6 @@ Alguns tópicos ficaram de fora, como por exemplo a parte de relacionamento, que
 ### Conclusão
 
 Após me aprofundar na biblioteca que vejo diariamente, percebi o quanto ainda tenho a aprender, e esses novos tópicos que descobri já começaram a me ajudar no dia a dia de trabalho diminuindo o tempo de desenvolvimento e buscas no Stack Overflow (além de evitar muita dor de cabeça ao debugar as aplicações). Espero que este artigo tenha lhe auxiliado em sua jornada de aprendizado com Spring Data JPA.
-
-Até a próxima!
 
 Caso tenha alguma crítica, sugestão ou dúvida fique a vontade para me enviar uma mensagem:
 

@@ -198,12 +198,11 @@ O “ack-mode” é uma propriedade que define como o consumidor deve confirmar 
 
 No exemplo abaixo, o “ack-mode” está configurado para MANUAL_IMMEDIATE, ou seja, a confirmação é feita manualmente e imediatamente após o processamento da mensagem.
 
-```json
+```kotlin
 try {
     log.info("Consume Kafka message - topic: {}, offset: {}, partition: {}", topic, offset, partition)
     notificationService.process(transactionItem.toTransaction())
-} catch (
-ex: `Exception) {`
+} catch (ex: Exception) {
     log.error("Error processing message: {}", ex.message, ex)
 } finally {
     ack.acknowledge() // Confirmação manual sendo realizada
@@ -232,8 +231,7 @@ fun consumePayment(
 ) {
     try {
         log.info("Consume Kafka message - topic: {}, offset: {}, partition: {}", topic, offset, partition)
-    } catch (
-      ex: `Exception) {`
+    } catch (ex: Exception) {
         log.error("Error processing message: {}", ex.message, ex)
     } finally {
         ack.acknowledge()

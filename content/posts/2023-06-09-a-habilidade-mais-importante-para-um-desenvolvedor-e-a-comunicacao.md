@@ -22,12 +22,6 @@ Você já deve ter participado de uma reunião que poderia ter sido substituída
 
 ### Cuidado com erros de digitação
 
-### Conheça seu público algo
-
-### Faça as perguntas certas
-
-### Cuidado com erros de digitação
-
 O primeiro é o mais simples de todos: Evite equívocos de digitação ou de português, você não precisa redigir a redação do ENEM, nem ser formal constantemente. O dilema ocorre quando tais equívocos podem prejudicar a compreensão do leitor, portanto revise sempre que possível antes de clicar em “ENVIAR”. Alguns segundos adicionais não comprometerão sua oportunidade de compartilhar algo, mas substituir “significado” por “sinificado” pode gerar confusão para o leitor.
 
 ### Conheça seu público

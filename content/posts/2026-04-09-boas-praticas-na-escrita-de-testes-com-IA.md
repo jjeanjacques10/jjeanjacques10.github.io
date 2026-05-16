@@ -59,18 +59,18 @@ Um outra boa prática é utilizar mocks, stubs e fakes para lidar com dependênc
 
 Normalmente sua linguagem terá uma biblioteca específica para lidar com esses conceitos, como o Mockito para Java/Kotlin, o unittest.mock para Python, entre outros.
 
-### Nomemclatura e legibilidade
+### Nomenclatura e legibilidade
 
 Outra boa prática é utilizar uma nomenclatura clara e descritiva para os testes, garantindo que outros desenvolvedores possam entender facilmente o propósito do teste apenas lendo o nome do método de teste. Além disso, é importante manter os testes legíveis e organizados, utilizando boas práticas de formatação e estruturação do código.
 
 ``` java
-// Exemplo de nomemclatura ruim
+// Exemplo de nomenclatura ruim
 @Test
 public void test1() {
     // código do teste
 }
 
-// Exemplo de nomemclatura boa
+// Exemplo de nomenclatura boa
 @Test
 public void shouldCalculateTotalPriceWhenItemHasChakra() {
     // código do teste
@@ -103,7 +103,7 @@ Outra dica que ajuda a manter o padrão de código e testes do time é utilizar 
 
 Também podem ser definidas as principais ferramentas utilizadas para escrever testes unitários, como o JUnit para Kotlin/Java, o pytest para Python, entre outros, e as melhores práticas para cada uma dessas ferramentas.
 
-Exemplo de AGENTS.md para um time quen utiliza Kotlin e JUnit no dia a dia:
+Exemplo de AGENTS.md para um time que utiliza Kotlin e JUnit no dia a dia:
 
 ```markdown
 # AGENTS.md

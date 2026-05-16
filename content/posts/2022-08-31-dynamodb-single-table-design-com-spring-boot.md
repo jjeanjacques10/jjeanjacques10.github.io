@@ -12,7 +12,7 @@ draft: false
 
 ### Um exemplo prático de como utilizar Single-table Design em uma aplicação Java Spring Boot
 
-Desde que conheci o conceito de Sigle-Table Design quis entender melhor como isso poderia ser aplicado em um cenário real, criei essa prova de conceito e gostaria de apresentar para vocês!
+Desde que conheci o conceito de Single-Table Design quis entender melhor como isso poderia ser aplicado em um cenário real, criei essa prova de conceito e gostaria de apresentar para vocês!
 
 DynamoDB é um banco de dados No-SQL de chave-valor (key-value) criado pela AWS, ele tem como foco trabalhar com grandes volumes de dados oferecendo performance. Diversas empresas atualmente utilizam esse banco de dados, como por exemplo Itaú, Amazon, Mercado Livre e a própria AWS. Neste artigo irei abordar algumas diferenças que você teria ao utilizar a estratégia de Single-table.
 
