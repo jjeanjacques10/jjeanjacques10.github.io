@@ -40,6 +40,8 @@ copyright = "&copy; Jean Jacques"
   showFooterCredits = true
   utterancesRepo  = "jjeanjacques10/jjeanjacques10.github.io"
   utterancesTheme = "github-dark"
+  adsensePublisher = "ca-pub-3966650629863985"
+  adsenseSlot      = "8567698842"
 
 [menu]
   [[menu.main]]

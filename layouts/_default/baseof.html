@@ -69,6 +69,12 @@
     gtag('config', 'G-XF3RSJ2JKN');
   </script>
 
+  {{- with .Site.Params.adsensePublisher }}
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ . }}"
+          crossorigin="anonymous"></script>
+  {{- end }}
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

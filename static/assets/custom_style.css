@@ -2089,3 +2089,21 @@ body.light-mode .code-copy-btn.copied {
   .quirk-stats { flex-wrap: wrap; }
   .quirk-stat { min-width: 110px; padding: 0.65rem 1.25rem; }
 }
+
+/* ---- Ad Card (AdSense) ----------------------------------- */
+.ad-card {
+  min-height: 120px;
+}
+
+.ad-card__label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.adsbygoogle {
+  display: block;
+  min-height: 100px;
+}

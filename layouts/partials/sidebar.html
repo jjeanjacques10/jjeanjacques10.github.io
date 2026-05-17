@@ -67,6 +67,13 @@
     <p class="about-me__bio">{{ .Site.Params.bio | default .Site.Params.Description }}</p>
   </div>
 
+  {{- with .Site.Params.adsensePublisher }}
+  <div class="sidebar-card ad-card">
+    <h4 class="sidebar-card__title ad-card__label">Publicidade</h4>
+    {{- partial "ad-unit.html" $ }}
+  </div>
+  {{- end }}
+
   <!-- Follow Me -->
   <div class="sidebar-card">
     <h4 class="sidebar-card__title">Follow Me</h4>
