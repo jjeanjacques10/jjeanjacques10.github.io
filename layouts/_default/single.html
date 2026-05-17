@@ -29,6 +29,27 @@
     {{ .Content }}
   </div>
 
+  {{- with .Site.Params.adsensePublisher }}
+  <script>
+  (function() {
+    var content = document.querySelector('.post-content');
+    if (!content) return;
+    var paragraphs = content.querySelectorAll('p');
+    if (paragraphs.length < 5) return;
+
+    var wrapper = document.createElement('div');
+    wrapper.className = 'ad-in-content';
+    wrapper.innerHTML =
+      '<span class="ad-in-content__label">Publicidade</span>' +
+      '<ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed"' +
+      ' data-ad-client="{{ . }}" data-ad-slot="{{ $.Site.Params.adsenseSlot }}"></ins>';
+
+    paragraphs[3].insertAdjacentElement('afterend', wrapper);
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+  })();
+  </script>
+  {{- end }}
+
   {{- partial "social-share.html" . }}
 
   <footer class="post-footer">

@@ -2090,6 +2090,25 @@ body.light-mode .code-copy-btn.copied {
   .quirk-stat { min-width: 110px; padding: 0.65rem 1.25rem; }
 }
 
+/* ---- Ad In-Content --------------------------------------- */
+.ad-in-content {
+  margin: 2rem 0;
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  text-align: center;
+}
+
+.ad-in-content__label {
+  display: block;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
 /* ---- Ad Card (AdSense) ----------------------------------- */
 .ad-card {
   min-height: 120px;

@@ -3,10 +3,9 @@
 {{- with $.Site.Params.adsenseSlot }}
 <ins class="adsbygoogle"
      style="display:block"
+     data-ad-format="autorelaxed"
      data-ad-client="{{ $publisher }}"
-     data-ad-slot="{{ . }}"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+     data-ad-slot="{{ . }}"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 {{- end }}
 {{- end }}
