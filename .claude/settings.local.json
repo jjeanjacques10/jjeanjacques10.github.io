@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "Bash(python -c \"from PIL import Image; print\\('Pillow OK'\\)\")",
+      "Bash(pip install *)",
+      "Bash(python -m pip install Pillow)",
+      "Bash(python *)",
+      "Bash(bun run *)",
+      "Bash(git -C \"C:/Users/jjean/Documents/apps/visa-scout\" log --all --oneline --grep=\"stripe\\\\|payment\\\\|billing\")",
+      "PowerShell(Get-Command *)",
+      "PowerShell(bun run *)",
+      "PowerShell(& \"$env:USERPROFILE\\\\.bun\\\\bin\\\\bun.exe\" run build 2>&1 | Select-Object -Last 30)",
+      "PowerShell(cd \"C:\\\\Users\\\\jjean\\\\Documents\\\\apps\\\\visa-scout\"; & \"$env:USERPROFILE\\\\.bun\\\\bin\\\\bun.exe\" run build 2>&1 | Select-Object -Last 30)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(list\\(d.keys\\(\\)\\), indent=2\\)\\)\")",
+      "PowerShell(cd \"C:\\\\Users\\\\jjean\\\\Documents\\\\apps\\\\visa-scout\"; & \"$env:USERPROFILE\\\\.bun\\\\bin\\\\bun.exe\" run build 2>&1)",
+      "PowerShell(npx --version 2>&1; node --version 2>&1)",
+      "PowerShell(powershell -c \"irm bun.sh/install.ps1 | iex\" 2>&1)",
+      "PowerShell(bun *)",
+      "Bash(Get-ChildItem -Force)",
+      "Bash(Select-String \"docs\")",
+      "Bash(hugo --gc --minify)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\jjean\\\\Documents\\\\apps\\\\blog-jjeanjacques\\\\jjeanjacques.github.io\" -Directory)",
+      "Bash(Select-Object Name)",
+      "Bash(python3 -c ' *)",
+      "Bash(git stash *)",
+      "Bash(hugo --gc)",
+      "Bash(cat -A public/robots.txt)",
+      "Bash(hugo --gc --minify --verbose)",
+      "Bash(hugo list *)",
+      "Bash(hugo --gc --templateMetrics)",
+      "Bash(grep -v \"^$\")"
+    ]
+  }
+}
