@@ -39,7 +39,7 @@ Deixo aqui algumas sugestões de ferramentas que venho utilizando:
 
 - GitHub Copilot: <https://copilot.github.com/>
 - ChatGPT: <https://chatbot.gpt.dobro.ai/>
-- Phind.ai: <https://phind.ai/>
+- Phind.ai: <https://phind.ai/> (Descontinuado)
 
 ### Vamos perder nossos empregos?
 

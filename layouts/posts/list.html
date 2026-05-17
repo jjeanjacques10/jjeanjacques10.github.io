@@ -1,0 +1,73 @@
+{{ define "title" }}Artigos – {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+{{- $currentYear := now.Format "2006" }}
+{{- $allPosts := where .Site.RegularPages "Section" "posts" }}
+{{- $.Scratch.Set "ep" 0 }}
+
+<div class="arc-archive">
+
+  <header class="arc-archive__header">
+    <p class="arc-archive__eyebrow">📖 Arquivo de Missões</p>
+    <h1 class="arc-archive__title">Todos os Artigos</h1>
+    <div class="arc-archive__stats">
+      <span><strong>{{ len $allPosts }}</strong> episódios publicados</span>
+      <span><strong>{{ len (.Pages.GroupByDate "2006") }}</strong> arcos</span>
+    </div>
+  </header>
+
+  {{- range .Pages.GroupByDate "2006" }}
+  {{- $year := .Key }}
+  {{- $isAiring := eq $year $currentYear }}
+  {{- $total := len .Pages }}
+
+  <section class="arc-section">
+    <div class="arc-section__header">
+      <span class="arc-section__badge">ARC {{ $year }}</span>
+      <span class="arc-section__count">{{ $total }} ep.</span>
+      {{- if $isAiring }}
+      <span class="arc-section__status arc-section__status--airing">● Em exibição</span>
+      {{- else }}
+      <span class="arc-section__status arc-section__status--completed">Completo</span>
+      {{- end }}
+    </div>
+
+    <div class="arc-episodes">
+      {{- range .Pages }}
+      {{- $.Scratch.Add "ep" 1 }}
+      {{- $epNum := $.Scratch.Get "ep" }}
+      {{- $p := . }}
+      <article class="episode-card">
+        <div class="episode-card__num">{{ $epNum }}ep</div>
+        <div class="episode-card__body">
+          {{- with $p.Params.cover }}
+          <a href="{{ $p.RelPermalink }}" class="episode-card__thumb" aria-hidden="true" tabindex="-1">
+            <img src="{{ . }}" alt="{{ $p.Title }}" loading="lazy">
+          </a>
+          {{- end }}
+          <div class="episode-card__info">
+            <h3 class="episode-card__title">
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </h3>
+            <div class="episode-card__meta">
+              <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time>
+              <span class="meta-sep" aria-hidden="true">·</span>
+              <span>{{ .ReadingTime }} min read</span>
+            </div>
+            {{- with .Params.tags }}
+            <div class="episode-card__tags">
+              {{- range first 3 . }}
+              <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}" class="tag-badge">{{ . }}</a>
+              {{- end }}
+            </div>
+            {{- end }}
+          </div>
+        </div>
+      </article>
+      {{- end }}
+    </div>
+  </section>
+  {{- end }}
+
+</div>
+{{ end }}
