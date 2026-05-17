@@ -1,0 +1,43 @@
+{{ define "title" }}Quirks – {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<div class="quirk-archive">
+
+  <header class="quirk-header">
+    <div class="quirk-header__emblem">⚡</div>
+    <h1 class="quirk-header__title">Arquivo de Quirks</h1>
+    <p class="quirk-header__subtitle">
+      Quirk — a habilidade que define o tema do artigo.
+      Quanto mais artigos, maior o domínio da habilidade.
+    </p>
+  </header>
+
+  <div class="quirk-stats">
+    <div class="quirk-stat">
+      <span class="quirk-stat__value">{{ len .Data.Terms }}</span>
+      <span class="quirk-stat__label">Quirks descobertas</span>
+    </div>
+    <div class="quirk-stat">
+      <span class="quirk-stat__value">{{ len (where .Site.RegularPages "Section" "posts") }}</span>
+      <span class="quirk-stat__label">Missões completadas</span>
+    </div>
+  </div>
+
+  <div class="quirk-grid">
+    {{- range .Data.Terms.ByCount }}
+    {{- $count := .Count }}
+    {{- $rank := "b" }}
+    {{- if ge $count 4 }}{{- $rank = "s" }}{{- else if ge $count 2 }}{{- $rank = "a" }}{{- end }}
+    <a href="{{ .Page.RelPermalink }}" class="quirk-card quirk-card--{{ $rank }}">
+      <div class="quirk-card__rank">{{ $rank | upper }}-Rank</div>
+      <div class="quirk-card__name">{{ .Page.Title }}</div>
+      <div class="quirk-card__count">
+        <span class="quirk-card__count-num">{{ $count }}</span>
+        <span class="quirk-card__count-label">artigo{{ if gt $count 1 }}s{{ end }}</span>
+      </div>
+    </a>
+    {{- end }}
+  </div>
+
+</div>
+{{ end }}

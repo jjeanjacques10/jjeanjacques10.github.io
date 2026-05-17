@@ -3,7 +3,6 @@ title: "Boas práticas na escrita de testes unitários com IA"
 date: 2026-04-09
 description: "Boas práticas para escrever testes unitários com IA: como validar, refinar e confiar no código gerado por ferramentas como GitHub Copilot."
 tags: ["Engenharia de Software", "Testes", "Kotlin", "IA"]
-categories: ["software-engineering"]
 cover: "/posts/images/2026-04-09-boas-praticas-na-escrita-de-testes-com-IA/cover.png"
 draft: false
 ---

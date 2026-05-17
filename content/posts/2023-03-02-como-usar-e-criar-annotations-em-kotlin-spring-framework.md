@@ -3,7 +3,6 @@ title: "Como usar e criar Annotations em Kotlin — Spring Framework"
 date: 2023-03-02
 description: "Como usar e criar annotations customizadas em Kotlin com Spring Framework para simplificar validações e comportamentos transversais."
 tags: ["Kotlin", "Spring Boot", "APIs", "Engenharia de Software"]
-categories: ["software-engineering"]
 cover: "/posts/images/2023-03-02-como-usar-e-criar-annotations-em-kotlin-spring-framework/cover.png"
 draft: false
 ---

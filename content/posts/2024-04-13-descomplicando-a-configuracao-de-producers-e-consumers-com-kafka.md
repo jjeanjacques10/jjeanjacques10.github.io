@@ -3,7 +3,6 @@ title: "Descomplicando a Configuração de Producers e Consumers com Kafka"
 date: 2024-04-13
 description: "Guia prático para configurar producers e consumers Apache Kafka com Spring Boot, cobrindo serialização, grupos e tratamento de erros."
 tags: ["Kafka", "Spring Boot", "Mensageria", "Sistemas Distribuídos"]
-categories: ["platform-engineering"]
 cover: "/posts/images/2024-04-13-descomplicando-a-configuracao-de-producers-e-consumers-com-kafka/cover.png"
 draft: false
 ---

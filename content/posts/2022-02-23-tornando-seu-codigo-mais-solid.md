@@ -3,7 +3,6 @@ title: "Tornando seu código mais SOLID!"
 date: 2022-02-23
 description: "Aprenda os 5 princípios SOLID com exemplos práticos em Java e Spring para escrever código limpo, extensível e fácil de manter."
 tags: ["Engenharia de Software", "SOLID", "Java", "Spring"]
-categories: ["software-engineering"]
 cover: "/posts/images/2022-02-23-tornando-seu-codigo-mais-solid/cover.png"
 draft: false
 ---

@@ -9,6 +9,9 @@ pygmentsUseClasses = true
 enableRobotsTXT = true
 copyright = "&copy; Jean Jacques"
 
+[taxonomies]
+  tag = "tags"
+
 [outputs]
   home = ["HTML", "RSS", "JSON"]
 
@@ -51,7 +54,7 @@ copyright = "&copy; Jean Jacques"
     weight = 2
   [[menu.main]]
     identifier = "tags"
-    name = "Tags"
+    name = "Quirks"
     url = "/tags/"
     weight = 3
   [[menu.main]]

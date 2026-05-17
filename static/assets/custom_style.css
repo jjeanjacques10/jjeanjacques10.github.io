@@ -1698,3 +1698,186 @@ body.light-mode .code-copy-btn.copied {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
 }
+
+/* ── Quirk Archive (/tags/) ───────────────────── */
+.quirk-archive {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.quirk-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 2rem 2rem 1.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.quirk-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top, rgba(86, 211, 100, 0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.quirk-header__emblem {
+  font-size: 2.75rem;
+  line-height: 1;
+  margin-bottom: 0.65rem;
+  filter: drop-shadow(0 0 14px rgba(86, 211, 100, 0.55));
+}
+
+.quirk-header__title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.quirk-header__subtitle {
+  color: var(--text-muted);
+  max-width: 560px;
+  margin: 0 auto;
+  font-size: 0.93rem;
+  line-height: 1.7;
+}
+
+.quirk-stats {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.quirk-stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.85rem 1.75rem;
+  text-align: center;
+  min-width: 130px;
+}
+
+.quirk-stat__value {
+  display: block;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.1;
+}
+
+.quirk-stat__label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.2rem;
+}
+
+.quirk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+  gap: 0.75rem;
+}
+
+.quirk-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.quirk-card:hover {
+  transform: translateY(-3px);
+  text-decoration: none;
+}
+
+/* S-Rank — Endeavor red (highest power) */
+.quirk-card--s {
+  border-color: #f85149;
+  background: linear-gradient(135deg, var(--surface) 55%, rgba(248, 81, 73, 0.08) 100%);
+}
+.quirk-card--s:hover {
+  border-color: #f85149;
+  box-shadow: 0 6px 22px rgba(248, 81, 73, 0.22);
+}
+
+/* A-Rank — Todoroki blue (strong) */
+.quirk-card--a {
+  border-color: #388bfd;
+  background: linear-gradient(135deg, var(--surface) 55%, rgba(56, 139, 253, 0.08) 100%);
+}
+.quirk-card--a:hover {
+  border-color: #388bfd;
+  box-shadow: 0 6px 22px rgba(56, 139, 253, 0.22);
+}
+
+/* B-Rank — Midoriya green (emerging) */
+.quirk-card--b {
+  border-color: var(--border);
+}
+.quirk-card--b:hover {
+  border-color: var(--primary);
+  box-shadow: 0 6px 22px rgba(46, 160, 67, 0.15);
+}
+
+.quirk-card__rank {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.45rem;
+}
+
+.quirk-card--s .quirk-card__rank { color: #f85149; }
+.quirk-card--a .quirk-card__rank { color: #388bfd; }
+.quirk-card--b .quirk-card__rank { color: var(--primary); }
+
+.quirk-card__name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.35;
+  flex: 1;
+  margin-bottom: 0.8rem;
+}
+
+.quirk-card__count {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+
+.quirk-card__count-num {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+}
+
+.quirk-card__count-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 600px) {
+  .quirk-archive { padding: 1.5rem 0; }
+  .quirk-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+  .quirk-header__title { font-size: 1.5rem; }
+  .quirk-header__emblem { font-size: 2.25rem; }
+  .quirk-stats { flex-wrap: wrap; }
+  .quirk-stat { min-width: 110px; padding: 0.65rem 1.25rem; }
+}

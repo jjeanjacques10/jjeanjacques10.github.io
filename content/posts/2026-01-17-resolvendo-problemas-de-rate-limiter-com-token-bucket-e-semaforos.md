@@ -3,7 +3,6 @@ title: "Resolvendo problemas de Rate Limiter com Token Bucket e Semáforos"
 date: 2026-01-17
 description: "Como implementar rate limiting com algoritmo Token Bucket e semáforos distribuídos com Spring Boot para proteger APIs na AWS."
 tags: ["AWS", "Spring Boot", "Sistemas Distribuídos", "Rate Limiting"]
-categories: ["systems-design"]
 cover: "/posts/images/2026-01-17-resolvendo-problemas-de-rate-limiter-com-token-bucket-e-semaforos/cover.png"
 draft: false
 ---

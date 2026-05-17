@@ -3,7 +3,6 @@ title: "Spec Driven Development: A abordagem que melhorou meu desenvolvimento co
 date: 2026-05-16
 description: "Como estou utilizando Spec Driven Development no dia a dia para reduzir retrabalho com IA, melhorar a qualidade do código e acelerar entregas."
 tags: ["Engenharia de Software", "AI", "SDD", "Spec Driven Development"]
-categories: ["Engenharia de Software", "AI"]
 cover: "/posts/images/2026-05-16-spec-driven-development/cover.png"
 draft: false
 ---
