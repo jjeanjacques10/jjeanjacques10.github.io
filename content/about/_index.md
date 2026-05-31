@@ -15,13 +15,6 @@ Tenho forte atuação em otimização de processos, liderança técnica e mentor
 
 Sou apaixonado por compartilhar conhecimento técnico por meio de artigos e palestras, traduzindo conceitos complexos em explicações práticas e acessíveis.
 
-## 🎓 Formação e certificações
-
-- **MBA em Cloud & Architecture** pela [FIAP](https://www.fiap.com.br/)
-- **AWS Certified Solutions Architect**
-- **AWS Certified Cloud Practitioner**
-- **Speaker** em eventos como [The Developers Conference (TDC)](https://thedevconf.com/palestrante/jean-jacques-barros)
-
 ## 🎯 Foco Técnico
 
 - **Arquitetura de Software**: microsserviços, event-driven e design orientado a domínio
