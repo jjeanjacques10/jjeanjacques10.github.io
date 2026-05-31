@@ -479,6 +479,10 @@ ul.cl li::before { content:'→'; color:var(--green); font-family:var(--mono); f
 /* AVATAR */
 .av { width:74px; height:74px; border-radius:50%; border:2px solid var(--bd-g); object-fit:cover; flex-shrink:0; }
 
+/* TOOL LOGOS */
+.tool-logo { width:15px; height:15px; border-radius:3px; flex-shrink:0; object-fit:contain; display:inline-block; vertical-align:middle; }
+.tool-logo-sm { width:11px; height:11px; border-radius:2px; flex-shrink:0; object-fit:contain; }
+
 /* SLIDE NUMBER */
 .sn { position:absolute; bottom:20px; right:64px; font-family:var(--mono); font-size:0.53em; color:var(--gdark); letter-spacing:0.1em; pointer-events:none; }
 
@@ -659,9 +663,9 @@ if (window.self !== window.top) {
         </div>
         <div class="era-main"><strong>A IA responde perguntas.</strong></div>
         <div class="era-tools">
-          <span class="tag b">ChatGPT</span>
-          <span class="tag b">Claude</span>
-          <span class="tag b">Gemini</span>
+          <span class="tag b" style="display:inline-flex; align-items:center; gap:4px;"><img class="tool-logo-sm" src="https://cdn.simpleicons.org/chatgpt/60a5fa" onerror="this.src='https://openai.com/favicon.ico';this.onerror=null" alt="">ChatGPT</span>
+          <span class="tag b" style="display:inline-flex; align-items:center; gap:4px;"><img class="tool-logo-sm" src="https://cdn.simpleicons.org/anthropic/60a5fa" onerror="this.style.display='none'" alt="">Claude</span>
+          <span class="tag b" style="display:inline-flex; align-items:center; gap:4px;"><img class="tool-logo-sm" src="https://cdn.simpleicons.org/googlegemini/60a5fa" onerror="this.style.display='none'" alt="">Gemini</span>
         </div>
         <div class="era-flow">
           <div class="flow-step">Você pergunta</div>
@@ -697,9 +701,9 @@ if (window.self !== window.top) {
         </div>
         <div class="era-main"><strong>A IA programa junto com você.</strong></div>
         <div class="era-tools">
-          <span class="tag g">GitHub Copilot</span>
-          <span class="tag g">Cursor</span>
-          <span class="tag g">Windsurf</span>
+          <span class="tag g" style="display:inline-flex; align-items:center; gap:4px;"><img class="tool-logo-sm" src="https://cdn.simpleicons.org/github/22c55e" onerror="this.style.display='none'" alt="">GitHub Copilot</span>
+          <span class="tag g" style="display:inline-flex; align-items:center; gap:4px;"><img class="tool-logo-sm" src="https://www.cursor.com/favicon.ico" onerror="this.style.display='none'" alt="">Cursor</span>
+          <span class="tag g" style="display:inline-flex; align-items:center; gap:4px;"><img class="tool-logo-sm" src="https://windsurf.com/favicon.ico" onerror="this.style.display='none'" alt="">Windsurf</span>
         </div>
         <div class="era-flow">
           <div class="flow-step">Você programa</div>
@@ -735,10 +739,9 @@ if (window.self !== window.top) {
         </div>
         <div class="era-main"><strong>A IA executa trabalho.</strong></div>
         <div class="era-tools">
-          <span class="tag p">Claude Code</span>
-          <span class="tag p">Devin</span>
-          <span class="tag p">Copilot Agent</span>
-          <span class="tag p">OpenAI Codex</span>
+          <span class="tag p" style="display:inline-flex; align-items:center; gap:4px;"><img class="tool-logo-sm" src="https://cdn.simpleicons.org/anthropic/a78bfa" onerror="this.style.display='none'" alt="">Claude Code</span>
+          <span class="tag p" style="display:inline-flex; align-items:center; gap:4px;"><img class="tool-logo-sm" src="https://devin.ai/favicon.ico" onerror="this.style.display='none'" alt="">Devin</span>
+          <span class="tag p" style="display:inline-flex; align-items:center; gap:4px;"><img class="tool-logo-sm" src="https://cdn.simpleicons.org/openai/a78bfa" onerror="this.src='https://openai.com/favicon.ico';this.onerror=null" alt="">OpenAI Codex</span>
         </div>
         <div class="era-flow">
           <div class="flow-step">Você define objetivo</div>
@@ -803,15 +806,15 @@ if (window.self !== window.top) {
     </div>
     <div style="display:flex; flex-direction:column; gap:10px;">
       <div class="card">
-        <div class="clabel">🐙 GitHub Copilot · 2021</div>
+        <div class="clabel" style="display:flex; align-items:center; gap:6px;"><img class="tool-logo" src="https://cdn.simpleicons.org/github/475569" onerror="this.style.display='none'" alt="GitHub">GitHub Copilot · 2021</div>
         <div class="body">Pioneiro do AI-assisted coding. Autocompletion inteligente no IDE. GitHub + OpenAI. Hoje com agent mode integrado e 1.8M+ devs pagantes.</div>
       </div>
       <div class="card-g">
-        <div class="clabel" style="color:var(--green);">⚡ Claude Code · 2025</div>
+        <div class="clabel" style="color:var(--green); display:flex; align-items:center; gap:6px;"><img class="tool-logo" src="https://cdn.simpleicons.org/anthropic/4ade80" onerror="this.style.display='none'" alt="Anthropic">Claude Code · 2025</div>
         <div class="body">Agent terminal-first da Anthropic. Interage com shell, roda comandos, revisa diffs e edita arquivos autonomamente. #1 em adoção em 2026.</div>
       </div>
       <div class="card-b">
-        <div class="clabel" style="color:var(--blue);">🧠 Devin · 2024</div>
+        <div class="clabel" style="color:var(--blue); display:flex; align-items:center; gap:6px;"><img class="tool-logo" src="https://devin.ai/favicon.ico" onerror="this.src='https://cdn.simpleicons.org/databricks/60a5fa';this.onerror=null" alt="Devin">Devin · 2024</div>
         <div class="body">Primeiro agente autônomo com ambiente completo: shell, browser e editor. Cognition Labs. Pioneer da era agentic no mercado.</div>
       </div>
     </div>
@@ -1287,7 +1290,11 @@ if (window.self !== window.top) {
       <div style="font-family:var(--mono); font-size:0.49em; letter-spacing:0.1em; text-transform:uppercase; color:var(--gdark); text-align:center; margin-bottom:6px;">Agent</div>
       <div style="background:linear-gradient(180deg,rgba(34,197,94,0.16),rgba(34,197,94,0.06)); border:1px solid rgba(74,222,128,0.5); border-radius:12px; padding:14px 10px; text-align:center; box-shadow:0 0 20px rgba(34,197,94,0.14);">
         <div style="font-size:1.4em; margin-bottom:5px;">🤖</div>
-        <div style="font-family:var(--mono); font-size:0.57em; color:var(--green); font-weight:700; line-height:1.7;">Claude Code<br>Devin CLI<br>Cursor</div>
+        <div style="font-family:var(--mono); font-size:0.57em; color:var(--green); font-weight:700; display:flex; flex-direction:column; gap:4px;">
+          <span style="display:flex; align-items:center; gap:4px;"><img class="tool-logo-sm" src="https://cdn.simpleicons.org/anthropic/4ade80" onerror="this.style.display='none'" alt="">Claude Code</span>
+          <span style="display:flex; align-items:center; gap:4px;"><img class="tool-logo-sm" src="https://devin.ai/favicon.ico" onerror="this.style.display='none'" alt="">Devin CLI</span>
+          <span style="display:flex; align-items:center; gap:4px;"><img class="tool-logo-sm" src="https://www.cursor.com/favicon.ico" onerror="this.style.display='none'" alt="">Cursor</span>
+        </div>
       </div>
     </div>
 
@@ -1660,7 +1667,7 @@ if (window.self !== window.top) {
   <div class="g2" style="gap:16px; flex:1; align-items:start;">
     <div>
       <div class="card-g" style="margin-bottom:9px; padding:12px 14px;">
-        <div class="clabel" style="color:var(--green);">⚡ Claude Code · Anthropic</div>
+        <div class="clabel" style="color:var(--green); display:flex; align-items:center; gap:7px;"><img class="tool-logo" src="https://cdn.simpleicons.org/anthropic/4ade80" onerror="this.style.display='none'" alt="Anthropic">Claude Code · Anthropic</div>
         <div class="body" style="color:var(--white);">Na demo, vamos usar Claude Code para instalar a skill e executar o fluxo de geração de especificação via comando customizado.</div>
       </div>
       <div class="code" style="margin-bottom:9px;">
@@ -1680,7 +1687,7 @@ if (window.self !== window.top) {
     </div>
     <div>
       <div class="card-b" style="margin-bottom:9px; padding:12px 14px;">
-        <div class="clabel" style="color:var(--blue);">🧠 Devin CLI · Cognition</div>
+        <div class="clabel" style="color:var(--blue); display:flex; align-items:center; gap:7px;"><img class="tool-logo" src="https://devin.ai/favicon.ico" onerror="this.style.display='none'" alt="Devin">Devin CLI · Cognition</div>
         <div class="body" style="color:var(--white);">O mesmo fluxo também funciona no Devin CLI: instala a skill, depois executa o mesmo comando para produzir a especificação.</div>
       </div>
       <div class="code" style="margin-bottom:9px;">
