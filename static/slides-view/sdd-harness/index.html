@@ -1008,82 +1008,145 @@ if (window.self !== window.top) {
       </div>
     </div>
 
-    <!-- RIGHT: Anthropic + visual example -->
-    <div style="display:flex; flex-direction:column; gap:10px;">
-      <div class="card" style="flex:1; padding:14px 16px; display:flex; flex-direction:column; gap:0;">
+    <!-- RIGHT: Anthropic + visual examples -->
+    <div style="display:flex; flex-direction:column; gap:9px;">
 
-        <!-- Anthropic branding -->
-        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:11px;">
-          <div style="display:flex; align-items:center; gap:9px;">
-            <img class="tool-logo" src="https://cdn.simpleicons.org/anthropic/f1f5f9" onerror="this.style.display='none'" alt="Anthropic" style="width:22px; height:22px;">
-            <span style="font-size:0.92em; font-weight:700; color:var(--white); letter-spacing:-0.02em;">anthropic</span>
+      <!-- SONNET 4.6 card -->
+      <div class="card" style="flex:0; padding:11px 14px; display:flex; flex-direction:column; gap:0;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:9px;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <img class="tool-logo" src="https://cdn.simpleicons.org/anthropic/f1f5f9" onerror="this.style.display='none'" alt="Anthropic" style="width:18px; height:18px;">
+            <span style="font-size:0.82em; font-weight:700; color:var(--white); letter-spacing:-0.02em;">anthropic</span>
           </div>
-          <div style="font-family:var(--mono); font-size:0.5em; background:rgba(96,165,250,0.1); border:1px solid rgba(96,165,250,0.28); color:var(--blue); padding:3px 10px; border-radius:5px; letter-spacing:0.06em;">Claude Sonnet 4.6</div>
+          <a href="https://www.anthropic.com/claude/sonnet" target="_blank" style="font-family:var(--mono); font-size:0.46em; background:rgba(96,165,250,0.1); border:1px solid rgba(96,165,250,0.28); color:var(--blue); padding:2px 9px; border-radius:5px; letter-spacing:0.06em; text-decoration:none;">Claude Sonnet 4.6 ↗</a>
         </div>
 
-        <!-- Price pills -->
-        <div style="display:flex; gap:8px; margin-bottom:13px; align-items:stretch;">
-          <div style="flex:1; text-align:center; background:rgba(96,165,250,0.08); border:1px solid rgba(96,165,250,0.22); border-radius:7px; padding:8px 10px;">
-            <div style="font-family:var(--mono); font-size:0.44em; color:var(--blue); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:3px;">Input</div>
-            <div style="font-family:var(--mono); font-size:0.82em; font-weight:700; color:var(--white);">$3.00<span style="font-size:0.62em; color:var(--gdark);">/1M tok</span></div>
+        <div style="display:flex; gap:6px; margin-bottom:10px;">
+          <div style="flex:1; text-align:center; background:rgba(96,165,250,0.08); border:1px solid rgba(96,165,250,0.22); border-radius:6px; padding:5px 8px;">
+            <div style="font-family:var(--mono); font-size:0.42em; color:var(--blue); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:2px;">Input</div>
+            <div style="font-family:var(--mono); font-size:0.75em; font-weight:700; color:var(--white);">$3.00<span style="font-size:0.6em; color:var(--gdark);">/1M</span></div>
           </div>
-          <div style="display:flex; align-items:center; justify-content:center; padding:0 4px;">
-            <div style="font-family:var(--mono); font-size:0.7em; font-weight:800; color:var(--red); opacity:0.85;">5×</div>
+          <div style="display:flex; align-items:center; justify-content:center; padding:0 3px;">
+            <div style="font-family:var(--mono); font-size:0.6em; font-weight:800; color:var(--red); opacity:0.8;">5×</div>
           </div>
-          <div style="flex:1; text-align:center; background:rgba(248,113,113,0.08); border:1px solid rgba(248,113,113,0.22); border-radius:7px; padding:8px 10px;">
-            <div style="font-family:var(--mono); font-size:0.44em; color:var(--red); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:3px;">Output</div>
-            <div style="font-family:var(--mono); font-size:0.82em; font-weight:700; color:var(--white);">$15.00<span style="font-size:0.62em; color:var(--gdark);">/1M tok</span></div>
+          <div style="flex:1; text-align:center; background:rgba(248,113,113,0.08); border:1px solid rgba(248,113,113,0.22); border-radius:6px; padding:5px 8px;">
+            <div style="font-family:var(--mono); font-size:0.42em; color:var(--red); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:2px;">Output</div>
+            <div style="font-family:var(--mono); font-size:0.75em; font-weight:700; color:var(--white);">$15.00<span style="font-size:0.6em; color:var(--gdark);">/1M</span></div>
           </div>
         </div>
 
-        <!-- Anatomy label -->
-        <div class="clabel" style="margin-bottom:9px;">🔬 Anatomia de uma chamada — 16.000 tokens de input</div>
+        <div class="clabel" style="margin-bottom:7px;">🔬 16.000 tokens input + 800 output</div>
 
-        <!-- Bars -->
-        <div style="display:flex; flex-direction:column; gap:7px; flex:1;">
-          <div style="display:flex; align-items:center; gap:8px;">
-            <div style="font-family:var(--mono); font-size:0.48em; color:var(--blue); width:108px; flex-shrink:0; text-align:right;">System Prompt</div>
-            <div style="flex:1; position:relative; height:19px; border-radius:4px; background:rgba(255,255,255,0.04);">
-              <div style="position:absolute; left:0; top:0; height:100%; width:31%; background:linear-gradient(90deg,rgba(96,165,250,0.75),rgba(96,165,250,0.3)); border-radius:4px;"></div>
+        <div style="display:flex; flex-direction:column; gap:5px;">
+          <div style="display:flex; align-items:center; gap:7px;">
+            <div style="font-family:var(--mono); font-size:0.44em; color:var(--blue); width:100px; flex-shrink:0; text-align:right;">System Prompt</div>
+            <div style="flex:1; position:relative; height:16px; border-radius:3px; background:rgba(255,255,255,0.04);">
+              <div style="position:absolute; left:0; top:0; height:100%; width:31%; background:linear-gradient(90deg,rgba(96,165,250,0.75),rgba(96,165,250,0.3)); border-radius:3px;"></div>
             </div>
-            <div style="font-family:var(--mono); font-size:0.48em; color:var(--blue); width:38px; text-align:right; flex-shrink:0;">5.000</div>
-            <div style="font-family:var(--mono); font-size:0.48em; color:var(--gray); width:42px; text-align:right; flex-shrink:0;">$0.015</div>
+            <div style="font-family:var(--mono); font-size:0.44em; color:var(--blue); width:34px; text-align:right; flex-shrink:0;">5.000</div>
+            <div style="font-family:var(--mono); font-size:0.44em; color:var(--gray); width:40px; text-align:right; flex-shrink:0;">$0.015</div>
           </div>
-          <div style="display:flex; align-items:center; gap:8px;">
-            <div style="font-family:var(--mono); font-size:0.48em; color:var(--purple); width:108px; flex-shrink:0; text-align:right;">Histórico</div>
-            <div style="flex:1; position:relative; height:19px; border-radius:4px; background:rgba(255,255,255,0.04);">
-              <div style="position:absolute; left:0; top:0; height:100%; width:63%; background:linear-gradient(90deg,rgba(167,139,250,0.75),rgba(167,139,250,0.3)); border-radius:4px;"></div>
+          <div style="display:flex; align-items:center; gap:7px;">
+            <div style="font-family:var(--mono); font-size:0.44em; color:var(--purple); width:100px; flex-shrink:0; text-align:right;">Histórico</div>
+            <div style="flex:1; position:relative; height:16px; border-radius:3px; background:rgba(255,255,255,0.04);">
+              <div style="position:absolute; left:0; top:0; height:100%; width:63%; background:linear-gradient(90deg,rgba(167,139,250,0.75),rgba(167,139,250,0.3)); border-radius:3px;"></div>
             </div>
-            <div style="font-family:var(--mono); font-size:0.48em; color:var(--purple); width:38px; text-align:right; flex-shrink:0;">10.000</div>
-            <div style="font-family:var(--mono); font-size:0.48em; color:var(--gray); width:42px; text-align:right; flex-shrink:0;">$0.030</div>
+            <div style="font-family:var(--mono); font-size:0.44em; color:var(--purple); width:34px; text-align:right; flex-shrink:0;">10.000</div>
+            <div style="font-family:var(--mono); font-size:0.44em; color:var(--gray); width:40px; text-align:right; flex-shrink:0;">$0.030</div>
           </div>
-          <div style="display:flex; align-items:center; gap:8px;">
-            <div style="font-family:var(--mono); font-size:0.48em; color:var(--white); width:108px; flex-shrink:0; text-align:right;">Mensagem</div>
-            <div style="flex:1; position:relative; height:19px; border-radius:4px; background:rgba(255,255,255,0.04);">
-              <div style="position:absolute; left:0; top:0; height:100%; width:6%; background:linear-gradient(90deg,rgba(241,245,249,0.55),rgba(241,245,249,0.2)); border-radius:4px;"></div>
+          <div style="display:flex; align-items:center; gap:7px;">
+            <div style="font-family:var(--mono); font-size:0.44em; color:var(--white); width:100px; flex-shrink:0; text-align:right;">Mensagem</div>
+            <div style="flex:1; position:relative; height:16px; border-radius:3px; background:rgba(255,255,255,0.04);">
+              <div style="position:absolute; left:0; top:0; height:100%; width:6%; background:linear-gradient(90deg,rgba(241,245,249,0.55),rgba(241,245,249,0.2)); border-radius:3px;"></div>
             </div>
-            <div style="font-family:var(--mono); font-size:0.48em; color:var(--white); width:38px; text-align:right; flex-shrink:0;">1.000</div>
-            <div style="font-family:var(--mono); font-size:0.48em; color:var(--gray); width:42px; text-align:right; flex-shrink:0;">$0.003</div>
+            <div style="font-family:var(--mono); font-size:0.44em; color:var(--white); width:34px; text-align:right; flex-shrink:0;">1.000</div>
+            <div style="font-family:var(--mono); font-size:0.44em; color:var(--gray); width:40px; text-align:right; flex-shrink:0;">$0.003</div>
           </div>
-
           <div style="border-top:1px dashed rgba(255,255,255,0.1); margin:1px 0;"></div>
-
-          <div style="display:flex; align-items:center; gap:8px;">
-            <div style="font-family:var(--mono); font-size:0.48em; color:var(--red); width:108px; flex-shrink:0; text-align:right;">Resposta (output)</div>
-            <div style="flex:1; position:relative; height:19px; border-radius:4px; background:rgba(255,255,255,0.04);">
-              <div style="position:absolute; left:0; top:0; height:100%; width:40%; background:linear-gradient(90deg,rgba(248,113,113,0.8),rgba(248,113,113,0.35)); border-radius:4px; box-shadow:0 0 8px rgba(248,113,113,0.22);"></div>
+          <div style="display:flex; align-items:center; gap:7px;">
+            <div style="font-family:var(--mono); font-size:0.44em; color:var(--red); width:100px; flex-shrink:0; text-align:right;">Resposta</div>
+            <div style="flex:1; position:relative; height:16px; border-radius:3px; background:rgba(255,255,255,0.04);">
+              <div style="position:absolute; left:0; top:0; height:100%; width:40%; background:linear-gradient(90deg,rgba(248,113,113,0.8),rgba(248,113,113,0.35)); border-radius:3px; box-shadow:0 0 6px rgba(248,113,113,0.2);"></div>
             </div>
-            <div style="font-family:var(--mono); font-size:0.48em; color:var(--red); width:38px; text-align:right; flex-shrink:0;">800</div>
-            <div style="font-family:var(--mono); font-size:0.48em; color:var(--red); width:42px; text-align:right; flex-shrink:0;">$0.012</div>
+            <div style="font-family:var(--mono); font-size:0.44em; color:var(--red); width:34px; text-align:right; flex-shrink:0;">800</div>
+            <div style="font-family:var(--mono); font-size:0.44em; color:var(--red); width:40px; text-align:right; flex-shrink:0;">$0.012</div>
           </div>
         </div>
 
-        <!-- Total -->
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:11px; padding-top:9px; border-top:1px solid var(--bd);">
-          <div style="font-family:var(--mono); font-size:0.45em; color:var(--gdark); line-height:1.5;">800 output tok = $0.012 · mesmo custo que <span style="color:var(--white);">4.000 input tok</span></div>
-          <div style="font-family:var(--mono); font-size:1.05em; font-weight:800; color:var(--white);">$0.060<span style="font-size:0.52em; color:var(--gdark);">/chamada</span></div>
+        <div style="display:flex; justify-content:flex-end; align-items:center; gap:8px; margin-top:8px; padding-top:7px; border-top:1px solid var(--bd);">
+          <div style="font-family:var(--mono); font-size:0.42em; color:var(--gdark);">total / chamada</div>
+          <div style="font-family:var(--mono); font-size:0.95em; font-weight:800; color:var(--white);">$0.060</div>
         </div>
       </div>
+
+      <!-- OPUS 4.8 card -->
+      <div class="card-y" style="flex:1; padding:11px 14px; display:flex; flex-direction:column; gap:0;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:9px;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <img class="tool-logo" src="https://cdn.simpleicons.org/anthropic/fbbf24" onerror="this.style.display='none'" alt="Anthropic" style="width:18px; height:18px;">
+            <span style="font-size:0.82em; font-weight:700; color:var(--white); letter-spacing:-0.02em;">anthropic</span>
+          </div>
+          <a href="https://www.anthropic.com/claude/opus" target="_blank" style="font-family:var(--mono); font-size:0.46em; background:rgba(251,191,36,0.1); border:1px solid rgba(251,191,36,0.35); color:var(--yellow); padding:2px 9px; border-radius:5px; letter-spacing:0.06em; text-decoration:none;">Claude Opus 4.8 ↗</a>
+        </div>
+
+        <div style="display:flex; gap:6px; margin-bottom:10px;">
+          <div style="flex:1; text-align:center; background:rgba(251,191,36,0.08); border:1px solid rgba(251,191,36,0.25); border-radius:6px; padding:5px 8px;">
+            <div style="font-family:var(--mono); font-size:0.42em; color:var(--yellow); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:2px;">Input</div>
+            <div style="font-family:var(--mono); font-size:0.75em; font-weight:700; color:var(--white);">$5.00<span style="font-size:0.6em; color:var(--gdark);">/1M</span></div>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:center; padding:0 3px;">
+            <div style="font-family:var(--mono); font-size:0.6em; font-weight:800; color:var(--red); opacity:0.8;">5×</div>
+          </div>
+          <div style="flex:1; text-align:center; background:rgba(248,113,113,0.08); border:1px solid rgba(248,113,113,0.22); border-radius:6px; padding:5px 8px;">
+            <div style="font-family:var(--mono); font-size:0.42em; color:var(--red); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:2px;">Output</div>
+            <div style="font-family:var(--mono); font-size:0.75em; font-weight:700; color:var(--white);">$25.00<span style="font-size:0.6em; color:var(--gdark);">/1M</span></div>
+          </div>
+        </div>
+
+        <div class="clabel" style="margin-bottom:7px; color:var(--yellow);">🔬 Mesmos 16.000 tokens input + 800 output</div>
+
+        <div style="display:flex; flex-direction:column; gap:5px; flex:1;">
+          <div style="display:flex; align-items:center; gap:7px;">
+            <div style="font-family:var(--mono); font-size:0.44em; color:var(--blue); width:100px; flex-shrink:0; text-align:right;">System Prompt</div>
+            <div style="flex:1; position:relative; height:16px; border-radius:3px; background:rgba(255,255,255,0.04);">
+              <div style="position:absolute; left:0; top:0; height:100%; width:31%; background:linear-gradient(90deg,rgba(96,165,250,0.75),rgba(96,165,250,0.3)); border-radius:3px;"></div>
+            </div>
+            <div style="font-family:var(--mono); font-size:0.44em; color:var(--blue); width:34px; text-align:right; flex-shrink:0;">5.000</div>
+            <div style="font-family:var(--mono); font-size:0.44em; color:var(--yellow); width:40px; text-align:right; flex-shrink:0;">$0.025</div>
+          </div>
+          <div style="display:flex; align-items:center; gap:7px;">
+            <div style="font-family:var(--mono); font-size:0.44em; color:var(--purple); width:100px; flex-shrink:0; text-align:right;">Histórico</div>
+            <div style="flex:1; position:relative; height:16px; border-radius:3px; background:rgba(255,255,255,0.04);">
+              <div style="position:absolute; left:0; top:0; height:100%; width:63%; background:linear-gradient(90deg,rgba(167,139,250,0.75),rgba(167,139,250,0.3)); border-radius:3px;"></div>
+            </div>
+            <div style="font-family:var(--mono); font-size:0.44em; color:var(--purple); width:34px; text-align:right; flex-shrink:0;">10.000</div>
+            <div style="font-family:var(--mono); font-size:0.44em; color:var(--yellow); width:40px; text-align:right; flex-shrink:0;">$0.050</div>
+          </div>
+          <div style="display:flex; align-items:center; gap:7px;">
+            <div style="font-family:var(--mono); font-size:0.44em; color:var(--white); width:100px; flex-shrink:0; text-align:right;">Mensagem</div>
+            <div style="flex:1; position:relative; height:16px; border-radius:3px; background:rgba(255,255,255,0.04);">
+              <div style="position:absolute; left:0; top:0; height:100%; width:6%; background:linear-gradient(90deg,rgba(241,245,249,0.55),rgba(241,245,249,0.2)); border-radius:3px;"></div>
+            </div>
+            <div style="font-family:var(--mono); font-size:0.44em; color:var(--white); width:34px; text-align:right; flex-shrink:0;">1.000</div>
+            <div style="font-family:var(--mono); font-size:0.44em; color:var(--yellow); width:40px; text-align:right; flex-shrink:0;">$0.005</div>
+          </div>
+          <div style="border-top:1px dashed rgba(255,255,255,0.1); margin:1px 0;"></div>
+          <div style="display:flex; align-items:center; gap:7px;">
+            <div style="font-family:var(--mono); font-size:0.44em; color:var(--red); width:100px; flex-shrink:0; text-align:right;">Resposta</div>
+            <div style="flex:1; position:relative; height:16px; border-radius:3px; background:rgba(255,255,255,0.04);">
+              <div style="position:absolute; left:0; top:0; height:100%; width:40%; background:linear-gradient(90deg,rgba(248,113,113,0.8),rgba(248,113,113,0.35)); border-radius:3px; box-shadow:0 0 6px rgba(248,113,113,0.2);"></div>
+            </div>
+            <div style="font-family:var(--mono); font-size:0.44em; color:var(--red); width:34px; text-align:right; flex-shrink:0;">800</div>
+            <div style="font-family:var(--mono); font-size:0.44em; color:var(--red); width:40px; text-align:right; flex-shrink:0;">$0.020</div>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px; padding-top:7px; border-top:1px solid rgba(251,191,36,0.2);">
+          <div style="font-family:var(--mono); font-size:0.44em; color:var(--yellow); background:rgba(251,191,36,0.1); border:1px solid rgba(251,191,36,0.25); border-radius:4px; padding:2px 8px;">↑ ~1.7× mais caro que Sonnet 4.6</div>
+          <div style="font-family:var(--mono); font-size:0.95em; font-weight:800; color:var(--yellow);">$0.100</div>
+        </div>
+      </div>
+
     </div>
   </div>
 
