@@ -1312,6 +1312,60 @@ body.light-mode .chroma .mb { color: #1750eb !important; }
   background: #06080d;
 }
 
+.talk-cover__poster {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 14px 16px 12px;
+  background:
+    radial-gradient(circle at top left, rgba(34,211,238,0.16), transparent 36%),
+    radial-gradient(circle at 85% 18%, rgba(34,197,94,0.14), transparent 28%),
+    linear-gradient(180deg, #111827 0%, #0f1117 72%);
+  color: var(--white);
+}
+
+.talk-cover__eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.46rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gdark);
+  margin-bottom: 10px;
+}
+
+.talk-cover__headline {
+  max-width: 12ch;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  color: var(--white);
+}
+
+.talk-cover__summary {
+  margin-top: 10px;
+  max-width: 24ch;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  color: var(--gray);
+}
+
+.talk-cover__footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gdark);
+}
+
 .talk-cover iframe {
   width: 100%;
   height: 100%;

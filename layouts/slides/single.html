@@ -17,7 +17,7 @@
 
   {{- if $deck }}
   <div class="slide-frame-wrap">
-    <iframe src="{{ $deck | relURL }}" class="slide-frame" loading="lazy" title="{{ .Title }}"></iframe>
+    <iframe src="{{ $deck | relURL }}" class="slide-frame" loading="eager" fetchpriority="high" title="{{ .Title }}"></iframe>
   </div>
   <div class="slide-actions">
     <a href="{{ $deck | relURL }}" class="paginator-btn" target="_blank" rel="noopener noreferrer">Abrir em tela cheia</a>
