@@ -19,6 +19,9 @@
   --code-bg:      #1E1F22;
   --nav-h:        56px;
   --nav-breakpoint: 820px;
+  --neon:         #22d3ee;
+  --neon-glow:    rgba(34, 211, 238, 0.35);
+  --green-glow:   rgba(34, 197, 94, 0.28);
 }
 
 /* ---- Reset & Base ---------------------------------------- */
@@ -2298,3 +2301,94 @@ body.light-mode .code-copy-btn.copied {
   display: block;
   min-height: 100px;
 }
+
+/* ============================================================
+   Neon Green Hover Effects (inspired by SDD slides palette)
+   ============================================================ */
+
+/* Reading progress bar — gradient green → neon */
+.reading-progress {
+  background: linear-gradient(90deg, var(--primary), var(--neon));
+}
+
+/* Back to top — neon glow on hover */
+.back-to-top:hover {
+  box-shadow: 0 0 16px var(--green-glow);
+}
+
+/* Nav brand — neon glow on hover */
+.blog-nav__brand:hover {
+  text-shadow: 0 0 12px rgba(86, 211, 100, 0.45);
+}
+
+/* Nav buttons (theme toggle, etc.) — neon glow on hover */
+.nav-btn:hover {
+  box-shadow: 0 0 10px var(--green-glow);
+}
+
+/* Post cards — subtle green glow on hover */
+.post-card:hover {
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.18), 0 0 20px rgba(34, 197, 94, 0.10);
+}
+
+/* Tag badges — neon border glow on hover */
+.tag-badge:hover {
+  box-shadow: 0 0 8px rgba(86, 211, 100, 0.30);
+}
+
+/* Sidebar follow buttons — neon glow on hover */
+.follow-btn:hover {
+  box-shadow: 0 0 10px var(--green-glow);
+}
+
+/* Sidebar search button — neon glow on hover */
+.sidebar-search__btn:hover {
+  box-shadow: 0 0 10px var(--green-glow);
+}
+
+/* Paginator hover — green glow */
+.paginator-btn:hover {
+  box-shadow: 0 0 10px var(--green-glow);
+}
+
+/* Episode card hover — neon green glow */
+.episode-card:hover {
+  box-shadow: 0 0 18px rgba(46, 160, 67, 0.18);
+}
+
+/* Social share copy button — neon glow on copied state */
+.social-share__btn--copy.copied {
+  box-shadow: 0 0 12px rgba(86, 211, 100, 0.30);
+}
+
+/* Quirk cards — elevate existing hover glows with neon touch */
+.quirk-card--s:hover { box-shadow: 0 6px 22px rgba(248, 81, 73, 0.22), 0 0 0 1px rgba(248, 81, 73, 0.12); }
+.quirk-card--a:hover { box-shadow: 0 6px 22px rgba(56, 139, 253, 0.22), 0 0 0 1px rgba(56, 139, 253, 0.12); }
+.quirk-card--b:hover { box-shadow: 0 6px 22px rgba(46, 160, 67, 0.18), 0 0 0 1px rgba(46, 160, 67, 0.14); }
+
+/* TOC links — neon accent on hover */
+.article-toc #TableOfContents a:hover {
+  text-shadow: 0 0 8px rgba(88, 166, 255, 0.30);
+}
+
+/* Post navigation — green glow on hover */
+.post-nav__prev:hover,
+.post-nav__next:hover {
+  filter: drop-shadow(0 0 6px var(--green-glow));
+}
+
+/* Light mode: suppress all neon glows */
+body.light-mode .reading-progress { background: var(--primary); }
+body.light-mode .back-to-top:hover,
+body.light-mode .nav-btn:hover,
+body.light-mode .post-card:hover,
+body.light-mode .tag-badge:hover,
+body.light-mode .follow-btn:hover,
+body.light-mode .sidebar-search__btn:hover,
+body.light-mode .paginator-btn:hover,
+body.light-mode .episode-card:hover,
+body.light-mode .quirk-card--s:hover,
+body.light-mode .quirk-card--a:hover,
+body.light-mode .quirk-card--b:hover,
+body.light-mode .post-nav__prev:hover,
+body.light-mode .post-nav__next:hover { box-shadow: none; filter: none; text-shadow: none; }

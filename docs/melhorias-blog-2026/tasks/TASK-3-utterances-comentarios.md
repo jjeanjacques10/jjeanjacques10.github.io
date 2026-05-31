@@ -27,7 +27,7 @@ Adicionar dois params dentro do bloco `[params]` (após linha 36):
   description = "Arquitetura de software, cloud e sistemas distribuídos explicados com referências de mangás"
   author = "Jean Jacques"
   authorSubtitle = "Staff Software Engineer"
-  bio = "Escrevendo sobre arquitetura de software, cloud e sistemas distribuídos com referências de mangás."
+  bio = "Escrevendo sobre engenharia de software, cloud e sistemas distribuídos com referências de mangás e animes"
   defaultTheme = "dark"
   keywords = ["software engineering", "cloud", "aws", "architecture", "distributed systems"]
   github = "jjeanjacques10"
@@ -43,7 +43,7 @@ Adicionar dois params dentro do bloco `[params]` (após linha 36):
   description = "Arquitetura de software, cloud e sistemas distribuídos explicados com referências de mangás"
   author = "Jean Jacques"
   authorSubtitle = "Staff Software Engineer"
-  bio = "Escrevendo sobre arquitetura de software, cloud e sistemas distribuídos com referências de mangás."
+  bio = "Escrevendo sobre engenharia de software, cloud e sistemas distribuídos com referências de mangás e animes"
   defaultTheme = "dark"
   keywords = ["software engineering", "cloud", "aws", "architecture", "distributed systems"]
   github = "jjeanjacques10"
