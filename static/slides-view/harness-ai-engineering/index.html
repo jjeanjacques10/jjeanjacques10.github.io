@@ -1743,44 +1743,60 @@ if (window.self !== window.top) {
 <div class="s">
   <div class="ey">Arquitetura Completa</div>
   <div class="t-md">O Ecossistema <span class="hl">SDD + Harness</span></div>
-  <div class="sub" style="margin-bottom:14px;">Como todas as peças se conectam — do humano ao código gerado e validado</div>
+  <div class="sub" style="margin-bottom:10px;">Como todas as peças se conectam — do humano ao código gerado e validado</div>
 
-  <div style="text-align:center; margin-bottom:7px;">
-    <div style="display:inline-block; padding:8px 22px; background:var(--bg-g); border:1px solid var(--bd-g); border-radius:8px; font-size:0.72em; font-weight:700; color:var(--green);">👤 Humano — define O QUÊ</div>
+  <!-- 1. HUMANO -->
+  <div style="text-align:center; margin-bottom:4px;">
+    <div style="display:inline-block; padding:5px 18px; background:var(--bg-g); border:1px solid var(--bd-g); border-radius:8px; font-size:0.64em; font-weight:700; color:var(--green);">👤 Humano — define O QUÊ</div>
   </div>
-  <div style="text-align:center; font-family:var(--mono); font-size:0.58em; color:var(--gdark); margin-bottom:5px;">↓</div>
+  <div style="text-align:center; font-family:var(--mono); font-size:0.5em; color:var(--gdark); margin-bottom:4px;">↓</div>
 
-  <div style="display:flex; gap:7px; justify-content:center; margin-bottom:5px;">
-    <div style="flex:1; max-width:200px; padding:7px 10px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; text-align:center; font-family:var(--mono); font-size:0.6em; color:var(--white);">📄 PRD.md</div>
-    <div style="flex:1; max-width:200px; padding:7px 10px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; text-align:center; font-family:var(--mono); font-size:0.6em; color:var(--white);">🤖 AGENTS.md</div>
-    <div style="flex:1; max-width:200px; padding:7px 10px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; text-align:center; font-family:var(--mono); font-size:0.6em; color:var(--white);">📋 Rules</div>
-    <div style="flex:1; max-width:200px; padding:7px 10px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; text-align:center; font-family:var(--mono); font-size:0.6em; color:var(--white);">🧩 Skills</div>
-  </div>
-  <div style="text-align:center; font-family:var(--mono); font-size:0.56em; color:var(--gdark); margin-bottom:5px;">↓ Context Engineering · Progressive Disclosure ↓</div>
-
-  <div style="margin-bottom:5px; padding:11px; background:rgba(167,139,250,0.05); border:1px dashed rgba(167,139,250,0.28); border-radius:8px;">
-    <div style="text-align:center; font-family:var(--mono); font-size:0.56em; color:var(--purple); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:7px;">⚙️ Harness — Infraestrutura de Orquestração</div>
-    <div style="display:flex; gap:5px; justify-content:center; flex-wrap:wrap;">
-      <span class="tag p">Shell Access</span><span class="tag p">MCP Tools</span><span class="tag p">Sandbox Isolado</span><span class="tag p">Feedback Loop</span><span class="tag p">State Management</span><span class="tag p">CI/CD</span>
+  <!-- 2. HARNESS 1: Contexto + SPEC -->
+  <div style="border:1px dashed rgba(167,139,250,0.38); border-radius:10px; background:rgba(167,139,250,0.04); padding:8px 12px; margin-bottom:4px; position:relative;">
+    <div style="position:absolute; top:-9px; left:14px; background:var(--bg); padding:0 7px; font-family:var(--mono); font-size:0.44em; color:var(--purple); letter-spacing:0.1em; text-transform:uppercase;">⚙️ Harness — Contexto</div>
+    <div style="display:flex; gap:5px; justify-content:center; margin-bottom:5px;">
+      <div style="flex:1; padding:4px 6px; background:var(--bg-c2); border:1px solid var(--bd); border-radius:5px; text-align:center; font-family:var(--mono); font-size:0.52em; color:var(--white);">📄 PRD.md</div>
+      <div style="flex:1; padding:4px 6px; background:var(--bg-c2); border:1px solid var(--bd); border-radius:5px; text-align:center; font-family:var(--mono); font-size:0.52em; color:var(--white);">🤖 AGENTS.md</div>
+      <div style="flex:1; padding:4px 6px; background:var(--bg-c2); border:1px solid var(--bd); border-radius:5px; text-align:center; font-family:var(--mono); font-size:0.52em; color:var(--white);">📋 Rules</div>
+      <div style="flex:1; padding:4px 6px; background:var(--bg-c2); border:1px solid var(--bd); border-radius:5px; text-align:center; font-family:var(--mono); font-size:0.52em; color:var(--white);">🧩 Skills</div>
+    </div>
+    <div style="text-align:center; font-family:var(--mono); font-size:0.46em; color:var(--gdark); margin-bottom:5px;">↓ Context Engineering · Progressive Disclosure ↓</div>
+    <div style="text-align:center;">
+      <div style="display:inline-block; padding:4px 16px; background:rgba(96,165,250,0.08); border:1px solid rgba(96,165,250,0.28); border-radius:5px; font-family:var(--mono); font-size:0.52em; color:var(--blue);">📐 SPEC.md — gerado pelo agente</div>
     </div>
   </div>
-  <div style="text-align:center; font-family:var(--mono); font-size:0.56em; color:var(--gdark); margin-bottom:5px;">↓</div>
+  <div style="text-align:center; font-family:var(--mono); font-size:0.5em; color:var(--gdark); margin-bottom:4px;">↓</div>
 
-  <div style="display:flex; gap:7px; justify-content:center; margin-bottom:5px;">
-    <div style="padding:6px 11px; background:var(--bg-g); border:1px solid var(--bd-g); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--green);">Claude Code</div>
-    <div style="padding:6px 11px; background:var(--bg-g); border:1px solid var(--bd-g); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--green);">Devin CLI</div>
-    <div style="padding:6px 11px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--gray);">Copilot Agent</div>
-    <div style="padding:6px 11px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--gray);">Cursor</div>
-    <div style="padding:6px 11px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--gray);">Windsurf</div>
+  <!-- 3. HUMANO -->
+  <div style="text-align:center; margin-bottom:4px;">
+    <div style="display:inline-block; padding:5px 18px; background:var(--bg-g); border:1px solid var(--bd-g); border-radius:8px; font-size:0.64em; font-weight:700; color:var(--green);">👤 Humano — aprova a SPEC</div>
   </div>
-  <div style="text-align:center; font-family:var(--mono); font-size:0.56em; color:var(--gdark); margin-bottom:5px;">↓</div>
+  <div style="text-align:center; font-family:var(--mono); font-size:0.5em; color:var(--gdark); margin-bottom:4px;">↓</div>
 
-  <div style="display:flex; gap:7px; justify-content:center; margin-bottom:12px;">
-    <div style="padding:6px 11px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--yellow);">☕ Kotlin / Java</div>
-    <div style="padding:6px 11px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--yellow);">🧪 JUnit 5</div>
-    <div style="padding:6px 11px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--yellow);">📚 Docs</div>
-    <div style="padding:6px 11px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--yellow);">🐳 Dockerfile</div>
-    <div style="padding:6px 11px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--yellow);">🔀 Pull Request</div>
+  <!-- 4. HARNESS 2: Execução + Agentes -->
+  <div style="border:1px dashed rgba(167,139,250,0.38); border-radius:10px; background:rgba(167,139,250,0.04); padding:8px 12px; margin-bottom:4px; position:relative;">
+    <div style="position:absolute; top:-9px; left:14px; background:var(--bg); padding:0 7px; font-family:var(--mono); font-size:0.44em; color:var(--purple); letter-spacing:0.1em; text-transform:uppercase;">⚙️ Harness — Execução</div>
+    <div style="display:flex; gap:4px; justify-content:center; flex-wrap:wrap; margin-bottom:6px;">
+      <span class="tag p">Shell Access</span><span class="tag p">MCP Tools</span><span class="tag p">Sandbox Isolado</span><span class="tag p">Feedback Loop</span><span class="tag p">State Management</span><span class="tag p">CI/CD</span>
+    </div>
+    <div style="border-top:1px dashed rgba(167,139,250,0.22); margin:0 0 6px;"></div>
+    <div style="display:flex; gap:5px; justify-content:center; flex-wrap:wrap;">
+      <span class="tag g" style="display:inline-flex; align-items:center; gap:4px;"><img class="tool-logo-sm" src="https://cdn.simpleicons.org/anthropic/22c55e" onerror="this.style.display='none'" alt="">Claude Code</span>
+      <span class="tag g" style="display:inline-flex; align-items:center; gap:4px;"><img class="tool-logo-sm" src="https://devin.ai/favicon.ico" onerror="this.style.display='none'" alt="">Devin CLI</span>
+      <span class="tag" style="display:inline-flex; align-items:center; gap:4px;"><img class="tool-logo-sm" src="https://cdn.simpleicons.org/github/94a3b8" onerror="this.style.display='none'" alt="">Copilot Agent</span>
+      <span class="tag" style="display:inline-flex; align-items:center; gap:4px;"><img class="tool-logo-sm" src="https://www.cursor.com/favicon.ico" onerror="this.style.display='none'" alt="">Cursor</span>
+      <span class="tag" style="display:inline-flex; align-items:center; gap:4px;"><img class="tool-logo-sm" src="https://windsurf.com/favicon.ico" onerror="this.style.display='none'" alt="">Windsurf</span>
+    </div>
+  </div>
+  <div style="text-align:center; font-family:var(--mono); font-size:0.5em; color:var(--gdark); margin-bottom:4px;">↓</div>
+
+  <!-- 5. OUTPUT -->
+  <div style="display:flex; gap:5px; justify-content:center; margin-bottom:6px;">
+    <div style="padding:4px 9px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.52em; color:var(--yellow);">☕ Kotlin / Java</div>
+    <div style="padding:4px 9px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.52em; color:var(--yellow);">🧪 JUnit 5</div>
+    <div style="padding:4px 9px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.52em; color:var(--yellow);">📚 Docs</div>
+    <div style="padding:4px 9px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.52em; color:var(--yellow);">🐳 Dockerfile</div>
+    <div style="padding:4px 9px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.52em; color:var(--yellow);">🔀 Pull Request</div>
   </div>
   <div class="sn">18 / 23</div>
 </div>
@@ -1798,7 +1814,7 @@ if (window.self !== window.top) {
       <div style="font-size:1.3em; flex-shrink:0;">🧩</div>
       <div>
         <div style="font-size:0.77em; font-weight:700; color:var(--white); margin-bottom:2px;">Skill ativa → contexto mínimo coletado</div>
-        <div style="font-size:0.63em; color:var(--gdark);">Feature, problema, restrições e nome em kebab-case iniciam o fluxo</div>
+        <div style="font-size:0.63em; color:var(--gdark);">Feature, problema, restrições e nome emkonoha-case iniciam o fluxo</div>
       </div>
     </div>
     <div style="text-align:center; font-family:var(--mono); font-size:0.62em; color:var(--gdark);">↓</div>
@@ -1847,7 +1863,7 @@ if (window.self !== window.top) {
       </div>
       <div class="ski">
         <div class="skic">3.</div>
-        <div><div class="skin">Responder ao fluxo guiado</div><div class="skid">A skill coleta feature, problema, restrições e o nome da feature em kebab-case antes de gerar artefatos.</div></div>
+        <div><div class="skin">Responder ao fluxo guiado</div><div class="skid">A skill coleta feature, problema, restrições e o nome da feature emkonoha-case antes de gerar artefatos.</div></div>
       </div>
       <div class="ski">
         <div class="skic">4.</div>
