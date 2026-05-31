@@ -29,7 +29,17 @@
       "Bash(hugo --gc --minify --verbose)",
       "Bash(hugo list *)",
       "Bash(hugo --gc --templateMetrics)",
-      "Bash(grep -v \"^$\")"
+      "Bash(grep -v \"^$\")",
+      "Bash(Get-Content \"C:\\\\Users\\\\jjean\\\\Documents\\\\apps\\\\blog-jjeanjacques\\\\jjeanjacques.github.io\\\\static\\\\assets\\\\custom_style.css\")",
+      "Bash(Measure-Object -Line)",
+      "Bash(dir *)",
+      "Bash(rtk git *)",
+      "Bash(git checkout *)",
+      "Bash(copy *)",
+      "Bash(rtk diff *)",
+      "Bash(python3 *)",
+      "Bash(rtk ls *)",
+      "Bash(rtk curl *)"
     ]
   }
 }

@@ -2,8 +2,15 @@ Templates e referências úteis para a skill `spec-driven-build`.
 
 Uso rápido:
 
-- Copie `SDD-template.md` para `docs/<feature>/SDD.md` e preencha os campos.
-- Copie `TASK-template.md` para `docs/<feature>/tasks/TASK-1-<descricao>.md` e preencha.
+- Prefira os templates listados abaixo como fonte oficial desta skill.
+- Use `project-context-template.md` para `docs/PROJECT-CONTEXT.md`.
+- Use `prd-template.md` para `docs/PRD.md`.
+- Use `spec-template.md` para `docs/<feature>/SPEC.md`.
+- Use `TASK-template.md` para `docs/<feature>/tasks/TASK-1-<descricao>.md`.
+
+Compatibilidade:
+
+- O padrão oficial desta skill é `SPEC.md`.
 
 Boas práticas:
 
