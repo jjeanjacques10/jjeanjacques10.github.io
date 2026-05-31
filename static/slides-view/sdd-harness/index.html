@@ -500,6 +500,22 @@ ul.cl li::before { content:'→'; color:var(--green); font-family:var(--mono); f
 .ref-link.b { color:var(--blue); }
 .ref-link.g { color:var(--green); }
 
+/* BACK TO INDEX BUTTON */
+#btn-index {
+  position:fixed;
+  bottom:20px;
+  left:64px;
+  font-family:var(--mono);
+  font-size:0.53em;
+  color:var(--gdark);
+  letter-spacing:0.1em;
+  text-decoration:none;
+  z-index:50;
+  display:none;
+  transition:color 0.18s;
+}
+#btn-index:hover { color:var(--green); }
+
 /* RESPONSIVE FOR EMBEDDED VIEW */
 @media (max-width: 860px) {
   .s { padding:30px 28px 24px; }
@@ -611,7 +627,7 @@ if (window.self !== window.top) {
     <a href="#/14" class="card-b" style="display:flex; align-items:center; gap:8px; padding:12px 14px; color:var(--white); min-height:58px;">
       <span style="font-size:0.9em;">🧩</span><span style="font-size:0.72em; line-height:1.35;">Skills</span>
     </a>
-    <a href="#/19" class="card-y" style="display:flex; align-items:center; gap:8px; padding:12px 14px; color:var(--white); min-height:58px; border-color:rgba(251,191,36,0.72); box-shadow:0 0 0 1px rgba(251,191,36,0.18), 0 0 28px rgba(251,191,36,0.26), inset 0 0 30px rgba(251,191,36,0.12); transform:scale(1.03);">
+    <a href="#/17" class="card-y" style="display:flex; align-items:center; gap:8px; padding:12px 14px; color:var(--white); min-height:58px; border-color:rgba(251,191,36,0.72); box-shadow:0 0 0 1px rgba(251,191,36,0.18), 0 0 28px rgba(251,191,36,0.26), inset 0 0 30px rgba(251,191,36,0.12); transform:scale(1.03);">
       <span style="font-size:0.92em;">🎬</span><span style="font-size:0.74em; line-height:1.35; font-weight:700;">Demo</span>
     </a>
   </div>
@@ -767,7 +783,49 @@ if (window.self !== window.top) {
 </div>
 </section>
 
-<!-- 04 O PROBLEMA -->
+<!-- 04 O QUE SÃO AI CODING AGENTS -->
+<section>
+<div class="s">
+  <div class="ey">AI Coding Agents</div>
+  <div class="t-md">O que são <span class="hl">AI Coding Agents</span>?</div>
+  <div class="sub" style="margin-bottom:18px;">Diferente de um chatbot, um agente <strong style="color:var(--white);">executa tarefas completas de engenharia de software</strong></div>
+
+  <div class="g2" style="gap:14px; margin-bottom:14px;">
+    <div>
+      <div class="card" style="margin-bottom:10px;">
+        <div class="clabel">Chatbot tradicional</div>
+        <div class="body">Responde perguntas. Você escreve o prompt, copia o resultado, cola no editor e adapta manualmente. O humano faz toda a integração.</div>
+      </div>
+      <div class="card-g">
+        <div class="clabel" style="color:var(--green);">AI Coding Agent</div>
+        <div class="body" style="color:var(--white);">Entende requisitos, navega pelo repositório, altera arquivos, executa comandos, revisa diffs e aprende com feedback — <strong>de forma autônoma.</strong></div>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div class="card">
+        <div class="clabel">🐙 GitHub Copilot · 2021</div>
+        <div class="body">Pioneiro do AI-assisted coding. Autocompletion inteligente no IDE. GitHub + OpenAI. Hoje com agent mode integrado e 1.8M+ devs pagantes.</div>
+      </div>
+      <div class="card-g">
+        <div class="clabel" style="color:var(--green);">⚡ Claude Code · 2025</div>
+        <div class="body">Agent terminal-first da Anthropic. Interage com shell, roda comandos, revisa diffs e edita arquivos autonomamente. #1 em adoção em 2026.</div>
+      </div>
+      <div class="card-b">
+        <div class="clabel" style="color:var(--blue);">🧠 Devin · 2024</div>
+        <div class="body">Primeiro agente autônomo com ambiente completo: shell, browser e editor. Cognition Labs. Pioneer da era agentic no mercado.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kbar">
+    <span style="font-size:1em; flex-shrink:0;">💡</span>
+    <span class="kbar-t">A diferença não está só no modelo — está no <strong class="hl">harness ao redor dele</strong></span>
+  </div>
+  <div class="sn">04 / 22</div>
+</div>
+</section>
+
+<!-- 05 O PROBLEMA -->
 <section>
 <div class="s">
   <div class="ey">O Problema</div>
@@ -811,48 +869,6 @@ if (window.self !== window.top) {
     <div class="fb g">Spec Driven Development</div>
     <div class="fa">=</div>
     <div class="fb" style="color:var(--white); border-color:rgba(255,255,255,0.18);">IA Confiável ✓</div>
-  </div>
-  <div class="sn">04 / 22</div>
-</div>
-</section>
-
-<!-- 05 O QUE SÃO AI CODING AGENTS -->
-<section>
-<div class="s">
-  <div class="ey">AI Coding Agents</div>
-  <div class="t-md">O que são <span class="hl">AI Coding Agents</span>?</div>
-  <div class="sub" style="margin-bottom:18px;">Diferente de um chatbot, um agente <strong style="color:var(--white);">executa tarefas completas de engenharia de software</strong></div>
-
-  <div class="g2" style="gap:14px; margin-bottom:14px;">
-    <div>
-      <div class="card" style="margin-bottom:10px;">
-        <div class="clabel">Chatbot tradicional</div>
-        <div class="body">Responde perguntas. Você escreve o prompt, copia o resultado, cola no editor e adapta manualmente. O humano faz toda a integração.</div>
-      </div>
-      <div class="card-g">
-        <div class="clabel" style="color:var(--green);">AI Coding Agent</div>
-        <div class="body" style="color:var(--white);">Entende requisitos, navega pelo repositório, altera arquivos, executa comandos, revisa diffs e aprende com feedback — <strong>de forma autônoma.</strong></div>
-      </div>
-    </div>
-    <div style="display:flex; flex-direction:column; gap:10px;">
-      <div class="card">
-        <div class="clabel">🐙 GitHub Copilot · 2021</div>
-        <div class="body">Pioneiro do AI-assisted coding. Autocompletion inteligente no IDE. GitHub + OpenAI. Hoje com agent mode integrado e 1.8M+ devs pagantes.</div>
-      </div>
-      <div class="card-g">
-        <div class="clabel" style="color:var(--green);">⚡ Claude Code · 2025</div>
-        <div class="body">Agent terminal-first da Anthropic. Interage com shell, roda comandos, revisa diffs e edita arquivos autonomamente. #1 em adoção em 2026.</div>
-      </div>
-      <div class="card-b">
-        <div class="clabel" style="color:var(--blue);">🧠 Devin · 2024</div>
-        <div class="body">Primeiro agente autônomo com ambiente completo: shell, browser e editor. Cognition Labs. Pioneer da era agentic no mercado.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="kbar">
-    <span style="font-size:1em; flex-shrink:0;">💡</span>
-    <span class="kbar-t">A diferença não está só no modelo — está no <strong class="hl">harness ao redor dele</strong></span>
   </div>
   <div class="sn">05 / 22</div>
 </div>
@@ -1387,19 +1403,15 @@ if (window.self !== window.top) {
       <div class="tags">
         <span class="tag g">Claude Code</span><span class="tag g">Codex</span><span class="tag g">Cursor</span><span class="tag g">Gemini CLI</span><span class="tag g">Devin</span><span class="tag g">Windsurf</span>
       </div>
-      <a class="ref-link g" href="https://github.com/jjeanjacques10/skills" target="_blank" rel="noopener noreferrer" style="margin-top:9px; display:flex; align-items:center; gap:6px; font-size:0.61em;">🐙 github.com/jjeanjacques10/skills</a>
     </div>
     <div>
       <div style="font-family:var(--mono); font-size:0.58em; color:var(--gdark); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px;">Estrutura de uma Skill</div>
       <pre class="code">
-    <span class="cc">--- # unit-tests</span>
+    <span class="cc">--- # unit-tests/SKILL.md</span>
     <span class="ck">name:</span>        <span class="cv">unit-tests</span>
     <span class="ck">description:</span> <span class="cs">"Gera testes JUnit 5 + Mockito</span>
     <span class="cs">             para services Spring Boot"</span>
     <span class="cc">---</span>
-
-    <span class="cc"># Conteúdo carregado apenas quando necessário</span>
-    <span class="cc"># (Progressive Disclosure em ação)</span>
 
     <span class="ck">## Convenções do Projeto</span>
     <span class="cv">- Padrão AAA (Arrange-Act-Assert)</span>
@@ -1489,6 +1501,95 @@ if (window.self !== window.top) {
 </div>
 </section>
 
+<!-- 18 ECOSSISTEMA COMPLETO -->
+<section>
+<div class="s">
+  <div class="ey">Arquitetura Completa</div>
+  <div class="t-md">O Ecossistema <span class="hl">SDD + Harness</span></div>
+  <div class="sub" style="margin-bottom:14px;">Como todas as peças se conectam — do humano ao código gerado e validado</div>
+
+  <div style="text-align:center; margin-bottom:7px;">
+    <div style="display:inline-block; padding:8px 22px; background:var(--bg-g); border:1px solid var(--bd-g); border-radius:8px; font-size:0.72em; font-weight:700; color:var(--green);">👤 Humano — define O QUÊ</div>
+  </div>
+  <div style="text-align:center; font-family:var(--mono); font-size:0.58em; color:var(--gdark); margin-bottom:5px;">↓</div>
+
+  <div style="display:flex; gap:7px; justify-content:center; margin-bottom:5px;">
+    <div style="flex:1; max-width:200px; padding:7px 10px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; text-align:center; font-family:var(--mono); font-size:0.6em; color:var(--white);">📄 PRD.md</div>
+    <div style="flex:1; max-width:200px; padding:7px 10px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; text-align:center; font-family:var(--mono); font-size:0.6em; color:var(--white);">🤖 AGENTS.md</div>
+    <div style="flex:1; max-width:200px; padding:7px 10px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; text-align:center; font-family:var(--mono); font-size:0.6em; color:var(--white);">📋 Rules</div>
+    <div style="flex:1; max-width:200px; padding:7px 10px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; text-align:center; font-family:var(--mono); font-size:0.6em; color:var(--white);">🧩 Skills</div>
+  </div>
+  <div style="text-align:center; font-family:var(--mono); font-size:0.56em; color:var(--gdark); margin-bottom:5px;">↓ Context Engineering · Progressive Disclosure ↓</div>
+
+  <div style="margin-bottom:5px; padding:11px; background:rgba(167,139,250,0.05); border:1px dashed rgba(167,139,250,0.28); border-radius:8px;">
+    <div style="text-align:center; font-family:var(--mono); font-size:0.56em; color:var(--purple); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:7px;">⚙️ Harness — Infraestrutura de Orquestração</div>
+    <div style="display:flex; gap:5px; justify-content:center; flex-wrap:wrap;">
+      <span class="tag p">Shell Access</span><span class="tag p">MCP Tools</span><span class="tag p">Sandbox Isolado</span><span class="tag p">Feedback Loop</span><span class="tag p">State Management</span><span class="tag p">CI/CD</span>
+    </div>
+  </div>
+  <div style="text-align:center; font-family:var(--mono); font-size:0.56em; color:var(--gdark); margin-bottom:5px;">↓</div>
+
+  <div style="display:flex; gap:7px; justify-content:center; margin-bottom:5px;">
+    <div style="padding:6px 11px; background:var(--bg-g); border:1px solid var(--bd-g); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--green);">Claude Code</div>
+    <div style="padding:6px 11px; background:var(--bg-g); border:1px solid var(--bd-g); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--green);">Devin CLI</div>
+    <div style="padding:6px 11px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--gray);">Copilot Agent</div>
+    <div style="padding:6px 11px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--gray);">Cursor</div>
+    <div style="padding:6px 11px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--gray);">Windsurf</div>
+  </div>
+  <div style="text-align:center; font-family:var(--mono); font-size:0.56em; color:var(--gdark); margin-bottom:5px;">↓</div>
+
+  <div style="display:flex; gap:7px; justify-content:center; margin-bottom:12px;">
+    <div style="padding:6px 11px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--yellow);">☕ Kotlin / Java</div>
+    <div style="padding:6px 11px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--yellow);">🧪 JUnit 5</div>
+    <div style="padding:6px 11px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--yellow);">📚 Docs</div>
+    <div style="padding:6px 11px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--yellow);">🐳 Dockerfile</div>
+    <div style="padding:6px 11px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--yellow);">🔀 Pull Request</div>
+  </div>
+  <div class="sn">17 / 22</div>
+</div>
+</section>
+
+<!-- 19 DEMO -->
+<section>
+<div class="s" style="justify-content:center; align-items:center; text-align:center;">
+  <div class="ey" style="text-align:center;">Demo ao Vivo</div>
+  <div class="t-lg" style="margin-bottom:12px;">Hands-On: <span class="hl">SDD na Prática</span></div>
+  <div class="sub" style="max-width:540px; margin:0 auto 24px;">Usando a skill <span class="mono-tag">spec-driven-build</span> para sair de uma demanda bruta e chegar a uma <strong style="color:var(--white);">SPEC validada</strong></div>
+
+  <div style="display:flex; flex-direction:column; gap:9px; max-width:500px; width:100%; margin:0 auto 22px;">
+    <div style="display:flex; align-items:center; gap:13px; padding:13px 16px; background:var(--bg-g); border:1px solid var(--bd-g); border-radius:10px; text-align:left;">
+      <div style="font-size:1.3em; flex-shrink:0;">🧩</div>
+      <div>
+        <div style="font-size:0.77em; font-weight:700; color:var(--white); margin-bottom:2px;">Skill ativa → contexto mínimo coletado</div>
+        <div style="font-size:0.63em; color:var(--gdark);">Feature, problema, restrições e nome em kebab-case iniciam o fluxo</div>
+      </div>
+    </div>
+    <div style="text-align:center; font-family:var(--mono); font-size:0.62em; color:var(--gdark);">↓</div>
+    <div style="display:flex; align-items:center; gap:13px; padding:13px 16px; background:var(--bg-c); border:1px solid var(--bd); border-radius:10px; text-align:left;">
+      <div style="font-size:1.3em; flex-shrink:0;">📋</div>
+      <div>
+        <div style="font-size:0.77em; font-weight:700; color:var(--white); margin-bottom:2px;">PRD + contexto → SPEC.md</div>
+        <div style="font-size:0.63em; color:var(--gdark);">A skill valida o PRD, analisa o código real e gera a especificação técnica</div>
+      </div>
+    </div>
+    <div style="text-align:center; font-family:var(--mono); font-size:0.62em; color:var(--gdark);">↓</div>
+    <div style="display:flex; align-items:center; gap:13px; padding:13px 16px; background:var(--bg-c); border:1px solid var(--bd); border-radius:10px; text-align:left;">
+      <div style="font-size:1.3em; flex-shrink:0;">⚡</div>
+      <div>
+        <div style="font-size:0.77em; font-weight:700; color:var(--white); margin-bottom:2px;">SPEC aprovada → tasks</div>
+        <div style="font-size:0.63em; color:var(--gdark);">Só após aprovação explícita a skill gera as tasks ordenadas, incluindo verificação end-to-end</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kbar" style="max-width:500px; margin:0 auto;">
+    <span style="flex-shrink:0;">🎬</span>
+    <span class="kbar-t"><strong class="hl">Demo ao vivo agora</strong> — vamos mostrar a geração da SPEC com <span class="mono-tag">/spec-driven-build</span></span>
+  </div>
+  <div class="sn">18 / 22</div>
+</div>
+</section>
+
 <!-- 16 SPEC-DRIVEN-BUILD -->
 <section>
 <div class="s">
@@ -1545,7 +1646,7 @@ if (window.self !== window.top) {
       </div>
     </div>
   </div>
-  <div class="sn">17 / 22</div>
+  <div class="sn">19 / 22</div>
 </div>
 </section>
 
@@ -1601,95 +1702,6 @@ if (window.self !== window.top) {
 
   <div class="div" style="margin:12px 0;"></div>
   <div style="text-align:center; font-family:var(--mono); font-size:0.62em; color:var(--gdark);">Ambos respeitam AGENTS.md &nbsp;·&nbsp; Ambos carregam Skills &nbsp;·&nbsp; Ambos geram PRs auditáveis</div>
-  <div class="sn">18 / 22</div>
-</div>
-</section>
-
-<!-- 18 ECOSSISTEMA COMPLETO -->
-<section>
-<div class="s">
-  <div class="ey">Arquitetura Completa</div>
-  <div class="t-md">O Ecossistema <span class="hl">SDD + Harness</span></div>
-  <div class="sub" style="margin-bottom:14px;">Como todas as peças se conectam — do humano ao código gerado e validado</div>
-
-  <div style="text-align:center; margin-bottom:7px;">
-    <div style="display:inline-block; padding:8px 22px; background:var(--bg-g); border:1px solid var(--bd-g); border-radius:8px; font-size:0.72em; font-weight:700; color:var(--green);">👤 Humano — define O QUÊ</div>
-  </div>
-  <div style="text-align:center; font-family:var(--mono); font-size:0.58em; color:var(--gdark); margin-bottom:5px;">↓</div>
-
-  <div style="display:flex; gap:7px; justify-content:center; margin-bottom:5px;">
-    <div style="flex:1; max-width:200px; padding:7px 10px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; text-align:center; font-family:var(--mono); font-size:0.6em; color:var(--white);">📄 PRD.md</div>
-    <div style="flex:1; max-width:200px; padding:7px 10px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; text-align:center; font-family:var(--mono); font-size:0.6em; color:var(--white);">🤖 AGENTS.md</div>
-    <div style="flex:1; max-width:200px; padding:7px 10px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; text-align:center; font-family:var(--mono); font-size:0.6em; color:var(--white);">📋 Rules</div>
-    <div style="flex:1; max-width:200px; padding:7px 10px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; text-align:center; font-family:var(--mono); font-size:0.6em; color:var(--white);">🧩 Skills</div>
-  </div>
-  <div style="text-align:center; font-family:var(--mono); font-size:0.56em; color:var(--gdark); margin-bottom:5px;">↓ Context Engineering · Progressive Disclosure ↓</div>
-
-  <div style="margin-bottom:5px; padding:11px; background:rgba(167,139,250,0.05); border:1px dashed rgba(167,139,250,0.28); border-radius:8px;">
-    <div style="text-align:center; font-family:var(--mono); font-size:0.56em; color:var(--purple); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:7px;">⚙️ Harness — Infraestrutura de Orquestração</div>
-    <div style="display:flex; gap:5px; justify-content:center; flex-wrap:wrap;">
-      <span class="tag p">Shell Access</span><span class="tag p">MCP Tools</span><span class="tag p">Sandbox Isolado</span><span class="tag p">Feedback Loop</span><span class="tag p">State Management</span><span class="tag p">CI/CD</span>
-    </div>
-  </div>
-  <div style="text-align:center; font-family:var(--mono); font-size:0.56em; color:var(--gdark); margin-bottom:5px;">↓</div>
-
-  <div style="display:flex; gap:7px; justify-content:center; margin-bottom:5px;">
-    <div style="padding:6px 11px; background:var(--bg-g); border:1px solid var(--bd-g); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--green);">Claude Code</div>
-    <div style="padding:6px 11px; background:var(--bg-g); border:1px solid var(--bd-g); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--green);">Devin CLI</div>
-    <div style="padding:6px 11px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--gray);">Copilot Agent</div>
-    <div style="padding:6px 11px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--gray);">Cursor</div>
-    <div style="padding:6px 11px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--gray);">Windsurf</div>
-  </div>
-  <div style="text-align:center; font-family:var(--mono); font-size:0.56em; color:var(--gdark); margin-bottom:5px;">↓</div>
-
-  <div style="display:flex; gap:7px; justify-content:center; margin-bottom:12px;">
-    <div style="padding:6px 11px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--yellow);">☕ Kotlin / Java</div>
-    <div style="padding:6px 11px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--yellow);">🧪 JUnit 5</div>
-    <div style="padding:6px 11px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--yellow);">📚 Docs</div>
-    <div style="padding:6px 11px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--yellow);">🐳 Dockerfile</div>
-    <div style="padding:6px 11px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--yellow);">🔀 Pull Request</div>
-  </div>
-  <div class="sn">19 / 22</div>
-</div>
-</section>
-
-<!-- 19 DEMO -->
-<section>
-<div class="s" style="justify-content:center; align-items:center; text-align:center;">
-  <div class="ey" style="text-align:center;">Demo ao Vivo</div>
-  <div class="t-lg" style="margin-bottom:12px;">Hands-On: <span class="hl">SDD na Prática</span></div>
-  <div class="sub" style="max-width:540px; margin:0 auto 24px;">Usando a skill <span class="mono-tag">spec-driven-build</span> para sair de uma demanda bruta e chegar a uma <strong style="color:var(--white);">SPEC validada</strong></div>
-
-  <div style="display:flex; flex-direction:column; gap:9px; max-width:500px; width:100%; margin:0 auto 22px;">
-    <div style="display:flex; align-items:center; gap:13px; padding:13px 16px; background:var(--bg-g); border:1px solid var(--bd-g); border-radius:10px; text-align:left;">
-      <div style="font-size:1.3em; flex-shrink:0;">🧩</div>
-      <div>
-        <div style="font-size:0.77em; font-weight:700; color:var(--white); margin-bottom:2px;">Skill ativa → contexto mínimo coletado</div>
-        <div style="font-size:0.63em; color:var(--gdark);">Feature, problema, restrições e nome em kebab-case iniciam o fluxo</div>
-      </div>
-    </div>
-    <div style="text-align:center; font-family:var(--mono); font-size:0.62em; color:var(--gdark);">↓</div>
-    <div style="display:flex; align-items:center; gap:13px; padding:13px 16px; background:var(--bg-c); border:1px solid var(--bd); border-radius:10px; text-align:left;">
-      <div style="font-size:1.3em; flex-shrink:0;">📋</div>
-      <div>
-        <div style="font-size:0.77em; font-weight:700; color:var(--white); margin-bottom:2px;">PRD + contexto → SPEC.md</div>
-        <div style="font-size:0.63em; color:var(--gdark);">A skill valida o PRD, analisa o código real e gera a especificação técnica</div>
-      </div>
-    </div>
-    <div style="text-align:center; font-family:var(--mono); font-size:0.62em; color:var(--gdark);">↓</div>
-    <div style="display:flex; align-items:center; gap:13px; padding:13px 16px; background:var(--bg-c); border:1px solid var(--bd); border-radius:10px; text-align:left;">
-      <div style="font-size:1.3em; flex-shrink:0;">⚡</div>
-      <div>
-        <div style="font-size:0.77em; font-weight:700; color:var(--white); margin-bottom:2px;">SPEC aprovada → tasks</div>
-        <div style="font-size:0.63em; color:var(--gdark);">Só após aprovação explícita a skill gera as tasks ordenadas, incluindo verificação end-to-end</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="kbar" style="max-width:500px; margin:0 auto;">
-    <span style="flex-shrink:0;">🎬</span>
-    <span class="kbar-t"><strong class="hl">Demo ao vivo agora</strong> — vamos mostrar a geração da SPEC com <span class="mono-tag">/spec-driven-build</span></span>
-  </div>
   <div class="sn">20 / 22</div>
 </div>
 </section>
@@ -1753,6 +1765,7 @@ if (window.self !== window.top) {
 
 </div>
 </div>
+<a id="btn-index" href="#/1" aria-label="Voltar ao sumário">↗ índice</a>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/notes/notes.min.js"></script>
 <script>
@@ -1778,9 +1791,16 @@ if (window.self === window.top) {
     width: 1200, height: 700, margin: 0, minScale: 0.2, maxScale: 2.0,
     plugins: [ RevealNotes ]
   });
+  function updateIndexBtn() {
+    var btn = document.getElementById('btn-index');
+    if (!btn) return;
+    btn.style.display = Reveal.getIndices().h <= 1 ? 'none' : 'block';
+  }
   Reveal.on('ready', function() {
     document.body.classList.add('reveal-ready');
+    updateIndexBtn();
   });
+  Reveal.on('slidechanged', updateIndexBtn);
 }
 </script>
 </body>
