@@ -1,0 +1,34 @@
+{{ define "title" }}{{ .Title }} – {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<section class="post-list talks-list">
+  <h2 class="section-title">{{ .Title }}</h2>
+  {{- if .Content }}
+  <div class="talks-intro markdown-body">
+    {{ .Content }}
+  </div>
+  {{- end }}
+
+  <div class="talks-grid">
+    {{- range .Pages.ByDate.Reverse }}
+    {{- $deck := .Params.deckUrl -}}
+    <article class="talk-card">
+      <a href="{{ .RelPermalink }}" class="talk-cover" aria-label="Abrir palestra {{ .Title }}">
+        {{- if $deck }}
+        <iframe src="{{ $deck | relURL }}" title="Capa da palestra {{ .Title }}" loading="lazy" tabindex="-1"></iframe>
+        {{- else }}
+        <div class="talk-cover__fallback">Sem preview</div>
+        {{- end }}
+      </a>
+      <div class="talk-card__body">
+        <h3 class="talk-card__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p class="talk-card__meta">{{ .Date.Format "2006-01-02" }}</p>
+        {{- with .Description }}
+        <p class="talk-card__desc">{{ . }}</p>
+        {{- end }}
+      </div>
+    </article>
+    {{- end }}
+  </div>
+</section>
+{{ end }}

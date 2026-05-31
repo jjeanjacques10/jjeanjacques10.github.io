@@ -3,7 +3,9 @@
 {{ define "main" }}
 <section class="post-list">
   <h2 class="section-title">Últimos Posts</h2>
-  {{- range .Paginator.Pages }}
+  {{- $posts := where .Site.RegularPages "Section" "posts" -}}
+  {{- $paginator := .Paginate $posts -}}
+  {{- range $paginator.Pages }}
   {{ partial "post-card.html" . }}
   {{- end }}
   {{ partial "paginator.html" . }}
