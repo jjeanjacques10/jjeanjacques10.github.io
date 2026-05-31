@@ -583,7 +583,7 @@ if (window.self !== window.top) {
       <div style="font-family:var(--mono); font-size:0.6em; color:var(--gdark); line-height:1.7;">Software Engineer<br><span style="color:var(--green)"><a href="https://www.linkedin.com/in/jjean-jacques10/" target="_blank" rel="noopener noreferrer">linkedin: jjean-jacques10</a> &nbsp;·&nbsp; <a href="https://github.com/jjeanjacques10" target="_blank" rel="noopener noreferrer">github: jjeanjacques10</a></span></div>
     </div>
   </div>
-  <div class="sn">01 / 22</div>
+  <div class="sn">01 / 23</div>
 </div>
 </section>
 
@@ -640,7 +640,7 @@ if (window.self !== window.top) {
     <span style="flex-shrink:0;">↘</span>
     <span class="kbar-t">Os itens são clicáveis. Use este slide como índice rápido durante a apresentação.</span>
   </div>
-  <div class="sn">02 / 22</div>
+  <div class="sn">02 / 23</div>
 </div>
 </section>
 
@@ -782,7 +782,7 @@ if (window.self !== window.top) {
       <div class="final-copy"><strong>A maior mudança não foi a qualidade do código gerado.</strong> <strong>A mudança foi a quantidade de responsabilidade delegada à IA.</strong> <strong>Evoluímos de perguntar → colaborar → delegar.</strong></div>
     </div>
   </div>
-  <div class="sn">03 / 22</div>
+  <div class="sn">03 / 23</div>
 </div>
 </section>
 
@@ -824,7 +824,7 @@ if (window.self !== window.top) {
     <span style="font-size:1em; flex-shrink:0;">💡</span>
     <span class="kbar-t">A diferença não está só no modelo — está no <strong class="hl">harness ao redor dele</strong></span>
   </div>
-  <div class="sn">04 / 22</div>
+  <div class="sn">04 / 23</div>
 </div>
 </section>
 
@@ -873,7 +873,7 @@ if (window.self !== window.top) {
     <div class="fa">=</div>
     <div class="fb" style="color:var(--white); border-color:rgba(255,255,255,0.18);">IA Confiável ✓</div>
   </div>
-  <div class="sn">05 / 22</div>
+  <div class="sn">05 / 23</div>
 </div>
 </section>
 
@@ -966,11 +966,136 @@ if (window.self !== window.top) {
     <span style="flex-shrink:0;">★</span>
     <span class="kbar-t" style="font-size:0.7em;"><strong style="color:var(--white);">O problema não é falta de informação.</strong> <strong style="color:var(--white);">O problema é carregar informação demais.</strong> <strong class="hl">Context Engineering mantém a mochila leve e relevante.</strong></span>
   </div>
-  <div class="sn">06 / 22</div>
+  <div class="sn">06 / 23</div>
 </div>
 </section>
 
-<!-- 07 O QUE É SDD -->
+<!-- 07 CUSTO DE TOKENS -->
+<section>
+<div class="s">
+  <div class="ey">Context Engineering · Custo</div>
+  <div class="t-md">Custo de <span class="hl">tokens</span>: entenda o que você está pagando</div>
+  <div class="sub" style="margin-bottom:11px;">Modelos de IA cobram por token — cada palavra, símbolo e espaço tem preço.</div>
+
+  <div style="display:grid; grid-template-columns:0.82fr 1.18fr; gap:13px; flex:1;">
+
+    <!-- LEFT: concepts + boas práticas -->
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div class="card-g" style="flex:0;">
+        <div class="clabel" style="color:var(--blue);">📥 Input Tokens</div>
+        <div class="body" style="color:var(--white); margin-bottom:7px; font-size:0.82em;">Tudo que você <strong>envia</strong> ao modelo: prompt, contexto, histórico, system prompt, tools, arquivos.</div>
+        <ul class="cl">
+          <li>Preço <span style="color:var(--blue);">menor</span> — mas cresce com o contexto</li>
+          <li>Inclui todo o conteúdo carregado na "mochila"</li>
+        </ul>
+      </div>
+      <div class="card-r" style="flex:0;">
+        <div class="clabel" style="color:var(--red);">📤 Output Tokens</div>
+        <div class="body" style="color:var(--white); margin-bottom:7px; font-size:0.82em;">Tudo que o modelo <strong>gera</strong>: resposta, raciocínio (thinking), tool calls, código.</div>
+        <ul class="cl">
+          <li>Preço <span style="color:var(--red);">maior</span> — ≈ 5× o custo do input</li>
+          <li>Thinking tokens custam igual, mas ficam ocultos</li>
+        </ul>
+      </div>
+      <div class="card-y" style="flex:1;">
+        <div class="clabel" style="color:var(--yellow);">✅ Boas práticas</div>
+        <ul class="cl">
+          <li><strong style="color:var(--white);">Context curto</strong> — mochila leve = menos input tokens</li>
+          <li><strong style="color:var(--white);">Output direto</strong> — respostas concisas custam menos</li>
+          <li><strong style="color:var(--white);">Batch API</strong> — 50% de desconto para tarefas assíncronas</li>
+          <li><strong style="color:var(--white);">Modelo certo</strong> — Haiku para triagem, Sonnet para execução</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- RIGHT: Anthropic + visual example -->
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div class="card" style="flex:1; padding:14px 16px; display:flex; flex-direction:column; gap:0;">
+
+        <!-- Anthropic branding -->
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:11px;">
+          <div style="display:flex; align-items:center; gap:9px;">
+            <img class="tool-logo" src="https://cdn.simpleicons.org/anthropic/f1f5f9" onerror="this.style.display='none'" alt="Anthropic" style="width:22px; height:22px;">
+            <span style="font-size:0.92em; font-weight:700; color:var(--white); letter-spacing:-0.02em;">anthropic</span>
+          </div>
+          <div style="font-family:var(--mono); font-size:0.5em; background:rgba(96,165,250,0.1); border:1px solid rgba(96,165,250,0.28); color:var(--blue); padding:3px 10px; border-radius:5px; letter-spacing:0.06em;">Claude Sonnet 4.6</div>
+        </div>
+
+        <!-- Price pills -->
+        <div style="display:flex; gap:8px; margin-bottom:13px; align-items:stretch;">
+          <div style="flex:1; text-align:center; background:rgba(96,165,250,0.08); border:1px solid rgba(96,165,250,0.22); border-radius:7px; padding:8px 10px;">
+            <div style="font-family:var(--mono); font-size:0.44em; color:var(--blue); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:3px;">Input</div>
+            <div style="font-family:var(--mono); font-size:0.82em; font-weight:700; color:var(--white);">$3.00<span style="font-size:0.62em; color:var(--gdark);">/1M tok</span></div>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:center; padding:0 4px;">
+            <div style="font-family:var(--mono); font-size:0.7em; font-weight:800; color:var(--red); opacity:0.85;">5×</div>
+          </div>
+          <div style="flex:1; text-align:center; background:rgba(248,113,113,0.08); border:1px solid rgba(248,113,113,0.22); border-radius:7px; padding:8px 10px;">
+            <div style="font-family:var(--mono); font-size:0.44em; color:var(--red); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:3px;">Output</div>
+            <div style="font-family:var(--mono); font-size:0.82em; font-weight:700; color:var(--white);">$15.00<span style="font-size:0.62em; color:var(--gdark);">/1M tok</span></div>
+          </div>
+        </div>
+
+        <!-- Anatomy label -->
+        <div class="clabel" style="margin-bottom:9px;">🔬 Anatomia de uma chamada — 16.000 tokens de input</div>
+
+        <!-- Bars -->
+        <div style="display:flex; flex-direction:column; gap:7px; flex:1;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <div style="font-family:var(--mono); font-size:0.48em; color:var(--blue); width:108px; flex-shrink:0; text-align:right;">System Prompt</div>
+            <div style="flex:1; position:relative; height:19px; border-radius:4px; background:rgba(255,255,255,0.04);">
+              <div style="position:absolute; left:0; top:0; height:100%; width:31%; background:linear-gradient(90deg,rgba(96,165,250,0.75),rgba(96,165,250,0.3)); border-radius:4px;"></div>
+            </div>
+            <div style="font-family:var(--mono); font-size:0.48em; color:var(--blue); width:38px; text-align:right; flex-shrink:0;">5.000</div>
+            <div style="font-family:var(--mono); font-size:0.48em; color:var(--gray); width:42px; text-align:right; flex-shrink:0;">$0.015</div>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <div style="font-family:var(--mono); font-size:0.48em; color:var(--purple); width:108px; flex-shrink:0; text-align:right;">Histórico</div>
+            <div style="flex:1; position:relative; height:19px; border-radius:4px; background:rgba(255,255,255,0.04);">
+              <div style="position:absolute; left:0; top:0; height:100%; width:63%; background:linear-gradient(90deg,rgba(167,139,250,0.75),rgba(167,139,250,0.3)); border-radius:4px;"></div>
+            </div>
+            <div style="font-family:var(--mono); font-size:0.48em; color:var(--purple); width:38px; text-align:right; flex-shrink:0;">10.000</div>
+            <div style="font-family:var(--mono); font-size:0.48em; color:var(--gray); width:42px; text-align:right; flex-shrink:0;">$0.030</div>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <div style="font-family:var(--mono); font-size:0.48em; color:var(--white); width:108px; flex-shrink:0; text-align:right;">Mensagem</div>
+            <div style="flex:1; position:relative; height:19px; border-radius:4px; background:rgba(255,255,255,0.04);">
+              <div style="position:absolute; left:0; top:0; height:100%; width:6%; background:linear-gradient(90deg,rgba(241,245,249,0.55),rgba(241,245,249,0.2)); border-radius:4px;"></div>
+            </div>
+            <div style="font-family:var(--mono); font-size:0.48em; color:var(--white); width:38px; text-align:right; flex-shrink:0;">1.000</div>
+            <div style="font-family:var(--mono); font-size:0.48em; color:var(--gray); width:42px; text-align:right; flex-shrink:0;">$0.003</div>
+          </div>
+
+          <div style="border-top:1px dashed rgba(255,255,255,0.1); margin:1px 0;"></div>
+
+          <div style="display:flex; align-items:center; gap:8px;">
+            <div style="font-family:var(--mono); font-size:0.48em; color:var(--red); width:108px; flex-shrink:0; text-align:right;">Resposta (output)</div>
+            <div style="flex:1; position:relative; height:19px; border-radius:4px; background:rgba(255,255,255,0.04);">
+              <div style="position:absolute; left:0; top:0; height:100%; width:40%; background:linear-gradient(90deg,rgba(248,113,113,0.8),rgba(248,113,113,0.35)); border-radius:4px; box-shadow:0 0 8px rgba(248,113,113,0.22);"></div>
+            </div>
+            <div style="font-family:var(--mono); font-size:0.48em; color:var(--red); width:38px; text-align:right; flex-shrink:0;">800</div>
+            <div style="font-family:var(--mono); font-size:0.48em; color:var(--red); width:42px; text-align:right; flex-shrink:0;">$0.012</div>
+          </div>
+        </div>
+
+        <!-- Total -->
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:11px; padding-top:9px; border-top:1px solid var(--bd);">
+          <div style="font-family:var(--mono); font-size:0.45em; color:var(--gdark); line-height:1.5;">800 output tok = $0.012 · mesmo custo que <span style="color:var(--white);">4.000 input tok</span></div>
+          <div style="font-family:var(--mono); font-size:1.05em; font-weight:800; color:var(--white);">$0.060<span style="font-size:0.52em; color:var(--gdark);">/chamada</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kbar" style="margin-top:8px; padding:9px 14px;">
+    <span style="flex-shrink:0;">★</span>
+    <span class="kbar-t" style="font-size:0.7em;"><strong style="color:var(--white);">Output custa 5× mais que input.</strong> <strong class="hl">Contexto enxuto e respostas diretas são os maiores alavancadores de custo na prática.</strong></span>
+  </div>
+  <div class="sn">07 / 23</div>
+</div>
+</section>
+
+<!-- 08 O QUE É SDD -->
 <section>
 <div class="s">
   <div class="ey">Spec Driven Development</div>
@@ -1012,7 +1137,7 @@ if (window.self !== window.top) {
     <div class="fa">→</div>
     <div class="fb g" style="padding:8px 14px;">🔁 Repita</div>
   </div>
-  <div class="sn">07 / 22</div>
+  <div class="sn">08 / 23</div>
 </div>
 </section>
 
@@ -1050,7 +1175,7 @@ if (window.self !== window.top) {
     <span class="kbar-t">SDD = RPI estruturado em artefatos reutilizáveis: <span class="mono-tag" style="font-size:0.9em;">spec · design · tasks · state</span></span>
   </div>
 
-  <div class="sn">08 / 22</div>
+  <div class="sn">09 / 23</div>
 </div>
 </section>
 
@@ -1082,7 +1207,7 @@ if (window.self !== window.top) {
     <span style="flex-shrink:0;">★</span>
     <span class="kbar-t" style="font-size:0.8em;"><strong class="hl">Humano define O QUÊ</strong> &nbsp;→&nbsp; <strong class="hlb">IA resolve O COMO</strong></span>
   </div>
-  <div class="sn">09 / 22</div>
+  <div class="sn">10 / 23</div>
 </div>
 </section>
 
@@ -1140,7 +1265,7 @@ if (window.self !== window.top) {
       </pre>
     </div>
   </div>
-  <div class="sn">10 / 22</div>
+  <div class="sn">11 / 23</div>
 </div>
 </section>
 
@@ -1179,7 +1304,7 @@ if (window.self !== window.top) {
     <span style="flex-shrink:0;">★</span>
     <span class="kbar-t"><strong style="color:var(--white);">Modelos são commodities.</strong> O <strong class="hl">Harness é o seu diferencial competitivo.</strong></span>
   </div>
-  <div class="sn">11 / 22</div>
+  <div class="sn">12 / 23</div>
 </div>
 </section>
 
@@ -1218,7 +1343,7 @@ if (window.self !== window.top) {
     <span style="flex-shrink:0;">★</span>
     <span class="kbar-t">Você escolhe a CPU no mercado. O <strong class="hl">Sistema Operacional</strong> — o Harness — é onde você cria o seu diferencial.</span>
   </div>
-  <div class="sn">12 / 22</div>
+  <div class="sn">13 / 23</div>
 </div>
 </section>
 
@@ -1271,7 +1396,7 @@ if (window.self !== window.top) {
       </pre>
     </div>
   </div>
-  <div class="sn">13 / 22</div>
+  <div class="sn">14 / 23</div>
 </div>
 </section>
 
@@ -1375,7 +1500,7 @@ if (window.self !== window.top) {
     <span style="flex-shrink:0;">💡</span>
     <span class="kbar-t"><strong class="hl">MCP é a ponte.</strong> O agente descobre e invoca qualquer ferramenta via protocolo padronizado — sem hard-coding de APIs.</span>
   </div>
-  <div class="sn">14 / 22</div>
+  <div class="sn">15 / 23</div>
 </div>
 </section>
 
@@ -1434,7 +1559,7 @@ if (window.self !== window.top) {
       </div>
     </div>
   </div>
-  <div class="sn">15 / 22</div>
+  <div class="sn">16 / 23</div>
 </div>
 </section>
 
@@ -1504,7 +1629,7 @@ if (window.self !== window.top) {
     </div>
 
   </div>
-  <div class="sn">16 / 22</div>
+  <div class="sn">17 / 23</div>
 </div>
 </section>
 
@@ -1552,7 +1677,7 @@ if (window.self !== window.top) {
     <div style="padding:6px 11px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--yellow);">🐳 Dockerfile</div>
     <div style="padding:6px 11px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--yellow);">🔀 Pull Request</div>
   </div>
-  <div class="sn">17 / 22</div>
+  <div class="sn">18 / 23</div>
 </div>
 </section>
 
@@ -1593,7 +1718,7 @@ if (window.self !== window.top) {
     <span style="flex-shrink:0;">🎬</span>
     <span class="kbar-t"><strong class="hl">Demo ao vivo agora</strong> — vamos mostrar a geração da SPEC com <span class="mono-tag">/spec-driven-build</span></span>
   </div>
-  <div class="sn">18 / 22</div>
+  <div class="sn">19 / 23</div>
 </div>
 </section>
 
@@ -1653,7 +1778,7 @@ if (window.self !== window.top) {
       </div>
     </div>
   </div>
-  <div class="sn">19 / 22</div>
+  <div class="sn">20 / 23</div>
 </div>
 </section>
 
@@ -1709,7 +1834,7 @@ if (window.self !== window.top) {
 
   <div class="div" style="margin:12px 0;"></div>
   <div style="text-align:center; font-family:var(--mono); font-size:0.62em; color:var(--gdark);">Ambos respeitam AGENTS.md &nbsp;·&nbsp; Ambos carregam Skills &nbsp;·&nbsp; Ambos geram PRs auditáveis</div>
-  <div class="sn">20 / 22</div>
+  <div class="sn">21 / 23</div>
 </div>
 </section>
 
@@ -1737,7 +1862,7 @@ if (window.self !== window.top) {
     <span class="tag y">Harness Engineering</span>
     <span class="tag">Progressive Disclosure</span>
   </div>
-  <div class="sn">21 / 22</div>
+  <div class="sn">22 / 23</div>
 </div>
 </section>
 
@@ -1764,7 +1889,7 @@ if (window.self !== window.top) {
     <a class="ref-link g" href="https://www.youtube.com/watch?v=1a1VXDdIyrk" target="_blank" rel="noopener noreferrer">🎬 youtube.com/watch?v=1a1VXDdIyrk</a>
     <a class="ref-link g" href="https://www.skills.sh/" target="_blank" rel="noopener noreferrer">🧩 skills.sh — repositório de skills para AI coding agents</a>
   </div>
-  <div class="sn">22 / 22</div>
+  <div class="sn">23 / 23</div>
 </div>
 </section>
 
