@@ -41,7 +41,8 @@
     wrapper.className = 'ad-in-content';
     wrapper.innerHTML =
       '<span class="ad-in-content__label">Publicidade</span>' +
-      '<ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed"' +
+      '<ins class="adsbygoogle" style="display:block; text-align:center;"' +
+      ' data-ad-layout="in-article" data-ad-format="fluid"' +
       ' data-ad-client="{{ . }}" data-ad-slot="{{ $.Site.Params.adsenseSlot }}"></ins>';
 
     paragraphs[3].insertAdjacentElement('afterend', wrapper);

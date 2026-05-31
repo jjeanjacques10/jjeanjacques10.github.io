@@ -15,7 +15,17 @@
     <article class="talk-card">
       <a href="{{ .RelPermalink }}" class="talk-cover" aria-label="Abrir palestra {{ .Title }}">
         {{- if $deck }}
-        <iframe src="{{ $deck | relURL }}" title="Capa da palestra {{ .Title }}" loading="lazy" tabindex="-1"></iframe>
+        <div class="talk-cover__poster">
+          <div class="talk-cover__eyebrow">Staff Engineer Talk · 2026</div>
+          <div class="talk-cover__headline">{{ .Title }}</div>
+          {{- with .Description }}
+          <div class="talk-cover__summary">{{ . }}</div>
+          {{- end }}
+          <div class="talk-cover__footer">
+            <span>Slides</span>
+            <span>{{ .Date.Format "2006-01-02" }}</span>
+          </div>
+        </div>
         {{- else }}
         <div class="talk-cover__fallback">Sem preview</div>
         {{- end }}

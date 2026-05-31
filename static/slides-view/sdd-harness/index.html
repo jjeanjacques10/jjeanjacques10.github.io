@@ -62,6 +62,95 @@ body { background:#0f1117; }
   border-radius:4px;
 }
 
+.deck-preview-poster {
+  position:relative;
+  z-index:2;
+  min-height:700px;
+  box-sizing:border-box;
+  padding:48px 64px 36px;
+  background:radial-gradient(circle at top left, rgba(34,211,238,0.12), transparent 40%), linear-gradient(180deg, #111827, #0f1117 72%);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.reveal {
+  position:relative;
+  z-index:1;
+}
+
+.embedded-preview .reveal {
+  display:none;
+}
+
+.deck-preview-poster__ey {
+  font-family:var(--mono);
+  font-size:0.6em;
+  font-weight:500;
+  color:var(--gdark);
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
+.deck-preview-poster__title {
+  font-size:2.7em;
+  font-weight:800;
+  line-height:1.1;
+  letter-spacing:-0.03em;
+  color:var(--white);
+  margin:0;
+}
+
+.deck-preview-poster__title--secondary {
+  color:var(--gray);
+  font-weight:400;
+  font-size:1.7em;
+  margin-top:2px;
+}
+
+.deck-preview-poster__accent {
+  height:3px;
+  width:55px;
+  background:var(--green);
+  border-radius:2px;
+  margin:14px 0;
+}
+
+.deck-preview-poster__desc {
+  max-width:620px;
+  margin:4px 0 0;
+  font-size:0.85em;
+  font-weight:400;
+  color:var(--gray);
+  line-height:1.55;
+}
+
+.deck-preview-poster__meta {
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-top:26px;
+}
+
+.deck-preview-poster__avatar {
+  width:74px;
+  height:74px;
+  border-radius:50%;
+  border:2px solid var(--bd-g);
+  object-fit:cover;
+  flex-shrink:0;
+}
+
+.deck-preview-poster__meta-copy {
+  font-family:var(--mono);
+  font-size:0.6em;
+  color:var(--gdark);
+  line-height:1.7;
+}
+
+body.reveal-ready .deck-preview-poster {
+  display:none;
+}
+
 /* SLIDE WRAPPER */
 .s {
   display:flex; flex-direction:column; justify-content:flex-start;
@@ -432,6 +521,26 @@ ul.cl li::before { content:'→'; color:var(--green); font-family:var(--mono); f
 </style>
 </head>
 <body>
+<script>
+if (window.self !== window.top) {
+  document.documentElement.classList.add('embedded-preview');
+}
+</script>
+<div class="deck-preview-poster" aria-hidden="true">
+  <div class="deck-preview-poster__ey">Staff Engineer Talk · 2026</div>
+  <div class="deck-preview-poster__title">Spec Driven</div>
+  <div class="deck-preview-poster__title deck-preview-poster__title--secondary">Development & Harness AI Engineering</div>
+  <div class="deck-preview-poster__accent"></div>
+  <p class="deck-preview-poster__desc">Como a engenharia de software vem mudando com o avanço da IA — e como o SDD traz disciplina, alinhamento e qualidade ao desenvolvimento orientado por agentes.</p>
+  <div class="deck-preview-poster__meta">
+    <img class="deck-preview-poster__avatar" src="https://media.licdn.com/dms/image/v2/D4D03AQGadvh7ONPrBw/profile-displayphoto-scale_400_400/B4DZ5f4OsJKEAg-/0/1779725038056?e=1781740800&v=beta&t=3hMS2WKnfMxC_GfJLfbIJ8v_-PMlwrQYebBqAmnbuIs" onerror="this.style.display='none'" alt="Foto de Jean Jacques Barros">
+    <div class="deck-preview-poster__meta-copy">
+      Jean Jacques Barros<br>
+      Software Engineer<br>
+      linkedin: jjean-jacques10 · github: jjeanjacques10
+    </div>
+  </div>
+</div>
 <div class="reveal" role="region" aria-label="Apresentacao sobre Spec Driven Development e Harness AI">
 <div class="slides">
 
@@ -1647,27 +1756,32 @@ ul.cl li::before { content:'→'; color:var(--green); font-family:var(--mono); f
 <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/notes/notes.min.js"></script>
 <script>
-Reveal.initialize({
-  embedded: window.self !== window.top,
-  hash: true,
-  controls: true,
-  controlsLayout: 'bottom-right',
-  controlsBackArrows: 'faded',
-  progress: true,
-  center: false,
-  keyboard: true,
-  navigationMode: 'default',
-  overview: true,
-  touch: true,
-  help: true,
-  mouseWheel: false,
-  slideNumber: 'speaker',
-  showSlideNumber: 'speaker',
-  transition: 'slide', transitionSpeed: 'default', backgroundTransition: 'fade',
-  pdfSeparateFragments: false,
-  width: 1200, height: 700, margin: 0, minScale: 0.2, maxScale: 2.0,
-  plugins: [ RevealNotes ]
-});
+if (window.self === window.top) {
+  Reveal.initialize({
+    embedded: false,
+    hash: true,
+    controls: true,
+    controlsLayout: 'bottom-right',
+    controlsBackArrows: 'faded',
+    progress: true,
+    center: false,
+    keyboard: true,
+    navigationMode: 'default',
+    overview: true,
+    touch: true,
+    help: true,
+    mouseWheel: false,
+    slideNumber: 'speaker',
+    showSlideNumber: 'speaker',
+    transition: 'slide', transitionSpeed: 'default', backgroundTransition: 'fade',
+    pdfSeparateFragments: false,
+    width: 1200, height: 700, margin: 0, minScale: 0.2, maxScale: 2.0,
+    plugins: [ RevealNotes ]
+  });
+  Reveal.on('ready', function() {
+    document.body.classList.add('reveal-ready');
+  });
+}
 </script>
 </body>
 </html>
