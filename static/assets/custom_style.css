@@ -1278,6 +1278,124 @@ body.light-mode .chroma .ss { color: #871094 !important; }
 
 body.light-mode .chroma .m { color: #1750eb !important; }
 body.light-mode .chroma .mb { color: #1750eb !important; }
+
+/* ---- Talks / Slides -------------------------------------- */
+.talks-list {
+  padding-bottom: 18px;
+}
+
+.talks-intro {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+.talks-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  padding: 16px;
+}
+
+.talk-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.talk-cover {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-bottom: 1px solid var(--border);
+  background: #06080d;
+}
+
+.talk-cover iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  pointer-events: none;
+}
+
+.talk-cover__fallback {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.talk-card__body {
+  padding: 12px 14px 14px;
+}
+
+.talk-card__title {
+  margin: 0 0 4px;
+  font-size: 1rem;
+  line-height: 1.35;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.talk-card__title a {
+  color: var(--text) !important;
+}
+
+.talk-card__title a:hover {
+  color: var(--link) !important;
+}
+
+.talk-card__meta {
+  margin: 0 0 8px;
+  color: var(--text-muted);
+  font-size: 0.76rem;
+}
+
+.talk-card__desc {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.87rem;
+  line-height: 1.5;
+}
+
+.slide-single .slide-description {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.slide-frame-wrap {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+}
+
+.slide-frame {
+  width: 100%;
+  height: min(70vh, 680px);
+  border: 0;
+}
+
+.slide-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+@media (max-width: 900px) {
+  .talks-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .slide-frame {
+    height: 56vh;
+  }
+}
 body.light-mode .chroma .mf { color: #1750eb !important; }
 body.light-mode .chroma .mh { color: #1750eb !important; }
 body.light-mode .chroma .mi { color: #1750eb !important; }
@@ -2088,6 +2206,25 @@ body.light-mode .code-copy-btn.copied {
   .quirk-header__emblem { font-size: 2.25rem; }
   .quirk-stats { flex-wrap: wrap; }
   .quirk-stat { min-width: 110px; padding: 0.65rem 1.25rem; }
+}
+
+/* ---- Ad In-Content --------------------------------------- */
+.ad-in-content {
+  margin: 2rem 0;
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  text-align: center;
+}
+
+.ad-in-content__label {
+  display: block;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
 }
 
 /* ---- Ad Card (AdSense) ----------------------------------- */

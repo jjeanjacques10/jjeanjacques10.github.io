@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spec Driven Development & Harness AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+<style>
+:root {
+  --bg:       #0f1117;
+  --bg-c:     #171b24;
+  --bg-c2:    #1a1f2e;
+  --bg-g:     rgba(34,197,94,0.08);
+  --bd:       rgba(255,255,255,0.08);
+  --bd-g:     rgba(34,197,94,0.30);
+  --green:    #4ade80;
+  --gdim:     #22c55e;
+  --blue:     #60a5fa;
+  --purple:   #a78bfa;
+  --yellow:   #fbbf24;
+  --red:      #f87171;
+  --white:    #f1f5f9;
+  --gray:     #94a3b8;
+  --gdark:    #475569;
+  --focus:    #93c5fd;
+  --neon:     #22d3ee;
+  --neon2:    #8b5cf6;
+  --neon-g:   rgba(34,211,238,0.35);
+  --neon-p:   rgba(139,92,246,0.28);
+  --mono:     'JetBrains Mono', monospace;
+  --sans:     'Inter', sans-serif;
+}
+.reveal-viewport { background:#0f1117!important; }
+body { background:#0f1117; }
+.reveal { font-family:var(--sans); color:var(--white); }
+.reveal .slides section { height:100%; padding:0; text-align:left; }
+.reveal h1,.reveal h2,.reveal h3 { font-family:var(--sans); text-transform:none; letter-spacing:-0.02em; margin:0; }
+.reveal .progress span { background:linear-gradient(90deg, var(--green), var(--neon))!important; }
+.reveal .progress { background:rgba(34,197,94,0.1)!important; }
+.reveal .controls {
+  color:var(--neon)!important;
+  z-index:35!important;
+}
+.reveal .controls button {
+  opacity:0.9!important;
+  pointer-events:auto!important;
+  filter:drop-shadow(0 0 10px rgba(34,211,238,0.55));
+}
+.reveal .controls button:hover {
+  opacity:1!important;
+  filter:drop-shadow(0 0 14px rgba(34,211,238,0.75));
+}
+.reveal a { color:var(--blue); text-decoration:none; }
+.reveal a:hover { color:#93c5fd; }
+.reveal a:focus-visible,
+.reveal button:focus-visible,
+.reveal iframe:focus-visible {
+  outline:2px solid var(--focus);
+  outline-offset:2px;
+  border-radius:4px;
+}
+
+/* SLIDE WRAPPER */
+.s {
+  display:flex; flex-direction:column; justify-content:flex-start;
+  height:700px; padding:48px 64px 36px; box-sizing:border-box;
+  background:var(--bg); overflow:hidden; position:relative;
+}
+.s>*{position:relative;z-index:1;}
+.sr-only {
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0, 0, 0, 0);
+  white-space:nowrap;
+  border:0;
+}
+
+/* TYPOGRAPHY */
+.ey { font-family:var(--mono); font-size:0.6em; font-weight:500; color:var(--gdark); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:10px; }
+.t-xl { font-size:2.7em; font-weight:800; line-height:1.1; letter-spacing:-0.03em; color:var(--white); margin-bottom:6px; }
+.t-lg { font-size:2em; font-weight:800; line-height:1.15; letter-spacing:-0.03em; color:var(--white); margin-bottom:6px; }
+.t-md { font-size:1.5em; font-weight:800; line-height:1.2; letter-spacing:-0.025em; color:var(--white); margin-bottom:6px; }
+.sub  { font-size:0.85em; font-weight:400; color:var(--gray); line-height:1.55; margin-bottom:0; }
+.body { font-size:0.76em; color:var(--gray); line-height:1.65; }
+.t-xl, .t-lg, .t-md { text-shadow:none; }
+.hl  { color:var(--green); }
+.hlb { color:var(--blue); }
+.hlp { color:var(--purple); }
+.hly { color:var(--yellow); }
+.hlr { color:var(--red); }
+.hl, .hlb, .hlp, .hly, .hlr { text-shadow:0 0 12px rgba(34,211,238,0.18); }
+.mono-tag { font-family:var(--mono); font-size:0.75em; color:var(--green); }
+
+/* LAYOUT */
+.g2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.g3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
+.g4 { display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:10px; }
+.div { height:1px; background:var(--bd); margin:16px 0; }
+.div-g { height:1px; background:linear-gradient(90deg,var(--gdim),transparent); margin:16px 0; }
+
+/* CARDS */
+.card  { background:linear-gradient(180deg, rgba(23,27,36,0.96), rgba(18,23,33,0.96)); border:1px solid var(--bd); border-radius:10px; padding:16px 18px; box-shadow:0 0 0 1px rgba(34,211,238,0.08), 0 0 22px rgba(34,211,238,0.08), inset 0 0 20px rgba(34,211,238,0.04); }
+.card-g{ background:linear-gradient(180deg, rgba(34,197,94,0.16), rgba(34,197,94,0.06)); border:1px solid rgba(74,222,128,0.45); border-radius:10px; padding:16px 18px; box-shadow:0 0 24px rgba(34,197,94,0.26), inset 0 0 34px rgba(34,197,94,0.14); }
+.card-b{ background:linear-gradient(180deg, rgba(96,165,250,0.16), rgba(96,165,250,0.06)); border:1px solid rgba(96,165,250,0.42); border-radius:10px; padding:16px 18px; box-shadow:0 0 24px rgba(96,165,250,0.25), inset 0 0 32px rgba(96,165,250,0.12); }
+.card-r{ background:linear-gradient(180deg, rgba(248,113,113,0.16), rgba(248,113,113,0.06)); border:1px solid rgba(248,113,113,0.44); border-radius:10px; padding:16px 18px; box-shadow:0 0 24px rgba(248,113,113,0.25), inset 0 0 32px rgba(248,113,113,0.12); }
+.card-y{ background:linear-gradient(180deg, rgba(251,191,36,0.15), rgba(251,191,36,0.05)); border:1px solid rgba(251,191,36,0.40); border-radius:10px; padding:16px 18px; box-shadow:0 0 22px rgba(251,191,36,0.24), inset 0 0 28px rgba(251,191,36,0.10); }
+.clabel{ font-family:var(--mono); font-size:0.57em; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:8px; color:var(--gdark); }
+
+/* KEY BAR */
+.kbar { background:linear-gradient(90deg, rgba(34,197,94,0.10), rgba(34,211,238,0.08)); border:1px solid rgba(34,211,238,0.26); border-left:3px solid var(--neon); border-radius:0 8px 8px 0; padding:11px 16px; display:flex; align-items:center; gap:10px; box-shadow:0 0 22px rgba(34,211,238,0.09); }
+.kbar-t { font-size:0.74em; color:var(--white); line-height:1.5; }
+
+/* TABLE */
+.tbl { width:100%; border-collapse:collapse; font-size:0.71em; }
+.tbl th { font-family:var(--mono); font-size:0.78em; letter-spacing:0.09em; text-transform:uppercase; padding:9px 14px; border-bottom:1px solid var(--bd); color:var(--gdark); font-weight:600; text-align:left; }
+.tbl td { padding:8px 14px; border-bottom:1px solid rgba(255,255,255,0.04); color:var(--gray); line-height:1.5; vertical-align:top; }
+.tbl tr:last-child td { border-bottom:none; }
+.tg { color:var(--green)!important; } .tr { color:var(--red)!important; }
+
+/* BULLETS */
+ul.cl { list-style:none; padding:0; margin:0; }
+ul.cl li { display:flex; align-items:flex-start; gap:8px; font-size:0.73em; color:var(--gray); line-height:1.6; margin-bottom:5px; }
+ul.cl li::before { content:'→'; color:var(--green); font-family:var(--mono); flex-shrink:0; }
+
+/* CODE */
+.code { background:#0a0f18; border:1px solid var(--bd); border-radius:8px; padding:13px 16px; font-family:var(--mono); font-size:0.66em; line-height:1.8; color:var(--gray); overflow:hidden; }
+.cc { color:#374151; } .ck { color:var(--blue); } .cv { color:var(--green); } .cs { color:#fbbf24; } .cp { color:var(--purple); }
+
+/* TAGS */
+.tags { display:flex; flex-wrap:wrap; gap:6px; }
+.tag { font-family:var(--mono); font-size:0.58em; padding:3px 9px; border-radius:4px; border:1px solid var(--bd); color:var(--gray); background:var(--bg-c); letter-spacing:0.05em; }
+.tag.g { border-color:rgba(34,197,94,0.3); color:var(--green); background:rgba(34,197,94,0.06); }
+.tag.b { border-color:rgba(96,165,250,0.3); color:var(--blue); background:rgba(96,165,250,0.06); }
+.tag.p { border-color:rgba(167,139,250,0.3); color:var(--purple); background:rgba(167,139,250,0.06); }
+.tag.y { border-color:rgba(251,191,36,0.3); color:var(--yellow); background:rgba(251,191,36,0.05); }
+
+/* FLOW */
+.flow { display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+.fb { font-family:var(--mono); font-size:0.62em; padding:6px 11px; border-radius:6px; border:1px solid var(--bd); background:var(--bg-c); color:var(--white); white-space:nowrap; }
+.fb.g { border-color:var(--bd-g); background:var(--bg-g); color:var(--green); }
+.fa { color:var(--green); font-size:0.9em; opacity:0.5; }
+
+/* METRIC */
+.mrow { display:flex; border:1px solid var(--bd); border-radius:10px; overflow:hidden; }
+.mi { flex:1; padding:14px 16px; border-right:1px solid var(--bd); text-align:center; }
+.mi:last-child { border-right:none; }
+.mn { font-size:1.8em; font-weight:800; color:var(--green); line-height:1; margin-bottom:4px; letter-spacing:-0.03em; }
+.mn.b { color:var(--blue); } .mn.w { color:var(--white); }
+.ml { font-family:var(--mono); font-size:0.53em; letter-spacing:0.1em; text-transform:uppercase; color:var(--gdark); }
+
+/* RPI STEPS */
+.rpi { background:linear-gradient(180deg, rgba(23,27,36,0.95), rgba(16,21,31,0.94)); border:1px solid rgba(34,211,238,0.24); border-radius:10px; padding:18px; box-shadow:0 0 18px rgba(34,211,238,0.10), inset 0 0 26px rgba(34,211,238,0.05); }
+.rpi.act { border-color:rgba(74,222,128,0.46); background:linear-gradient(180deg, rgba(34,197,94,0.16), rgba(26,33,46,0.9)); box-shadow:0 0 24px rgba(34,197,94,0.22), inset 0 0 30px rgba(34,197,94,0.11); }
+.rpinum { font-family:var(--mono); font-size:0.57em; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--green); margin-bottom:6px; }
+.rpit { font-size:0.9em; font-weight:700; color:var(--white); margin-bottom:8px; line-height:1.3; }
+.rpib { font-size:0.67em; color:var(--gray); line-height:1.55; margin-bottom:7px; }
+.rpitag { font-family:var(--mono); font-size:0.58em; background:rgba(34,197,94,0.1); border:1px solid rgba(34,197,94,0.22); color:var(--green); padding:2px 7px; border-radius:4px; display:inline-block; margin:2px 2px 0 0; }
+
+/* BACKPACK METAPHOR */
+.bp-wrap { display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:start; flex:1; }
+.bp-card { background:linear-gradient(180deg, rgba(23,27,36,0.96), rgba(16,21,31,0.94)); border:1px solid rgba(34,211,238,0.16); border-radius:14px; padding:14px 15px; box-shadow:0 0 0 1px rgba(34,211,238,0.06), 0 0 22px rgba(34,211,238,0.07); }
+.bp-head { font-family:var(--mono); font-size:0.53em; letter-spacing:0.11em; text-transform:uppercase; color:var(--gdark); margin-bottom:8px; }
+.bp-shell { display:flex; flex-direction:column; align-items:center; gap:10px; }
+.bp-handle { width:80px; height:20px; border:3px solid rgba(74,222,128,0.58); border-bottom:none; border-radius:16px 16px 0 0; box-shadow:0 0 14px rgba(34,197,94,0.18); }
+.bp-bag { width:min(100%, 300px); position:relative; border-radius:22px 22px 18px 18px; background:linear-gradient(180deg, rgba(10,15,24,0.98), rgba(18,24,34,0.98)); border:1px solid rgba(34,197,94,0.34); box-shadow:0 0 0 2px rgba(34,197,94,0.08), 0 0 28px rgba(34,197,94,0.12), inset 0 0 32px rgba(34,197,94,0.06); overflow:hidden; }
+.bp-bag::before { content:""; position:absolute; inset:0; background:radial-gradient(circle at 50% 0%, rgba(34,211,238,0.10), transparent 42%); pointer-events:none; }
+.bp-pocket { position:relative; margin:12px 12px 8px; border-radius:14px; border:1px solid rgba(96,165,250,0.28); background:linear-gradient(180deg, rgba(96,165,250,0.08), rgba(96,165,250,0.03)); padding:8px 10px; }
+.bp-pocket::after { content:""; position:absolute; left:50%; top:-7px; transform:translateX(-50%); width:50px; height:11px; border:1px solid rgba(96,165,250,0.22); border-bottom:none; border-radius:11px 11px 0 0; background:rgba(96,165,250,0.05); }
+.bp-items { display:grid; grid-template-columns:1fr 1fr; gap:6px; padding:0 0 8px; }
+.bp-item { display:flex; align-items:center; gap:8px; padding:7px 8px; border-radius:9px; border:1px solid rgba(34,197,94,0.16); background:rgba(34,197,94,0.07); color:var(--white); font-size:0.66em; line-height:1.2; min-height:32px; }
+.bp-item span { color:var(--green); font-family:var(--mono); font-size:0.86em; }
+.bp-item.alt { border-color:rgba(96,165,250,0.18); background:rgba(96,165,250,0.08); }
+.bp-item.alt span { color:var(--blue); }
+.bp-cap { width:min(100%, 300px); }
+.bp-cap-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:5px; font-family:var(--mono); font-size:0.52em; letter-spacing:0.1em; text-transform:uppercase; color:var(--gdark); }
+.bp-cap-value { color:var(--green); }
+.bp-meter { height:12px; border-radius:999px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.05); overflow:hidden; box-shadow:inset 0 0 12px rgba(0,0,0,0.2); }
+.bp-meter-fill { display:block; width:70%; height:100%; background:linear-gradient(90deg, var(--green), var(--neon)); box-shadow:0 0 14px rgba(34,211,238,0.22); }
+.bp-meter-caption { display:flex; justify-content:space-between; margin-top:4px; font-family:var(--mono); font-size:0.5em; color:var(--gdark); }
+.bp-alert { margin-top:8px; padding:10px 12px; }
+.bp-alert .clabel { margin-bottom:5px; color:#fca5a5; }
+.bp-alert ul.cl li { font-size:0.63em; margin-bottom:2px; }
+.bp-alert ul.cl li::before { color:#fbbf24; }
+.pd-title { font-size:1.08em; font-weight:800; color:var(--white); margin-bottom:4px; letter-spacing:-0.02em; }
+.pd-sub { font-size:0.66em; color:var(--gray); line-height:1.45; margin-bottom:10px; }
+.pd-flow { display:grid; grid-template-columns:1fr; gap:8px; }
+.pd-stack { display:flex; flex-direction:column; gap:8px; }
+.pd-node { display:flex; align-items:center; gap:10px; padding:10px 12px; background:var(--bg-c); border:1px solid var(--bd); border-radius:11px; min-height:54px; }
+.pd-node .pd-ico { flex-shrink:0; font-size:1.05em; line-height:1; }
+.pd-node .pd-t { font-size:0.72em; font-weight:700; color:var(--white); margin-bottom:1px; }
+.pd-node .pd-d { font-size:0.57em; color:var(--gdark); line-height:1.35; }
+.pd-arrow { text-align:center; font-family:var(--mono); font-size:0.62em; color:var(--green); opacity:0.55; }
+.pd-node.g { border-color:rgba(34,197,94,0.32); background:linear-gradient(180deg, rgba(34,197,94,0.12), rgba(34,197,94,0.05)); box-shadow:0 0 16px rgba(34,197,94,0.10); }
+.pd-node.b { border-color:rgba(96,165,250,0.28); background:linear-gradient(180deg, rgba(96,165,250,0.10), rgba(96,165,250,0.04)); box-shadow:0 0 16px rgba(96,165,250,0.08); }
+.pd-node.p { border-color:rgba(167,139,250,0.28); background:linear-gradient(180deg, rgba(167,139,250,0.10), rgba(167,139,250,0.04)); box-shadow:0 0 16px rgba(167,139,250,0.08); }
+.pd-note { margin-top:8px; display:flex; flex-wrap:wrap; gap:5px; }
+.pd-chip { font-family:var(--mono); font-size:0.52em; padding:4px 8px; border-radius:6px; border:1px solid rgba(255,255,255,0.10); background:rgba(255,255,255,0.03); color:var(--gray); }
+.pd-chip.g { border-color:rgba(34,197,94,0.22); color:var(--green); background:rgba(34,197,94,0.06); }
+
+/* HW */
+.hwg { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.hwi { display:flex; align-items:flex-start; gap:12px; padding:13px 15px; background:var(--bg-c); border:1px solid var(--bd); border-radius:10px; }
+.hwicon { font-size:1.4em; flex-shrink:0; line-height:1; margin-top:2px; }
+.hwp { font-family:var(--mono); font-size:0.56em; color:var(--gdark); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:2px; }
+.hwai { font-size:0.76em; font-weight:700; color:var(--white); margin-bottom:3px; }
+.hwd { font-size:0.63em; color:var(--gdark); line-height:1.45; }
+.os-shell {
+  position:relative;
+  border:1px solid rgba(34,197,94,0.42);
+  background:linear-gradient(180deg, rgba(34,197,94,0.08), rgba(34,197,94,0.03));
+  border-radius:12px;
+  padding:18px 16px 14px;
+  margin-bottom:13px;
+  box-shadow:0 0 0 2px rgba(34,197,94,0.08), inset 0 0 26px rgba(34,197,94,0.06);
+}
+.os-label {
+  position:absolute;
+  top:-9px;
+  left:14px;
+  font-family:var(--mono);
+  font-size:0.54em;
+  letter-spacing:0.11em;
+  text-transform:uppercase;
+  color:var(--green);
+  background:var(--bg);
+  padding:0 8px;
+}
+.os-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:9px; margin-bottom:10px; }
+.os-core {
+  border:1px solid rgba(34,197,94,0.35);
+  border-radius:10px;
+  background:rgba(34,197,94,0.12);
+  padding:10px 12px;
+}
+.os-core-h {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:0.76em;
+  font-weight:700;
+  color:var(--white);
+  margin-bottom:4px;
+}
+.os-core-h strong { color:var(--green); }
+.os-core-d { font-size:0.63em; color:var(--white); line-height:1.45; opacity:0.92; }
+
+/* SKILL */
+.ski { display:flex; align-items:flex-start; gap:11px; padding:11px 14px; background:var(--bg-c); border:1px solid var(--bd); border-radius:8px; margin-bottom:8px; }
+.skic { font-size:1em; flex-shrink:0; margin-top:1px; }
+.skin { font-family:var(--mono); font-size:0.64em; color:var(--green); margin-bottom:2px; }
+.skid { font-size:0.61em; color:var(--gdark); line-height:1.4; }
+
+/* TIMELINE */
+.tl { position:relative; margin-bottom:12px; padding-top:2px; }
+.tl-track {
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(10, minmax(0, 1fr));
+  gap:6px;
+  align-items:start;
+  margin-bottom:10px;
+}
+.tl-track::before {
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:26px;
+  height:2px;
+  background:linear-gradient(90deg, rgba(34,197,94,0.45), rgba(96,165,250,0.45), rgba(167,139,250,0.45));
+}
+.tli { position:relative; text-align:center; }
+.tly { font-family:var(--mono); font-size:0.49em; color:var(--gdark); letter-spacing:0.03em; margin-bottom:4px; }
+.tldot {
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  margin:0 auto 7px;
+  border:2px solid var(--bg);
+  box-shadow:0 0 0 2px rgba(34,197,94,0.16);
+}
+.tldot.g { background:var(--green); }
+.tldot.b { background:var(--blue); }
+.tldot.p { background:var(--purple); }
+.tldot.y { background:var(--yellow); }
+.tll {
+  min-height:46px;
+  border:1px solid var(--bd);
+  border-radius:7px;
+  background:var(--bg-c);
+  color:var(--white);
+  font-size:0.52em;
+  line-height:1.22;
+  padding:6px 5px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.tll.g { border-color:rgba(34,197,94,0.42); background:rgba(34,197,94,0.14); box-shadow:0 0 14px rgba(34,197,94,0.22), inset 0 0 16px rgba(34,197,94,0.10); }
+.tll.b { border-color:rgba(96,165,250,0.42); background:rgba(96,165,250,0.14); box-shadow:0 0 14px rgba(96,165,250,0.22), inset 0 0 16px rgba(96,165,250,0.10); }
+.tll.p { border-color:rgba(167,139,250,0.42); background:rgba(167,139,250,0.14); box-shadow:0 0 14px rgba(167,139,250,0.22), inset 0 0 16px rgba(167,139,250,0.10); }
+.tll.y { border-color:rgba(251,191,36,0.42); background:rgba(251,191,36,0.14); box-shadow:0 0 14px rgba(251,191,36,0.20), inset 0 0 16px rgba(251,191,36,0.09); }
+.tlg { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; }
+.tlgc { border:1px solid var(--bd); border-radius:8px; background:var(--bg-c); padding:10px 12px; }
+.tlgt { font-family:var(--mono); font-size:0.54em; letter-spacing:0.08em; text-transform:uppercase; color:var(--green); margin-bottom:4px; }
+.tlgd { font-size:0.61em; color:var(--gray); line-height:1.4; }
+
+/* ERA CARDS */
+.era-wrap { display:flex; flex-direction:column; gap:12px; flex:1; }
+.era-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; align-items:stretch; }
+.era {
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  padding:16px 16px 14px;
+  border-radius:14px;
+  border:1px solid var(--bd);
+  background:linear-gradient(180deg, rgba(23,27,36,0.98), rgba(16,21,31,0.96));
+  box-shadow:0 0 0 1px rgba(34,211,238,0.05), 0 0 22px rgba(34,211,238,0.06);
+}
+.era::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  pointer-events:none;
+  background:radial-gradient(circle at top left, rgba(34,211,238,0.08), transparent 40%);
+}
+.era.chat { border-color:rgba(96,165,250,0.24); }
+.era.copilot { border-color:rgba(34,197,94,0.24); }
+.era.agents { border-color:rgba(167,139,250,0.26); }
+.era-head { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
+.era-name { font-size:1.08em; font-weight:900; color:var(--white); letter-spacing:-0.03em; }
+.era-period { font-family:var(--mono); font-size:0.55em; letter-spacing:0.12em; text-transform:uppercase; color:var(--gdark); margin-top:3px; }
+.era-pill { font-family:var(--mono); font-size:0.52em; letter-spacing:0.12em; text-transform:uppercase; padding:4px 8px; border-radius:999px; white-space:nowrap; }
+.era.chat .era-pill { color:var(--blue); border:1px solid rgba(96,165,250,0.28); background:rgba(96,165,250,0.08); }
+.era.copilot .era-pill { color:var(--green); border:1px solid rgba(34,197,94,0.28); background:rgba(34,197,94,0.08); }
+.era.agents .era-pill { color:var(--purple); border:1px solid rgba(167,139,250,0.28); background:rgba(167,139,250,0.08); }
+.era-main { font-size:0.78em; line-height:1.45; color:var(--white); }
+.era-tools { display:flex; flex-wrap:wrap; gap:6px; }
+.era-tools .tag { font-size:0.5em; padding:4px 8px; }
+.era-flow { display:flex; flex-direction:column; gap:4px; padding:10px 12px; border-radius:10px; border:1px solid var(--bd); background:rgba(255,255,255,0.03); }
+.era-flow .flow-step { font-size:0.62em; color:var(--white); line-height:1.25; }
+.era-flow .flow-arrow { font-family:var(--mono); font-size:0.55em; color:var(--green); opacity:0.55; line-height:1; }
+.era-meta { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.era-meta-box { padding:9px 10px; border-radius:10px; border:1px solid var(--bd); background:rgba(255,255,255,0.03); }
+.era-meta-label { font-family:var(--mono); font-size:0.5em; letter-spacing:0.12em; text-transform:uppercase; color:var(--gdark); margin-bottom:4px; }
+.era-meta-value { font-size:0.76em; font-weight:800; line-height:1.2; color:var(--white); }
+.era-meta-value strong { font-size:1.05em; }
+.era.chat .era-meta-value strong { color:var(--blue); }
+.era.copilot .era-meta-value strong { color:var(--green); }
+.era.agents .era-meta-value strong { color:var(--purple); }
+.era-insight { padding:9px 11px; border-radius:10px; border-left:3px solid var(--green); background:rgba(34,197,94,0.08); font-size:0.66em; line-height:1.45; color:var(--gray); }
+.era.chat .era-insight { border-left-color:var(--blue); background:rgba(96,165,250,0.08); }
+.era.copilot .era-insight { border-left-color:var(--green); }
+.era.agents .era-insight { border-left-color:var(--purple); background:rgba(167,139,250,0.08); }
+.evo-bar {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:11px 14px;
+  border-radius:12px;
+  border:1px solid rgba(34,211,238,0.22);
+  background:linear-gradient(90deg, rgba(23,27,36,0.94), rgba(34,197,94,0.08), rgba(96,165,250,0.08), rgba(167,139,250,0.08));
+  box-shadow:0 0 20px rgba(34,211,238,0.08);
+}
+.evo-bar .evo-title { font-family:var(--mono); font-size:0.58em; letter-spacing:0.14em; text-transform:uppercase; color:var(--gdark); }
+.evo-bar .evo-arrow { font-size:0.95em; color:var(--green); opacity:0.7; }
+.evo-bar .evo-word { font-size:0.84em; font-weight:800; color:var(--white); }
+.final-bar {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  align-items:center;
+  padding:12px 16px;
+  border-radius:12px;
+  border:1px solid rgba(251,191,36,0.22);
+  background:linear-gradient(90deg, rgba(251,191,36,0.10), rgba(34,211,238,0.08));
+}
+.final-bar .star { color:var(--yellow); font-size:0.95em; flex-shrink:0; }
+.final-bar .final-copy { font-size:0.68em; line-height:1.5; color:var(--white); }
+
+/* AVATAR */
+.av { width:74px; height:74px; border-radius:50%; border:2px solid var(--bd-g); object-fit:cover; flex-shrink:0; }
+
+/* SLIDE NUMBER */
+.sn { position:absolute; bottom:20px; right:64px; font-family:var(--mono); font-size:0.53em; color:var(--gdark); letter-spacing:0.1em; pointer-events:none; }
+
+/* CLOSING */
+.cbig { font-size:3em; font-weight:900; line-height:1.1; letter-spacing:-0.04em; color:var(--white); }
+.accent { height:3px; width:55px; background:var(--green); border-radius:2px; margin:14px 0; }
+
+/* REFS */
+.ref-link {
+  display:block;
+  padding:8px 13px;
+  background:var(--bg-c);
+  border:1px solid var(--bd);
+  border-radius:6px;
+  font-family:var(--mono);
+  font-size:0.61em;
+  line-height:1.4;
+}
+.ref-link.b { color:var(--blue); }
+.ref-link.g { color:var(--green); }
+
+/* RESPONSIVE FOR EMBEDDED VIEW */
+@media (max-width: 860px) {
+  .s { padding:30px 28px 24px; }
+  .t-xl { font-size:2.1em; }
+  .t-lg { font-size:1.65em; }
+  .t-md { font-size:1.26em; }
+  .g2, .g3, .g4, .tlg { grid-template-columns:1fr; }
+  .os-grid { grid-template-columns:1fr; }
+  .tl-track { grid-template-columns:repeat(5, minmax(0, 1fr)); }
+  .sn { right:28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal * {
+    animation:none !important;
+    transition:none !important;
+  }
+}
+</style>
+</head>
+<body>
+<div class="reveal" role="region" aria-label="Apresentacao sobre Spec Driven Development e Harness AI">
+<div class="slides">
+
+<!-- 01 CAPA -->
+<section>
+<div class="s" style="justify-content:center; padding-top:52px;">
+  <div class="ey">Staff Engineer Talk · 2026</div>
+  <div class="t-xl">Spec Driven<br><span class="hl">Development</span></div>
+  <div class="t-xl" style="color:var(--gray); font-weight:400; font-size:1.7em; margin-top:2px;">& Harness AI Engineering</div>
+  <div class="accent"></div>
+  <div class="sub" style="max-width:620px; margin-top:4px;">
+    Como a engenharia de software vem mudando com o avanço da IA — e como o SDD traz
+    disciplina, alinhamento e qualidade ao desenvolvimento orientado por agentes.
+  </div>
+  <div class="div" style="margin:26px 0 18px;"></div>
+  <div style="display:flex; align-items:center; gap:16px;">
+    <img class="av" src="https://media.licdn.com/dms/image/v2/D4D03AQGadvh7ONPrBw/profile-displayphoto-scale_400_400/B4DZ5f4OsJKEAg-/0/1779725038056?e=1781740800&v=beta&t=3hMS2WKnfMxC_GfJLfbIJ8v_-PMlwrQYebBqAmnbuIs" onerror="this.style.display='none'" alt="Foto de Jean Jacques Barros">
+    <div>
+      <div style="font-size:0.86em; font-weight:700; color:var(--white); margin-bottom:3px;">Jean Jacques Barros</div>
+      <div style="font-family:var(--mono); font-size:0.6em; color:var(--gdark); line-height:1.7;">Software Engineer<br><span style="color:var(--green)"><a href="https://www.linkedin.com/in/jjean-jacques10/" target="_blank" rel="noopener noreferrer">linkedin: jjean-jacques10</a> &nbsp;·&nbsp; <a href="https://github.com/jjeanjacques10" target="_blank" rel="noopener noreferrer">github: jjeanjacques10</a></span></div>
+    </div>
+  </div>
+  <div class="sn">01 / 19</div>
+</div>
+</section>
+
+<!-- 02 EVOLUCAO -->
+<section>
+<div class="s">
+  <div class="ey">Evolução</div>
+  <div class="t-md">De <span class="hl">Chat</span> → <span class="hlb">Copilot</span> → <span class="hlp">Agents</span></div>
+  <div class="sub" style="margin-bottom:12px; max-width:820px;">A evolução não foi só tecnológica: a IA ganhou responsabilidade até mudar a forma de trabalhar. Saímos de perguntar, passamos a colaborar e chegamos à delegação de tarefas.</div>
+
+  <div class="era-wrap" style="flex:1;">
+    <div class="era-row">
+      <div class="era chat">
+        <div class="era-head">
+          <div>
+            <div class="era-name">Chat</div>
+            <div class="era-period">2022-2023</div>
+          </div>
+          <div class="era-pill">Responder</div>
+        </div>
+        <div class="era-main"><strong>A IA responde perguntas.</strong></div>
+        <div class="era-tools">
+          <span class="tag b">ChatGPT</span>
+          <span class="tag b">Claude</span>
+          <span class="tag b">Gemini</span>
+        </div>
+        <div class="era-flow">
+          <div class="flow-step">Você pergunta</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">IA responde</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Você copia</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Você adapta</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Você testa</div>
+        </div>
+        <div class="era-meta">
+          <div class="era-meta-box">
+            <div class="era-meta-label">Responsabilidade</div>
+            <div class="era-meta-value">Humano <strong>90%</strong></div>
+          </div>
+          <div class="era-meta-box">
+            <div class="era-meta-label">IA</div>
+            <div class="era-meta-value">IA <strong>10%</strong></div>
+          </div>
+        </div>
+        <div class="era-insight">A IA tinha conhecimento, mas não conhecia seu projeto.</div>
+      </div>
+
+      <div class="era copilot">
+        <div class="era-head">
+          <div>
+            <div class="era-name">Copilot</div>
+            <div class="era-period">2023-2024</div>
+          </div>
+          <div class="era-pill">Colaborar</div>
+        </div>
+        <div class="era-main"><strong>A IA programa junto com você.</strong></div>
+        <div class="era-tools">
+          <span class="tag g">GitHub Copilot</span>
+          <span class="tag g">Cursor</span>
+          <span class="tag g">Windsurf</span>
+        </div>
+        <div class="era-flow">
+          <div class="flow-step">Você programa</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">IA sugere</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Você aceita</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">IA completa</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Você valida</div>
+        </div>
+        <div class="era-meta">
+          <div class="era-meta-box">
+            <div class="era-meta-label">Responsabilidade</div>
+            <div class="era-meta-value">Humano <strong>70%</strong></div>
+          </div>
+          <div class="era-meta-box">
+            <div class="era-meta-label">IA</div>
+            <div class="era-meta-value">IA <strong>30%</strong></div>
+          </div>
+        </div>
+        <div class="era-insight">A IA passou a enxergar contexto.</div>
+      </div>
+
+      <div class="era agents">
+        <div class="era-head">
+          <div>
+            <div class="era-name">Agents</div>
+            <div class="era-period">2025-Hoje</div>
+          </div>
+          <div class="era-pill">Delegar</div>
+        </div>
+        <div class="era-main"><strong>A IA executa trabalho.</strong></div>
+        <div class="era-tools">
+          <span class="tag p">Claude Code</span>
+          <span class="tag p">Devin</span>
+          <span class="tag p">Copilot Agent</span>
+          <span class="tag p">OpenAI Codex</span>
+        </div>
+        <div class="era-flow">
+          <div class="flow-step">Você define objetivo</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Agente pesquisa</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Agente implementa</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Agente testa</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Você aprova</div>
+        </div>
+        <div class="era-meta">
+          <div class="era-meta-box">
+            <div class="era-meta-label">Responsabilidade</div>
+            <div class="era-meta-value">Humano <strong>40%</strong></div>
+          </div>
+          <div class="era-meta-box">
+            <div class="era-meta-label">IA</div>
+            <div class="era-meta-value">IA <strong>60%</strong></div>
+          </div>
+        </div>
+        <div class="era-insight">A IA deixou de sugerir código e passou a executar tarefas.</div>
+      </div>
+    </div>
+
+    <div class="evo-bar">
+      <span class="evo-title">Autonomia</span>
+      <span class="evo-word">Responder</span>
+      <span class="evo-arrow">→</span>
+      <span class="evo-word">Colaborar</span>
+      <span class="evo-arrow">→</span>
+      <span class="evo-word">Executar</span>
+    </div>
+
+    <div class="final-bar">
+      <span class="star">⭐</span>
+      <div class="final-copy"><strong>A maior mudança não foi a qualidade do código gerado.</strong> <strong>A mudança foi a quantidade de responsabilidade delegada à IA.</strong> <strong>Evoluímos de perguntar → colaborar → delegar.</strong></div>
+    </div>
+  </div>
+  <div class="sn">02 / 19</div>
+</div>
+</section>
+
+<!-- 03 O PROBLEMA -->
+<section>
+<div class="s">
+  <div class="ey">O Problema</div>
+  <div class="t-md">Sem harness, o agente <span class="hl">alucina</span></div>
+  <div class="sub" style="margin-bottom:18px;">Modelos de IA têm poder, mas sem estrutura o output é imprevisível e custoso</div>
+
+  <div class="g2" style="margin-bottom:14px; gap:14px;">
+    <div class="card-r">
+      <div class="clabel" style="color:var(--red);">❌ Sem estrutura</div>
+      <ul class="cl">
+        <li style="color:var(--gray);">Código inconsistente entre sessões</li>
+        <li style="color:var(--gray);">Alucinações em bibliotecas e APIs</li>
+        <li style="color:var(--gray);">Contexto perdido a cada novo chat</li>
+        <li style="color:var(--gray);">Retrabalho constante e alto custo</li>
+        <li style="color:var(--gray);">Outputs não auditáveis</li>
+      </ul>
+    </div>
+    <div class="card-g">
+      <div class="clabel" style="color:var(--green);">✅ Com Harness + SDD</div>
+      <ul class="cl">
+        <li>Contexto estruturado e determinístico</li>
+        <li>Human-in-the-loop em cada etapa crítica</li>
+        <li>Spec preservada e versionada no Git</li>
+        <li>Fluxo previsível, reproduzível e auditável</li>
+        <li>Rastreabilidade completa de decisões</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="kbar" style="margin-bottom:14px;">
+    <span style="font-size:1em; flex-shrink:0;">★</span>
+    <span class="kbar-t"><strong style="color:var(--white);">Mensagem-chave:</strong> o gargalo do desenvolvimento com IA é o <strong class="hl">contexto e a especificação</strong>, não o modelo.</span>
+  </div>
+
+  <div class="div" style="margin:12px 0 10px;"></div>
+  <div class="flow" style="justify-content:center; gap:8px;">
+    <div class="fb">Harness Engineering</div>
+    <div class="fa">+</div>
+    <div class="fb">Context Engineering</div>
+    <div class="fa">+</div>
+    <div class="fb g">Spec Driven Development</div>
+    <div class="fa">=</div>
+    <div class="fb" style="color:var(--white); border-color:rgba(255,255,255,0.18);">IA Confiável ✓</div>
+  </div>
+  <div class="sn">03 / 19</div>
+</div>
+</section>
+
+<!-- 04 O QUE SÃO AI CODING AGENTS -->
+<section>
+<div class="s">
+  <div class="ey">AI Coding Agents</div>
+  <div class="t-md">O que são <span class="hl">AI Coding Agents</span>?</div>
+  <div class="sub" style="margin-bottom:18px;">Diferente de um chatbot, um agente <strong style="color:var(--white);">executa tarefas completas de engenharia de software</strong></div>
+
+  <div class="g2" style="gap:14px; margin-bottom:14px;">
+    <div>
+      <div class="card" style="margin-bottom:10px;">
+        <div class="clabel">Chatbot tradicional</div>
+        <div class="body">Responde perguntas. Você escreve o prompt, copia o resultado, cola no editor e adapta manualmente. O humano faz toda a integração.</div>
+      </div>
+      <div class="card-g">
+        <div class="clabel" style="color:var(--green);">AI Coding Agent</div>
+        <div class="body" style="color:var(--white);">Entende requisitos, navega pelo repositório, altera arquivos, executa comandos, revisa diffs e aprende com feedback — <strong>de forma autônoma.</strong></div>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div class="card">
+        <div class="clabel">🐙 GitHub Copilot · 2021</div>
+        <div class="body">Pioneiro do AI-assisted coding. Autocompletion inteligente no IDE. GitHub + OpenAI. Hoje com agent mode integrado e 1.8M+ devs pagantes.</div>
+      </div>
+      <div class="card-g">
+        <div class="clabel" style="color:var(--green);">⚡ Claude Code · 2025</div>
+        <div class="body">Agent terminal-first da Anthropic. Interage com shell, roda comandos, revisa diffs e edita arquivos autonomamente. #1 em adoção em 2026.</div>
+      </div>
+      <div class="card-b">
+        <div class="clabel" style="color:var(--blue);">🧠 Devin · 2024</div>
+        <div class="body">Primeiro agente autônomo com ambiente completo: shell, browser e editor. Cognition Labs. Pioneer da era agentic no mercado.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kbar">
+    <span style="font-size:1em; flex-shrink:0;">💡</span>
+    <span class="kbar-t">A diferença não está só no modelo — está no <strong class="hl">harness ao redor dele</strong></span>
+  </div>
+  <div class="sn">04 / 19</div>
+</div>
+</section>
+
+<!-- 05 CONTEXT ENGINEERING -->
+<section>
+<div class="s">
+  <div class="ey">Context Engineering</div>
+  <div class="t-md">Context Engineering: <span class="hl">otimizando a janela</span></div>
+  <div class="sub" style="margin-bottom:16px;">Tudo que o agente carrega compete por espaço. O segredo é manter a mochila leve e relevante.</div>
+
+  <div class="bp-wrap" style="flex:1; margin-bottom:8px;">
+    <div class="bp-card">
+      <div class="bp-head">🎒 Mochila do Agente</div>
+      <div class="bp-shell">
+        <div class="bp-handle"></div>
+        <div class="bp-bag">
+          <div class="bp-pocket">
+            <div style="font-family:var(--mono); font-size:0.5em; letter-spacing:0.1em; text-transform:uppercase; color:var(--blue); margin-bottom:5px;">Itens armazenados</div>
+            <div class="bp-items">
+              <div class="bp-item"><span>📄</span>Prompt Atual</div>
+              <div class="bp-item alt"><span>💻</span>Código</div>
+              <div class="bp-item"><span>📋</span>Regras</div>
+              <div class="bp-item alt"><span>🧩</span>Skills</div>
+              <div class="bp-item"><span>🔌</span>MCPs</div>
+            </div>
+          </div>
+        </div>
+        <div class="bp-cap">
+          <div class="bp-cap-top"><span>Capacidade utilizada</span><span class="bp-cap-value">70%</span></div>
+          <div class="bp-meter"><span class="bp-meter-fill"></span></div>
+          <div class="bp-meter-caption"><span>leve</span><span>pesada</span></div>
+        </div>
+      </div>
+      <div class="card-y bp-alert">
+        <div class="clabel" style="color:#fbbf24;">⚠ Mochila sobrecarregada</div>
+        <ul class="cl">
+          <li>informações importantes ficam escondidas</li>
+          <li>o agente toma decisões piores</li>
+          <li>aumenta o custo de processamento</li>
+          <li>cresce o risco de alucinações</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="bp-card">
+      <div class="pd-title">Progressive Disclosure</div>
+      <div class="pd-sub">O agente não precisa carregar tudo ao mesmo tempo.</div>
+
+      <div class="pd-flow">
+        <div class="pd-stack">
+          <div class="pd-node g">
+            <div class="pd-ico">📚</div>
+            <div>
+              <div class="pd-t">Biblioteca de Conhecimento</div>
+              <div class="pd-d">Fontes, regras e referências ficam guardadas fora da mochila.</div>
+            </div>
+          </div>
+          <div class="pd-arrow">↓</div>
+          <div class="pd-node b">
+            <div class="pd-ico">🔍</div>
+            <div>
+              <div class="pd-t">Necessidade detectada</div>
+              <div class="pd-d">A tarefa revela o que realmente precisa entrar no contexto.</div>
+            </div>
+          </div>
+          <div class="pd-arrow">↓</div>
+          <div class="pd-node p">
+            <div class="pd-ico">🎒</div>
+            <div>
+              <div class="pd-t">Carrega só o necessário</div>
+              <div class="pd-d">O agente adiciona contexto útil no momento certo e evita excesso.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pd-note">
+        <span class="pd-chip g">📄 Descrição curta</span>
+        <span class="pd-chip">→</span>
+        <span class="pd-chip g">🔍 Necessidade detectada</span>
+        <span class="pd-chip">→</span>
+        <span class="pd-chip g">📚 Busca conhecimento</span>
+        <span class="pd-chip">→</span>
+        <span class="pd-chip g">🎒 Adiciona à mochila</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="kbar" style="margin-top:4px; padding:9px 14px;">
+    <span style="flex-shrink:0;">★</span>
+    <span class="kbar-t" style="font-size:0.7em;"><strong style="color:var(--white);">O problema não é falta de informação.</strong> <strong style="color:var(--white);">O problema é carregar informação demais.</strong> <strong class="hl">Context Engineering mantém a mochila leve e relevante.</strong></span>
+  </div>
+  <div class="sn">05 / 19</div>
+</div>
+</section>
+
+<!-- 06 SKILLS.MD -->
+<section>
+<div class="s">
+  <div class="ey">Context Engineering · Skills</div>
+  <div class="t-md"><span class="hl">Skills.md</span> — Conhecimento Modular</div>
+  <div class="sub" style="margin-bottom:16px;">Progressive Disclosure na prática: o agente carrega o conteúdo completo apenas quando necessário</div>
+
+  <div class="g2" style="gap:18px; align-items:start; flex:1;">
+    <div>
+      <div style="font-family:var(--mono); font-size:0.58em; color:var(--gdark); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:9px;">Exemplos para Backend (Java · Kotlin · Spring Boot)</div>
+      <div class="ski">
+        <div class="skic">📝</div>
+        <div><div class="skin">generate-docs/SKILL.md</div><div class="skid">Gera Javadoc, README e OpenAPI spec a partir do código Java/Kotlin existente, seguindo padrões do time.</div></div>
+      </div>
+      <div class="ski">
+        <div class="skic">🧪</div>
+        <div><div class="skin">unit-tests/SKILL.md</div><div class="skid">Cria testes JUnit 5 + Mockito para services Spring Boot. Padrão AAA, coverage mínimo 80%.</div></div>
+      </div>
+      <div class="ski">
+        <div class="skic">📊</div>
+        <div><div class="skin">datadog-alerts/SKILL.md</div><div class="skid">Cria monitores e alertas no Datadog para métricas de PIX/TED com thresholds e notificações Slack.</div></div>
+      </div>
+      <div class="ski">
+        <div class="skic">🐳</div>
+        <div><div class="skin">docker-deploy/SKILL.md</div><div class="skid">Gera Dockerfile otimizado + docker-compose para serviços Spring Boot com profiles AWS (ECS, ECR).</div></div>
+      </div>
+      <div class="div-g" style="margin:11px 0;"></div>
+      <div style="font-family:var(--mono); font-size:0.58em; color:var(--gdark); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px;">Portabilidade</div>
+      <div class="tags">
+        <span class="tag g">Claude Code</span><span class="tag g">Codex</span><span class="tag g">Cursor</span><span class="tag g">Gemini CLI</span><span class="tag g">Devin</span><span class="tag g">Windsurf</span>
+      </div>
+      <div style="margin-top:9px; font-family:var(--mono); font-size:0.6em; color:var(--green);">🌐 skills.sh — repositório público de skills</div>
+    </div>
+    <div>
+      <div style="font-family:var(--mono); font-size:0.58em; color:var(--gdark); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px;">Estrutura de uma Skill</div>
+      <pre class="code">
+    <span class="cc">--- # unit-tests</span>
+    <span class="ck">name:</span>        <span class="cv">unit-tests</span>
+    <span class="ck">description:</span> <span class="cs">"Gera testes JUnit 5 + Mockito</span>
+    <span class="cs">             para services Spring Boot"</span>
+    <span class="cc">---</span>
+
+    <span class="cc"># Conteúdo carregado apenas quando necessário</span>
+    <span class="cc"># (Progressive Disclosure em ação)</span>
+
+    <span class="ck">## Convenções do Projeto</span>
+    <span class="cv">- Padrão AAA (Arrange-Act-Assert)</span>
+    <span class="cv">- Mocks via @MockBean</span>
+    <span class="cv">- Coverage mínimo: 80%</span>
+    <span class="cv">- Nomenclatura: should_doX_when_Y</span>
+
+    <span class="ck">## Dependências</span>
+    <span class="cs">junit-jupiter · mockito-core · assertj</span>
+      </pre>
+      <div class="card-g" style="margin-top:10px; padding:12px 14px;">
+        <div style="font-size:0.68em; color:var(--white); line-height:1.5;">💡 O agente mantém a <strong class="hl">descrição curta</strong> no contexto e carrega o <strong>conteúdo completo</strong> apenas quando aquela skill é requerida pela tarefa.</div>
+      </div>
+    </div>
+  </div>
+  <div class="sn">06 / 19</div>
+</div>
+</section>
+
+<!-- 07 EXEMPLO PRÁTICO SKILL -->
+<section>
+<div class="s">
+  <div class="ey">Context Engineering · Skills</div>
+  <div class="t-md"><span class="hl">Estrutura de uma Skill</span> — Exemplo simples</div>
+  <div class="sub" style="margin-bottom:15px;">Um modelo enxuto para `generate-docs.skill.md` com quebras de linha legíveis</div>
+
+  <div class="g2" style="gap:18px; align-items:start; flex:1;">
+    <div>
+      <div style="font-family:var(--mono); font-size:0.58em; color:var(--gdark); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px;">generate-docs.skill.md</div>
+      <pre class="code">
+    <span class="cc">---</span>
+    <span class="ck">name:</span> <span class="cv">generate-docs</span>
+    <span class="ck">description:</span> <span class="cs">"Gera documentação técnica de APIs e módulos</span>
+    <span class="cs">a partir do código-fonte. Use quando o usuário</span>
+    <span class="cs">pedir README, Javadoc/KDoc ou OpenAPI."</span>
+    <span class="cc">---</span>
+
+    <span class="ck">## Início rápido</span>
+    <span class="cv">1) Ler código e contratos públicos</span>
+    <span class="cv">2) Gerar rascunho da documentação</span>
+    <span class="cv">3) Validar links e exemplos</span>
+    <span class="cv">4) Corrigir e entregar versão final</span>
+      </pre>
+    </div>
+
+    <div>
+      <div style="font-family:var(--mono); font-size:0.58em; color:var(--gdark); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px;">Checklist mínima</div>
+      <div class="card-g" style="margin-bottom:8px;">
+        <div class="clabel" style="color:var(--green);">Frontmatter</div>
+        <div class="body" style="font-size:0.67em; color:var(--white);">Nome em minúsculo com hífen + descrição clara de uso.</div>
+      </div>
+      <div class="card" style="margin-bottom:8px;">
+        <div class="clabel">Concisão</div>
+        <div class="body" style="font-size:0.67em;">`SKILL.md` curto e direto, sem texto desnecessário.</div>
+      </div>
+      <div class="card" style="margin-bottom:8px;">
+        <div class="clabel">Progressive Disclosure</div>
+        <div class="body" style="font-size:0.67em;">Detalhes em arquivos auxiliares de 1 nível: `reference/` e `examples/`.</div>
+      </div>
+      <div class="card-y" style="padding:10px 12px;">
+        <div style="font-size:0.66em; color:var(--white); line-height:1.45;">⚠ Evite linhas longas em blocos de código: quebre frases em múltiplas linhas curtas.</div>
+      </div>
+      <div class="kbar" style="margin-top:9px;">
+        <span style="flex-shrink:0;">★</span>
+        <span class="kbar-t" style="font-size:0.68em;"><strong class="hl">Regra simples:</strong> metadado bom + corpo enxuto + validação.</span>
+      </div>
+    </div>
+  </div>
+  <div class="sn">07 / 19</div>
+</div>
+</section>
+
+<!-- 08 O QUE É SDD -->
+<section>
+<div class="s">
+  <div class="ey">Spec Driven Development</div>
+  <div class="t-md">O que é <span class="hl">SDD</span>?</div>
+  <div class="sub" style="margin-bottom:16px;">Com a IA comoditizando geração de código, o gargalo mudou: não é mais escrever sintaxe, mas <strong style="color:var(--white);">definir intenção</strong></div>
+
+  <div class="g2" style="gap:12px; margin-bottom:14px;">
+    <div class="card-g">
+      <div class="clabel" style="color:var(--green);">Spec-First</div>
+      <div class="body" style="color:var(--white);">A spec é escrita <em>antes</em> do código. Define comportamento, contratos e critérios de aceitação. É o contrato entre humano e IA.</div>
+    </div>
+    <div class="card">
+      <div class="clabel">Human-in-the-Loop</div>
+      <div class="body">Validação humana em cada etapa crítica. O dev define <strong class="hl">O QUÊ</strong>; a IA resolve <strong class="hlb">O COMO</strong>.</div>
+    </div>
+    <div class="card">
+      <div class="clabel">Contexto Estruturado</div>
+      <div class="body">PRD.md, AGENTS.md, Rules e Skills fornecem contexto rico e determinístico para o agente trabalhar com qualidade.</div>
+    </div>
+    <div class="card">
+      <div class="clabel">Rastreabilidade</div>
+      <div class="body">Cada decisão tem origem na spec. Onboarding facilitado e conhecimento permanentemente transferível e auditável.</div>
+    </div>
+  </div>
+
+  <div class="kbar" style="margin-bottom:14px;">
+    <span style="flex-shrink:0;">💡</span>
+    <span class="kbar-t">O SDD trata a spec como a <strong class="hl">fonte da verdade</strong> — código, testes e documentação são derivados dela.<br><span class="mono-tag" style="font-size:0.85em;">Copilot · Claude Code · Devin · Cursor · Windsurf</span> — funciona com qualquer agent.</span>
+  </div>
+
+  <div class="flow" style="justify-content:center; gap:9px;">
+    <div class="fb g" style="padding:8px 14px;">📄 Spec</div>
+    <div class="fa">→</div>
+    <div class="fb" style="padding:8px 14px;">🤖 Agent gera código</div>
+    <div class="fa">→</div>
+    <div class="fb" style="padding:8px 14px;">🧪 Testes validam</div>
+    <div class="fa">→</div>
+    <div class="fb" style="padding:8px 14px;">👤 Humano aprova</div>
+    <div class="fa">→</div>
+    <div class="fb g" style="padding:8px 14px;">🔁 Repita</div>
+  </div>
+  <div class="sn">08 / 19</div>
+</div>
+</section>
+
+<!-- 08 ETAPAS RPI -->
+<section>
+<div class="s">
+  <div class="ey">SDD · Workflow</div>
+  <div class="t-md">O fundamento do SDD:<br><span class="hl">Research → Plan → Implement</span></div>
+  <div class="sub" style="margin-bottom:16px;">RPI é o padrão mental por trás do Spec-Driven Development</div>
+
+  <div class="g3" style="gap:11px; margin-bottom:13px;">
+    <div class="rpi act">
+      <div class="rpinum">1. Research</div>
+      <div class="rpit">Investigar antes de planejar</div>
+      <div class="rpib"><strong style="color:var(--white);">Conceito:</strong> janela grande para pesquisar codebase, MCPs e skills disponíveis.</div>
+      <div class="rpib"><strong style="color:var(--white);">No SDD:</strong> investigação inicial antes de criar a spec. Mapear domínio, dependências e padrões existentes no projeto.</div>
+      <div style="margin-top:6px;"><span class="rpitag">codebase</span><span class="rpitag">domínio PIX/TED</span></div>
+    </div>
+    <div class="rpi">
+      <div class="rpinum">2. Plan</div>
+      <div class="rpit">Salvar aprendizados</div>
+      <div class="rpib"><strong style="color:var(--white);">Conceito:</strong> salvar aprendizados em arquivos Markdown estruturados e reutilizáveis.</div>
+      <div class="rpib"><strong style="color:var(--white);">No SDD:</strong> gera <span class="rpitag">spec.md</span> <span class="rpitag">design.md</span> <span class="rpitag">tasks.md</span> com critérios de aceitação claros para o agente implementar.</div>
+    </div>
+    <div class="rpi">
+      <div class="rpinum">3. Implement</div>
+      <div class="rpit">Executar com janela limpa</div>
+      <div class="rpib"><strong style="color:var(--white);">Conceito:</strong> janela limpa usando os Markdowns gerados como contexto preciso.</div>
+      <div class="rpib"><strong style="color:var(--white);">No SDD:</strong> subagentes executam tasks em paralelo. Código alinhado à spec, testes gerados automaticamente.</div>
+    </div>
+  </div>
+
+  <div class="kbar" style="margin-bottom:12px;">
+    <span style="flex-shrink:0;">💡</span>
+    <span class="kbar-t">SDD = RPI estruturado em artefatos reutilizáveis: <span class="mono-tag" style="font-size:0.9em;">spec · design · tasks · state</span></span>
+  </div>
+
+  <div class="mrow">
+    <div class="mi"><div class="mn">~90</div><div class="ml">Arquivos alterados</div></div>
+    <div class="mi"><div class="mn b">~50k</div><div class="ml">Tokens consumidos</div></div>
+    <div class="mi"><div class="mn w">0</div><div class="ml">Retrabalho</div></div>
+    <div class="mi"><div class="mn" style="font-size:1.4em;">✅</div><div class="ml">Spec como verdade</div></div>
+  </div>
+  <div class="sn">09 / 19</div>
+</div>
+</section>
+
+<!-- 09 BENEFÍCIOS -->
+<section>
+<div class="s">
+  <div class="ey">SDD · Benefícios</div>
+  <div class="t-md">Por que adotar <span class="hl">SDD</span>?</div>
+  <div class="sub" style="margin-bottom:14px;">Comparação direta entre trabalhar com e sem especificação estruturada</div>
+
+  <table class="tbl" style="margin-bottom:13px;">
+    <thead>
+      <tr>
+        <th style="width:50%; color:var(--red);">❌ Sem SDD</th>
+        <th style="width:50%; color:var(--green);">✅ Com SDD</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="tr">IA gera código inconsistente e imprevisível</td><td class="tg">Specs fornecem contexto estruturado e determinístico</td></tr>
+      <tr><td class="tr">Alucinações frequentes nos outputs gerados</td><td class="tg">Human-in-the-loop valida cada etapa crítica</td></tr>
+      <tr><td class="tr">Contexto perdido entre sessões de chat</td><td class="tg">AGENTS.md preserva o contexto permanentemente</td></tr>
+      <tr><td class="tr">Retrabalho constante e alto custo operacional</td><td class="tg">Fluxo previsível, reproduzível e auditável</td></tr>
+      <tr><td class="tr">Documentação desatualizada ou inexistente</td><td class="tg">PRD.md é documentação viva e versionada no Git</td></tr>
+      <tr><td class="tr">Onboarding de novos devs lento e custoso</td><td class="tg">Specs facilitam onboarding e transferência de conhecimento</td></tr>
+    </tbody>
+  </table>
+
+  <div class="kbar">
+    <span style="flex-shrink:0;">★</span>
+    <span class="kbar-t" style="font-size:0.8em;"><strong class="hl">Humano define O QUÊ</strong> &nbsp;→&nbsp; <strong class="hlb">IA resolve O COMO</strong></span>
+  </div>
+  <div class="sn">10 / 19</div>
+</div>
+</section>
+
+<!-- 10 PRD.MD -->
+<section>
+<div class="s">
+  <div class="ey">SDD · Artefatos</div>
+  <div class="t-md"><span class="hl">PRD.md</span> — Product Requirement Document</div>
+  <div class="sub" style="margin-bottom:16px;">A história do desenvolvedor em formato estruturado — origem de toda a spec técnica</div>
+
+  <div class="g2" style="gap:18px; align-items:start; flex:1;">
+    <div>
+      <table class="tbl" style="margin-bottom:11px;">
+        <thead>
+          <tr><th style="color:var(--red);">❌ Sem PRD.md</th><th style="color:var(--green);">✅ Com PRD.md</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="tr">Requisitos vagos e mal definidos</td><td class="tg">Requisitos claros e alinhados ao negócio</td></tr>
+          <tr><td class="tr">Comunicação ineficiente entre times</td><td class="tg">Fonte única de verdade para todos</td></tr>
+          <tr><td class="tr">Detalhamento de negócio se perde</td><td class="tg">Contexto e critérios de sucesso documentados</td></tr>
+        </tbody>
+      </table>
+      <div class="div-g"></div>
+      <div style="font-family:var(--mono); font-size:0.58em; color:var(--gdark); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:9px;">Fluxo SDD completo</div>
+      <div style="display:flex; flex-direction:column; gap:7px;">
+        <div style="display:flex; align-items:center; gap:8px;"><div class="fb g" style="font-size:0.58em; min-width:80px; text-align:center;">PRD.md</div><div style="font-size:0.63em; color:var(--gdark);">Define objetivos, critérios e contexto de negócio</div></div>
+        <div style="padding-left:40px; font-family:var(--mono); font-size:0.58em; color:var(--green); opacity:0.4;">↓</div>
+        <div style="display:flex; align-items:center; gap:8px;"><div class="fb" style="font-size:0.58em; min-width:80px; text-align:center;">SPEC.md</div><div style="font-size:0.63em; color:var(--gdark);">Spec técnica: interfaces, contratos, fluxos de dados</div></div>
+        <div style="padding-left:40px; font-family:var(--mono); font-size:0.58em; color:var(--green); opacity:0.4;">↓</div>
+        <div style="display:flex; align-items:center; gap:8px;"><div class="fb b" style="font-size:0.58em; min-width:80px; text-align:center;">Código</div><div style="font-size:0.63em; color:var(--gdark);">Agent gera Kotlin + testes + docs alinhados à spec</div></div>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:var(--mono); font-size:0.58em; color:var(--gdark); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px;">Exemplo PRD.md — Endpoint PIX</div>
+      <pre class="code">
+    <span class="cc"># PRD: Endpoint PIX Instantâneo</span>
+
+    <span class="ck">## Objetivo</span>
+    <span class="cv">Processar transações PIX com SLA &lt; 2 segundos</span>
+
+    <span class="ck">## Stack</span>
+    <span class="cs">Kotlin · Spring Boot 3.2 · AWS · Docker</span>
+
+    <span class="ck">## Critérios de Aceitação</span>
+    <span class="cv">- [ ] Validar chave PIX via DICT (BACEN)</span>
+    <span class="cv">- [ ] Persistir transação no DynamoDB</span>
+    <span class="cv">- [ ] Publicar evento no SNS (async)</span>
+    <span class="cv">- [ ] Idempotência por transactionId</span>
+    <span class="cv">- [ ] Retornar receipt em &lt; 2 segundos</span>
+
+    <span class="ck">## Restrições</span>
+    <span class="cs">- Conformidade SPB/BACEN obrigatória</span>
+    <span class="cs">- Logs estruturados JSON (Datadog)</span>
+    <span class="cs">- Sem exposição de dados sensíveis</span>
+      </pre>
+    </div>
+  </div>
+  <div class="sn">11 / 19</div>
+</div>
+</section>
+
+<!-- 11 AGENTS.MD -->
+<section>
+<div class="s">
+  <div class="ey">SDD · Artefatos</div>
+  <div class="t-md"><span class="hl">AGENTS.md</span> — Especificação de Agentes</div>
+  <div class="sub" style="margin-bottom:16px;">O arquivo que o agente lê primeiro — define como ele deve se comportar no seu repositório</div>
+
+  <div class="g2" style="gap:18px; align-items:start; flex:1;">
+    <div>
+      <table class="tbl" style="margin-bottom:11px;">
+        <thead>
+          <tr><th style="color:var(--green);">AGENTS.md</th><th>README.md</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="tg">Feito <strong>para agentes de IA</strong></td><td>Feito <strong>para humanos</strong></td></tr>
+          <tr><td>Define responsabilidades, skills e regras de interação do agente no projeto</td><td>Visão geral do projeto, tecnologias e instruções de uso para devs</td></tr>
+          <tr><td class="tg">Preserva contexto entre sessões agentic</td><td>Frequentemente desatualizado e ignorado</td></tr>
+          <tr><td class="tg">Sempre consultado pelo agent ao iniciar</td><td>Lido ocasionalmente por novos devs</td></tr>
+        </tbody>
+      </table>
+      <div class="card-g" style="padding:11px 14px;">
+        <div style="font-size:0.68em; color:var(--white); line-height:1.5;">💡 Claude Code, Devin e outros agents leem o <strong class="hl">AGENTS.md</strong> automaticamente ao iniciar. É a fonte de verdade sobre como o agente deve se comportar no seu repositório.</div>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:var(--mono); font-size:0.58em; color:var(--gdark); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px;">Exemplo AGENTS.md</div>
+      <pre class="code">
+    <span class="cc"># AGENTS.md — Payments Service</span>
+
+    <span class="ck">## Stack</span>
+    <span class="cv">Kotlin 1.9 · Spring Boot 3.2</span>
+    <span class="cv">AWS (ECS, DynamoDB, SNS, SQS)</span>
+    <span class="cv">Docker · GitHub Actions</span>
+
+    <span class="ck">## Regras Obrigatórias</span>
+    <span class="cv">- NUNCA commitar sem testes unitários</span>
+    <span class="cv">- Idempotência em toda transação PIX</span>
+    <span class="cv">- Logs estruturados JSON (Datadog)</span>
+    <span class="cv">- Padrão de erro RFC 7807</span>
+
+    <span class="ck">## Skills Disponíveis</span>
+    <span class="cs">unit-tests · datadog-alerts · generate-docs</span>
+
+    <span class="ck">## Proibido</span>
+    <span class="cp">- Expor dados sensíveis em logs</span>
+    <span class="cp">- Transações sem correlationId</span>
+      </pre>
+    </div>
+  </div>
+  <div class="sn">12 / 19</div>
+</div>
+</section>
+
+<!-- 12 HARNESS: O QUE É -->
+<section>
+<div class="s">
+  <div class="ey">Harness Engineering</div>
+  <div class="t-md">O que é <span class="hl">Harness Engineering</span>?</div>
+  <div class="sub" style="margin-bottom:16px;">A prática de projetar instruções, ferramentas, ambiente, estado e feedback para tornar o trabalho do agente <strong style="color:var(--white);">confiável e previsível</strong></div>
+
+  <div class="g2" style="gap:11px; margin-bottom:13px;">
+    <div class="card">
+      <div class="clabel">📋 Instruções</div>
+      <div class="body">AGENTS.md, Rules, System Prompts que definem comportamento e restrições. O agente sabe exatamente o que pode e o que não pode fazer.</div>
+    </div>
+    <div class="card">
+      <div class="clabel">🔧 Ferramentas</div>
+      <div class="body">MCP tools, shell access, browser, APIs que o agente pode invocar. Expande as capacidades além da simples geração de texto.</div>
+    </div>
+    <div class="card">
+      <div class="clabel">🏗️ Ambiente</div>
+      <div class="body">Sandbox isolado, CI/CD, containers Docker — infraestrutura onde o agente opera com segurança e reprodutibilidade total.</div>
+    </div>
+    <div class="card">
+      <div class="clabel">🔁 Feedback Loop</div>
+      <div class="body">Resultados de testes, diffs, erros de compilação — sinais que permitem ao agente detectar e corrigir o próprio curso automaticamente.</div>
+    </div>
+  </div>
+
+  <div class="card-g" style="margin-bottom:12px; padding:13px 16px;">
+    <div style="font-family:var(--mono); font-size:0.58em; color:var(--gdark); letter-spacing:0.1em; margin-bottom:5px; text-transform:uppercase;">Context Engineering vs Harness</div>
+    <div style="font-size:0.72em; color:var(--white); line-height:1.5;">Context Engineering é uma <strong class="hl">parte</strong> do Harness — mas o Harness é a infraestrutura completa:<br><span class="mono-tag" style="display:inline-block; margin-top:4px; font-size:0.85em;">Harness = Context + Tools + Environment + State + Feedback</span></div>
+  </div>
+
+  <div class="kbar">
+    <span style="flex-shrink:0;">★</span>
+    <span class="kbar-t"><strong style="color:var(--white);">Modelos são commodities.</strong> O <strong class="hl">Harness é o seu diferencial competitivo.</strong></span>
+  </div>
+  <div class="sn">13 / 19</div>
+</div>
+</section>
+
+<!-- 13 ANALOGIA COMPUTADOR -->
+<section>
+<div class="s">
+  <div class="ey">Harness Engineering · Analogia</div>
+  <div class="t-md">Harness ≅ <span class="hl">Sistema Operacional</span> de IA</div>
+  <div class="sub" style="margin-bottom:16px;">Como as peças de um computador mapeiam para a arquitetura de um AI Agent</div>
+
+  <div class="os-shell" style="flex:1;">
+    <div class="os-label">Harness = Sistema Operacional</div>
+
+    <div class="os-grid">
+      <div class="hwi" style="border-color:rgba(34,197,94,0.28);">
+        <div class="hwicon">🖥️</div>
+        <div><div class="hwp">CPU</div><div class="hwai" style="color:var(--green);">Modelo de Linguagem</div><div class="hwd">GPT-5 · Claude · Gemini · Llama. O núcleo de raciocínio e geração.</div></div>
+      </div>
+      <div class="hwi" style="border-color:rgba(96,165,250,0.26);">
+        <div class="hwicon">💾</div>
+        <div><div class="hwp">RAM</div><div class="hwai" style="color:var(--blue);">Contexto Ativo</div><div class="hwd">PRD.md · AGENTS.md · Rules · Skills. Memória de trabalho da sessão.</div></div>
+      </div>
+      <div class="hwi" style="border-color:rgba(167,139,250,0.26);">
+        <div class="hwicon">🗄️</div>
+        <div><div class="hwp">DISK</div><div class="hwai" style="color:var(--purple);">Memória de Longo Prazo</div><div class="hwd">Repositório · documentação · base de conhecimento · decisões.</div></div>
+      </div>
+    </div>
+
+    <div class="os-core">
+      <div class="os-core-h"><span>⚙️</span><strong>Harness conecta e orquestra tudo</strong></div>
+      <div class="os-core-d">Código e infraestrutura que conectam os componentes: gerencia fluxo de dados, executa comandos, lida com erros, aplica feedback e mantém estado entre tarefas.</div>
+    </div>
+  </div>
+
+  <div class="kbar">
+    <span style="flex-shrink:0;">★</span>
+    <span class="kbar-t">Você escolhe a CPU no mercado. O <strong class="hl">Sistema Operacional</strong> — o Harness — é onde você cria o seu diferencial.</span>
+  </div>
+  <div class="sn">14 / 19</div>
+</div>
+</section>
+
+<!-- 14 CLAUDE CODE + DEVIN CLI -->
+<section>
+<div class="s">
+  <div class="ey">Hands-On · Ferramentas</div>
+  <div class="t-md"><span class="hl">Claude Code</span> &amp; <span class="hlb">Devin CLI</span> na prática</div>
+  <div class="sub" style="margin-bottom:16px;">As duas ferramentas que vamos introduzir, combinadas com SDD e AGENTS.md</div>
+
+  <div class="g2" style="gap:16px; flex:1; align-items:start;">
+    <div>
+      <div class="card-g" style="margin-bottom:9px; padding:12px 14px;">
+        <div class="clabel" style="color:var(--green);">⚡ Claude Code · Anthropic</div>
+        <div class="body" style="color:var(--white);">Agent terminal-first. Roda no shell, lê o repo, edita arquivos, executa testes e revisa diffs — sem copiar e colar.</div>
+      </div>
+      <div class="code" style="margin-bottom:9px;">
+<span class="cc"># Instalar globalmente</span>
+<span class="ck">$</span> <span class="cv">npm install -g @anthropic-ai/claude-code</span>
+<span class="ck">$</span> <span class="cv">claude</span>
+
+<span class="cc"># Usar com SDD — lê AGENTS.md automático</span>
+<span class="ck">$</span> <span class="cv">claude "Leia o PRD.md e implemente</span>
+<span class="cs">       o endpoint PIX conforme a spec"</span>
+      </div>
+      <ul class="cl">
+        <li>Lê AGENTS.md e Skills automaticamente ao iniciar</li>
+        <li>Executa testes após gerar e refatora se necessário</li>
+        <li>Revisa diffs antes de commitar qualquer alteração</li>
+      </ul>
+    </div>
+    <div>
+      <div class="card-b" style="margin-bottom:9px; padding:12px 14px;">
+        <div class="clabel" style="color:var(--blue);">🧠 Devin CLI · Cognition</div>
+        <div class="body" style="color:var(--white);">CLI lançado em Abr 2025 (escrito em Rust). Roda localmente e delega ao Devin Cloud para tarefas longas. Suporte a Claude Opus, GPT-5.5.</div>
+      </div>
+      <div class="code" style="margin-bottom:9px;">
+<span class="cc"># Instalar Devin CLI</span>
+<span class="ck">$</span> <span class="cv">curl -sSL install.devin.ai | sh</span>
+<span class="ck">$</span> <span class="cv">devin login</span>
+
+<span class="cc"># Criar feature a partir da spec</span>
+<span class="ck">$</span> <span class="cv">devin run --spec PRD.md</span>
+<span class="cs">  "implement payment validation"</span>
+      </div>
+      <ul class="cl">
+        <li>Ambiente sandbox isolado por tarefa executada</li>
+        <li>Suporte a tarefas paralelas via Devin Cloud</li>
+        <li>Integração nativa com Jira e Slack para PR tracking</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="div" style="margin:12px 0;"></div>
+  <div style="text-align:center; font-family:var(--mono); font-size:0.62em; color:var(--gdark);">Ambos respeitam AGENTS.md &nbsp;·&nbsp; Ambos carregam Skills &nbsp;·&nbsp; Ambos geram PRs auditáveis</div>
+  <div class="sn">15 / 19</div>
+</div>
+</section>
+
+<!-- 15 ECOSSISTEMA COMPLETO -->
+<section>
+<div class="s">
+  <div class="ey">Arquitetura Completa</div>
+  <div class="t-md">O Ecossistema <span class="hl">SDD + Harness</span></div>
+  <div class="sub" style="margin-bottom:14px;">Como todas as peças se conectam — do humano ao código gerado e validado</div>
+
+  <div style="text-align:center; margin-bottom:7px;">
+    <div style="display:inline-block; padding:8px 22px; background:var(--bg-g); border:1px solid var(--bd-g); border-radius:8px; font-size:0.72em; font-weight:700; color:var(--green);">👤 Humano — define O QUÊ</div>
+  </div>
+  <div style="text-align:center; font-family:var(--mono); font-size:0.58em; color:var(--gdark); margin-bottom:5px;">↓</div>
+
+  <div style="display:flex; gap:7px; justify-content:center; margin-bottom:5px;">
+    <div style="flex:1; max-width:200px; padding:7px 10px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; text-align:center; font-family:var(--mono); font-size:0.6em; color:var(--white);">📄 PRD.md</div>
+    <div style="flex:1; max-width:200px; padding:7px 10px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; text-align:center; font-family:var(--mono); font-size:0.6em; color:var(--white);">🤖 AGENTS.md</div>
+    <div style="flex:1; max-width:200px; padding:7px 10px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; text-align:center; font-family:var(--mono); font-size:0.6em; color:var(--white);">📋 Rules</div>
+    <div style="flex:1; max-width:200px; padding:7px 10px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; text-align:center; font-family:var(--mono); font-size:0.6em; color:var(--white);">🧩 Skills</div>
+  </div>
+  <div style="text-align:center; font-family:var(--mono); font-size:0.56em; color:var(--gdark); margin-bottom:5px;">↓ Context Engineering · Progressive Disclosure ↓</div>
+
+  <div style="margin-bottom:5px; padding:11px; background:rgba(167,139,250,0.05); border:1px dashed rgba(167,139,250,0.28); border-radius:8px;">
+    <div style="text-align:center; font-family:var(--mono); font-size:0.56em; color:var(--purple); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:7px;">⚙️ Harness — Infraestrutura de Orquestração</div>
+    <div style="display:flex; gap:5px; justify-content:center; flex-wrap:wrap;">
+      <span class="tag p">Shell Access</span><span class="tag p">MCP Tools</span><span class="tag p">Sandbox Isolado</span><span class="tag p">Feedback Loop</span><span class="tag p">State Management</span><span class="tag p">CI/CD</span>
+    </div>
+  </div>
+  <div style="text-align:center; font-family:var(--mono); font-size:0.56em; color:var(--gdark); margin-bottom:5px;">↓</div>
+
+  <div style="display:flex; gap:7px; justify-content:center; margin-bottom:5px;">
+    <div style="padding:6px 11px; background:var(--bg-g); border:1px solid var(--bd-g); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--green);">Claude Code</div>
+    <div style="padding:6px 11px; background:var(--bg-g); border:1px solid var(--bd-g); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--green);">Devin CLI</div>
+    <div style="padding:6px 11px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--gray);">Copilot Agent</div>
+    <div style="padding:6px 11px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--gray);">Cursor</div>
+    <div style="padding:6px 11px; background:var(--bg-c); border:1px solid var(--bd); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--gray);">Windsurf</div>
+  </div>
+  <div style="text-align:center; font-family:var(--mono); font-size:0.56em; color:var(--gdark); margin-bottom:5px;">↓</div>
+
+  <div style="display:flex; gap:7px; justify-content:center; margin-bottom:12px;">
+    <div style="padding:6px 11px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--yellow);">☕ Kotlin / Java</div>
+    <div style="padding:6px 11px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--yellow);">🧪 JUnit 5</div>
+    <div style="padding:6px 11px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--yellow);">📚 Docs</div>
+    <div style="padding:6px 11px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--yellow);">🐳 Dockerfile</div>
+    <div style="padding:6px 11px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.58em; color:var(--yellow);">🔀 Pull Request</div>
+  </div>
+  <div class="sn">16 / 19</div>
+</div>
+</section>
+
+<!-- 16 DEMO -->
+<section>
+<div class="s" style="justify-content:center; align-items:center; text-align:center;">
+  <div class="ey" style="text-align:center;">Demo ao Vivo</div>
+  <div class="t-lg" style="margin-bottom:12px;">Hands-On: <span class="hl">SDD na Prática</span></div>
+  <div class="sub" style="max-width:540px; margin:0 auto 24px;">Usando uma Skill para gerar o fluxo completo — do PRD ao código funcional</div>
+
+  <div style="display:flex; flex-direction:column; gap:9px; max-width:500px; width:100%; margin:0 auto 22px;">
+    <div style="display:flex; align-items:center; gap:13px; padding:13px 16px; background:var(--bg-g); border:1px solid var(--bd-g); border-radius:10px; text-align:left;">
+      <div style="font-size:1.3em; flex-shrink:0;">🧩</div>
+      <div>
+        <div style="font-size:0.77em; font-weight:700; color:var(--white); margin-bottom:2px;">Skill ativa → PRD.md gerado</div>
+        <div style="font-size:0.63em; color:var(--gdark);">A skill de PRD coleta requisitos e estrutura o documento conforme o domínio</div>
+      </div>
+    </div>
+    <div style="text-align:center; font-family:var(--mono); font-size:0.62em; color:var(--gdark);">↓</div>
+    <div style="display:flex; align-items:center; gap:13px; padding:13px 16px; background:var(--bg-c); border:1px solid var(--bd); border-radius:10px; text-align:left;">
+      <div style="font-size:1.3em; flex-shrink:0;">📋</div>
+      <div>
+        <div style="font-size:0.77em; font-weight:700; color:var(--white); margin-bottom:2px;">PRD.md → SPEC.md</div>
+        <div style="font-size:0.63em; color:var(--gdark);">Spec técnica com interfaces, contratos, fluxos e critérios de validação</div>
+      </div>
+    </div>
+    <div style="text-align:center; font-family:var(--mono); font-size:0.62em; color:var(--gdark);">↓</div>
+    <div style="display:flex; align-items:center; gap:13px; padding:13px 16px; background:var(--bg-c); border:1px solid var(--bd); border-radius:10px; text-align:left;">
+      <div style="font-size:1.3em; flex-shrink:0;">⚡</div>
+      <div>
+        <div style="font-size:0.77em; font-weight:700; color:var(--white); margin-bottom:2px;">SPEC.md → Código + Testes</div>
+        <div style="font-size:0.63em; color:var(--gdark);">Claude Code gera Kotlin + Spring Boot + JUnit 5 alinhados à spec</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kbar" style="max-width:500px; margin:0 auto;">
+    <span style="flex-shrink:0;">🎬</span>
+    <span class="kbar-t"><strong class="hl">Demo ao vivo agora</strong> — acompanhe o terminal</span>
+  </div>
+  <div class="sn">17 / 19</div>
+</div>
+</section>
+
+<!-- 17 ENCERRAMENTO -->
+<section>
+<div class="s" style="justify-content:center;">
+  <div class="ey">Encerramento</div>
+  <div class="cbig">O desenvolvedor</div>
+  <div class="cbig">do futuro não será</div>
+  <div class="cbig" style="color:var(--green);">quem escreve</div>
+  <div class="cbig" style="color:var(--green);">mais código.</div>
+
+  <div class="div" style="max-width:480px; margin:22px 0;"></div>
+
+  <div style="font-size:0.86em; color:var(--gray); line-height:1.85; max-width:540px;">
+    Será quem melhor <strong style="color:var(--white);">define especificações</strong>,
+    <strong style="color:var(--white);">projeta harness eficientes</strong> e
+    <strong style="color:var(--white);">orquestra agentes inteligentes</strong>.
+  </div>
+
+  <div style="margin-top:22px;" class="tags">
+    <span class="tag g">Spec First</span>
+    <span class="tag b">Context Engineering</span>
+    <span class="tag g">Human in the Loop</span>
+    <span class="tag y">Harness Engineering</span>
+    <span class="tag">Progressive Disclosure</span>
+  </div>
+  <div class="sn">18 / 19</div>
+</div>
+</section>
+
+<!-- 18 OBRIGADO -->
+<section>
+<div class="s" style="justify-content:center;">
+  <div class="ey">Obrigado!</div>
+  <div class="t-lg" style="margin-bottom:18px;"><span class="hl">Obrigado!</span> 🚀</div>
+
+  <div style="display:flex; align-items:center; gap:16px; margin-bottom:22px;">
+    <img class="av" src="https://media.licdn.com/dms/image/v2/D4D03AQGadvh7ONPrBw/profile-displayphoto-scale_400_400/B4DZ5f4OsJKEAg-/0/1779725038056?e=1781740800&v=beta&t=3hMS2WKnfMxC_GfJLfbIJ8v_-PMlwrQYebBqAmnbuIs" onerror="this.style.display='none'" alt="Foto de Jean Jacques Barros">
+    <div>
+      <div style="font-size:0.85em; font-weight:700; color:var(--white); margin-bottom:4px;">Jean Jacques Barros</div>
+      <div style="font-family:var(--mono); font-size:0.61em; color:var(--gdark); line-height:1.8;">Staff Software Engineer<br><span style="color:var(--green)"><a href="https://www.linkedin.com/in/jjean-jacques10/" target="_blank" rel="noopener noreferrer">linkedin.com/in/jjean-jacques10</a></span><br><a href="https://jjeanjacques10.github.io/" target="_blank" rel="noopener noreferrer">jjeanjacques10.github.io</a></div>
+    </div>
+  </div>
+
+  <div class="div" style="max-width:600px;"></div>
+
+  <div style="font-family:var(--mono); font-size:0.58em; color:var(--gdark); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:9px; margin-top:6px;">Referências</div>
+  <div style="display:flex; flex-direction:column; gap:7px; max-width:600px;">
+    <a class="ref-link b" href="https://glaucia86.github.io/palestra-sdd/" target="_blank" rel="noopener noreferrer">🔗 glaucia86.github.io/palestra-sdd</a>
+    <a class="ref-link b" href="https://jjeanjacques10.github.io/posts/2026-05-16-spec-driven-development/" target="_blank" rel="noopener noreferrer">🔗 jjeanjacques10.github.io/posts/2026-05-16-spec-driven-development</a>
+    <a class="ref-link g" href="https://www.youtube.com/watch?v=1a1VXDdIyrk" target="_blank" rel="noopener noreferrer">🎬 youtube.com/watch?v=1a1VXDdIyrk</a>
+    <a class="ref-link g" href="https://www.skills.sh/" target="_blank" rel="noopener noreferrer">🧩 skills.sh — repositório de skills para AI coding agents</a>
+  </div>
+  <div class="sn">19 / 19</div>
+</div>
+</section>
+
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/notes/notes.min.js"></script>
+<script>
+Reveal.initialize({
+  embedded: window.self !== window.top,
+  hash: true,
+  controls: true,
+  controlsLayout: 'bottom-right',
+  controlsBackArrows: 'faded',
+  progress: true,
+  center: false,
+  keyboard: true,
+  navigationMode: 'default',
+  overview: true,
+  touch: true,
+  help: true,
+  mouseWheel: false,
+  slideNumber: 'speaker',
+  showSlideNumber: 'speaker',
+  transition: 'slide', transitionSpeed: 'default', backgroundTransition: 'fade',
+  pdfSeparateFragments: false,
+  width: 1200, height: 700, margin: 0, minScale: 0.2, maxScale: 2.0,
+  plugins: [ RevealNotes ]
+});
+</script>
+</body>
+</html>

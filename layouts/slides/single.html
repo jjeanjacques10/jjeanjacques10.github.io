@@ -1,0 +1,29 @@
+{{ define "title" }}{{ .Title }} – {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+{{- $deck := .Params.deckUrl -}}
+<section class="post-single slide-single">
+  <header class="post-header">
+    <h1 class="post-title">{{ .Title }}</h1>
+    <div class="post-meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+      <span class="meta-sep" aria-hidden="true">·</span>
+      <span>Palestra</span>
+    </div>
+    {{- with .Description }}
+    <p class="slide-description">{{ . }}</p>
+    {{- end }}
+  </header>
+
+  {{- if $deck }}
+  <div class="slide-frame-wrap">
+    <iframe src="{{ $deck | relURL }}" class="slide-frame" loading="lazy" title="{{ .Title }}"></iframe>
+  </div>
+  <div class="slide-actions">
+    <a href="{{ $deck | relURL }}" class="paginator-btn" target="_blank" rel="noopener noreferrer">Abrir em tela cheia</a>
+  </div>
+  {{- else }}
+  <p class="post-content markdown-body">Arquivo da apresentação não encontrado.</p>
+  {{- end }}
+</section>
+{{ end }}
