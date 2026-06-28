@@ -1,0 +1,61 @@
+<div class="social-share save-post-wrap">
+  <span class="social-share__label">Salvar:</span>
+  <button
+    id="save-post-btn"
+    class="social-share__btn save-post-btn"
+    type="button"
+    data-url="{{ .RelPermalink }}"
+    data-title="{{ .Title | htmlEscape }}"
+    aria-pressed="false"
+    aria-label="Salvar post para ler depois"
+  >
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+    </svg>
+    <span class="save-btn-label">Salvar</span>
+  </button>
+</div>
+
+<script>
+(function () {
+  var KEY = 'jjblog_saved';
+  var btn = document.getElementById('save-post-btn');
+  if (!btn) return;
+
+  var url   = btn.dataset.url;
+  var title = btn.dataset.title;
+
+  function getSaved() {
+    try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { return []; }
+  }
+
+  function setSaved(arr) {
+    try { localStorage.setItem(KEY, JSON.stringify(arr)); } catch (e) {}
+  }
+
+  function applyState(saved) {
+    btn.classList.toggle('save-post-btn--saved', saved);
+    btn.setAttribute('aria-pressed', saved ? 'true' : 'false');
+    var label = btn.querySelector('.save-btn-label');
+    if (label) label.textContent = saved ? 'Salvo ✓' : 'Salvar';
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    applyState(getSaved().some(function (p) { return p.url === url; }));
+
+    btn.addEventListener('click', function () {
+      var saved  = getSaved();
+      var exists = saved.some(function (p) { return p.url === url; });
+
+      if (exists) {
+        setSaved(saved.filter(function (p) { return p.url !== url; }));
+      } else {
+        setSaved(saved.concat([{ url: url, title: title }]));
+      }
+
+      applyState(!exists);
+      if (typeof window.jjRenderSavedPosts === 'function') window.jjRenderSavedPosts();
+    });
+  });
+}());
+</script>

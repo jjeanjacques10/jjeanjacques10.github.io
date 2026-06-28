@@ -2,7 +2,7 @@
 title: "AI Harness: construindo uma camada de engenharia para agentes de IA"
 date: 2026-06-28
 description: "Como construir uma camada de engenharia para agentes de IA, permitindo que eles conheçam o projeto, suas regras e workflows."
-tags: ["Engenharia de Software", "AI", "Harness", "Spec Driven Development"]
+tags: ["Engenharia de Software", "IA", "Harness", "Spec Driven Development"]
 cover: "/posts/images/2026-06-28-ai-harness-construindo-uma-camada-de-engenharia-para-agentes-de-ia/cover.png"
 draft: true
 ---
@@ -414,63 +414,7 @@ Um agente pode usar GitHub para inspecionar um Pull Request, Datadog para verifi
 
 Isso aproxima a IA do fluxo real de trabalho da equipe.
 
-# Templates, Hooks e Workflows
-
 Essas três partes fecham a camada de engenharia do Harness.
-
-## Templates
-
-Templates ajudam o agente a gerar artefatos consistentes.
-
-Exemplos:
-
-* template de `PRD.md`;
-* template de `SPEC.md`;
-* template de checklist de revisão;
-* template de plano técnico.
-
-Boas práticas:
-
-* padronize estruturas repetidas;
-* prefira templates pequenos e específicos;
-* use campos explícitos quando o agente precisar preencher informação.
-
-## Hooks
-
-Hooks executam validações antes ou depois de uma ação.
-
-Exemplos:
-
-* validar formatação;
-* executar testes;
-* checar links quebrados;
-* confirmar que o artefato segue as regras do projeto.
-
-Boas práticas:
-
-* mantenha hooks previsíveis;
-* use-os como rede de segurança, não como substituto de boas regras;
-* falhe cedo quando algo importante estiver inconsistente.
-
-## Workflows
-
-Workflows amarram tudo isso em sequências executáveis.
-
-Exemplo de workflow:
-
-* ler contexto;
-* carregar Rules;
-* consultar Memory;
-* inicializar MCPs;
-* gerar artefatos com Templates;
-* executar Hooks;
-* entregar resultado.
-
-Boas práticas:
-
-* mantenha o workflow explícito;
-* privilegie etapas pequenas e verificáveis;
-* trate cada etapa como parte de um sistema, não como prompt isolado.
 
 # Muito além de um conjunto de prompts
 
@@ -483,3 +427,11 @@ Se amanhã surgir um novo agente mais poderoso que Claude, Codex, Copilot ou Dev
 Todo o conhecimento continuará pertencendo ao Harness.
 
 E talvez seja exatamente esse o caminho para tornar agentes de IA realmente úteis em projetos de software de longo prazo.
+
+## Referências
+
+- [AGENTS.md](https://agents.md/)
+- [Copilot - Instructions](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions)
+- [Rules - Cursor](https://cursor.com/docs/rules)
+- [Devin - Skills](https://docs.devin.ai/product-guides/skills)
+- [Skills.sh](https://www.skills.sh/)

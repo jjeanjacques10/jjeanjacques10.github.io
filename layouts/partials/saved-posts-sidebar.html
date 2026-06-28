@@ -1,0 +1,67 @@
+<div id="saved-posts-card" class="sidebar-card" style="display:none">
+  <h4 class="sidebar-card__title">Para ler depois</h4>
+  <ul id="saved-posts-list" class="saved-posts-list" aria-label="Posts salvos para leitura futura"></ul>
+</div>
+
+<script>
+(function () {
+  var KEY = 'jjblog_saved';
+
+  function getSaved() {
+    try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { return []; }
+  }
+
+  function setSaved(arr) {
+    try { localStorage.setItem(KEY, JSON.stringify(arr)); } catch (e) {}
+  }
+
+  function updateSaveBtnState(url, isSaved) {
+    var btn = document.getElementById('save-post-btn');
+    if (!btn || btn.dataset.url !== url) return;
+    btn.setAttribute('aria-pressed', isSaved ? 'true' : 'false');
+    btn.classList.toggle('save-post-btn--saved', isSaved);
+    var label = btn.querySelector('.save-btn-label');
+    if (label) label.textContent = isSaved ? 'Salvo ✓' : 'Salvar';
+  }
+
+  function render() {
+    var card = document.getElementById('saved-posts-card');
+    var list = document.getElementById('saved-posts-list');
+    if (!card || !list) return;
+
+    var saved = getSaved();
+
+    if (!saved.length) {
+      card.style.display = 'none';
+      return;
+    }
+
+    card.style.display = '';
+    list.innerHTML = saved.map(function (p) {
+      var safeUrl   = p.url.replace(/"/g, '&quot;');
+      var safeTitle = p.title
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+      return '<li class="saved-post">' +
+        '<a href="' + safeUrl + '" class="saved-post__title">' + safeTitle + '</a>' +
+        '<button class="saved-post__remove" data-url="' + safeUrl + '" type="button" aria-label="Remover dos salvos">×</button>' +
+        '</li>';
+    }).join('');
+
+    list.querySelectorAll('.saved-post__remove').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var url     = btn.dataset.url;
+        var updated = getSaved().filter(function (p) { return p.url !== url; });
+        setSaved(updated);
+        updateSaveBtnState(url, false);
+        render();
+      });
+    });
+  }
+
+  window.jjRenderSavedPosts = render;
+  document.addEventListener('DOMContentLoaded', render);
+}());
+</script>
