@@ -15,13 +15,41 @@
     try { localStorage.setItem(KEY, JSON.stringify(arr)); } catch (e) {}
   }
 
-  function updateSaveBtnState(url, isSaved) {
-    var btn = document.getElementById('save-post-btn');
-    if (!btn || btn.dataset.url !== url) return;
-    btn.setAttribute('aria-pressed', isSaved ? 'true' : 'false');
+  function applyBtnState(btn, isSaved) {
     btn.classList.toggle('save-post-btn--saved', isSaved);
+    btn.setAttribute('aria-pressed', isSaved ? 'true' : 'false');
     var label = btn.querySelector('.save-btn-label');
     if (label) label.textContent = isSaved ? 'Salvo ✓' : 'Salvar';
+  }
+
+  function updateAllSaveBtnStates(url, isSaved) {
+    document.querySelectorAll('.save-post-btn').forEach(function (btn) {
+      if (btn.dataset.url === url) applyBtnState(btn, isSaved);
+    });
+  }
+
+  function initSaveButtons() {
+    document.querySelectorAll('.save-post-btn').forEach(function (btn) {
+      if (btn.dataset.saveInit) return;
+      btn.dataset.saveInit = '1';
+
+      var url   = btn.dataset.url;
+      var title = btn.dataset.title;
+
+      applyBtnState(btn, getSaved().some(function (p) { return p.url === url; }));
+
+      btn.addEventListener('click', function () {
+        var saved  = getSaved();
+        var exists = saved.some(function (p) { return p.url === url; });
+        if (exists) {
+          setSaved(saved.filter(function (p) { return p.url !== url; }));
+        } else {
+          setSaved(saved.concat([{ url: url, title: title }]));
+        }
+        updateAllSaveBtnStates(url, !exists);
+        render();
+      });
+    });
   }
 
   function render() {
@@ -55,13 +83,17 @@
         var url     = btn.dataset.url;
         var updated = getSaved().filter(function (p) { return p.url !== url; });
         setSaved(updated);
-        updateSaveBtnState(url, false);
+        updateAllSaveBtnStates(url, false);
         render();
       });
     });
   }
 
   window.jjRenderSavedPosts = render;
-  document.addEventListener('DOMContentLoaded', render);
+
+  document.addEventListener('DOMContentLoaded', function () {
+    render();
+    initSaveButtons();
+  });
 }());
 </script>

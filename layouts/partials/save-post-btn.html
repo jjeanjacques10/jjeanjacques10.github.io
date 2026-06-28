@@ -1,7 +1,6 @@
 <div class="social-share save-post-wrap">
   <span class="social-share__label">Salvar:</span>
   <button
-    id="save-post-btn"
     class="social-share__btn save-post-btn"
     type="button"
     data-url="{{ .RelPermalink }}"
@@ -15,47 +14,3 @@
     <span class="save-btn-label">Salvar</span>
   </button>
 </div>
-
-<script>
-(function () {
-  var KEY = 'jjblog_saved';
-  var btn = document.getElementById('save-post-btn');
-  if (!btn) return;
-
-  var url   = btn.dataset.url;
-  var title = btn.dataset.title;
-
-  function getSaved() {
-    try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { return []; }
-  }
-
-  function setSaved(arr) {
-    try { localStorage.setItem(KEY, JSON.stringify(arr)); } catch (e) {}
-  }
-
-  function applyState(saved) {
-    btn.classList.toggle('save-post-btn--saved', saved);
-    btn.setAttribute('aria-pressed', saved ? 'true' : 'false');
-    var label = btn.querySelector('.save-btn-label');
-    if (label) label.textContent = saved ? 'Salvo ✓' : 'Salvar';
-  }
-
-  document.addEventListener('DOMContentLoaded', function () {
-    applyState(getSaved().some(function (p) { return p.url === url; }));
-
-    btn.addEventListener('click', function () {
-      var saved  = getSaved();
-      var exists = saved.some(function (p) { return p.url === url; });
-
-      if (exists) {
-        setSaved(saved.filter(function (p) { return p.url !== url; }));
-      } else {
-        setSaved(saved.concat([{ url: url, title: title }]));
-      }
-
-      applyState(!exists);
-      if (typeof window.jjRenderSavedPosts === 'function') window.jjRenderSavedPosts();
-    });
-  });
-}());
-</script>
