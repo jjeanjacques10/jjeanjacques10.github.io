@@ -943,30 +943,20 @@ body.image-lightbox-open {
 }
 .post-content hr {
   border: none;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(var(--cover-tint-rgb), 0.35) 30%,
-    rgba(var(--cover-tint-rgb), 0.35) 70%,
-    transparent 100%
-  );
-  margin: 40px auto;
-  width: 60%;
+  border-top: 2px solid var(--border);
+  margin: 32px 0;
   position: relative;
 }
 .post-content hr::after {
-  content: "· · ·";
+  content: "✦";
   position: absolute;
-  top: -10px;
+  top: -12px;
   left: 50%;
   transform: translateX(-50%);
   background: var(--surface);
-  padding: 0 12px;
-  color: rgba(var(--cover-tint-rgb), 0.5);
-  font-size: 0.75rem;
-  letter-spacing: 4px;
-  line-height: 1;
+  padding: 0 8px;
+  color: var(--accent);
+  font-size: 1em;
 }
 
 /* ---- Post Navigation ------------------------------------- */
@@ -1172,8 +1162,7 @@ body.light-mode .post-content   { color: var(--text) !important; }
 body.light-mode .blog-footer    { background: var(--surface); }
 body.light-mode .post-content code { background: #f6f8fa !important; color: #000000 !important; border-color: #d0d7de !important; }
 body.light-mode .post-content pre  { background: #ffffff !important; border-color: #d0d7de !important; }
-body.light-mode .post-content hr::after { background: var(--surface); color: var(--text-muted); }
-body.light-mode .post-content hr { background: linear-gradient(90deg, transparent, var(--border) 30%, var(--border) 70%, transparent); }
+body.light-mode .post-content hr::after { background: var(--surface); }
 
 /* ============================================================
    IntelliJ IDEA Islands Dark Theme - Syntax Highlighting (Dark Mode)
@@ -1676,7 +1665,7 @@ body.light-mode .code-copy-btn.copied {
   height: 3px;
   background: var(--primary);
   z-index: 1000;
-  transition: width 0.1s linear, background 0.8s ease;
+  transition: width 0.1s linear;
   border-radius: 0 2px 2px 0;
 }
 

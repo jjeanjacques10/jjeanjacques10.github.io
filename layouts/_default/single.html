@@ -20,7 +20,7 @@
     {{- end }}
     {{- with .Params.cover }}
     <div class="post-cover">
-      <img src="{{ . }}" alt="{{ if $.Params.coverAlt }}{{ $.Params.coverAlt }}{{ else }}{{ $.Title }}{{ end }}" loading="lazy">
+      <img id="post-cover-img" src="{{ . }}" alt="{{ if $.Params.coverAlt }}{{ $.Params.coverAlt }}{{ else }}{{ $.Title }}{{ end }}" loading="lazy">
     </div>
     {{- end }}
   </header>
@@ -28,28 +28,6 @@
   <div class="post-content markdown-body">
     {{ .Content }}
   </div>
-
-  {{- with .Site.Params.adsensePublisher }}
-  <script>
-  (function() {
-    var content = document.querySelector('.post-content');
-    if (!content) return;
-    var paragraphs = content.querySelectorAll('p');
-    if (paragraphs.length < 5) return;
-
-    var wrapper = document.createElement('div');
-    wrapper.className = 'ad-in-content';
-    wrapper.innerHTML =
-      '<span class="ad-in-content__label">Publicidade</span>' +
-      '<ins class="adsbygoogle" style="display:block; text-align:center;"' +
-      ' data-ad-layout="in-article" data-ad-format="fluid"' +
-      ' data-ad-client="{{ . }}" data-ad-slot="{{ $.Site.Params.adsenseSlot }}"></ins>';
-
-    paragraphs[3].insertAdjacentElement('afterend', wrapper);
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
-  })();
-  </script>
-  {{- end }}
 
   {{- partial "social-share.html" . }}
 
