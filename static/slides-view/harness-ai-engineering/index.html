@@ -583,7 +583,7 @@ if (window.self !== window.top) {
       <div style="font-family:var(--mono); font-size:0.6em; color:var(--gdark); line-height:1.7;">Software Engineer<br><span style="color:var(--green)"><a href="https://www.linkedin.com/in/jjean-jacques10/" target="_blank" rel="noopener noreferrer">linkedin: jjean-jacques10</a> &nbsp;·&nbsp; <a href="https://github.com/jjeanjacques10" target="_blank" rel="noopener noreferrer">github: jjeanjacques10</a></span></div>
     </div>
   </div>
-  <div class="sn">01 / 23</div>
+  <div class="sn">01 / 24</div>
 </div>
 </section>
 
@@ -631,7 +631,7 @@ if (window.self !== window.top) {
     <span style="flex-shrink:0;">↘</span>
     <span class="kbar-t">Os itens são clicáveis. Use este slide como índice rápido durante a apresentação.</span>
   </div>
-  <div class="sn">02 / 23</div>
+  <div class="sn">02 / 24</div>
 </div>
 </section>
 
@@ -772,7 +772,7 @@ if (window.self !== window.top) {
       <div class="final-copy"><strong>A maior mudança não foi a qualidade do código gerado.</strong> <strong>A mudança foi a quantidade de responsabilidade delegada à IA.</strong> <strong>Evoluímos de perguntar → colaborar → delegar.</strong></div>
     </div>
   </div>
-  <div class="sn">03 / 23</div>
+  <div class="sn">03 / 24</div>
 </div>
 </section>
 
@@ -821,7 +821,7 @@ if (window.self !== window.top) {
     <div class="fa">=</div>
     <div class="fb" style="color:var(--white); border-color:rgba(255,255,255,0.18);">IA Confiável ✓</div>
   </div>
-  <div class="sn">04 / 23</div>
+  <div class="sn">04 / 24</div>
 </div>
 </section>
 
@@ -863,7 +863,7 @@ if (window.self !== window.top) {
     <span style="font-size:1em; flex-shrink:0;">💡</span>
     <span class="kbar-t">A diferença não está só no modelo — está no <strong class="hl">harness ao redor dele</strong></span>
   </div>
-  <div class="sn">05 / 23</div>
+  <div class="sn">05 / 24</div>
 </div>
 </section>
 
@@ -956,7 +956,7 @@ if (window.self !== window.top) {
     <span style="flex-shrink:0;">★</span>
     <span class="kbar-t" style="font-size:0.7em;"><strong style="color:var(--white);">O problema não é falta de informação.</strong> <strong style="color:var(--white);">O problema é carregar informação demais.</strong> <strong class="hl">Context Engineering mantém a mochila leve e relevante.</strong></span>
   </div>
-  <div class="sn">06 / 23</div>
+  <div class="sn">06 / 24</div>
 </div>
 </section>
 
@@ -1144,11 +1144,122 @@ if (window.self !== window.top) {
     <span style="flex-shrink:0;">★</span>
     <span class="kbar-t" style="font-size:0.7em;"><strong style="color:var(--white);">Output custa 5× mais que input.</strong> <strong class="hl">Contexto enxuto e respostas diretas são os maiores alavancadores de custo na prática.</strong></span>
   </div>
-  <div class="sn">07 / 23</div>
+  <div class="sn">07 / 24</div>
 </div>
 </section>
 
-<!-- 08 HARNESS: O QUE É -->
+<!-- 07b SMART ZONE / DUMB ZONE -->
+<section>
+<div class="s">
+  <div class="ey">Context Engineering · Janela</div>
+  <div class="t-md"><span class="hl">Smart Zone</span> / Dumb Zone</div>
+  <div class="sub" style="margin-bottom:11px;">LLMs têm janela de contexto limitada. Além de ~40% de uso, a qualidade do raciocínio degrada progressivamente — é o <strong style="color:var(--white);">"context rot"</strong>.</div>
+
+  <div style="margin-bottom:6px;">
+    <div style="position:relative; height:52px; border-radius:8px; overflow:hidden; display:flex; border:1px solid var(--bd);">
+      <div style="width:40%; background:linear-gradient(90deg, rgba(34,197,94,0.28), rgba(34,197,94,0.14)); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; border-right:1px dashed rgba(74,222,128,0.4);">
+        <div style="font-size:0.78em; font-weight:800; color:var(--green);">Smart Zone</div>
+        <div style="font-family:var(--mono); font-size:0.44em; color:var(--white); opacity:0.75; letter-spacing:0.04em;">raciocínio preciso</div>
+      </div>
+      <div style="width:45%; background:linear-gradient(90deg, rgba(248,113,113,0.22), rgba(248,113,113,0.12)); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; border-right:1px dashed rgba(167,139,250,0.4);">
+        <div style="font-size:0.78em; font-weight:800; color:var(--red);">Dumb Zone</div>
+        <div style="font-family:var(--mono); font-size:0.44em; color:var(--white); opacity:0.75; letter-spacing:0.04em;">reason, recall e perform degradam</div>
+      </div>
+      <div style="width:15%; background:linear-gradient(90deg, rgba(167,139,250,0.24), rgba(167,139,250,0.14)); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px;">
+        <div style="font-size:0.68em; font-weight:800; color:var(--purple);">Compact</div>
+        <div style="font-family:var(--mono); font-size:0.4em; color:var(--white); opacity:0.75;">zone</div>
+      </div>
+    </div>
+    <div style="position:relative; height:14px;">
+      <div style="position:absolute; left:0; top:2px; font-family:var(--mono); font-size:0.44em; font-weight:600; color:var(--gray);">0%</div>
+      <div style="position:absolute; left:40%; top:2px; transform:translateX(-50%); font-family:var(--mono); font-size:0.44em; font-weight:600; color:var(--gray);">~40%</div>
+      <div style="position:absolute; left:85%; top:2px; transform:translateX(-50%); font-family:var(--mono); font-size:0.44em; font-weight:600; color:var(--gray);">~85%</div>
+      <div style="position:absolute; right:0; top:2px; font-family:var(--mono); font-size:0.44em; font-weight:600; color:var(--gray);">100%</div>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:13px; flex:1;">
+
+    <!-- LEFT: exemplos de uso + o que acontece na dumb zone -->
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div class="card" style="flex:0; padding:11px 14px;">
+        <div class="clabel" style="color:var(--gray);">Exemplos de uso da janela</div>
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <div style="font-family:var(--mono); font-size:0.5em; color:var(--gray); width:22px; flex-shrink:0;">#1</div>
+            <div style="flex:1; height:12px; border-radius:3px; background:rgba(255,255,255,0.04); position:relative;">
+              <div style="position:absolute; left:0; top:0; height:100%; width:15%; background:var(--green); border-radius:3px;"></div>
+            </div>
+            <div style="font-family:var(--mono); font-size:0.48em; color:var(--green); width:64px; text-align:right; flex-shrink:0;">15% — ideal</div>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <div style="font-family:var(--mono); font-size:0.5em; color:var(--gray); width:22px; flex-shrink:0;">#2</div>
+            <div style="flex:1; height:12px; border-radius:3px; background:rgba(255,255,255,0.04); position:relative;">
+              <div style="position:absolute; left:0; top:0; height:100%; width:35%; background:linear-gradient(90deg, var(--green), rgba(74,222,128,0.5)); border-radius:3px;"></div>
+            </div>
+            <div style="font-family:var(--mono); font-size:0.48em; color:var(--green); width:64px; text-align:right; flex-shrink:0;">35% — bom</div>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <div style="font-family:var(--mono); font-size:0.5em; color:var(--gray); width:22px; flex-shrink:0;">#3</div>
+            <div style="flex:1; height:12px; border-radius:3px; background:rgba(255,255,255,0.04); position:relative;">
+              <div style="position:absolute; left:0; top:0; height:100%; width:62%; background:linear-gradient(90deg, var(--green), var(--red)); border-radius:3px;"></div>
+            </div>
+            <div style="font-family:var(--mono); font-size:0.48em; color:var(--red); width:64px; text-align:right; flex-shrink:0;">62% — ruim</div>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <div style="font-family:var(--mono); font-size:0.5em; color:var(--gray); width:22px; flex-shrink:0;">#4</div>
+            <div style="flex:1; height:12px; border-radius:3px; background:rgba(255,255,255,0.04); position:relative;">
+              <div style="position:absolute; left:0; top:0; height:100%; width:92%; background:linear-gradient(90deg, var(--green), var(--red), var(--purple)); border-radius:3px;"></div>
+            </div>
+            <div style="font-family:var(--mono); font-size:0.48em; color:var(--purple); width:70px; text-align:right; flex-shrink:0;">92% — compacta</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-r" style="flex:1;">
+        <div class="clabel" style="color:var(--red);">O que acontece na Dumb Zone</div>
+        <ul class="cl">
+          <li>Instruções antigas são "esquecidas"</li>
+          <li>Alucinações e repetições crescem</li>
+          <li>Atenção se dispersa em tokens irrelevantes</li>
+          <li>Output fica genérico e impreciso</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- RIGHT: compactação da janela -->
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div class="card" style="flex:0; padding:11px 14px;">
+        <div class="clabel" style="color:var(--gray);">O que é compactação?</div>
+        <div class="body" style="color:var(--white); font-size:0.72em; line-height:1.55; opacity:0.9;">Quando o contexto atinge ~85%, o agente automaticamente <strong style="color:var(--white);">resume mensagens anteriores</strong> para liberar espaço. Informações são condensadas, não descartadas.</div>
+      </div>
+      <div class="card-g" style="flex:0;">
+        <div class="clabel" style="color:var(--green);">✅ Quando compactar é OK</div>
+        <ul class="cl">
+          <li>Conversa longa com muita exploração inicial</li>
+          <li>Contexto antigo já não é relevante</li>
+          <li>A spec/task está salva em arquivo (não depende do histórico)</li>
+        </ul>
+      </div>
+      <div class="card-r" style="flex:0;">
+        <div class="clabel" style="color:var(--red);">❌ Quando compactar é perigoso</div>
+        <ul class="cl">
+          <li>Decisões críticas estão apenas no chat</li>
+          <li>Feedback humano recente seria perdido</li>
+          <li>Não há SPEC.md ou tasks.md para ancorar</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="kbar" style="margin-top:8px; padding:9px 14px;">
+    <span style="flex-shrink:0;">★</span>
+    <span class="kbar-t" style="font-size:0.7em;"><strong style="color:var(--white);">Mantenha-se na Smart Zone.</strong> <strong class="hl">Context Engineering = mochila leve = agente inteligente por mais tempo.</strong></span>
+  </div>
+  <div class="sn">08 / 24</div>
+</div>
+</section>
+
+<!-- 09 HARNESS: O QUE É -->
 <section>
 <div class="s">
   <div class="ey">Harness Engineering</div>
@@ -1183,7 +1294,7 @@ if (window.self !== window.top) {
     <span style="flex-shrink:0;">★</span>
     <span class="kbar-t"><strong style="color:var(--white);">Modelos são commodities.</strong> O <strong class="hl">Harness é o seu diferencial competitivo.</strong></span>
   </div>
-  <div class="sn">08 / 23</div>
+  <div class="sn">09 / 24</div>
 </div>
 </section>
 
@@ -1273,7 +1384,7 @@ if (window.self !== window.top) {
     <span style="flex-shrink:0;">★</span>
     <span class="kbar-t">Você escolhe a CPU no mercado. O <strong class="hl">Sistema Operacional</strong> — o Harness — é onde você cria o seu diferencial.</span>
   </div>
-  <div class="sn">09 / 23</div>
+  <div class="sn">10 / 24</div>
 </div>
 </section>
 
@@ -1326,7 +1437,7 @@ if (window.self !== window.top) {
       </pre>
     </div>
   </div>
-  <div class="sn">10 / 23</div>
+  <div class="sn">11 / 24</div>
 </div>
 </section>
 
@@ -1430,7 +1541,7 @@ if (window.self !== window.top) {
     <span style="flex-shrink:0;">💡</span>
     <span class="kbar-t"><strong class="hl">MCP é a ponte.</strong> O agente descobre e invoca qualquer ferramenta via protocolo padronizado — sem hard-coding de APIs.</span>
   </div>
-  <div class="sn">11 / 23</div>
+  <div class="sn">12 / 24</div>
 </div>
 </section>
 
@@ -1489,7 +1600,7 @@ if (window.self !== window.top) {
       </div>
     </div>
   </div>
-  <div class="sn">12 / 23</div>
+  <div class="sn">13 / 24</div>
 </div>
 </section>
 
@@ -1559,7 +1670,7 @@ if (window.self !== window.top) {
     </div>
 
   </div>
-  <div class="sn">13 / 23</div>
+  <div class="sn">14 / 24</div>
 </div>
 </section>
 
@@ -1605,7 +1716,7 @@ if (window.self !== window.top) {
     <div class="fa">→</div>
     <div class="fb g" style="padding:8px 14px;">🔁 Repita</div>
   </div>
-  <div class="sn">14 / 23</div>
+  <div class="sn">15 / 24</div>
 </div>
 </section>
 
@@ -1643,7 +1754,7 @@ if (window.self !== window.top) {
     <span class="kbar-t">SDD = RPI estruturado em artefatos reutilizáveis: <span class="mono-tag" style="font-size:0.9em;">spec · design · tasks · state</span></span>
   </div>
 
-  <div class="sn">15 / 23</div>
+  <div class="sn">16 / 24</div>
 </div>
 </section>
 
@@ -1675,7 +1786,7 @@ if (window.self !== window.top) {
     <span style="flex-shrink:0;">★</span>
     <span class="kbar-t" style="font-size:0.8em;"><strong class="hl">Humano define O QUÊ</strong> &nbsp;→&nbsp; <strong class="hlb">IA resolve O COMO</strong></span>
   </div>
-  <div class="sn">16 / 23</div>
+  <div class="sn">17 / 24</div>
 </div>
 </section>
 
@@ -1733,7 +1844,7 @@ if (window.self !== window.top) {
       </pre>
     </div>
   </div>
-  <div class="sn">17 / 23</div>
+  <div class="sn">18 / 24</div>
 </div>
 </section>
 
@@ -1797,7 +1908,7 @@ if (window.self !== window.top) {
     <div style="padding:4px 9px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.52em; color:var(--yellow);">🐳 Dockerfile</div>
     <div style="padding:4px 9px; background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.2); border-radius:6px; font-family:var(--mono); font-size:0.52em; color:var(--yellow);">🔀 Pull Request</div>
   </div>
-  <div class="sn">18 / 23</div>
+  <div class="sn">19 / 24</div>
 </div>
 </section>
 
@@ -1838,7 +1949,7 @@ if (window.self !== window.top) {
     <span style="flex-shrink:0;">🎬</span>
     <span class="kbar-t"><strong class="hl">Demo ao vivo agora</strong> — vamos mostrar a geração da SPEC com <span class="mono-tag">/spec-driven-build</span></span>
   </div>
-  <div class="sn">19 / 23</div>
+  <div class="sn">20 / 24</div>
 </div>
 </section>
 
@@ -1898,7 +2009,7 @@ if (window.self !== window.top) {
       </div>
     </div>
   </div>
-  <div class="sn">20 / 23</div>
+  <div class="sn">21 / 24</div>
 </div>
 </section>
 
@@ -1954,7 +2065,7 @@ if (window.self !== window.top) {
 
   <div class="div" style="margin:12px 0;"></div>
   <div style="text-align:center; font-family:var(--mono); font-size:0.62em; color:var(--gdark);">Ambos respeitam AGENTS.md &nbsp;·&nbsp; Ambos carregam Skills &nbsp;·&nbsp; Ambos geram PRs auditáveis</div>
-  <div class="sn">21 / 23</div>
+  <div class="sn">22 / 24</div>
 </div>
 </section>
 
@@ -1982,7 +2093,7 @@ if (window.self !== window.top) {
     <span class="tag y">Harness Engineering</span>
     <span class="tag">Progressive Disclosure</span>
   </div>
-  <div class="sn">22 / 23</div>
+  <div class="sn">23 / 24</div>
 </div>
 </section>
 
@@ -2009,7 +2120,7 @@ if (window.self !== window.top) {
     <a class="ref-link g" href="https://www.youtube.com/watch?v=1a1VXDdIyrk" target="_blank" rel="noopener noreferrer">🎬 youtube.com/watch?v=1a1VXDdIyrk</a>
     <a class="ref-link g" href="https://www.skills.sh/" target="_blank" rel="noopener noreferrer">🧩 skills.sh — repositório de skills para AI coding agents</a>
   </div>
-  <div class="sn">23 / 23</div>
+  <div class="sn">24 / 24</div>
 </div>
 </section>
 
