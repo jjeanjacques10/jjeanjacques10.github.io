@@ -1309,24 +1309,24 @@ if (window.self !== window.top) {
 
     <!-- LEFT: Boot Sequence Terminal -->
     <div style="display:flex; flex-direction:column; height:100%;">
-      <div style="font-family:var(--mono); font-size:0.52em; letter-spacing:0.11em; text-transform:uppercase; color:var(--gdark); margin-bottom:6px;">Boot Sequence</div>
+      <div style="font-family:var(--mono); font-size:0.52em; letter-spacing:0.11em; text-transform:uppercase; color:var(--gray); margin-bottom:6px;">Boot Sequence</div>
       <div class="code" style="flex:1; background:#050a12; border-color:rgba(34,197,94,0.35); box-shadow:0 0 20px rgba(34,197,94,0.10); font-size:0.64em; line-height:1;">
-        <div style="color:var(--gdark); margin-bottom:6px;">[ HARNESS ] Initializing agent environment...</div>
-        <div style="color:var(--gdark); margin-bottom:8px;">[ HARNESS ] ──────────────────────────────────</div>
-        <div style="margin-bottom:6px;"><span style="color:var(--green);">[ OK ]</span> Loading LLM engine <span style="color:var(--gdark);">........</span> <span style="color:var(--blue);">claude-sonnet-4</span></div>
-        <div style="margin-bottom:6px;"><span style="color:var(--green);">[ OK ]</span> Mounting context RAM <span style="color:var(--gdark);">......</span> <span style="color:var(--white);">AGENTS.md · PRD.md</span></div>
-        <div style="margin-bottom:6px;"><span style="color:var(--green);">[ OK ]</span> Attaching storage <span style="color:var(--gdark);">.........</span> <span style="color:var(--white);">git repo · /docs</span></div>
-        <div style="margin-bottom:6px;"><span style="color:var(--green);">[ OK ]</span> Starting MCP services <span style="color:var(--gdark);">.....</span> <span style="color:var(--white);">4 servers active</span></div>
-        <div style="margin-bottom:6px;"><span style="color:var(--green);">[ OK ]</span> Registering skills <span style="color:var(--gdark);">........</span> <span style="color:var(--white);">12 skills loaded</span></div>
-        <div style="margin-bottom:8px;"><span style="color:var(--green);">[ OK ]</span> Applying rules <span style="color:var(--gdark);">............</span> <span style="color:var(--white);">CLAUDE.md · hooks</span></div>
-        <div style="color:var(--gdark); margin-bottom:10px;">[ HARNESS ] ──────────────────────────────────</div>
-        <div><span style="color:var(--yellow);">⚡</span> <span style="color:var(--green); font-weight:700;">Harness ready</span> <span style="color:var(--gdark);">— awaiting task_</span></div>
+        <div style="color:var(--gray); margin-bottom:6px;">[ HARNESS ] Initializing agent environment...</div>
+        <div style="color:var(--gray); margin-bottom:8px;">[ HARNESS ] ──────────────────────────────────</div>
+        <div style="margin-bottom:6px;"><span style="color:var(--green);">[ OK ]</span> Loading LLM engine <span style="color:var(--gray);">........</span> <span style="color:var(--blue);">claude-sonnet-4</span></div>
+        <div style="margin-bottom:6px;"><span style="color:var(--green);">[ OK ]</span> Mounting context RAM <span style="color:var(--gray);">......</span> <span style="color:var(--white);">AGENTS.md · PRD.md</span></div>
+        <div style="margin-bottom:6px;"><span style="color:var(--green);">[ OK ]</span> Attaching storage <span style="color:var(--gray);">.........</span> <span style="color:var(--white);">git repo · /docs</span></div>
+        <div style="margin-bottom:6px;"><span style="color:var(--green);">[ OK ]</span> Starting MCP services <span style="color:var(--gray);">.....</span> <span style="color:var(--white);">4 servers active</span></div>
+        <div style="margin-bottom:6px;"><span style="color:var(--green);">[ OK ]</span> Registering skills <span style="color:var(--gray);">........</span> <span style="color:var(--white);">12 skills loaded</span></div>
+        <div style="margin-bottom:8px;"><span style="color:var(--green);">[ OK ]</span> Applying rules <span style="color:var(--gray);">............</span> <span style="color:var(--white);">CLAUDE.md · hooks</span></div>
+        <div style="color:var(--gray); margin-bottom:10px;">[ HARNESS ] ──────────────────────────────────</div>
+        <div><span style="color:var(--yellow);">⚡</span> <span style="color:var(--green); font-weight:700;">Harness ready</span> <span style="color:var(--gray);">— awaiting task_</span></div>
       </div>
     </div>
 
     <!-- RIGHT: Architecture with syscall flow -->
     <div style="display:flex; flex-direction:column; height:100%;">
-      <div style="font-family:var(--mono); font-size:0.52em; letter-spacing:0.11em; text-transform:uppercase; color:var(--gdark); margin-bottom:6px;">Arquitetura em execução</div>
+      <div style="font-family:var(--mono); font-size:0.52em; letter-spacing:0.11em; text-transform:uppercase; color:var(--gray); margin-bottom:6px;">Arquitetura em execução</div>
 
       <!-- Harness shell wrapping all 3 -->
       <div style="position:relative; border:1px solid rgba(34,197,94,0.42); border-radius:12px; padding:14px 12px 10px; background:linear-gradient(180deg,rgba(34,197,94,0.07),rgba(34,197,94,0.02)); box-shadow:0 0 18px rgba(34,197,94,0.10), inset 0 0 22px rgba(34,197,94,0.04); margin-bottom:9px; flex:1;">
@@ -1335,12 +1335,12 @@ if (window.self !== window.top) {
         <!-- CPU row -->
         <div class="hwi" style="border-color:rgba(34,197,94,0.32); margin-bottom:4px;">
           <div class="hwicon">🖥️</div>
-          <div style="flex:1;"><div class="hwp">CPU</div><div class="hwai" style="color:var(--green);">Modelo de Linguagem</div><div class="hwd">Claude · GPT · Gemini — núcleo de raciocínio</div></div>
+          <div style="flex:1;"><div class="hwp" style="color:var(--gray);">CPU</div><div class="hwai" style="color:var(--green);">Modelo de Linguagem</div><div class="hwd" style="color:var(--gray);">Claude · GPT · Gemini — núcleo de raciocínio</div></div>
           <div style="font-family:var(--mono); font-size:0.52em; color:var(--green); opacity:0.5; align-self:center;">⇅</div>
         </div>
 
         <!-- flow arrow -->
-        <div style="text-align:center; font-family:var(--mono); font-size:0.56em; color:var(--gdark); line-height:1; margin:2px 0; display:flex; align-items:center; gap:6px; justify-content:center;">
+        <div style="text-align:center; font-family:var(--mono); font-size:0.56em; color:var(--gray); line-height:1; margin:2px 0; display:flex; align-items:center; gap:6px; justify-content:center;">
           <span style="flex:1; height:1px; background:rgba(96,165,250,0.18);"></span>
           <span style="color:var(--blue); opacity:0.7;">read ↔ write</span>
           <span style="flex:1; height:1px; background:rgba(96,165,250,0.18);"></span>
@@ -1349,12 +1349,12 @@ if (window.self !== window.top) {
         <!-- RAM row -->
         <div class="hwi" style="border-color:rgba(96,165,250,0.28); margin-bottom:4px;">
           <div class="hwicon">💾</div>
-          <div style="flex:1;"><div class="hwp">RAM</div><div class="hwai" style="color:var(--blue);">Contexto Ativo</div><div class="hwd">PRD.md · AGENTS.md · Rules · Skills</div></div>
+          <div style="flex:1;"><div class="hwp" style="color:var(--gray);">RAM</div><div class="hwai" style="color:var(--blue);">Contexto Ativo</div><div class="hwd" style="color:var(--gray);">PRD.md · AGENTS.md · Rules · Skills</div></div>
           <div style="font-family:var(--mono); font-size:0.52em; color:var(--blue); opacity:0.5; align-self:center;">⇅</div>
         </div>
 
         <!-- flow arrow -->
-        <div style="text-align:center; font-family:var(--mono); font-size:0.56em; color:var(--gdark); line-height:1; margin:2px 0; display:flex; align-items:center; gap:6px; justify-content:center;">
+        <div style="text-align:center; font-family:var(--mono); font-size:0.56em; color:var(--gray); line-height:1; margin:2px 0; display:flex; align-items:center; gap:6px; justify-content:center;">
           <span style="flex:1; height:1px; background:rgba(167,139,250,0.18);"></span>
           <span style="color:var(--purple); opacity:0.7;">load ↔ persist</span>
           <span style="flex:1; height:1px; background:rgba(167,139,250,0.18);"></span>
@@ -1363,7 +1363,7 @@ if (window.self !== window.top) {
         <!-- DISK row -->
         <div class="hwi" style="border-color:rgba(167,139,250,0.28); margin-bottom:0;">
           <div class="hwicon">🗄️</div>
-          <div style="flex:1;"><div class="hwp">DISK</div><div class="hwai" style="color:var(--purple);">Memória de Longo Prazo</div><div class="hwd">Repositório · docs · decisões · histórico</div></div>
+          <div style="flex:1;"><div class="hwp" style="color:var(--gray);">DISK</div><div class="hwai" style="color:var(--purple);">Memória de Longo Prazo</div><div class="hwd" style="color:var(--gray);">Repositório · docs · decisões · histórico</div></div>
           <div style="font-family:var(--mono); font-size:0.52em; color:var(--purple); opacity:0.5; align-self:center;">⇅</div>
         </div>
       </div>
@@ -1373,7 +1373,7 @@ if (window.self !== window.top) {
         <span style="font-size:0.9em; flex-shrink:0;">🧑‍💻</span>
         <div>
           <div style="font-family:var(--mono); font-size:0.52em; color:var(--yellow); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:1px;">Você (Developer)</div>
-          <div style="font-size:0.6em; color:var(--gdark); line-height:1.35;">define objetivos · aprova resultados · ajusta o harness</div>
+          <div style="font-size:0.6em; color:var(--gray); line-height:1.35;">define objetivos · aprova resultados · ajusta o harness</div>
         </div>
       </div>
     </div>
