@@ -121,6 +121,16 @@
   <script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script>
   {{- end }}
 
+  {{- if .Store.Get "hasMermaid" }}
+  <!-- Mermaid — loaded only on pages with mermaid code blocks -->
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    const light = document.body.classList.contains('light-mode');
+    mermaid.initialize({ startOnLoad: false, theme: light ? 'default' : 'dark' });
+    await mermaid.run({ querySelector: 'pre.mermaid' });
+  </script>
+  {{- end }}
+
   <!-- Code Copy Button Script -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {

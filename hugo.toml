@@ -27,7 +27,7 @@ copyright = "&copy; Jean Jacques"
 
 [params]
   description = "Arquitetura de software, cloud e sistemas distribuídos explicados com referências de mangás"
-  author = "Jean Jacques"
+  author = "Jean Jacques Barros"
   authorSubtitle = "Staff Software Engineer"
   bio = "Escrevendo sobre engenharia de software, cloud e sistemas distribuídos com referências de mangás e animes"
   defaultTheme = "dark"

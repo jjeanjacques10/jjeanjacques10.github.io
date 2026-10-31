@@ -903,7 +903,9 @@ img { max-width: 100%; height: auto; display: block; }
   border: 1px solid var(--border) !important;
   color: var(--text-muted);
 }
-.post-content tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+.post-content table tr { background: var(--surface) !important; }
+.post-content table tr:nth-child(even) { background: var(--surface2) !important; }
+.post-content table td { background: transparent !important; }
 .post-content img {
   border-radius: 8px;
   max-width: 100%;

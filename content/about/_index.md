@@ -2,7 +2,7 @@
 title: "Jean Jacques"
 description: "Staff Software Engineer com foco em sistemas distribuídos, cloud-native e liderança técnica"
 profileImage: "https://github.com/jjeanjacques10.png"
-profileImageAlt: "Foto de perfil de Jean Jacques"
+profileImageAlt: "Foto de perfil de Jean Jacques Barros"
 ---
 
 **Staff Software Engineer** com mais de 7 anos de experiência construindo sistemas distribuídos de missão crítica para o setor financeiro.
