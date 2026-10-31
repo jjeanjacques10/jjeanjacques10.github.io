@@ -53,7 +53,7 @@ Hoje os modelos de fronteira focam principalmente em **capacidade agêntica**, e
 | ![Low Effort](/posts/images/2026-10-30-qual-o-melhor-modelo-de-llm-para-minha-tarefa/low-effort.png) | **Raciocínio reduzido**: Prioriza respostas rápidas e menor consumo de tokens. Indicado para tarefas previsíveis, como ajustes simples, documentação e geração de código repetitivo. |
 | ![Medium Effort](/posts/images/2026-10-30-qual-o-melhor-modelo-de-llm-para-minha-tarefa/medium-effort.png) | **Raciocínio moderado**: Equilibra profundidade, velocidade e custo. É um bom ponto de partida para implementação de features, testes, refatoração e tarefas com skills. |
 | ![High Effort](/posts/images/2026-10-30-qual-o-melhor-modelo-de-llm-para-minha-tarefa/high-effort.png) | **Raciocínio aprofundado**: Adequado para problemas que exigem investigação, análise de múltiplos componentes e avaliação de trade-offs, como bugs difíceis, concorrência e performance. |
-| ![xHigh Effort](/posts/images/2026-10-30-qual-o-melhor-modelo-de-llm-para-minha-tarefa/xhigh-effort.png) ![Max Effort](/posts/images/2026-10-30-qual-o-melhor-modelo-de-llm-para-minha-tarefa/max-effort.png) | **Raciocínio intensivo**: Destinado a problemas especialmente complexos, com muitas dependências, hipóteses e restrições. Pode aumentar significativamente o custo e o tempo de processamento. |
+| ![xHigh Effort](/posts/images/2026-10-30-qual-o-melhor-modelo-de-llm-para-minha-tarefa/xHigh-effort.png) ![Max Effort](/posts/images/2026-10-30-qual-o-melhor-modelo-de-llm-para-minha-tarefa/max-effort.png) | **Raciocínio intensivo**: Destinado a problemas especialmente complexos, com muitas dependências, hipóteses e restrições. Pode aumentar significativamente o custo e o tempo de processamento. |
 
 ### Context Window (Janela de contexto)
 
@@ -149,6 +149,8 @@ Aqui tem um exemplo do mês de outubro de 2026 no [BenchLM](https://benchlm.ai/)
 
 Na maioria dos provedores, mais esforço de raciocínio gera mais tokens de saída, o que aumenta custo e latência. Como dá para ver na imagem acima, o modelo GPT-6 Astra tem uma capacidade de raciocínio muito boa, mas o custo por token é alto, então para tarefas simples ele não é a melhor escolha.
 
+Outro benchmark bem interessante de acompanhar é o do Akita on Rails, [LLM Benchmark v4: o veredito de open source (até out/2026)](https://akitaonrails.com/2026/10/22/llm-benchmark-v4-o-veredito-de-open-source-ate-out-2026/) que traz uma análise mais voltada para como os modelos executam uma tarefa definida de forma prática, e não apenas métricas de raciocínio, latência e custo por token.
+
 ## EXTRA: Modelos locais
 
 Um tópico legal que queria trazer aqui é como saber qual modelo local, sem necessidade de pagar um plano da Anthropic ou da OpenAI, pode rodar bem na sua máquina. Temos diversas opções de modelos hoje, e no site https://www.canirun.ai/ é possível visualizar qual roda bem na sua máquina com suas configurações.
@@ -175,3 +177,5 @@ Obrigado por ler!
 - [Can I Run AI](https://www.canirun.ai/)
 - [Claude Model Overview](https://platform.claude.com/docs/en/models/overview)
 - [ChatGPT Model Selection](https://learn.chatgpt.com/docs/model-selection)
+- [LLM Benchmark v4: o veredito de open source (até out/2026)](https://akitaonrails.com/2026/10/22/llm-benchmark-v4-o-veredito-de-open-source-ate-out-2026/)
+- [Podcast AI Sob Controle da Alura](https://open.spotify.com/show/5xLCMHJ6eGWzdu8JaIDkuP?si=f9ee50f4daed45b1)
