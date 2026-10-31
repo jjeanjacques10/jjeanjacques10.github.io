@@ -2,7 +2,7 @@
   <div class="post-card__body">
     {{- with .Params.cover }}
     <a href="{{ $.RelPermalink }}" class="post-card__thumb" aria-hidden="true" tabindex="-1">
-      <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
+      <img src="{{ partial "cover-src.html" (dict "cover" . "ext" "webp") }}" alt="{{ $.Title }}" loading="lazy" decoding="async">
     </a>
     {{- end }}
     <div class="post-card__content">

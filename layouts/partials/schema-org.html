@@ -8,7 +8,7 @@
 {{- $crumb3 := dict "@type" "ListItem" "position" 3 "name" .Title "item" .Permalink -}}
 {{- $breadcrumb := dict "@type" "BreadcrumbList" "itemListElement" (slice $crumb1 $crumb2 $crumb3) -}}
 {{- $schema := dict "@context" "https://schema.org" "@type" "BlogPosting" "headline" .Title "description" $desc "url" .Permalink "mainEntityOfPage" $mainEntity "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00") "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00") "articleSection" .Section "author" $author "publisher" $publisher "breadcrumb" $breadcrumb -}}
-{{- with .Params.cover -}}{{- $schema = merge $schema (dict "image" (. | absURL)) -}}{{- end -}}
+{{- with .Params.cover -}}{{- $schema = merge $schema (dict "image" (partial "cover-src.html" (dict "cover" . "ext" "jpg") | absURL)) -}}{{- end -}}
 {{- with .Params.tags -}}{{- $schema = merge $schema (dict "keywords" .) -}}{{- end -}}
 <script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>
 {{- else -}}

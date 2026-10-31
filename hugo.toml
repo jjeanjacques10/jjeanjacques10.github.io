@@ -7,6 +7,7 @@ summaryLength = 70
 pygmentsCodeFences = true
 pygmentsUseClasses = true
 enableRobotsTXT = true
+enableGitInfo = true
 copyright = "&copy; Jean Jacques"
 
 [taxonomies]

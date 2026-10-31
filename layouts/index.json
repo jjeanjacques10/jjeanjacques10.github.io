@@ -7,7 +7,7 @@
     "permalink"   .Permalink
     "tags"        .Params.tags
     "date"        (.Date.Format "2006-01-02")
-    "cover"       .Params.cover
+    "cover"       (cond (isset .Params "cover") (partial "cover-src.html" (dict "cover" .Params.cover "ext" "webp")) "")
   -}}
   {{- $index = $index | append $entry -}}
 {{- end -}}
