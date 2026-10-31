@@ -4,7 +4,7 @@ date: 2026-10-30
 description: "Escolher o modelo de LLM certo para sua tarefa é crucial para obter resultados eficientes e precisos."
 tags: ["IA", "Harness", "LLM"]
 cover: "/posts/images/2026-10-30-como-escolher-seu-modelo-de-llm/cover.png"
-draft: true
+draft: false
 ---
 
 Essa é uma das perguntas que mais recebo no dia a dia, e assim como escolher seu **Pokemon inicial** essa é uma escolha muito importante na hora de realizar uma tarefa.
