@@ -1,9 +1,9 @@
 ---
-title: "Como escolher o melhor modelo de LLM para sua tarefa"
+title: "Qual o melhor modelo de LLM para minha tarefa?"
 date: 2026-10-30
-description: "Escolher o modelo de LLM certo para sua tarefa é crucial para obter resultados eficientes e precisos."
+description: "Complexidade da tarefa, capacidade agêntica, raciocínio, contexto, latência e custo: como escolher o modelo de LLM certo sem cair no clássico \"depende\"."
 tags: ["IA", "Harness", "LLM"]
-cover: "/posts/images/2026-10-30-como-escolher-seu-modelo-de-llm/cover.png"
+cover: "/posts/images/2026-10-30-qual-o-melhor-modelo-de-llm-para-minha-tarefa/cover.png"
 draft: false
 ---
 
@@ -50,10 +50,10 @@ Hoje os modelos de fronteira focam principalmente em **capacidade agêntica**, e
 
 | Capacidade de raciocínio | Descrição |
 | --- | --- |
-| ![Low Effort](/posts/images/2026-10-30-como-escolher-seu-modelo-de-llm/low-effort.png) | **Raciocínio reduzido**: Prioriza respostas rápidas e menor consumo de tokens. Indicado para tarefas previsíveis, como ajustes simples, documentação e geração de código repetitivo. |
-| ![Medium Effort](/posts/images/2026-10-30-como-escolher-seu-modelo-de-llm/medium-effort.png) | **Raciocínio moderado**: Equilibra profundidade, velocidade e custo. É um bom ponto de partida para implementação de features, testes, refatoração e tarefas com skills. |
-| ![High Effort](/posts/images/2026-10-30-como-escolher-seu-modelo-de-llm/high-effort.png) | **Raciocínio aprofundado**: Adequado para problemas que exigem investigação, análise de múltiplos componentes e avaliação de trade-offs, como bugs difíceis, concorrência e performance. |
-| ![xHigh Effort](/posts/images/2026-10-30-como-escolher-seu-modelo-de-llm/xhigh-effort.png) ![Max Effort](/posts/images/2026-10-30-como-escolher-seu-modelo-de-llm/max-effort.png) | **Raciocínio intensivo**: Destinado a problemas especialmente complexos, com muitas dependências, hipóteses e restrições. Pode aumentar significativamente o custo e o tempo de processamento. |
+| ![Low Effort](/posts/images/2026-10-30-qual-o-melhor-modelo-de-llm-para-minha-tarefa/low-effort.png) | **Raciocínio reduzido**: Prioriza respostas rápidas e menor consumo de tokens. Indicado para tarefas previsíveis, como ajustes simples, documentação e geração de código repetitivo. |
+| ![Medium Effort](/posts/images/2026-10-30-qual-o-melhor-modelo-de-llm-para-minha-tarefa/medium-effort.png) | **Raciocínio moderado**: Equilibra profundidade, velocidade e custo. É um bom ponto de partida para implementação de features, testes, refatoração e tarefas com skills. |
+| ![High Effort](/posts/images/2026-10-30-qual-o-melhor-modelo-de-llm-para-minha-tarefa/high-effort.png) | **Raciocínio aprofundado**: Adequado para problemas que exigem investigação, análise de múltiplos componentes e avaliação de trade-offs, como bugs difíceis, concorrência e performance. |
+| ![xHigh Effort](/posts/images/2026-10-30-qual-o-melhor-modelo-de-llm-para-minha-tarefa/xhigh-effort.png) ![Max Effort](/posts/images/2026-10-30-qual-o-melhor-modelo-de-llm-para-minha-tarefa/max-effort.png) | **Raciocínio intensivo**: Destinado a problemas especialmente complexos, com muitas dependências, hipóteses e restrições. Pode aumentar significativamente o custo e o tempo de processamento. |
 
 ### Context Window (Janela de contexto)
 
@@ -124,7 +124,7 @@ Aqui podemos ver que o modelo Sonnet 5.5 gerou 5.6k tokens de saída, e o custo 
 
 Exemplo de custo de input e output por modelo:
 
-![Preço por modelo](/posts/images/2026-10-30-como-escolher-seu-modelo-de-llm/preco-por-modelo.png)
+![Preço por modelo](/posts/images/2026-10-30-qual-o-melhor-modelo-de-llm-para-minha-tarefa/preco-por-modelo.png)
 
 ## Uma estratégia interessante: Escalonamento de modelos
 
@@ -137,7 +137,7 @@ Em vez de utilizar sempre o modelo mais poderoso, podemos adotar uma estratégia
 
 Isso também se aplica ao Loop Engineering, no qual diferentes agentes podem utilizar modelos diferentes dependendo da complexidade da tarefa que estão executando. Cada agente é como um Pokemon do seu time, escalado para o confronto em que tem vantagem: planejar, implementar ou revisar.
 
-![Exemplo de escalonamento de modelos](/posts/images/2026-10-30-como-escolher-seu-modelo-de-llm/model-routing.png)
+![Exemplo de escalonamento de modelos](/posts/images/2026-10-30-qual-o-melhor-modelo-de-llm-para-minha-tarefa/model-routing.png)
 
 ## Benchmarks
 
@@ -145,7 +145,7 @@ Quem acompanha o [Podcast AI Sob Controle da Alura](https://open.spotify.com/sho
 
 Aqui tem um exemplo do mês de outubro de 2026 no [BenchLM](https://benchlm.ai/) com os principais modelos do mercado, e como eles se comportam em relação a raciocínio, latência e custo por token.
 
-![BenchLM - Análise dos modelos - Outubro de 2026](/posts/images/2026-10-30-como-escolher-seu-modelo-de-llm/benchmark.png)
+![BenchLM - Análise dos modelos - Outubro de 2026](/posts/images/2026-10-30-qual-o-melhor-modelo-de-llm-para-minha-tarefa/benchmark.png)
 
 Na maioria dos provedores, mais esforço de raciocínio gera mais tokens de saída, o que aumenta custo e latência. Como dá para ver na imagem acima, o modelo GPT-6 Astra tem uma capacidade de raciocínio muito boa, mas o custo por token é alto, então para tarefas simples ele não é a melhor escolha.
 
@@ -155,7 +155,7 @@ Um tópico legal que queria trazer aqui é como saber qual modelo local, sem nec
 
 Exemplo de quais modelos rodam bem na minha máquina (Processador M5 - 24GB):
 
-![Can I run](/posts/images/2026-10-30-como-escolher-seu-modelo-de-llm/can-i-run.png)
+![Can I run](/posts/images/2026-10-30-qual-o-melhor-modelo-de-llm-para-minha-tarefa/can-i-run.png)
 
 Observe quantos tokens por segundo e o score para escolher o que melhor irá desempenhar para seu cenário. Observe também o tipo do modelo, por exemplo: texto, imagem, vídeo e multimodais.
 
