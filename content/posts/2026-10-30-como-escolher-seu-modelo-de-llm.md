@@ -135,7 +135,7 @@ Em vez de utilizar sempre o modelo mais poderoso, podemos adotar uma estratégia
 3. Escalar para um modelo mais poderoso quando houver dificuldade de raciocínio, baixa qualidade ou complexidade maior.
 4. Retornar para modelos menores durante tarefas de implementação mais previsíveis, como ajustes simples, documentação e geração de código repetitivo.
 
-Isso também se aplica ao Loop Engineering, no qual diferentes agentes podem utilizar modelos diferentes dependendo da complexidade da tarefa que estão executando.
+Isso também se aplica ao Loop Engineering, no qual diferentes agentes podem utilizar modelos diferentes dependendo da complexidade da tarefa que estão executando. Cada agente é como um Pokemon do seu time, escalado para o confronto em que tem vantagem: planejar, implementar ou revisar.
 
 ![Exemplo de escalonamento de modelos](/posts/images/2026-10-30-como-escolher-seu-modelo-de-llm/model-routing.png)
 
