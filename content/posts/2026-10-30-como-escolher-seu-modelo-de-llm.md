@@ -18,9 +18,9 @@ Neste artigo vou falar um pouco de quais aspectos considerar e sair um pouco do 
 - **Simples:** ajustes pontuais, documentação e testes básicos
   - Priorizando modelos mais rápidos e econômicos
 - **Intermediária:** implementação de features, refatorações e execução de skills
-  - Modelos que priorizem equilibrar entre qualidade, velocidade e custo
-- **Complexa:** Deciões arquiteturais, debugging avançado e problemas que exigem maior raciocínio
-  - Priorizar modelos com uma janela de contexto maior e raciocínio extendido
+  - Modelos que priorizem o equilíbrio entre qualidade, velocidade e custo
+- **Complexa:** Decisões arquiteturais, debugging avançado e problemas que exigem maior raciocínio
+  - Priorizar modelos com uma janela de contexto maior e raciocínio estendido
 
 | Complexidade | Anthropic | OpenAI | DeepSeek | Outros modelos de mercado que podem estar aqui | Esforço sugerido |
 | --- | --- | --- | --- | --- | --- |
@@ -28,9 +28,9 @@ Neste artigo vou falar um pouco de quais aspectos considerar e sair um pouco do 
 | 🟡 Intermediária | Sonnet 5.5 | GPT-6.1 Sol | V4 Pro | Kimi, GLM, MiniMax | Medium a High |
 | 🔴 Complexa | Opus 5.5 (Fable 5.1 se faltar) | GPT-6 Astra | V4 Pro com raciocínio ligado* | Qwen Max, Kimi com thinking | High a Max |
 
-Temos uma variedade gigantes de modelos hoje (assim como pokemons...), acima temos uma tabela com sugestões de quais modelos podem fazer mais sentido para cada nível de complexidade, mas é importante testar e validar o que melhor se encaixa para sua necessidade.
+Temos uma variedade gigante de modelos hoje (assim como pokemons...), acima temos uma tabela com sugestões de quais modelos podem fazer mais sentido para cada nível de complexidade, mas é importante testar e validar o que melhor se encaixa para sua necessidade.
 
-> Eu por exemplo, já vou dar um spoiler aqui, utilizo o GPT-6 Luna para a maior parte das minhas tarefas, claro que colocando o raciocínio extendido quando necessário, mas para tarefas simples ele é rápido e barato, e para tarefas complexas ele consegue entregar um bom resultado.
+> Já vou dar um spoiler aqui: utilizo o GPT-5.6 Luna para a maior parte das minhas tarefas, claro que colocando o raciocínio estendido quando necessário, mas para tarefas simples ele é rápido e barato, e para tarefas complexas ele consegue entregar um bom resultado.
 
 ## Quais são os principais fatores a considerar ao escolher um modelo de LLM para sua tarefa?
 
@@ -51,8 +51,8 @@ Hoje os modelos de fronteira focam principalmente em **capacidade agêntica**, e
 | Capacidade de raciocínio | Descrição |
 | --- | --- |
 | ![Low Effort](/posts/images/2026-10-30-como-escolher-seu-modelo-de-llm/low-effort.png) | **Raciocínio reduzido**: Prioriza respostas rápidas e menor consumo de tokens. Indicado para tarefas previsíveis, como ajustes simples, documentação e geração de código repetitivo. |
-| ![Medium Effort](/posts/images/2026-10-30-como-escolher-seu-modelo-de-llm/medium-effort.png) | **Raciocínio moderado**: Equilíbria profundidade, velocidade e custo. É um bom ponto de partida para implementação de features, testes, refatoração e tarefas com skills. |
-| ![High Effort](/posts/images/2026-10-30-como-escolher-seu-modelo-de-llm/high-effort.png) | **Raciocínio aprofundado**: Adequado para problemas que exigem investigação, análise de múltiplos componentes e avaliação de trade-offs, como bugs difíceis, concorrências e peformance. |
+| ![Medium Effort](/posts/images/2026-10-30-como-escolher-seu-modelo-de-llm/medium-effort.png) | **Raciocínio moderado**: Equilibra profundidade, velocidade e custo. É um bom ponto de partida para implementação de features, testes, refatoração e tarefas com skills. |
+| ![High Effort](/posts/images/2026-10-30-como-escolher-seu-modelo-de-llm/high-effort.png) | **Raciocínio aprofundado**: Adequado para problemas que exigem investigação, análise de múltiplos componentes e avaliação de trade-offs, como bugs difíceis, concorrência e performance. |
 | ![xHigh Effort](/posts/images/2026-10-30-como-escolher-seu-modelo-de-llm/xhigh-effort.png) ![Max Effort](/posts/images/2026-10-30-como-escolher-seu-modelo-de-llm/max-effort.png) | **Raciocínio intensivo**: Destinado a problemas especialmente complexos, com muitas dependências, hipóteses e restrições. Pode aumentar significativamente o custo e o tempo de processamento. |
 
 ### Context Window (Janela de contexto)
@@ -88,7 +88,7 @@ flowchart LR
 
 Entrada e saída dividem o mesmo orçamento de tokens, e a resposta gerada volta para o histórico, ocupando ainda mais espaço no próximo turno.
 
-> Disclaimer: Não é porque temos 1M de tokens de contexto que o modelo vai conseguir usar tudo isso de forma eficiente, temos uma dumb zone onde apartir de 40% da janela de contexto o modelo começa a perder eficiência, então é importante sempre testar e validar.
+> Disclaimer: Não é porque temos 1M de tokens de contexto que o modelo vai conseguir usar tudo isso de forma eficiente, temos uma dumb zone onde, a partir de 40% da janela de contexto o modelo começa a perder eficiência, então é importante sempre testar e validar.
 
 ### Latência
 
@@ -126,9 +126,9 @@ Exemplo de custo de input e output por modelo:
 
 ![Preço por modelo](/posts/images/2026-10-30-como-escolher-seu-modelo-de-llm/preco-por-modelo.png)
 
-## Um estratégia interessante: Escalonarmento de modelos
+## Uma estratégia interessante: Escalonamento de modelos
 
-Em vez de utilizar sempre o modelos mais poderoso podemos adotar uma estratégia de Model Routing:
+Em vez de utilizar sempre o modelo mais poderoso, podemos adotar uma estratégia de Model Routing:
 
 1. Começar com um modelo mais equilibrado, como Sonnet.
 2. Avaliar a qualidade da resposta e capacidade de execução.
@@ -141,7 +141,7 @@ Isso também se aplica ao Loop Engineering, no qual diferentes agentes podem uti
 
 ## Benchmarks
 
-Para quem acompanhar o [Podcast AI Sob Controle da Alura](https://open.spotify.com/show/5xLCMHJ6eGWzdu8JaIDkuP?si=f9ee50f4daed45b1) sabe que temos diversos benchmarks para analisar os modelos que saem toda semana, até é complicado acompanhar 😅. Essas análises são muito úteis para termos uma perspectiva de como os modelos evoluem e foi deles que trouxe as principais métricas acima.
+Quem acompanha o [Podcast AI Sob Controle da Alura](https://open.spotify.com/show/5xLCMHJ6eGWzdu8JaIDkuP?si=f9ee50f4daed45b1) sabe que temos diversos benchmarks para analisar os modelos que saem toda semana, até é complicado acompanhar 😅. Essas análises são muito úteis para termos uma perspectiva de como os modelos evoluem e foi deles que trouxe as principais métricas acima.
 
 Aqui tem um exemplo do mês de outubro de 2026 no [BenchLM](https://benchlm.ai/) com os principais modelos do mercado, e como eles se comportam em relação a raciocínio, latência e custo por token.
 
@@ -151,23 +151,23 @@ Na maioria dos provedores, mais esforço de raciocínio gera mais tokens de saí
 
 ## EXTRA: Modelos locais
 
-Um tópico legal que queria trazer aqui é como saber qual modelo local, sem necessidade de pagar um plano da Antropic ou da OpenAI, pode rodar bem em sua máquina. Temos diversas opções hoje de modelos e no site https://www.canirun.ai/ é possível visualizar qual roda bem sua máquina com suas configurações.
+Um tópico legal que queria trazer aqui é como saber qual modelo local, sem necessidade de pagar um plano da Anthropic ou da OpenAI, pode rodar bem na sua máquina. Temos diversas opções de modelos hoje, e no site https://www.canirun.ai/ é possível visualizar qual roda bem na sua máquina com suas configurações.
 
 Exemplo de quais modelos rodam bem na minha máquina (Processador M5 - 24GB):
 
 ![Can I run](/posts/images/2026-10-30-como-escolher-seu-modelo-de-llm/can-i-run.png)
 
-Observar quantos tokens por segundo e o score para escolher o que melhor ira desempenhar para seu cenário. Também observar o tipo do modelo, temos por exemplo: Texto, Imagem, Video e os multimodais.
+Observe quantos tokens por segundo e o score para escolher o que melhor irá desempenhar para seu cenário. Observe também o tipo do modelo, por exemplo: texto, imagem, vídeo e multimodais.
 
 Tenho usado bastante o [GPT-OSS 20B](https://www.canirun.ai/model/gpt-oss-20b) para tarefas mais simples. Utilizo normalmente com o [Ollama](https://ollama.com/), uma ferramenta que permite rodar modelos locais de forma simples e com integração com o terminal.
 
 ## Conclusão
 
-Tentei resumidor ao máximo o que considero quando vou selecionar o modelo de LLM para uma tarefa. Todos os dias surgem modelos novos (muitos chineses) e para quem tiver interesse vale a pena ir testando e acompanhando os benchmarks, pois nesta área a evolução é muito rápida. Contudo, posso dizer que chegamos em um ponto que temos modelos super capazes e que podem nos ajudar a resolver problemas complexos sem custar um nintendo switch 2 por mês.
+Tentei resumir ao máximo o que considero quando vou selecionar o modelo de LLM para uma tarefa. Todos os dias surgem modelos novos (muitos chineses) e para quem tiver interesse vale a pena ir testando e acompanhando os benchmarks, pois nesta área a evolução é muito rápida. Contudo, posso dizer que chegamos a um ponto em que temos modelos super capazes e que podem nos ajudar a resolver problemas complexos sem custar um nintendo switch 2 por mês.
 
 Espero que esse artigo tenha ajudado a clarear um pouco as ideias e que você consiga escolher o modelo certo para sua tarefa!
 
-Obrigado por lerem!
+Obrigado por ler!
 
 ## Referências
 
