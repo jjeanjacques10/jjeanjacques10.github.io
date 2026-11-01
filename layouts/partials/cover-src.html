@@ -1,4 +1,6 @@
 {{- /* Returns the optimized variant (webp/jpg) of a post cover, falling back to the original path. Usage: partial "cover-src.html" (dict "cover" .Params.cover "ext" "webp") */ -}}
 {{- $cover := .cover -}}
 {{- $variant := printf "%s.%s" (strings.TrimSuffix (path.Ext $cover) $cover) .ext -}}
-{{- if fileExists (printf "content%s" $variant) -}}{{ return $variant }}{{- else -}}{{ return $cover }}{{- end -}}
+{{- $result := $cover -}}
+{{- if fileExists (printf "content%s" $variant) -}}{{- $result = $variant -}}{{- end -}}
+{{- return $result -}}
