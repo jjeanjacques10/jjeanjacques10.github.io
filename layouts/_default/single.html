@@ -7,7 +7,11 @@
     <div class="post-meta">
       <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
       <span class="meta-sep" aria-hidden="true">·</span>
-      <span>{{ .ReadingTime }} min read</span>
+      <span>{{ .ReadingTime }} min de leitura</span>
+      {{- if and (not .Lastmod.IsZero) (ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02")) }}
+      <span class="meta-sep" aria-hidden="true">·</span>
+      <span>Atualizado em <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "2006-01-02" }}</time></span>
+      {{- end }}
       <span class="meta-sep" aria-hidden="true">·</span>
       <span>{{ with .Params.author }}{{ . }}{{ else }}{{ $.Site.Params.Author }}{{ end }}</span>
     </div>
@@ -25,12 +29,16 @@
     {{- end }}
   </header>
 
+  {{- partial "series-box.html" . }}
+
   <div class="post-content markdown-body">
     {{ .Content }}
   </div>
 
   {{- partial "social-share.html" . }}
   {{- partial "save-post-btn.html" . }}
+  {{- partial "subscribe-cta.html" . }}
+  {{- partial "related-posts.html" . }}
 
   <footer class="post-footer">
     <div class="post-nav">

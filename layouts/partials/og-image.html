@@ -1,0 +1,19 @@
+{{- /* Gera uma imagem OG (1200x630) com o título quando o post não tem cover. Retorna o permalink absoluto. */ -}}
+{{- $img := resources.Get "og-base.png" -}}
+{{- $bold := resources.Get "fonts/FiraSans-Bold.ttf" -}}
+{{- $reg := resources.Get "fonts/FiraSans-Regular.ttf" -}}
+{{- $lines := slice -}}
+{{- $cur := "" -}}
+{{- range split .Title " " -}}
+  {{- $try := trim (printf "%s %s" $cur .) " " -}}
+  {{- if and (gt (len $try) 26) (ne $cur "") -}}{{- $lines = $lines | append $cur -}}{{- $cur = . -}}{{- else -}}{{- $cur = $try -}}{{- end -}}
+{{- end -}}
+{{- $lines = $lines | append $cur -}}
+{{- $lines = first 4 $lines -}}
+{{- $y := sub 300 (mul (sub (len $lines) 1) 38) -}}
+{{- range $i, $l := $lines -}}
+  {{- $img = $img | images.Filter (images.Text $l (dict "color" "#f0f6fc" "size" 64 "x" 80 "y" (add $y (mul $i 76)) "font" $bold)) -}}
+{{- end -}}
+{{- $img = $img | images.Filter (images.Text "Jean Jacques · Staff Software Engineer" (dict "color" "#58a6ff" "size" 30 "x" 80 "y" 540 "font" $bold)) -}}
+{{- $img = $img | images.Filter (images.Text "jjeanjacques10.github.io" (dict "color" "#8b949e" "size" 24 "x" 80 "y" 580 "font" $reg)) -}}
+{{- return ($img | fingerprint).Permalink -}}

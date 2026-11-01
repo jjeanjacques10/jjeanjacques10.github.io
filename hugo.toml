@@ -12,6 +12,21 @@ copyright = "&copy; Jean Jacques"
 
 [taxonomies]
   tag = "tags"
+  series = "series"
+
+[related]
+  includeNewer = true
+  threshold = 20
+  toLower = true
+  [[related.indices]]
+    name = "series"
+    weight = 120
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+  [[related.indices]]
+    name = "date"
+    weight = 10
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]

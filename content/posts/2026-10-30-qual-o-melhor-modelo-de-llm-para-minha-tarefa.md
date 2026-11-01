@@ -3,6 +3,7 @@ title: "Qual o melhor modelo de LLM para minha tarefa?"
 date: 2026-10-30
 description: "Complexidade da tarefa, capacidade agêntica, raciocínio, contexto, latência e custo: como escolher o modelo de LLM certo sem cair no clássico \"depende\"."
 tags: ["IA", "Harness", "LLM"]
+series: ["IA no desenvolvimento"]
 cover: "/posts/images/2026-10-30-qual-o-melhor-modelo-de-llm-para-minha-tarefa/cover.png"
 draft: false
 ---

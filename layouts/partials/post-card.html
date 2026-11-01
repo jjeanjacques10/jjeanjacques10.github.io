@@ -33,6 +33,6 @@
       </svg>
       <span class="save-btn-label">Salvar</span>
     </button>
-    <time class="post-card__date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time>
+    <span class="post-card__date"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time> · {{ .ReadingTime }} min de leitura</span>
   </div>
 </article>

@@ -105,7 +105,7 @@ title: "Título do Artigo"
 date: 2026-01-01
 description: "Descrição para SEO"
 tags: ["tag1", "tag2"]
-categories: ["categoria"]
+series: ["Nome da série"]  # opcional
 draft: false
 ---
 ```

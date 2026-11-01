@@ -32,7 +32,7 @@ title: "Título"
 date: 2026-01-01
 description: "Descrição para SEO"
 tags: ["tag1", "tag2"]
-categories: ["categoria"]
+series: ["Nome da série"]  # opcional
 cover: "/posts/images/YYYY-MM-DD-slug/cover.png"
 draft: false
 ---
@@ -62,7 +62,7 @@ All custom styles live in `static/assets/custom_style.css`. The theme is `hugo-p
 ### Sidebar
 
 `layouts/partials/sidebar.html` renders contextually:
-- On home/section pages: article summary list + tags/categories/recent posts
+- On home/section pages: article summary list + tags/recent posts
 - On single post pages: table of contents (auto-extracted from headings)
 
 ### Medium import tool

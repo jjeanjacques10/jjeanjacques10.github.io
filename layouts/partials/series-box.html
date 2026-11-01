@@ -1,0 +1,16 @@
+{{- with .GetTerms "series" }}
+{{- $term := index . 0 }}
+{{- $pages := sort $term.Pages "Date" "asc" }}
+{{- $current := $.Page }}
+<aside class="series-box" aria-label="Série {{ $term.Title }}">
+  <p class="series-box__label">Série</p>
+  <h2 class="series-box__title"><a href="{{ $term.RelPermalink }}">{{ $term.Title }}</a></h2>
+  <ol class="series-box__list">
+    {{- range $pages }}
+    <li{{ if eq . $current }} class="is-current" aria-current="page"{{ end }}>
+      {{- if eq . $current }}{{ .Title }}{{ else }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}
+    </li>
+    {{- end }}
+  </ol>
+</aside>
+{{- end }}

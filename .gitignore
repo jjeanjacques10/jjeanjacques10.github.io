@@ -11,3 +11,6 @@ Thumbs.db
 
 # pull articles
 /pull-articles-from-medium/
+
+# Temp files
+*.tmp.*

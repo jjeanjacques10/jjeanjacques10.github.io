@@ -2,6 +2,7 @@
   <div class="blog-footer__inner">
     <span class="footer-copyright">{{ with .Site.Copyright }}{{ . | markdownify }}{{ end }}</span>
     <div class="footer-links">
+      <a href="{{ "index.xml" | relURL }}" class="footer-link">RSS</a>
       <a href="/privacy/" class="footer-link">Privacy</a>
       <a href="/terms/" class="footer-link">Terms</a>
     </div>

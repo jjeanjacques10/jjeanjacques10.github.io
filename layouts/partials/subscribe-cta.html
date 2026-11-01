@@ -1,0 +1,15 @@
+<section class="subscribe-cta" aria-label="Acompanhe o blog">
+  <div class="subscribe-cta__text">
+    <strong>Gostou do conteúdo?</strong>
+    <span>Receba os próximos artigos sobre arquitetura, cloud e IA.</span>
+  </div>
+  <div class="subscribe-cta__actions">
+    <a class="subscribe-btn subscribe-btn--primary" href="{{ "index.xml" | relURL }}">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+      RSS
+    </a>
+    {{- with .Site.Params.linkedin }}
+    <a class="subscribe-btn" href="https://www.linkedin.com/in/{{ . }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    {{- end }}
+  </div>
+</section>

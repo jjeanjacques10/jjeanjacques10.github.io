@@ -1,0 +1,17 @@
+{{ define "title" }}Séries – {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<section class="post-list">
+  <h2 class="section-title">Séries</h2>
+  {{- range .Data.Terms.ByCount }}
+  <article class="post-card">
+    <div class="post-card__body">
+      <div class="post-card__content">
+        <h3 class="post-card__title"><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a></h3>
+        <p class="post-card__desc">{{ .Count }} artigos</p>
+      </div>
+    </div>
+  </article>
+  {{- end }}
+</section>
+{{ end }}

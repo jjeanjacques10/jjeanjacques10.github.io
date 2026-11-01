@@ -1,0 +1,11 @@
+{{ define "title" }}Série: {{ .Title }} – {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<section class="post-list">
+  <h2 class="section-title">Série: {{ .Title }}</h2>
+  <p class="series-intro">{{ len .Pages }} artigos, do primeiro ao mais recente.</p>
+  {{- range sort .Pages "Date" "asc" }}
+  {{ partial "post-card.html" . }}
+  {{- end }}
+</section>
+{{ end }}

@@ -3,6 +3,7 @@ title: "AI Harness: construindo uma camada de engenharia para agentes de IA"
 date: 2026-06-28
 description: "Como construir uma camada de engenharia para agentes de IA, permitindo que eles conheçam o projeto, suas regras e workflows."
 tags: ["Engenharia de Software", "IA", "Harness", "Spec Driven Development"]
+series: ["IA no desenvolvimento"]
 cover: "/posts/images/2026-06-28-ai-harness-construindo-uma-camada-de-engenharia-para-agentes-de-ia/cover.png"
 draft: false
 ---

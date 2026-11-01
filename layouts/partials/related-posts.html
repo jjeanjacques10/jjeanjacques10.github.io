@@ -1,0 +1,14 @@
+{{- $related := .Site.RegularPages.Related . | first 3 }}
+{{- with $related }}
+<section class="related-posts" aria-label="Posts relacionados">
+  <h2 class="related-posts__title">Continue lendo</h2>
+  <div class="related-posts__grid">
+    {{- range . }}
+    <a class="related-card" href="{{ .RelPermalink }}">
+      <span class="related-card__title">{{ .Title }}</span>
+      <span class="related-card__meta">{{ .Date.Format "02 Jan 2006" }} · {{ .ReadingTime }} min de leitura</span>
+    </a>
+    {{- end }}
+  </div>
+</section>
+{{- end }}

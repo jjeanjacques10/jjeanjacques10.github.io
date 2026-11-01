@@ -29,6 +29,7 @@
   <meta property="og:site_name" content="{{ .Site.Title }}">
   {{- $ogImage := "" }}
   {{- if .Params.cover }}{{ $ogImage = partial "cover-src.html" (dict "cover" .Params.cover "ext" "jpg") }}
+  {{- else if and .IsPage (eq .Section "posts") .Title }}{{ $ogImage = partial "og-image.html" . }}
   {{- else if .Site.Params.defaultImage }}{{ $ogImage = .Site.Params.defaultImage }}{{ end }}
   {{- with $ogImage }}
   <meta property="og:image" content="{{ . | absURL }}">

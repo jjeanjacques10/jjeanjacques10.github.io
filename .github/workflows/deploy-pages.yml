@@ -57,6 +57,30 @@ jobs:
           HUGO_ENV: production
         run: hugo --gc --minify
 
+      - name: Check internal links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --offline
+            --no-progress
+            --root-dir ${{ github.workspace }}/public
+            --base-url https://jjeanjacques10.github.io/
+            './public/**/*.html'
+          fail: true
+
+      - name: Check external links (non-blocking)
+        uses: lycheeverse/lychee-action@v2
+        continue-on-error: true
+        with:
+          args: >-
+            --no-progress
+            --max-retries 2
+            --timeout 20
+            --accept 200,203,206,301,302,308,403,429
+            --exclude 'linkedin\.com|medium\.com|localhost'
+            './public/**/*.html'
+          fail: false
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
